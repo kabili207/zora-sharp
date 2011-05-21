@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Extensions.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -59,6 +60,12 @@
     </Compile>
     <Compile Include="RingForm.Designer.cs">
       <DependentUpon>RingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SaveEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SaveEditor.Designer.cs">
+      <DependentUpon>SaveEditor.cs</DependentUpon>
     </Compile>
     <Compile Include="SecretForm.cs">
       <SubType>Form</SubType>
@@ -81,6 +88,9 @@
     </Compile>
     <EmbeddedResource Include="RingForm.resx">
       <DependentUpon>RingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SaveEditor.resx">
+      <DependentUpon>SaveEditor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SecretForm.resx">
       <DependentUpon>SecretForm.cs</DependentUpon>
