@@ -30,6 +30,7 @@ namespace OracleHack
 
 		private void Form1_Load(object sender, EventArgs e)
 		{
+			/*
 			using (FileStream fsSource = new FileStream(@"C:\Users\kabili\Documents\Projects\C-Sharp\OracleHack\OracleHack\ages_old.sav",
 			FileMode.Open, FileAccess.Read))
 			{
@@ -120,7 +121,8 @@ namespace OracleHack
 				}
 				ringBits = ringBitArray[0].Concat(ringBitArray[1]).Concat(ringBitArray[2]).Concat(ringBitArray[3])
 						.Concat(ringBitArray[4]).Concat(ringBitArray[5]).Concat(ringBitArray[6]).Concat(ringBitArray[7]).ToArray();
-			}
+				
+			}*/
 		}
 
 		public static T[][] Split<T>(T[] arrayIn, int length)
