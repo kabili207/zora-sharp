@@ -27,6 +27,7 @@ namespace OracleHack
 		public SaveEditor()
 		{
 			InitializeComponent();
+			cmbAnimal.DataSource = Enum.GetValues(typeof(AnimalType));
 		}
 
 		private void btnBrowse_Click(object sender, EventArgs e)
@@ -147,7 +148,8 @@ namespace OracleHack
 				}
 
 				animal = (AnimalType)animalBytes[0];
-
+				cmbAnimal.SelectedItem = animal;
+				
 				fsSource.Seek(5, SeekOrigin.Current);
 				//fsSource.Seek(118, SeekOrigin.Begin);
 				// Read the source file into a byte array.
