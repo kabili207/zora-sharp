@@ -507,5 +507,68 @@ namespace OracleHack.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        internal static System.Drawing.Bitmap Dimitri {
+            get {
+                object obj = ResourceManager.GetObject("Dimitri", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Din {
+            get {
+                object obj = ResourceManager.GetObject("Din", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Farore {
+            get {
+                object obj = ResourceManager.GetObject("Farore", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Moosh {
+            get {
+                object obj = ResourceManager.GetObject("Moosh", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Nayru {
+            get {
+                object obj = ResourceManager.GetObject("Nayru", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Ricky {
+            get {
+                object obj = ResourceManager.GetObject("Ricky", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Seed_Ages {
+            get {
+                object obj = ResourceManager.GetObject("Seed_Ages", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Seed_Seasons {
+            get {
+                object obj = ResourceManager.GetObject("Seed_Seasons", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Zelda {
+            get {
+                object obj = ResourceManager.GetObject("Zelda", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

@@ -12,7 +12,7 @@ using System.Collections;
 
 namespace OracleHack
 {
-	public partial class Form1 : Form
+	public partial class DecoderForm : Form
 	{
 		PictureBox[] pics;
 		int currentPic = 0;
@@ -21,7 +21,7 @@ namespace OracleHack
 		string kidName = "";
 		int GameId = 0;
 		bool[] ringBits = new bool[64];
-		public Form1()
+		public DecoderForm()
 		{
 			InitializeComponent();
 			pics = new PictureBox[] { pic00, pic01, pic02, pic03, pic04, pic05, pic06, pic07, pic08, pic09,
@@ -73,6 +73,8 @@ namespace OracleHack
 			{
 				pic.Image = null;
 			}
+			txtBinary.Text = null;
+			txtAscii.Text = null;
 		}
 
 		private void btnBack_Click(object sender, EventArgs e)
@@ -87,7 +89,8 @@ namespace OracleHack
 
 		private void btnRings_Click(object sender, EventArgs e)
 		{
-			RingForm form = new RingForm(ringBits);
+			RingForm form = new RingForm();
+			form.SelectedRings = ringBits;
 			form.ShowDialog();
 		}
 

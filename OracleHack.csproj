@@ -47,11 +47,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Extensions.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="DecoderForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="DecoderForm.Designer.cs">
+      <DependentUpon>DecoderForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -73,8 +73,8 @@
     <Compile Include="SecretForm.Designer.cs">
       <DependentUpon>SecretForm.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="DecoderForm.resx">
+      <DependentUpon>DecoderForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -296,6 +296,33 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\63.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dimitri.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Din.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Farore.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Moosh.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Nayru.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ricky.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Seed_Ages.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Seed_Seasons.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Zelda.gif" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -28,6 +28,7 @@ namespace OracleHack
 		{
 			InitializeComponent();
 			cmbAnimal.DataSource = Enum.GetValues(typeof(AnimalType));
+			ringBits = new bool[64];
 		}
 
 		private void btnBrowse_Click(object sender, EventArgs e)
@@ -64,6 +65,19 @@ namespace OracleHack
 				}
 
 				version = (GameType)versionBytes[0];
+				switch (version)
+				{
+					case GameType.Ages:
+						rdoAges.Checked = true;
+						break;
+					case GameType.Seasons:
+						rdoSeasons.Checked = true;
+						break;
+					default:
+						rdoAges.Checked = false;
+						rdoSeasons.Checked = false;
+						break;
+				}
 
 
 				fsSource.Seek(96, SeekOrigin.Begin);
@@ -192,5 +206,46 @@ namespace OracleHack
 		}
 
 		public bool[] ringBits { get; set; }
+
+		private void cmbAnimal_SelectedValueChanged(object sender, EventArgs e)
+		{
+			if (cmbAnimal.SelectedItem is AnimalType)
+			{
+				AnimalType type = (AnimalType)cmbAnimal.SelectedItem;
+				switch (type)
+				{
+					case AnimalType.Ricky:
+						picAnimal.Image = Properties.Resources.Ricky;
+						break;
+					case AnimalType.Dimitri:
+						picAnimal.Image = Properties.Resources.Dimitri;
+						break;
+					case AnimalType.Moosh:
+						picAnimal.Image = Properties.Resources.Moosh;
+						break;
+					default:
+						picAnimal.Image = null;
+						break;
+				}
+			}
+			else
+			{
+				picAnimal.Image = null;
+			}
+		}
+
+		private void btnRings_Click(object sender, EventArgs e)
+		{
+
+			RingForm form = new RingForm();
+			form.SelectedRings = ringBits;
+			form.ShowDialog();
+		}
+
+		private void btnDecode_Click(object sender, EventArgs e)
+		{
+			DecoderForm form = new DecoderForm();
+			form.ShowDialog();
+		}
 	}
 }

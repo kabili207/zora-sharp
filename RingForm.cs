@@ -11,18 +11,40 @@ namespace OracleHack
 {
 	public partial class RingForm : Form
 	{
-		public RingForm(bool[] selectedRings)
+		private bool[] _selectedRings;
+		public bool[] SelectedRings
+		{
+			get { return _selectedRings; }
+			set
+			{
+				_selectedRings = value;
+				for (int i = 0; i < value.Count() && i < lstRings.Items.Count; i++)
+				{
+					lstRings.SetItemChecked(i, value[i]);
+				}
+			}
+		}
+
+		public RingForm()
 		{
 			InitializeComponent();
-			for (int i =0; i < selectedRings.Count() && i < checkedListBox1.Items.Count; i++)
-			{
-				checkedListBox1.SetItemChecked(i,selectedRings[i]);
-			}
 		}
 
 		private void RingForm_Load(object sender, EventArgs e)
 		{
 
+		}
+
+		private void lstRings_ItemCheck(object sender, ItemCheckEventArgs e)
+		{
+			try
+			{
+				SelectedRings[e.Index] = e.NewValue == CheckState.Checked;
+			}
+			catch
+			{
+
+			}
 		}
 	}
 }
