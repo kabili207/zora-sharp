@@ -236,7 +236,8 @@ namespace OracleHack
 
 		private void btnRings_Click(object sender, EventArgs e)
 		{
-
+			if(ringBits == null)
+				ringBits = new bool[64];
 			RingForm form = new RingForm();
 			form.SelectedRings = ringBits;
 			form.ShowDialog();
