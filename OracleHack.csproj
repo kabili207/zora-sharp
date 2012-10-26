@@ -1,335 +1,41 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
-    <ProductVersion>8.0.30703</ProductVersion>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.0</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{D128BB3A-EE01-4973-B4F6-94DA561C576F}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>OracleHack</RootNamespace>
-    <AssemblyName>OracleHack</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
-    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
-    <FileAlignment>512</FileAlignment>
+    <ProjectGuid>{E40D4A82-F5F3-4712-A8E2-AD3C77B1E5A8}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Zyrenth.OracleHack</RootNamespace>
+    <AssemblyName>libOracle</AssemblyName>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
-    <PlatformTarget>x86</PlatformTarget>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
-    <PlatformTarget>x86</PlatformTarget>
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Release</OutputPath>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Deployment" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.Windows.Forms" />
-    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AssemblyInfo.cs" />
+    <Compile Include="GameInfo.cs" />
     <Compile Include="Extensions.cs" />
-    <Compile Include="DecoderForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="DecoderForm.Designer.cs">
-      <DependentUpon>DecoderForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Program.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RingForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="RingForm.Designer.cs">
-      <DependentUpon>RingForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="SaveEditor.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="SaveEditor.Designer.cs">
-      <DependentUpon>SaveEditor.cs</DependentUpon>
-    </Compile>
-    <Compile Include="SecretForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="SecretForm.Designer.cs">
-      <DependentUpon>SecretForm.cs</DependentUpon>
-    </Compile>
-    <EmbeddedResource Include="DecoderForm.resx">
-      <DependentUpon>DecoderForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <EmbeddedResource Include="RingForm.resx">
-      <DependentUpon>RingForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="SaveEditor.resx">
-      <DependentUpon>SaveEditor.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="SecretForm.resx">
-      <DependentUpon>SecretForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <None Include="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
-    <Compile Include="Properties\Settings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Settings.settings</DependentUpon>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-    </Compile>
   </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\00.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\01.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\02.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\03.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\04.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\05.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\06.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\07.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\08.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\09.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\10.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\11.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\12.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\13.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\14.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\15.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\16.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\17.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\18.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\19.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\20.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\21.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\22.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\23.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\24.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\25.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\26.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\27.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\28.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\29.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\30.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\31.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\32.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\33.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\34.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\35.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\36.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\37.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\38.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\39.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\40.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\41.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\42.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\43.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\44.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\45.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\46.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\47.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\48.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\49.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\50.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\51.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\52.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\53.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\54.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\55.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\56.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\57.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\58.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\59.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\60.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\61.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\62.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\63.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Dimitri.gif" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Din.gif" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Farore.gif" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Moosh.gif" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Nayru.gif" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Ricky.gif" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Seed_Ages.gif" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Seed_Seasons.gif" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Zelda.gif" />
-  </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
