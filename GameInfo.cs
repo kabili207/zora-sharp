@@ -10,7 +10,7 @@ namespace Zyrenth.OracleHack
 		None = 0,
 		Seasons = 49,
 		Ages = 50
-	};
+	}
 
 	public enum AnimalType : byte
 	{
@@ -18,7 +18,7 @@ namespace Zyrenth.OracleHack
 		Ricky = 11,
 		Dimitri = 12,
 		Moosh = 13
-	};
+	}
 	
 	public class GameInfo
 	{
@@ -27,7 +27,7 @@ namespace Zyrenth.OracleHack
 		private string _KidName;
 		private GameType _Version;
 		private AnimalType _Animal;
-		private readonly bool[,] _RingBits = new bool[8,8];
+		private readonly bool[,] _RingBits = new bool[8, 8];
 
 		public short GameId
 		{
