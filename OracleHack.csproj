@@ -29,6 +29,10 @@
     <ConsolePause>false</ConsolePause>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>libs\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
@@ -37,213 +41,246 @@
     <Compile Include="AssemblyInfo.cs" />
     <Compile Include="Attributes.cs" />
     <Compile Include="Enums.cs" />
-    <Compile Include="VbaGameInfo.cs" />
-    <Compile Include="Extensions.cs" />
-    <Compile Include="RingImages.Designer.cs">
+    <Compile Include="Images\Characters.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>RingImages.resx</DependentUpon>
+      <DependentUpon>Characters.resx</DependentUpon>
     </Compile>
+    <Compile Include="Images\Rings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Rings.resx</DependentUpon>
+    </Compile>
+    <Compile Include="RingImageProxy.cs" />
+    <Compile Include="VbaGameInfo.cs" />
+    <Compile Include="Extensions.cs" />
     <Compile Include="GameInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="RingImages.resx">
+    <None Include="Images\Resources\100th_Ring.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Resources\Armor_Ring_L-1.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Resources\Armor_Ring_L-2.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Resources\Armor_Ring_L-3.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Resources\Blast_Ring.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Resources\Blue_Joy_Ring.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Resources\Blue_Luck_Ring.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Resources\Blue_Ring.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Resources\Bomber%27s_Ring.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Resources\Bombproof_Ring.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Resources\Charge_Ring.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Resources\Cursed_Ring.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Resources\Dbl._Edged_Ring.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Resources\Discovery_Ring.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Resources\Energy_Ring.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Resources\Expert%27s_Ring.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Resources\First_Gen_Ring.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Resources\Fist_Ring.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Resources\Friendship_Ring.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Resources\Gasha_Ring.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Resources\GBA_Nature_Ring.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Resources\GBA_Time_Ring.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Resources\Gold_Joy_Ring.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Resources\Gold_Luck_Ring.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Resources\Green_Joy_Ring.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Resources\Green_Luck_Ring.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Resources\Green_Ring.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Resources\Heart_Ring_L-1.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Resources\Heart_Ring_L-2.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Resources\Light_Ring_L-1.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Resources\Light_Ring_L-2.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Resources\Like_Like_Ring.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Resources\Maple%27s_Ring.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Resources\Moblin_Ring.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Resources\Octo_Ring.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Resources\Peace_Ring.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Resources\Pegasus_Ring.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Resources\Power_Ring_L-1.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Resources\Power_Ring_L-2.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Resources\Power_Ring_L-3.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Resources\Protection_Ring.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Resources\Quicksand_Ring.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Resources\Rang_Ring_L-1.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Resources\Rang_Ring_L-2.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Resources\Red_Joy_Ring.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Resources\Red_Luck_Ring.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Resources\Red_Ring.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Resources\Roc%27s_Ring.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Resources\Rupee_Ring.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Resources\Sign_Ring.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Resources\Slayer%27s_Ring.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Resources\Snowshoe_Ring.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Resources\Spin_Ring.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Resources\Steadfast_Ring.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Resources\Subrosian_Ring.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Resources\Swimmer%27s_Ring.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Resources\Toss_Ring.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Resources\Victory_Ring.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Resources\Whimsical_Ring.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Resources\Whisp_Ring.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Resources\Zora_Ring.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Resources\Blue_Holy_Ring.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Resources\Green_Holy_Ring.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Resources\Red_Holy_Ring.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Images\Characters.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>RingImages.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
+      <LastGenOutput>Characters.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Images\Rings.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Rings.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\100th_Ring.gif" />
+    <None Include="Resources\Dimitri.gif" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Armor_Ring_L-1.gif" />
+    <None Include="Resources\Din.gif" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Armor_Ring_L-2.gif" />
+    <None Include="Resources\Farore.gif" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Armor_Ring_L-3.gif" />
+    <None Include="Resources\Moosh.gif" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Blast_Ring.gif" />
+    <None Include="Resources\Nayru.gif" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Blue_Joy_Ring.gif" />
+    <None Include="Resources\Ricky.gif" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Blue_Luck_Ring.gif" />
+    <None Include="Resources\Zelda.gif" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Blue_Ring.gif" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Bomber%27s_Ring.gif" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Bombproof_Ring.gif" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Charge_Ring.gif" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Cursed_Ring.gif" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Dbl._Edged_Ring.gif" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Discovery_Ring.gif" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Energy_Ring.gif" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Expert%27s_Ring.gif" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\First_Gen_Ring.gif" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Fist_Ring.gif" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Friendship_Ring.gif" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Gasha_Ring.gif" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\GBA_Nature_Ring.gif" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\GBA_Time_Ring.gif" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Gold_Joy_Ring.gif" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Gold_Luck_Ring.gif" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Green_Joy_Ring.gif" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Green_Luck_Ring.gif" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Green_Ring.gif" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Heart_Ring_L-1.gif" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Heart_Ring_L-2.gif" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Light_Ring_L-1.gif" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Light_Ring_L-2.gif" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Like_Like_Ring.gif" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Maple%27s_Ring.gif" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Moblin_Ring.gif" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Octo_Ring.gif" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Peace_Ring.gif" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Pegasus_Ring.gif" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Power_Ring_L-1.gif" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Power_Ring_L-2.gif" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Power_Ring_L-3.gif" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Protection_Ring.gif" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Quicksand_Ring.gif" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Rang_Ring_L-1.gif" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Rang_Ring_L-2.gif" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Red_Joy_Ring.gif" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Red_Luck_Ring.gif" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Red_Ring.gif" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Roc%27s_Ring.gif" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Rupee_Ring.gif" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Sign_Ring.gif" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Slayer%27s_Ring.gif" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Snowshoe_Ring.gif" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Spin_Ring.gif" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Steadfast_Ring.gif" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Subrosian_Ring.gif" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Swimmer%27s_Ring.gif" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Toss_Ring.gif" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Victory_Ring.gif" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Whimsical_Ring.gif" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Whisp_Ring.gif" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Zora_Ring.gif" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Blue_Holy_Ring.gif" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Green_Holy_Ring.gif" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Red_Holy_Ring.gif" />
+    <Content Include="libs\Newtonsoft.Json.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
