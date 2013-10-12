@@ -3,59 +3,14 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.IO;
+using System.Runtime.InteropServices;
+using System.Reflection;
 
 namespace Zyrenth.OracleHack
 {
 	public static class Extensions
 	{
-
-		public static T[][] Split<T>(this T[] arrayIn, int length)
-		{
-			bool even = arrayIn.Length % length == 0;
-			int totalLength = arrayIn.Length / length;
-			if (!even)
-				totalLength++;
-
-			T[][] newArray = new T[totalLength][];
-			for (int i = 0; i < totalLength; ++i)
-			{
-				int allocLength = length;
-				if (!even && i == totalLength - 1)
-					allocLength = arrayIn.Length % length;
-
-				newArray[i] = new T[allocLength];
-				Array.Copy(arrayIn, i * length, newArray[i], 0, allocLength);
-			}
-			return newArray;
-		}
-
-		/// <summary>
-		/// Splits the specified array into a multi-dimensional array with the
-		/// specified number of rows and columns.
-		/// </summary>
-		/// <param name='arrayIn'>The input array</param>
-		/// <param name='rows'>The number of rows in the resulting array</param>
-		/// <param name='columns'>The number of columns in the resulting array</param>
-		/// <typeparam name='T'>The type of the array</typeparam>
-		/// <exception cref='ArgumentException'>
-		/// Is thrown when an argument passed to a method is invalid.
-		/// </exception>
-		public static T[,] Split<T>(this T[] arrayIn, int rows, int columns)
-		{
-			if (arrayIn.Length != rows * columns)
-				throw new ArgumentException("The array length does not match the specified dimensions");
-			
-			T[,] newArray = new T[rows, columns];
-			
-			int curIndex = 0;
-			for (int i = 0; i < columns; i++)
-			{
-				for (int j = 0; j < rows; j++, curIndex++)
-					newArray[i, j] = arrayIn[curIndex];
-			}
-			
-			return newArray;
-		}
 		
 		public static IEnumerable<bool> GetBits(this byte b)
 		{
@@ -66,6 +21,15 @@ namespace Zyrenth.OracleHack
 			}
 		}
 
+		/// <summary>
+		/// Gets the Bitmap image associated with the specified ring
+		/// </summary>
+		/// <param name="ring">The ring</param>
+		/// <returns>The bitmap image for the ring</returns>
+		/// <remarks>
+		/// This method only works with a single value. If the ring flags
+		/// contains more than one value, no bitmap will be returned.
+		/// </remarks>
 		public static Bitmap GetImage(this Rings ring)
 		{
 			switch (ring)
@@ -202,6 +166,52 @@ namespace Zyrenth.OracleHack
 					return null;
 			}
 		}
+
+
+		#region Gets the build date and time (by reading the COFF header)
+
+		// http://msdn.microsoft.com/en-us/library/ms680313
+
+		struct _IMAGE_FILE_HEADER
+		{
+			public ushort Machine;
+			public ushort NumberOfSections;
+			public uint TimeDateStamp;
+			public uint PointerToSymbolTable;
+			public uint NumberOfSymbols;
+			public ushort SizeOfOptionalHeader;
+			public ushort Characteristics;
+		};
+
+		static DateTime GetBuildDateTime(this Assembly assembly)
+		{
+			if (File.Exists(assembly.Location))
+			{
+				var buffer = new byte[Math.Max(Marshal.SizeOf(typeof(_IMAGE_FILE_HEADER)), 4)];
+				using (var fileStream = new FileStream(assembly.Location, FileMode.Open, FileAccess.Read))
+				{
+					fileStream.Position = 0x3C;
+					fileStream.Read(buffer, 0, 4);
+					fileStream.Position = BitConverter.ToUInt32(buffer, 0); // COFF header offset
+					fileStream.Read(buffer, 0, 4); // "PE\0\0"
+					fileStream.Read(buffer, 0, buffer.Length);
+				}
+				var pinnedBuffer = GCHandle.Alloc(buffer, GCHandleType.Pinned);
+				try
+				{
+					var coffHeader = (_IMAGE_FILE_HEADER)Marshal.PtrToStructure(pinnedBuffer.AddrOfPinnedObject(), typeof(_IMAGE_FILE_HEADER));
+
+					return TimeZone.CurrentTimeZone.ToLocalTime(new DateTime(1970, 1, 1) + new TimeSpan(coffHeader.TimeDateStamp * TimeSpan.TicksPerSecond));
+				}
+				finally
+				{
+					pinnedBuffer.Free();
+				}
+			}
+			return new DateTime();
+		}
+
+		#endregion
 
 	}
 }
