@@ -7,6 +7,10 @@ namespace Zyrenth.OracleHack
 {
 	public class RingImageProxy : Images.Rings
 	{
-		public RingImageProxy() :base() { }
+		public RingImageProxy() : base() { }
+	}
+	public class CharacterImageProxy : Images.Characters
+	{
+		public CharacterImageProxy() : base() { }
 	}
 }

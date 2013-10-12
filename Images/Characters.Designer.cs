@@ -22,7 +22,7 @@ namespace Zyrenth.OracleHack.Images {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Characters {
+    public class Characters {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace Zyrenth.OracleHack.Images {
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Zyrenth.OracleHack.Images.Characters", typeof(Characters).Assembly);
@@ -51,7 +51,7 @@ namespace Zyrenth.OracleHack.Images {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,7 +63,7 @@ namespace Zyrenth.OracleHack.Images {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Dimitri {
+        public static System.Drawing.Bitmap Dimitri {
             get {
                 object obj = ResourceManager.GetObject("Dimitri", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -73,7 +73,7 @@ namespace Zyrenth.OracleHack.Images {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Din {
+        public static System.Drawing.Bitmap Din {
             get {
                 object obj = ResourceManager.GetObject("Din", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -83,7 +83,7 @@ namespace Zyrenth.OracleHack.Images {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Farore {
+        public static System.Drawing.Bitmap Farore {
             get {
                 object obj = ResourceManager.GetObject("Farore", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -93,7 +93,7 @@ namespace Zyrenth.OracleHack.Images {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Moosh {
+        public static System.Drawing.Bitmap Moosh {
             get {
                 object obj = ResourceManager.GetObject("Moosh", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -103,7 +103,7 @@ namespace Zyrenth.OracleHack.Images {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Nayru {
+        public static System.Drawing.Bitmap Nayru {
             get {
                 object obj = ResourceManager.GetObject("Nayru", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -113,7 +113,7 @@ namespace Zyrenth.OracleHack.Images {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Ricky {
+        public static System.Drawing.Bitmap Ricky {
             get {
                 object obj = ResourceManager.GetObject("Ricky", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -123,7 +123,7 @@ namespace Zyrenth.OracleHack.Images {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Zelda {
+        public static System.Drawing.Bitmap Zelda {
             get {
                 object obj = ResourceManager.GetObject("Zelda", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));

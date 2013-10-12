@@ -28,15 +28,15 @@ namespace Zyrenth.OracleHack
 
 		#region Fields
 
-		// We want to serialize the underlying fields instead
-		// of the friendier properties. This will make
 
+		string _hero = "     ";
+		string _child = "     ";
+
+		// We want to serialize the underlying fields instead of the
+		// friendier properties. This will make interopability with
+		// other programs easier.
 		[JsonProperty("GameID")]
 		short _gameId = 0;
-		[JsonProperty("Hero")]
-		string _hero = "     ";
-		[JsonProperty("Child")]
-		string _child = "     ";
 		[JsonProperty("Behavior")]
 		byte _behavior = 0;
 		[JsonProperty("Animal")]
@@ -103,6 +103,7 @@ namespace Zyrenth.OracleHack
 		/// <summary>
 		/// Gets or sets the hero's name
 		/// </summary>
+		[JsonProperty]
 		public string Hero
 		{
 			get { return _hero.Trim(' ', '\0'); }
@@ -119,6 +120,7 @@ namespace Zyrenth.OracleHack
 		/// <summary>
 		/// Gets or sets the child's name
 		/// </summary>
+		[JsonProperty]
 		public string Child
 		{
 			get { return _child.Trim(' ', '\0'); }
@@ -228,7 +230,7 @@ namespace Zyrenth.OracleHack
 			if (ringOrGame != 0)
 				throw new ArgumentException("The specified data is not a game code", "secret");
 
-			SetBit(ref _gameId, 0, GetBit((byte)(secret[0] ^ Cipher[CurrXor++]), 0));
+			SetBit(ref _gameId, 0, GetBit(currentByte, 0));
 
 			currentByte = (byte)(secret[1] ^ Cipher[CurrXor++]);
 			SetBit(ref _gameId, 1, GetBit(currentByte, 5));
@@ -395,7 +397,7 @@ namespace Zyrenth.OracleHack
 			OnPropertyChanged("Behavior");
 			OnPropertyChanged("Game");
 			OnPropertyChanged("Quest");
-
+			string json = JsonConvert.SerializeObject(this);
 		}
 
 		/// <summary>
@@ -635,5 +637,60 @@ namespace Zyrenth.OracleHack
 		}
 
 		#endregion // Bit manipulation helpers
+
+		/// <summary>
+		/// Writes this game info out to the specified file
+		/// </summary>
+		/// <param name="filename">The file name</param>
+		public void Write(string filename)
+		{
+			using (FileStream outFile = File.Create(filename))
+			{
+				Write(outFile);
+			}
+		}
+
+		/// <summary>
+		/// Writes the game info to the specified stream
+		/// </summary>
+		/// <param name="stream">The stream to write to</param>
+		public void Write(Stream stream)
+		{
+			string json = JsonConvert.SerializeObject(this);
+			using (var swriter = new StreamWriter(stream))
+			using (var jwriter = new JsonTextWriter(swriter)){
+				var serializer = new JsonSerializer();
+				serializer.Serialize(jwriter, this);
+			}
+		}
+
+		/// <summary>
+		/// Loads the game info from the specified file
+		/// </summary>
+		/// <param name="filename">The file name of the saved GameInfo</param>
+		/// <returns>A GameInfo</returns>
+		public static GameInfo Load(string filename)
+		{
+			using (FileStream inFile = File.OpenRead(filename))
+			{
+				return Load(inFile);
+			}
+		}
+
+		/// <summary>
+		/// Loads the game from the specified stream
+		/// </summary>
+		/// <param name="stream">The stream containing the saved GameInfo</param>
+		/// <returns>A GameInfo</returns>
+		public static GameInfo Load(Stream stream)
+		{
+			using (var sreader = new StreamReader(stream))
+			using (var jreader = new JsonTextReader(sreader))
+			{
+				var serializer = new JsonSerializer();
+				return serializer.Deserialize<GameInfo>(jreader);
+			}
+		}
+
 	}
 }

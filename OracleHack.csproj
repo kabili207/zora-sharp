@@ -51,7 +51,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Rings.resx</DependentUpon>
     </Compile>
-    <Compile Include="RingImageProxy.cs" />
+    <Compile Include="ImageProxies.cs" />
     <Compile Include="VbaGameInfo.cs" />
     <Compile Include="Extensions.cs" />
     <Compile Include="GameInfo.cs" />
@@ -250,7 +250,7 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Images\Characters.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Characters.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Images\Rings.resx">
