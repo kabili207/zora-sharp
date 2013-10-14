@@ -567,6 +567,99 @@ namespace Zyrenth.OracleHack
 			byte checksum = (byte)(secret[14] ^ Cipher[CurrXor]);
 		}
 
+		public void GetDecodedBinary(byte[] secret)
+		{
+			byte cipherStart = 0;
+
+			SetBit(ref cipherStart, 2, GetBit(secret[0], 5));
+			SetBit(ref cipherStart, 1, GetBit(secret[0], 4));
+			SetBit(ref cipherStart, 0, GetBit(secret[0], 3));
+
+			CurrXor = (byte)(cipherStart * 4);
+
+			byte currentByte = (byte)(secret[0] ^ Cipher[CurrXor++]);
+
+			StringBuilder builder = new StringBuilder();
+			builder.Append(GetBit(secret[0], 5) ? 1 : 0);
+			builder.Append(GetBit(secret[0], 4) ? 1 : 0);
+			builder.Append(GetBit(secret[0], 3) ? 1 : 0);
+			builder.Append(GetBit(currentByte, 2) ? 1 : 0);
+			builder.Append(GetBit(currentByte, 1) ? 1 : 0);
+			builder.Append(GetBit(currentByte, 0) ? 1 : 0);
+
+			for (int i = 1; i < 5; i++)
+			{
+				currentByte = (byte)(secret[i] ^ Cipher[CurrXor++]);
+				builder.Append(" ");
+				for (int j = 5; j > -1; j--)
+				{
+					builder.Append(GetBit(currentByte, j) ? "1" : "0");
+				}
+			}
+
+			string data = builder.ToString();
+		}
+
+		public void ReadMemorySecret(byte[] secret)
+		{
+			//if (secret == null || secret.Length != 20)
+			//	throw new ArgumentException("Secret must contatin exactly 20 bytes", "secret");
+
+			byte cipherStart = 0;
+			short gameId = 0;
+			byte memoryCode = 0;
+
+			// unknowns
+			byte unknown1 = 0;
+			byte unknown2 = 0;
+
+			SetBit(ref cipherStart, 2, GetBit(secret[0], 5));
+			SetBit(ref cipherStart, 1, GetBit(secret[0], 4));
+			SetBit(ref cipherStart, 0, GetBit(secret[0], 3));
+
+			CurrXor = (byte)(cipherStart * 4);
+
+			byte currentByte = (byte)(secret[0] ^ Cipher[CurrXor++]);
+			SetBit(ref unknown1, 0, GetBit(currentByte, 2));
+			SetBit(ref unknown2, 0, GetBit(currentByte, 1));
+
+			//if (ringOrGame != 0)
+			//	throw new ArgumentException("The specified data is not a game code", "secret");
+
+			CurrXor = (byte)(cipherStart * 4);
+
+			currentByte = (byte)(secret[0] ^ Cipher[CurrXor++]);
+
+			SetBit(ref gameId, 0, GetBit(currentByte, 0));
+
+			currentByte = (byte)(secret[1] ^ Cipher[CurrXor++]);
+			SetBit(ref gameId, 1, GetBit(currentByte, 5));
+			SetBit(ref gameId, 2, GetBit(currentByte, 4));
+			SetBit(ref gameId, 3, GetBit(currentByte, 3));
+			SetBit(ref gameId, 4, GetBit(currentByte, 2));
+			SetBit(ref gameId, 5, GetBit(currentByte, 1));
+			SetBit(ref gameId, 6, GetBit(currentByte, 0));
+
+			currentByte = (byte)(secret[2] ^ Cipher[CurrXor++]);
+			SetBit(ref gameId, 7, GetBit(currentByte, 5));
+			SetBit(ref gameId, 8, GetBit(currentByte, 4));
+			SetBit(ref gameId, 9, GetBit(currentByte, 3));
+			SetBit(ref gameId, 10, GetBit(currentByte, 2));
+			SetBit(ref gameId, 11, GetBit(currentByte, 1));
+			SetBit(ref gameId, 12, GetBit(currentByte, 0));
+
+			currentByte = (byte)(secret[3] ^ Cipher[CurrXor++]);
+			SetBit(ref gameId, 13, GetBit(currentByte, 5));
+			SetBit(ref gameId, 14, GetBit(currentByte, 4));
+			SetBit(ref memoryCode, 0, GetBit(currentByte, 3));
+			SetBit(ref memoryCode, 1, GetBit(currentByte, 2));
+			SetBit(ref memoryCode, 2, GetBit(currentByte, 1));
+			SetBit(ref memoryCode, 3, GetBit(currentByte, 0));
+
+
+			// TODO: Checksum
+		}
+
 		#endregion // Secret parsing logic
 
 		protected void OnPropertyChanged(string propertyName)

@@ -183,7 +183,7 @@ namespace Zyrenth.OracleHack
 			public ushort Characteristics;
 		};
 
-		static DateTime GetBuildDateTime(this Assembly assembly)
+		public static DateTime GetBuildDateTime(this Assembly assembly)
 		{
 			if (File.Exists(assembly.Location))
 			{
