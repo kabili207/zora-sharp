@@ -11,6 +11,7 @@ Planned features:
 
  * Ability to generate codes
  * Include a debugging screen to get raw information about secrets
+ * Finish GTK interface for Linux users
 
 ### Current Problems
 
