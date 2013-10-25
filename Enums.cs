@@ -20,18 +20,33 @@ namespace Zyrenth.OracleHack
 		Moosh = 13
 	}
 
+	/// <summary>
+	/// Represents which version of the Oracle
+	/// </summary>
 	public enum Game
 	{
 		Ages = 0,
 		Seasons = 1
 	}
 
+	/// <summary>
+	/// Represents the type of game quest
+	/// </summary>
 	public enum Quest
 	{
+		/// <summary>
+		/// A continuation 
+		/// </summary>
 		LinkedGame = 0,
+		/// <summary>
+		/// This is game started using the secret given at the end of a LinkedGame
+		/// </summary>
 		HerosSecret = 1
 	}
 
+	/// <summary>
+	/// Represents the animal friend
+	/// </summary>
 	public enum Animal : byte
 	{
 		Ricky = 3,
@@ -39,6 +54,9 @@ namespace Zyrenth.OracleHack
 		Moosh = 5
 	}
 
+	/// <summary>
+	/// Represents the values of the child's behavior
+	/// </summary>
 	public enum ChildBehavior : byte
 	{
 		Infant = 0,
@@ -57,6 +75,20 @@ namespace Zyrenth.OracleHack
 		HyperC,
 		HyperD,
 		HyperE
+	}
+
+	public enum Memory : byte
+	{
+		ClockShopKingZora = 0,
+		GraveyardFairy = 1,
+		SubrosianTroy = 2,
+		DiverPlen = 3,
+		SmithLibrary = 4,
+		PirateTokay = 5,
+		TempleMamamu = 6,
+		DekuTingle = 7,
+		BiggoronElder = 8,
+		RuulSymmetry = 9
 	}
 
 	[Flags]

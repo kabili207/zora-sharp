@@ -18,12 +18,12 @@ namespace Zyrenth.OracleHack
 
 		private static readonly byte[] Cipher =
 		{ 
-			7,  35, 46,  4, 13, 63, 26, 16,
+			 7, 35, 46,  4, 13, 63, 26, 16,
 			58, 47, 30, 32, 15, 62, 54, 55,
-			9,  41, 59, 49, 2,  22, 61, 56, 
-			40, 19, 52, 50, 1,  11, 10, 53,
+			 9, 41, 59, 49,  2, 22, 61, 56, 
+			40, 19, 52, 50,  1, 11, 10, 53,
 			14, 27, 18, 44, 33, 45, 37, 48,
-			25, 42, 6,  57, 60, 23, 51
+			25, 42,  6, 57, 60, 23, 51
 		};
 
 		#region Fields
@@ -187,6 +187,15 @@ namespace Zyrenth.OracleHack
 
 		#endregion // Properties
 
+		protected void OnPropertyChanged(string propertyName)
+		{
+			if (PropertyChanged != null)
+			{
+				PropertyChanged(this,
+					new PropertyChangedEventArgs(propertyName));
+			}
+		}
+
 		/// <summary>
 		/// Creates a GameInfo instance from a game secret data
 		/// </summary>
@@ -195,7 +204,7 @@ namespace Zyrenth.OracleHack
 		public static GameInfo FromGameSecret(byte[] secret)
 		{
 			GameInfo parser = new GameInfo();
-			parser.ReadGameSecret(secret);
+			parser.LoadGameData(secret);
 			return parser;
 		}
 
@@ -205,7 +214,7 @@ namespace Zyrenth.OracleHack
 		/// Loads the specified <paramref name="secret"/> data into this GameInfo
 		/// </summary>
 		/// <param name="secret">The raw secret data</param>
-		public void ReadGameSecret(byte[] secret)
+		public void LoadGameData(byte[] secret)
 		{
 			if (secret == null || secret.Length != 20)
 				throw new ArgumentException("Secret must contatin exactly 20 bytes", "secret");
@@ -255,6 +264,8 @@ namespace Zyrenth.OracleHack
 			SetBit(ref _agesSeasons, 0, GetBit(currentByte, 2));
 			SetBit(ref _hero, 0, 0, GetBit(currentByte, 1));
 			SetBit(ref _hero, 0, 1, GetBit(currentByte, 0));
+
+			// TODO: Validate game ID with cipher bytes
 
 			currentByte = (byte)(secret[4] ^ Cipher[CurrXor++]);
 			SetBit(ref _hero, 0, 2, GetBit(currentByte, 5));
@@ -404,7 +415,7 @@ namespace Zyrenth.OracleHack
 		/// Sets the <see cref="Rings"/> property using the specified secret
 		/// </summary>
 		/// <param name="secret">The raw secret data</param>
-		public void SetRings(byte[] secret)
+		public void LoadRings(byte[] secret)
 		{
 			if (secret == null || secret.Length != 15)
 				throw new ArgumentException("Secret must contatin exactly 15 bytes", "secret");
@@ -600,10 +611,10 @@ namespace Zyrenth.OracleHack
 			string data = builder.ToString();
 		}
 
-		public void ReadMemorySecret(byte[] secret)
+		public Memory ReadMemorySecret(byte[] secret)
 		{
 			//if (secret == null || secret.Length != 20)
-			//	throw new ArgumentException("Secret must contatin exactly 20 bytes", "secret");
+			//	throw new ArgumentException("Secret must contatin exactly 5 bytes", "secret");
 
 			byte cipherStart = 0;
 			short gameId = 0;
@@ -658,18 +669,208 @@ namespace Zyrenth.OracleHack
 
 
 			// TODO: Checksum
+
+			return (Memory)memoryCode;
+
 		}
 
 		#endregion // Secret parsing logic
 
-		protected void OnPropertyChanged(string propertyName)
+		#region Secret generation logic
+
+		public byte[] CreateGameSecret()
 		{
-			if (PropertyChanged != null)
-			{
-				PropertyChanged(this,
-					new PropertyChangedEventArgs(propertyName));
-			}
+			byte[] secret = new byte[20];
+
+			byte cipherStart = 0;
+
+			byte ringOrGame = 0;
+
+			// unknowns
+			byte unknown1 = 0; // Always clear
+
+
+			SetBit(ref cipherStart, 0, GetBit(_gameId, 2) ^ GetBit(_gameId, 10));
+			SetBit(ref cipherStart, 1, GetBit(_gameId, 1) ^ GetBit(_gameId, 9));
+			SetBit(ref cipherStart, 2, GetBit(_gameId, 0) ^ GetBit(_gameId, 8));
+
+			CurrXor = (byte)(cipherStart * 4);
+
+			byte currentByte = 0;
+
+			SetBit(ref currentByte, 2, GetBit(unknown1, 0));
+			SetBit(ref currentByte, 1, GetBit(ringOrGame, 0));
+			SetBit(ref currentByte, 0, GetBit(_gameId, 0));
+			currentByte = (byte)(currentByte ^ Cipher[CurrXor++]);
+			SetBit(ref currentByte, 5, GetBit(cipherStart, 2));
+			SetBit(ref currentByte, 4, GetBit(cipherStart, 1));
+			SetBit(ref currentByte, 3, GetBit(cipherStart, 0));
+			secret[0] = currentByte;
+
+			SetBit(ref currentByte, 5, GetBit(_gameId, 1));
+			SetBit(ref currentByte, 4, GetBit(_gameId, 2));
+			SetBit(ref currentByte, 3, GetBit(_gameId, 3));
+			SetBit(ref currentByte, 2, GetBit(_gameId, 4));
+			SetBit(ref currentByte, 1, GetBit(_gameId, 5));
+			SetBit(ref currentByte, 0, GetBit(_gameId, 6));
+			secret[1] = (byte)(currentByte ^ Cipher[CurrXor++]);
+
+			SetBit(ref currentByte, 5, GetBit(_gameId, 7));
+			SetBit(ref currentByte, 4, GetBit(_gameId, 8));
+			SetBit(ref currentByte, 3, GetBit(_gameId, 9));
+			SetBit(ref currentByte, 2, GetBit(_gameId, 10));
+			SetBit(ref currentByte, 1, GetBit(_gameId, 11));
+			SetBit(ref currentByte, 0, GetBit(_gameId, 12));
+			secret[2] = (byte)(currentByte ^ Cipher[CurrXor++]);
+
+			SetBit(ref currentByte, 5, GetBit(_gameId, 13));
+			SetBit(ref currentByte, 4, GetBit(_gameId, 14));
+			SetBit(ref currentByte, 3, GetBit(_linkedHeros, 0));
+			SetBit(ref currentByte, 2, GetBit(_agesSeasons, 0));
+			SetBit(ref currentByte, 1, GetBit(_hero, 0, 0));
+			SetBit(ref currentByte, 0, GetBit(_hero, 0, 1));
+			secret[3] = (byte)(currentByte ^ Cipher[CurrXor++]);
+
+			SetBit(ref currentByte, 5, GetBit(_hero, 0, 2));
+			SetBit(ref currentByte, 4, GetBit(_hero, 0, 3));
+			SetBit(ref currentByte, 3, GetBit(_hero, 0, 4));
+			SetBit(ref currentByte, 2, GetBit(_hero, 0, 5));
+			SetBit(ref currentByte, 1, GetBit(_hero, 0, 6));
+			SetBit(ref currentByte, 0, GetBit(_hero, 0, 7));
+			secret[4] = (byte)(currentByte ^ Cipher[CurrXor++]);
+
+			SetBit(ref currentByte, 5, GetBit(_child, 0, 0));
+			SetBit(ref currentByte, 4, GetBit(_child, 0, 1));
+			SetBit(ref currentByte, 3, GetBit(_child, 0, 2));
+			SetBit(ref currentByte, 2, GetBit(_child, 0, 3));
+			SetBit(ref currentByte, 1, GetBit(_child, 0, 4));
+			SetBit(ref currentByte, 0, GetBit(_child, 0, 5));
+			secret[5] = (byte)(currentByte ^ Cipher[CurrXor++]);
+
+			SetBit(ref currentByte, 5, GetBit(_child, 0, 6));
+			SetBit(ref currentByte, 4, GetBit(_child, 0, 7));
+			SetBit(ref currentByte, 3, GetBit(_hero, 1, 0));
+			SetBit(ref currentByte, 2, GetBit(_hero, 1, 1));
+			SetBit(ref currentByte, 1, GetBit(_hero, 1, 2));
+			SetBit(ref currentByte, 0, GetBit(_hero, 1, 3));
+			secret[6] = (byte)(currentByte ^ Cipher[CurrXor++]);
+
+			SetBit(ref currentByte, 5, GetBit(_hero, 1, 4));
+			SetBit(ref currentByte, 4, GetBit(_hero, 1, 5));
+			SetBit(ref currentByte, 3, GetBit(_hero, 1, 6));
+			SetBit(ref currentByte, 2, GetBit(_hero, 1, 7));
+			SetBit(ref currentByte, 1, GetBit(_child, 1, 0));
+			SetBit(ref currentByte, 0, GetBit(_child, 1, 1));
+			secret[7] = (byte)(currentByte ^ Cipher[CurrXor++]);
+
+			SetBit(ref currentByte, 5, GetBit(_child, 1, 2));
+			SetBit(ref currentByte, 4, GetBit(_child, 1, 3));
+			SetBit(ref currentByte, 3, GetBit(_child, 1, 4));
+			SetBit(ref currentByte, 2, GetBit(_child, 1, 5));
+			SetBit(ref currentByte, 1, GetBit(_child, 1, 6));
+			SetBit(ref currentByte, 0, GetBit(_child, 1, 7));
+			secret[8] = (byte)(currentByte ^ Cipher[CurrXor++]);
+
+			byte unknown2 = 0; // Always clear
+			byte unknown3 = 0; // Always clear
+
+			SetBit(ref currentByte, 5, GetBit(_behavior, 0));
+			SetBit(ref currentByte, 4, GetBit(_behavior, 1));
+			SetBit(ref currentByte, 3, GetBit(_behavior, 2));
+			SetBit(ref currentByte, 2, GetBit(_behavior, 3));
+			SetBit(ref currentByte, 1, GetBit(unknown2, 0));
+			SetBit(ref currentByte, 0, GetBit(unknown3, 0));
+			secret[9] = (byte)(currentByte ^ Cipher[CurrXor++]);
+
+			SetBit(ref currentByte, 5, GetBit(_hero, 2, 0));
+			SetBit(ref currentByte, 4, GetBit(_hero, 2, 1));
+			SetBit(ref currentByte, 3, GetBit(_hero, 2, 2));
+			SetBit(ref currentByte, 2, GetBit(_hero, 2, 3));
+			SetBit(ref currentByte, 1, GetBit(_hero, 2, 4));
+			SetBit(ref currentByte, 0, GetBit(_hero, 2, 5));
+			secret[10] = (byte)(currentByte ^ Cipher[CurrXor++]);
+
+			SetBit(ref currentByte, 5, GetBit(_hero, 2, 6));
+			SetBit(ref currentByte, 4, GetBit(_hero, 2, 7));
+			SetBit(ref currentByte, 3, GetBit(_child, 2, 0));
+			SetBit(ref currentByte, 2, GetBit(_child, 2, 1));
+			SetBit(ref currentByte, 1, GetBit(_child, 2, 2));
+			SetBit(ref currentByte, 0, GetBit(_child, 2, 3));
+			secret[11] = (byte)(currentByte ^ Cipher[CurrXor++]);
+
+			byte unknown4 = 1; // Always set
+
+			SetBit(ref currentByte, 5, GetBit(_child, 2, 4));
+			SetBit(ref currentByte, 4, GetBit(_child, 2, 5));
+			SetBit(ref currentByte, 3, GetBit(_child, 2, 6));
+			SetBit(ref currentByte, 2, GetBit(_child, 2, 7));
+			SetBit(ref currentByte, 1, GetBit(unknown4, 0));
+			SetBit(ref currentByte, 0, GetBit(_hero, 3, 0));
+			secret[12] = (byte)(currentByte ^ Cipher[CurrXor++]);
+
+			SetBit(ref currentByte, 5, GetBit(_hero, 3, 1));
+			SetBit(ref currentByte, 4, GetBit(_hero, 3, 2));
+			SetBit(ref currentByte, 3, GetBit(_hero, 3, 3));
+			SetBit(ref currentByte, 2, GetBit(_hero, 3, 4));
+			SetBit(ref currentByte, 1, GetBit(_hero, 3, 5));
+			SetBit(ref currentByte, 0, GetBit(_hero, 3, 6));
+			secret[13] = (byte)(currentByte ^ Cipher[CurrXor++]);
+
+			// This byte may not be unknown. Since it is always set
+			// and if we include it in the animal bytes, we end up
+			// with values that match those in the VBA save file.
+			byte unknown5 = 1; // Always set
+
+			SetBit(ref currentByte, 5, GetBit(_hero, 3, 7));
+			SetBit(ref currentByte, 4, GetBit(_animal, 0));
+			SetBit(ref currentByte, 3, GetBit(_animal, 1));
+			SetBit(ref currentByte, 2, GetBit(_animal, 2));
+			SetBit(ref currentByte, 1, GetBit(unknown5, 0));
+			SetBit(ref currentByte, 0, GetBit(_hero, 4, 1));
+			secret[14] = (byte)(currentByte ^ Cipher[CurrXor++]);
+
+			SetBit(ref currentByte, 5, GetBit(_hero, 4, 1));
+			SetBit(ref currentByte, 4, GetBit(_hero, 4, 2));
+			SetBit(ref currentByte, 3, GetBit(_hero, 4, 3));
+			SetBit(ref currentByte, 2, GetBit(_hero, 4, 4));
+			SetBit(ref currentByte, 1, GetBit(_hero, 4, 5));
+			SetBit(ref currentByte, 0, GetBit(_hero, 4, 6));
+			secret[15] = (byte)(currentByte ^ Cipher[CurrXor++]);
+
+			SetBit(ref currentByte, 5, GetBit(_hero, 4, 7));
+			SetBit(ref currentByte, 4, GetBit(_child, 3, 0));
+			SetBit(ref currentByte, 3, GetBit(_child, 3, 1));
+			SetBit(ref currentByte, 2, GetBit(_child, 3, 2));
+			SetBit(ref currentByte, 1, GetBit(_child, 3, 3));
+			SetBit(ref currentByte, 0, GetBit(_child, 3, 4));
+			secret[16] = (byte)(currentByte ^ Cipher[CurrXor++]);
+
+			byte unknown6 = 1; // Always set
+
+			SetBit(ref currentByte, 5, GetBit(_child, 3, 5));
+			SetBit(ref currentByte, 4, GetBit(_child, 3, 6));
+			SetBit(ref currentByte, 3, GetBit(_child, 3, 7));
+			SetBit(ref currentByte, 2, GetBit(unknown6, 0));
+			SetBit(ref currentByte, 1, GetBit(_child, 4, 0));
+			SetBit(ref currentByte, 0, GetBit(_child, 4, 1));
+			secret[17] = (byte)(currentByte ^ Cipher[CurrXor++]);
+
+			SetBit(ref currentByte, 5, GetBit(_child, 4, 2));
+			SetBit(ref currentByte, 4, GetBit(_child, 4, 3));
+			SetBit(ref currentByte, 3, GetBit(_child, 4, 4));
+			SetBit(ref currentByte, 2, GetBit(_child, 4, 5));
+			SetBit(ref currentByte, 1, GetBit(_child, 4, 6));
+			SetBit(ref currentByte, 0, GetBit(_child, 4, 7));
+			secret[18] = (byte)(currentByte ^ Cipher[CurrXor++]);
+
+			// TODO: Figure out what all the unknown values are for.
+
+			// TODO: Validate checksum
+			secret[19] = 255;
+			return secret;
 		}
+
+		#endregion // Secret generation logic
 
 		#region Bit manipulation helpers
 
@@ -731,6 +932,8 @@ namespace Zyrenth.OracleHack
 
 		#endregion // Bit manipulation helpers
 
+		#region File Saving/Loading methods
+
 		/// <summary>
 		/// Writes this game info out to the specified file
 		/// </summary>
@@ -751,7 +954,8 @@ namespace Zyrenth.OracleHack
 		{
 			string json = JsonConvert.SerializeObject(this);
 			using (var swriter = new StreamWriter(stream))
-			using (var jwriter = new JsonTextWriter(swriter)){
+			using (var jwriter = new JsonTextWriter(swriter))
+			{
 				var serializer = new JsonSerializer();
 				serializer.Serialize(jwriter, this);
 			}
@@ -784,6 +988,6 @@ namespace Zyrenth.OracleHack
 				return serializer.Deserialize<GameInfo>(jreader);
 			}
 		}
-
+		#endregion // File Saving/Loading methods
 	}
 }
