@@ -15,7 +15,7 @@ Planned features:
 
 ### Current Problems
 
-Right now the biggest problem preventing me from generating codes is the checksum used at the end of each code. Information on what is known so far in available in the docs folder.
+Right now the biggest problem preventing me from generating codes is the checksum used at the end of each code. Information on what is known so far is available in the docs folder.
 
 ### Special Thanks
 
