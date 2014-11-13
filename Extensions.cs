@@ -21,6 +21,11 @@ namespace Zyrenth.OracleHack
 			}
 		}
 
+		public static string ReversedSubstring(this string value, int start, int length)
+		{
+			return new string(value.Substring(start, length).Reverse().ToArray());
+		}
+
 		/// <summary>
 		/// Gets the Bitmap image associated with the specified ring
 		/// </summary>
