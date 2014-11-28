@@ -359,6 +359,11 @@ namespace Zyrenth.OracleHack
 		{
 			int cipher = ((_gameId >> 8) + (_gameId & 255)) & 7;
 			cipher = Convert.ToInt32(Convert.ToString(cipher, 2).PadLeft(3, '0').Reverse(), 2);
+			return EncodeBytes(data, cipher);
+		}
+
+		private byte[] EncodeBytes(string data, int cipher)
+		{
 			CurrXor = (byte)(cipher * 4);
 
 			byte[] secret = new byte[data.Length / 6 + 1];
@@ -443,6 +448,33 @@ namespace Zyrenth.OracleHack
 
 			// TODO: Calculate the checksum
 			secret[14] = 255;
+			return secret;
+		}
+
+		public byte[] CreateMemorySecret(Memory memory, bool isReturnSecret)
+		{
+			int cipher = 0;
+			if (Game == Game.Ages)
+				cipher = isReturnSecret ? 3 : 0;
+			else
+				cipher = isReturnSecret ? 1 : 2;
+			cipher |= ((byte)memory & 1) << 2;
+
+			cipher = ((_gameId >> 8) + (_gameId & 255) + cipher) & 7;
+			cipher = Convert.ToInt32(Convert.ToString(cipher, 2).PadLeft(3, '0').Reverse(), 2);
+
+			string unencodedSecret = "000";
+
+			unencodedSecret += "1"; // unknown 1
+			unencodedSecret += "1"; // unknown 2
+
+			unencodedSecret += Convert.ToString(_gameId, 2).PadLeft(15, '0').Reverse();
+			unencodedSecret += Convert.ToString((byte)memory, 2).PadLeft(4, '0').Reverse();
+
+			byte[] secret = EncodeBytes(unencodedSecret, cipher);
+
+			// TODO: Calculate the checksum
+			secret[4] = 255;
 			return secret;
 		}
 
