@@ -234,7 +234,7 @@ namespace Zyrenth.OracleHack
 
 			byte[] decodedBytes = new byte[secret.Length];
 
-			for (int i = 0; i < secret.Length - 2; ++i )
+			for (int i = 0; i < secret.Length - 1; ++i )
 			{
 				decodedBytes[i] = (byte)(secret[i] ^ Cipher[CurrXor++]);
 			}
@@ -477,8 +477,14 @@ namespace Zyrenth.OracleHack
 				cipher = isReturnSecret ? 3 : 0;
 			else
 				cipher = isReturnSecret ? 1 : 2;
+			int mask = 0x0F;
 
-			int mask = 0x0F | (cipher << 4);
+			if (Game == Game.Ages)
+				mask = isReturnSecret ? 0 : 3;
+			else
+				mask = isReturnSecret ? 2 : 1;
+
+			mask = 0x0F | (mask << 4);
 
 			cipher |= ((byte)memory & 1) << 2;
 
