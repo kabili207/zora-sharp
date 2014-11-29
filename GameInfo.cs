@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -31,20 +32,14 @@ namespace Zyrenth.OracleHack
 
 		string _hero = "     ";
 		string _child = "     ";
-
-		// We want to serialize the underlying fields instead of the
-		// friendier properties. This will make interopability with
-		// other programs easier.
-		[JsonProperty("GameID")]
 		short _gameId = 0;
-		[JsonProperty("Behavior")]
 		byte _behavior = 0;
-		[JsonProperty("Animal")]
 		byte _animal = 0;
-		[JsonProperty("QuestType")]
 		byte _linkedHeros = 0;
-		[JsonProperty("GameVersion")]
 		byte _agesSeasons = 0;
+
+		// JSON.Net has problems serializing the rings if it's an enum,
+		// so we have to put the attribute here instead
 		[JsonProperty("Rings")]
 		ulong _rings = 0L;
 
@@ -64,6 +59,8 @@ namespace Zyrenth.OracleHack
 		/// <summary>
 		/// Gets or sets the Game used for this user data
 		/// </summary>
+		[JsonProperty]
+		[JsonConverter(typeof(StringEnumConverter))]
 		public Game Game
 		{
 			get { return (Game)_agesSeasons; }
@@ -77,6 +74,8 @@ namespace Zyrenth.OracleHack
 		/// <summary>
 		/// Gets or sets the Quest type used for this user data
 		/// </summary>
+		[JsonProperty("QuestType")]
+		[JsonConverter(typeof(StringEnumConverter))]
 		public Quest Quest
 		{
 			get { return (Quest)_linkedHeros; }
@@ -90,6 +89,7 @@ namespace Zyrenth.OracleHack
 		/// <summary>
 		/// Gets or sets the unique game ID 
 		/// </summary>
+		[JsonProperty]
 		public short GameID
 		{
 			get { return _gameId; }
@@ -137,6 +137,8 @@ namespace Zyrenth.OracleHack
 		/// <summary>
 		/// Gets or sets the animal friend
 		/// </summary>
+		[JsonProperty]
+		[JsonConverter(typeof(StringEnumConverter))]
 		public Animal Animal
 		{
 			get { return (Animal)_animal; }
@@ -150,6 +152,8 @@ namespace Zyrenth.OracleHack
 		/// <summary>
 		/// Gets or set the behavior of the child
 		/// </summary>
+		[JsonProperty]
+		[JsonConverter(typeof(StringEnumConverter))]
 		public ChildBehavior Behavior
 		{
 			get { return (ChildBehavior)_behavior; }
@@ -234,7 +238,7 @@ namespace Zyrenth.OracleHack
 
 			byte[] decodedBytes = new byte[secret.Length];
 
-			for (int i = 0; i < secret.Length; ++i )
+			for (int i = 0; i < secret.Length; ++i)
 			{
 				decodedBytes[i] = (byte)(secret[i] ^ Cipher[CurrXor++]);
 			}
@@ -445,7 +449,7 @@ namespace Zyrenth.OracleHack
 			byte[] unencodedBytes = StringToBytes(unencodedSecret);
 			unencodedBytes[19] = CalculateChecksum(unencodedBytes);
 			byte[] secret = EncodeBytes(unencodedBytes);
-			
+
 			return secret;
 		}
 
@@ -489,7 +493,7 @@ namespace Zyrenth.OracleHack
 				cipher = isReturnSecret ? 3 : 0;
 			else
 				cipher = isReturnSecret ? 1 : 2;
-			
+
 			cipher |= ((byte)memory & 1) << 2;
 			cipher = ((_gameId >> 8) + (_gameId & 255) + cipher) & 7;
 			cipher = Convert.ToInt32(Convert.ToString(cipher, 2).PadLeft(3, '0').Reverse(), 2);
@@ -515,7 +519,7 @@ namespace Zyrenth.OracleHack
 		}
 
 		#endregion // Secret generation logic
-		
+
 		#region File Saving/Loading methods
 
 		/// <summary>
