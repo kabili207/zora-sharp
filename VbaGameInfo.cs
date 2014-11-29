@@ -5,51 +5,8 @@ using System.Collections.Generic;
 
 namespace Zyrenth.OracleHack
 {
-
-	public class VbaGameInfo
+	public class VbaGameInfo : GameInfo
 	{
-		private short _GameId;
-		private string _HeroName;
-		private string _KidName;
-		private VbaGameType _Version;
-		private VbaAnimalType _Animal;
-		private Rings _Rings;
-
-		public short GameId
-		{
-			get { return _GameId; }
-			set { _GameId = value; }
-		}
-
-		public string HeroName
-		{
-			get { return _HeroName; }
-			set { _HeroName = value; }
-		}
-
-		public string KidName
-		{
-			get { return _KidName; }
-			set { _KidName = value; }
-		}
-
-		public VbaGameType Version
-		{
-			get { return _Version; }
-			set { _Version = value; }
-		}
-
-		public VbaAnimalType Animal
-		{
-			get { return _Animal; }
-			set { _Animal = value; }
-		}
-
-		public Rings Rings
-		{
-			get { return _Rings; }
-			set { _Rings = value; }
-		}
 
 		public VbaGameInfo()
 		{
@@ -79,7 +36,7 @@ namespace Zyrenth.OracleHack
 				numBytesToRead -= n;
 			}
 
-			info.Version = (VbaGameType)versionBytes[0];
+			info.Game = (Game)(versionBytes[0] & 1);
 
 
 			fsSource.Seek(96, SeekOrigin.Begin);
@@ -100,7 +57,7 @@ namespace Zyrenth.OracleHack
 				numBytesToRead -= n;
 			}
 
-			info.GameId = BitConverter.ToInt16(gameIdBytes, 0);
+			info.GameID = BitConverter.ToInt16(gameIdBytes, 0);
 
 			//fsSource.Seek(98, SeekOrigin.Begin);
 			// Read the source file into a byte array.
@@ -120,7 +77,7 @@ namespace Zyrenth.OracleHack
 				numBytesToRead -= n;
 			}
 
-			info.HeroName = System.Text.Encoding.ASCII.GetString(heroBytes);
+			info.Hero = System.Text.Encoding.ASCII.GetString(heroBytes);
 
 
 			//fsSource.Seek(105, SeekOrigin.Begin);
@@ -142,7 +99,7 @@ namespace Zyrenth.OracleHack
 				numBytesToRead -= n;
 			}
 
-			info.KidName = System.Text.Encoding.ASCII.GetString(kidBytes);
+			info.Child = System.Text.Encoding.ASCII.GetString(kidBytes);
 
 
 			fsSource.Seek(2, SeekOrigin.Current);
@@ -163,7 +120,7 @@ namespace Zyrenth.OracleHack
 				numBytesToRead -= n;
 			}
 
-			info.Animal = (VbaAnimalType)animalBytes[0];
+			info.Animal = (Animal)(animalBytes[0] & 7);
 
 
 			fsSource.Seek(5, SeekOrigin.Current);

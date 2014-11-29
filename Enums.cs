@@ -5,20 +5,6 @@ using System.Text;
 
 namespace Zyrenth.OracleHack
 {
-	public enum VbaGameType : byte
-	{
-		None = 0,
-		Seasons = 49,
-		Ages = 50
-	}
-
-	public enum VbaAnimalType : byte
-	{
-		None = 0,
-		Ricky = 11,
-		Dimitri = 12,
-		Moosh = 13
-	}
 
 	/// <summary>
 	/// Represents which version of the Oracle

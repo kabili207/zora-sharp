@@ -42,6 +42,7 @@
     <Compile Include="Enums.cs" />
     <Compile Include="VbaGameInfo.cs" />
     <Compile Include="Extensions.cs" />
+    <Compile Include="GameInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\Images\Characters\Dimitri.gif">
@@ -260,7 +261,4 @@
     <Content Include="libs\Newtonsoft.Json.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
-  <ItemGroup>
-    <EmbeddedResource Include="GameInfo.cs" />
-  </ItemGroup>
 </Project>
