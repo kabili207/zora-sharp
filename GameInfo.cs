@@ -234,7 +234,7 @@ namespace Zyrenth.OracleHack
 
 			byte[] decodedBytes = new byte[secret.Length];
 
-			for (int i = 0; i < secret.Length - 1; ++i )
+			for (int i = 0; i < secret.Length; ++i )
 			{
 				decodedBytes[i] = (byte)(secret[i] ^ Cipher[CurrXor++]);
 			}
@@ -251,10 +251,16 @@ namespace Zyrenth.OracleHack
 		public void LoadGameData(byte[] secret)
 		{
 			if (secret == null || secret.Length != 20)
-				throw new ArgumentException("Secret must contatin exactly 20 bytes", "secret");
+				throw new InvalidSecretException("Secret must contatin exactly 20 bytes");
 
 			byte[] decodedBytes = DecodeBytes(secret);
 			string decodedSecret = BytesToString(decodedBytes);
+
+			byte[] clonedBytes = (byte[])decodedBytes.Clone();
+			clonedBytes[19] = 0;
+			var checksum = CalculateChecksum(clonedBytes);
+			if ((decodedBytes[19] & 7) != (checksum & 7))
+				throw new InvalidSecretException("Checksum does not match expected value");
 
 			_gameId = Convert.ToInt16(decodedSecret.ReversedSubstring(5, 15), 2);
 
@@ -297,9 +303,6 @@ namespace Zyrenth.OracleHack
 			bool unknown6 = decodedSecret[105] == '1';
 
 
-			// TODO: Validate checksum
-			byte checksum = secret[19];
-
 			OnPropertyChanged("Hero");
 			OnPropertyChanged("Child");
 			OnPropertyChanged("GameID");
@@ -316,10 +319,16 @@ namespace Zyrenth.OracleHack
 		public void LoadRings(byte[] secret, bool appendRings)
 		{
 			if (secret == null || secret.Length != 15)
-				throw new ArgumentException("Secret must contatin exactly 15 bytes", "secret");
+				throw new InvalidSecretException("Secret must contatin exactly 15 bytes");
 
 			byte[] decodedBytes = DecodeBytes(secret);
 			string decodedSecret = BytesToString(decodedBytes);
+
+			byte[] clonedBytes = (byte[])decodedBytes.Clone();
+			clonedBytes[14] = 0;
+			var checksum = CalculateChecksum(clonedBytes);
+			if ((decodedBytes[14] & 7) != (checksum & 7))
+				throw new InvalidSecretException("Checksum does not match expected value");
 
 			bool isRingCode = decodedSecret[4] == '1';
 
@@ -328,6 +337,8 @@ namespace Zyrenth.OracleHack
 			//	throw new ArgumentException("The specified data is not a ring code", "secret");
 
 			short gameId = Convert.ToInt16(decodedSecret.ReversedSubstring(5, 15), 2);
+			if (_gameId != gameId)
+				throw new InvalidSecretException("The specified secret is not for this Game ID");
 
 			ulong rings = Convert.ToUInt64(
 				decodedSecret.ReversedSubstring(36, 8) +
@@ -348,14 +359,12 @@ namespace Zyrenth.OracleHack
 
 			OnPropertyChanged("Rings");
 
-			// TODO: Validate checksum
-			byte checksum = secret[14];
 		}
 
 		public Memory ReadMemorySecret(byte[] secret)
 		{
 			if (secret == null || secret.Length != 5)
-				throw new ArgumentException("Secret must contatin exactly 5 bytes", "secret");
+				throw new InvalidSecretException("Secret must contatin exactly 5 bytes");
 
 			byte[] decodedBytes = DecodeBytes(secret);
 			string decodedSecret = BytesToString(decodedBytes);
@@ -365,9 +374,9 @@ namespace Zyrenth.OracleHack
 
 			byte memoryCode = Convert.ToByte(decodedSecret.ReversedSubstring(20, 4), 2);
 
-			// TODO: Figure out what all the unknown values are for.
+			// Signifies a memory secret
 			bool unknown1 = decodedSecret[3] == '1';
-			bool unknown2 = decodedSecret[4] == '0';
+			bool unknown2 = decodedSecret[4] == '1';
 
 			// TODO: Checksum
 			byte checksum = secret[4];
@@ -480,17 +489,8 @@ namespace Zyrenth.OracleHack
 				cipher = isReturnSecret ? 3 : 0;
 			else
 				cipher = isReturnSecret ? 1 : 2;
-			int mask = 0x0F;
-
-			if (Game == Game.Ages)
-				mask = isReturnSecret ? 0 : 3;
-			else
-				mask = isReturnSecret ? 2 : 1;
-
-			mask = 0x0F | (mask << 4);
-
+			
 			cipher |= ((byte)memory & 1) << 2;
-
 			cipher = ((_gameId >> 8) + (_gameId & 255) + cipher) & 7;
 			cipher = Convert.ToInt32(Convert.ToString(cipher, 2).PadLeft(3, '0').Reverse(), 2);
 
@@ -501,6 +501,12 @@ namespace Zyrenth.OracleHack
 			unencodedSecret += Convert.ToString(_gameId, 2).PadLeft(15, '0').Reverse();
 			unencodedSecret += Convert.ToString((byte)memory, 2).PadLeft(4, '0').Reverse();
 
+			int mask = 0x0F;
+
+			if (Game == Game.Ages)
+				mask = isReturnSecret ? 0x0F : 0x3F;
+			else
+				mask = isReturnSecret ? 0x2F : 0x1F;
 			byte[] unencodedBytes = StringToBytes(unencodedSecret);
 			unencodedBytes[4] = CalculateChecksum(unencodedBytes, (byte)mask);
 			byte[] secret = EncodeBytes(unencodedBytes);
@@ -566,6 +572,7 @@ namespace Zyrenth.OracleHack
 				return serializer.Deserialize<GameInfo>(jreader);
 			}
 		}
+
 		#endregion // File Saving/Loading methods
 	}
 }

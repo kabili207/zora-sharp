@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.IO;
@@ -19,6 +18,13 @@ namespace Zyrenth.OracleHack
 				yield return (b & 0x80) != 0;
 				b *= 2;
 			}
+		}
+
+		public static T Clamp<T>(this T val, T min, T max) where T : IComparable<T>
+		{
+			if (val.CompareTo(min) < 0) return min;
+			else if (val.CompareTo(max) > 0) return max;
+			else return val;
 		}
 
 		public static string Reverse(this string value)

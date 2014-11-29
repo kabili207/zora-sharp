@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Drawing;
 using System.Linq;
 using System.Text;
 
@@ -11,7 +10,6 @@ namespace Zyrenth.OracleHack
 	{
 		public string name;
 		public string description;
-		public Bitmap image;
 
 		public RingInfoAttribute(string name, string description)
 		{
