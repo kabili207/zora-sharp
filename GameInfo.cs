@@ -208,21 +208,40 @@ namespace Zyrenth.OracleHack
 			return parser;
 		}
 
+		private byte CalculateChecksum(byte[] secret, byte mask = 0x0F)
+		{
+			byte sum = (byte)secret.Sum(x => x);
+			int checksum = sum & mask;
+			return (byte)checksum;
+		}
+
 		#region Secret parsing logic
 
-		private string DecodeBytes(byte[] secret)
+		private string BytesToString(byte[] secret)
 		{
-			CurrXor = (byte)((secret[0] >> 3) * 4);
-
-			byte currentByte = 0;
 			string data = "";
 			foreach (byte b in secret)
 			{
-				currentByte = (byte)(b ^ Cipher[CurrXor++]);
-				data += Convert.ToString(currentByte, 2).PadLeft(6, '0');
+				data += Convert.ToString(b, 2).PadLeft(6, '0');
+			}
+			return data;
+		}
+
+		private byte[] DecodeBytes(byte[] secret)
+		{
+			int cipherKey = (secret[0] >> 3);
+			CurrXor = (byte)(cipherKey * 4);
+
+			byte[] decodedBytes = new byte[secret.Length];
+
+			for (int i = 0; i < secret.Length - 2; ++i )
+			{
+				decodedBytes[i] = (byte)(secret[i] ^ Cipher[CurrXor++]);
 			}
 
-			return data;
+			decodedBytes[0] = (byte)(decodedBytes[0] & 7 | (cipherKey << 3));
+
+			return decodedBytes;
 		}
 
 		/// <summary>
@@ -234,7 +253,8 @@ namespace Zyrenth.OracleHack
 			if (secret == null || secret.Length != 20)
 				throw new ArgumentException("Secret must contatin exactly 20 bytes", "secret");
 
-			string decodedSecret = DecodeBytes(secret);
+			byte[] decodedBytes = DecodeBytes(secret);
+			string decodedSecret = BytesToString(decodedBytes);
 
 			_gameId = Convert.ToInt16(decodedSecret.ReversedSubstring(5, 15), 2);
 
@@ -298,7 +318,8 @@ namespace Zyrenth.OracleHack
 			if (secret == null || secret.Length != 15)
 				throw new ArgumentException("Secret must contatin exactly 15 bytes", "secret");
 
-			string decodedSecret = DecodeBytes(secret);
+			byte[] decodedBytes = DecodeBytes(secret);
+			string decodedSecret = BytesToString(decodedBytes);
 
 			bool isRingCode = decodedSecret[4] == '1';
 
@@ -333,7 +354,8 @@ namespace Zyrenth.OracleHack
 			if (secret == null || secret.Length != 5)
 				throw new ArgumentException("Secret must contatin exactly 5 bytes", "secret");
 
-			string decodedSecret = DecodeBytes(secret);
+			byte[] decodedBytes = DecodeBytes(secret);
+			string decodedSecret = BytesToString(decodedBytes);
 
 			short gameId = Convert.ToInt16(decodedSecret.ReversedSubstring(5, 15), 2);
 
@@ -355,40 +377,37 @@ namespace Zyrenth.OracleHack
 
 		#region Secret generation logic
 
-		private byte[] EncodeBytes(string data)
+		private byte[] StringToBytes(string data)
 		{
-			int cipher = ((_gameId >> 8) + (_gameId & 255)) & 7;
-			cipher = Convert.ToInt32(Convert.ToString(cipher, 2).PadLeft(3, '0').Reverse(), 2);
-			return EncodeBytes(data, cipher);
-		}
-
-		private byte[] EncodeBytes(string data, int cipher)
-		{
-			CurrXor = (byte)(cipher * 4);
-
 			byte[] secret = new byte[data.Length / 6 + 1];
 			for (int i = 0; i < secret.Length - 1; ++i)
 			{
-				secret[i] = (byte)(Convert.ToByte(data.Substring(i * 6, 6), 2) ^ Cipher[CurrXor++]);
+				secret[i] = (byte)(Convert.ToByte(data.Substring(i * 6, 6), 2));
+			}
+			return secret;
+		}
+
+		private byte[] EncodeBytes(byte[] data)
+		{
+			int cipherKey = (data[0] >> 3);
+			CurrXor = (byte)(cipherKey * 4);
+
+			byte[] secret = new byte[data.Length];
+			for (int i = 0; i < data.Length; ++i)
+			{
+				secret[i] = (byte)(data[i] ^ Cipher[CurrXor++]);
 			}
 
-			byte currentByte = secret[0];
-			SetBit(ref currentByte, 5, GetBit(cipher, 2));
-			SetBit(ref currentByte, 4, GetBit(cipher, 1));
-			SetBit(ref currentByte, 3, GetBit(cipher, 0));
-			secret[0] = currentByte;
-
+			secret[0] = (byte)(secret[0] & 7 | (cipherKey << 3));
 			return secret;
 		}
 
 		public byte[] CreateGameSecret()
 		{
-			byte[] secret = new byte[20];
+			int cipherKey = ((_gameId >> 8) + (_gameId & 255)) & 7;
+			string unencodedSecret = Convert.ToString(cipherKey, 2).PadLeft(3, '0').Reverse();
 
-			string unencodedSecret = "000";
-
-			unencodedSecret += "0"; // unknown 1
-			unencodedSecret += "0"; // game = 0
+			unencodedSecret += "00"; // game = 0
 
 			unencodedSecret += Convert.ToString(_gameId, 2).PadLeft(15, '0').Reverse();
 			unencodedSecret += Quest == OracleHack.Quest.LinkedGame ? "0" : "1";
@@ -408,13 +427,13 @@ namespace Zyrenth.OracleHack
 			unencodedSecret += "1"; // unknown 5
 			unencodedSecret += Convert.ToString((byte)_hero[4], 2).PadLeft(8, '0').Reverse();
 			unencodedSecret += Convert.ToString((byte)_child[3], 2).PadLeft(8, '0').Reverse();
-			unencodedSecret += "1"; // unknown 6
+			unencodedSecret += Quest == OracleHack.Quest.LinkedGame ? "1" : "0";
 			unencodedSecret += Convert.ToString((byte)_child[4], 2).PadLeft(8, '0').Reverse();
 
-			secret = EncodeBytes(unencodedSecret);
+			byte[] unencodedBytes = StringToBytes(unencodedSecret);
+			unencodedBytes[19] = CalculateChecksum(unencodedBytes);
+			byte[] secret = EncodeBytes(unencodedBytes);
 			
-			// TODO: Calculate the checksum
-			secret[19] = 255;
 			return secret;
 		}
 
@@ -429,10 +448,10 @@ namespace Zyrenth.OracleHack
 			byte ring7 = (byte)(_rings >> 48);
 			byte ring8 = (byte)(_rings >> 56);
 
-			string unencodedSecret = "000";
+			int cipherKey = ((_gameId >> 8) + (_gameId & 255)) & 7;
+			string unencodedSecret = Convert.ToString(cipherKey, 2).PadLeft(3, '0').Reverse();
 
-			unencodedSecret += "0"; // unknown 1
-			unencodedSecret += "1"; // game = 0
+			unencodedSecret += "01"; // ring secret
 
 			unencodedSecret += Convert.ToString(_gameId, 2).PadLeft(15, '0').Reverse();
 			unencodedSecret += Convert.ToString(ring2, 2).PadLeft(8, '0').Reverse();
@@ -444,10 +463,10 @@ namespace Zyrenth.OracleHack
 			unencodedSecret += Convert.ToString(ring3, 2).PadLeft(8, '0').Reverse();
 			unencodedSecret += Convert.ToString(ring7, 2).PadLeft(8, '0').Reverse();
 
-			byte[] secret = EncodeBytes(unencodedSecret);
+			byte[] unencodedBytes = StringToBytes(unencodedSecret);
+			unencodedBytes[14] = CalculateChecksum(unencodedBytes);
+			byte[] secret = EncodeBytes(unencodedBytes);
 
-			// TODO: Calculate the checksum
-			secret[14] = 255;
 			return secret;
 		}
 
@@ -458,23 +477,25 @@ namespace Zyrenth.OracleHack
 				cipher = isReturnSecret ? 3 : 0;
 			else
 				cipher = isReturnSecret ? 1 : 2;
+
+			int mask = 0x0F | (cipher << 4);
+
 			cipher |= ((byte)memory & 1) << 2;
 
 			cipher = ((_gameId >> 8) + (_gameId & 255) + cipher) & 7;
 			cipher = Convert.ToInt32(Convert.ToString(cipher, 2).PadLeft(3, '0').Reverse(), 2);
 
-			string unencodedSecret = "000";
+			string unencodedSecret = Convert.ToString(cipher, 2).PadLeft(3, '0');
 
-			unencodedSecret += "1"; // unknown 1
-			unencodedSecret += "1"; // unknown 2
+			unencodedSecret += "11"; // memory secret
 
 			unencodedSecret += Convert.ToString(_gameId, 2).PadLeft(15, '0').Reverse();
 			unencodedSecret += Convert.ToString((byte)memory, 2).PadLeft(4, '0').Reverse();
 
-			byte[] secret = EncodeBytes(unencodedSecret, cipher);
+			byte[] unencodedBytes = StringToBytes(unencodedSecret);
+			unencodedBytes[4] = CalculateChecksum(unencodedBytes, (byte)mask);
+			byte[] secret = EncodeBytes(unencodedBytes);
 
-			// TODO: Calculate the checksum
-			secret[4] = 255;
 			return secret;
 		}
 
