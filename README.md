@@ -17,4 +17,4 @@ A decoder for the password system used in the Legend of Zelda Oracle of Ages and
 ### Special Thanks
  * Paulygon - Created the [original secret generator](http://home.earthlink.net/~paul3/zeldagbc.html) way back in 2001
  * 39ster - Rediscovered [how to decode game secrets](http://www.gamefaqs.com/boards/472313-the-legend-of-zelda-oracle-of-ages/66934363) using paulygon's program
- * [LunarCookies](https://github.com/LunarCookies) - Discovered the correct cipher logic used to generate secrets
+ * [LunarCookies](https://github.com/LunarCookies) - Discovered the correct cipher and checksum logic used to generate secrets

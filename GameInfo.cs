@@ -313,7 +313,7 @@ namespace Zyrenth.OracleHack
 		/// Sets the <see cref="Rings"/> property using the specified secret
 		/// </summary>
 		/// <param name="secret">The raw secret data</param>
-		public void LoadRings(byte[] secret)
+		public void LoadRings(byte[] secret, bool appendRings)
 		{
 			if (secret == null || secret.Length != 15)
 				throw new ArgumentException("Secret must contatin exactly 15 bytes", "secret");
@@ -329,7 +329,7 @@ namespace Zyrenth.OracleHack
 
 			short gameId = Convert.ToInt16(decodedSecret.ReversedSubstring(5, 15), 2);
 
-			_rings = Convert.ToUInt64(
+			ulong rings = Convert.ToUInt64(
 				decodedSecret.ReversedSubstring(36, 8) +
 				decodedSecret.ReversedSubstring(76, 8) +
 				decodedSecret.ReversedSubstring(28, 8) +
@@ -339,6 +339,9 @@ namespace Zyrenth.OracleHack
 				decodedSecret.ReversedSubstring(20, 8) +
 				decodedSecret.ReversedSubstring(52, 8)
 				, 2);
+			if (appendRings)
+				rings |= _rings;
+			_rings = rings;
 
 			// TODO: Figure out what all the unknown values are for.
 			bool unknown1 = decodedSecret[3] == '1';
@@ -506,72 +509,7 @@ namespace Zyrenth.OracleHack
 		}
 
 		#endregion // Secret generation logic
-
-		#region Bit manipulation helpers
-
-		// TODO: Consider moving these to a separate class
-
-		public static bool GetBit(byte b, int bitNumber)
-		{
-			return (b & (1 << bitNumber)) != 0;
-		}
-
-		public static bool GetBit(short b, int bitNumber)
-		{
-			return (b & (1 << bitNumber)) != 0;
-		}
-
-		public static bool GetBit(int b, int bitNumber)
-		{
-			return (b & (1 << bitNumber)) != 0;
-		}
-
-		public static bool GetBit(char b, int bitNumber)
-		{
-			return (b & (1 << bitNumber)) != 0;
-		}
-
-		public static bool GetBit(string b, int charNumber, int bitNumber)
-		{
-			byte[] chars = System.Text.Encoding.ASCII.GetBytes(b);
-			return GetBit(chars[charNumber], bitNumber);
-		}
-
-		public static void SetBit(ref byte b, int bitNumber, bool value)
-		{
-			if (value)
-				b = (byte)((1 << bitNumber) | b);
-			else
-				b = (byte)((byte.MaxValue ^ (1 << bitNumber)) & b);
-		}
-
-		public static void SetBit(ref short b, int bitNumber, bool value)
-		{
-			if (value)
-				b = (short)((1 << bitNumber) | (ushort)b);
-			else
-				b = (short)((ushort.MaxValue ^ (1 << bitNumber)) & (ushort)b);
-		}
-
-		public static void SetBit(ref char b, int bitNumber, bool value)
-		{
-			if (value)
-				b = (char)((1 << bitNumber) | b);
-			else
-				b = (char)((char.MaxValue ^ (1 << bitNumber)) & b);
-		}
-
-		public static void SetBit(ref string b, int charNumber, int bitNumber, bool value)
-		{
-			byte[] chars = System.Text.Encoding.ASCII.GetBytes(b);
-			byte c = chars[charNumber];
-			SetBit(ref c, bitNumber, value);
-			chars[charNumber] = c;
-			b = System.Text.Encoding.ASCII.GetString(chars);
-		}
-
-		#endregion // Bit manipulation helpers
-
+		
 		#region File Saving/Loading methods
 
 		/// <summary>
