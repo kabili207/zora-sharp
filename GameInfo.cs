@@ -212,10 +212,10 @@ namespace Zyrenth.OracleHack
 			return parser;
 		}
 
-		private byte CalculateChecksum(byte[] secret, byte mask = 0x0F)
+		private byte CalculateChecksum(byte[] secret)
 		{
 			byte sum = (byte)secret.Sum(x => x);
-			int checksum = sum & mask;
+			int checksum = sum & 0x0F;
 			return (byte)checksum;
 		}
 
@@ -494,7 +494,7 @@ namespace Zyrenth.OracleHack
 			else
 				cipher = isReturnSecret ? 1 : 2;
 
-			cipher |= ((byte)memory & 1) << 2;
+			cipher |= (((byte)memory & 1) << 2);
 			cipher = ((_gameId >> 8) + (_gameId & 255) + cipher) & 7;
 			cipher = Convert.ToInt32(Convert.ToString(cipher, 2).PadLeft(3, '0').Reverse(), 2);
 
@@ -505,14 +505,14 @@ namespace Zyrenth.OracleHack
 			unencodedSecret += Convert.ToString(_gameId, 2).PadLeft(15, '0').Reverse();
 			unencodedSecret += Convert.ToString((byte)memory, 2).PadLeft(4, '0').Reverse();
 
-			int mask = 0x0F;
+			int mask = 0;
 
 			if (Game == Game.Ages)
-				mask = isReturnSecret ? 0x0F : 0x3F;
+				mask = isReturnSecret ? 3 : 0;
 			else
-				mask = isReturnSecret ? 0x2F : 0x1F;
+				mask = isReturnSecret ? 2 : 1;
 			byte[] unencodedBytes = StringToBytes(unencodedSecret);
-			unencodedBytes[4] = CalculateChecksum(unencodedBytes, (byte)mask);
+			unencodedBytes[4] = (byte)(CalculateChecksum(unencodedBytes) | (mask << 4));
 			byte[] secret = EncodeBytes(unencodedBytes);
 
 			return secret;
