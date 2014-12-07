@@ -5,14 +5,13 @@ A decoder for the password system used in the Legend of Zelda Oracle of Ages and
 ### Features
 
  * Decodes game and ring secrets
- * Partially generates game, ring, and memory secrets
+ * Generates game, ring, and memory secrets
  * Allows the user to save the decoded game information for later use
 
 ### TODO
 
  * Include a debugging screen to get raw information about secrets
  * Finish GTK interface for Linux users
- * Determine logic used for checksums
 
 ### Special Thanks
  * Paulygon - Created the [original secret generator](http://home.earthlink.net/~paul3/zeldagbc.html) way back in 2001

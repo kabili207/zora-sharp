@@ -45,7 +45,7 @@
     <Compile Include="GameInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="libs\Newtonsoft.Json.dll" />
+    <None Include="libs\Newtonsoft.Json.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

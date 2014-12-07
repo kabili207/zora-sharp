@@ -14,7 +14,7 @@ namespace Zyrenth.OracleHack
 
 		}
 
-		public static VbaGameInfo Load(Stream fsSource)
+		public static new VbaGameInfo Load(Stream fsSource)
 		{
 			VbaGameInfo info = new VbaGameInfo();
 
