@@ -41,7 +41,7 @@ namespace Zyrenth.OracleHack
 		// JSON.Net has problems serializing the rings if it's an enum,
 		// so we have to put the attribute here instead
 		[JsonProperty("Rings")]
-		ulong _rings = 0L;
+		long _rings = 0L;
 
 		[NonSerialized]
 		byte _currXor = 0;
@@ -172,7 +172,7 @@ namespace Zyrenth.OracleHack
 			get { return (Rings)_rings; }
 			set
 			{
-				_rings = (ulong)value;
+				_rings = (long)value;
 				OnPropertyChanged("Rings");
 			}
 		}
@@ -344,7 +344,7 @@ namespace Zyrenth.OracleHack
 			if (_gameId != gameId)
 				throw new InvalidSecretException("The specified secret is not for this Game ID");
 
-			ulong rings = Convert.ToUInt64(
+			long rings = unchecked((long)Convert.ToUInt64(
 				decodedSecret.ReversedSubstring(36, 8) +
 				decodedSecret.ReversedSubstring(76, 8) +
 				decodedSecret.ReversedSubstring(28, 8) +
@@ -353,7 +353,7 @@ namespace Zyrenth.OracleHack
 				decodedSecret.ReversedSubstring(68, 8) +
 				decodedSecret.ReversedSubstring(20, 8) +
 				decodedSecret.ReversedSubstring(52, 8)
-				, 2);
+				, 2));
 			if (appendRings)
 				rings |= _rings;
 			_rings = rings;

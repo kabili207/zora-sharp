@@ -78,10 +78,10 @@ namespace Zyrenth.OracleHack
 	}
 
 	[Flags]
-	public enum Rings : ulong
+	public enum Rings : long
 	{
 		None = 0,
-		All = UInt64.MaxValue,
+		All = unchecked((long)UInt64.MaxValue),
 		[RingInfo("Friendship Ring", "Symbol of a meeting")]
 		FriendshipRing = 0x1L,
 		[RingInfo("Power Ring L-1", "Sword damage ▲\nDamage taken ▲")]
@@ -209,6 +209,6 @@ namespace Zyrenth.OracleHack
 		[RingInfo("Whimsical Ring", "Sword damage ▼ Sometimes deadly")]
 		WhimsicalRing = 0x4000000000000000L,
 		[RingInfo("Protection Ring", "Damage taken is always one Heart")]
-		ProtectionRing = 0x8000000000000000L
+		ProtectionRing = unchecked((long)0x8000000000000000L)
 	}
 }
