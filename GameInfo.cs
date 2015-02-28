@@ -35,8 +35,9 @@ namespace Zyrenth.OracleHack
 		short _gameId = 0;
 		byte _behavior = 0;
 		byte _animal = 0;
-		byte _linkedHeros = 0;
 		byte _agesSeasons = 0;
+		bool _isHeroQuest = false;
+		bool _isLinkedGame = false;
 
 		// JSON.Net has problems serializing the rings if it's an enum,
 		// so we have to put the attribute here instead
@@ -74,15 +75,26 @@ namespace Zyrenth.OracleHack
 		/// <summary>
 		/// Gets or sets the Quest type used for this user data
 		/// </summary>
-		[JsonProperty("QuestType")]
-		[JsonConverter(typeof(StringEnumConverter))]
-		public Quest Quest
+		public bool IsHeroQuest
 		{
-			get { return (Quest)_linkedHeros; }
+			get { return _isHeroQuest; }
 			set
 			{
-				_linkedHeros = (byte)value;
-				OnPropertyChanged("Quest");
+				_isHeroQuest = value;
+				OnPropertyChanged("IsHeroQuest");
+			}
+		}
+
+		/// <summary>
+		/// Gets or sets the Quest type used for this user data
+		/// </summary>
+		public bool IsLinkedGame
+		{
+			get { return _isLinkedGame; }
+			set
+			{
+				_isLinkedGame = value;
+				OnPropertyChanged("IsLinkedGame");
 			}
 		}
 
@@ -274,8 +286,9 @@ namespace Zyrenth.OracleHack
 			//if(!isGameCode)
 			//	throw new ArgumentException("The specified data is not a game code", "secret");
 
-			_linkedHeros = (byte)(decodedSecret[20] == '1' ? 1 : 0);
+			_isHeroQuest = decodedSecret[20] == '1';
 			_agesSeasons = (byte)(decodedSecret[21] == '1' ? 1 : 0);
+			_isLinkedGame = decodedSecret[106] == '1';
 
 
 			_hero = System.Text.Encoding.ASCII.GetString(new byte[] {
@@ -313,7 +326,8 @@ namespace Zyrenth.OracleHack
 			OnPropertyChanged("Animal");
 			OnPropertyChanged("Behavior");
 			OnPropertyChanged("Game");
-			OnPropertyChanged("Quest");
+			OnPropertyChanged("IsLinkedGame");
+			OnPropertyChanged("IsHeroQuest");
 		}
 
 		/// <summary>
@@ -426,7 +440,7 @@ namespace Zyrenth.OracleHack
 			unencodedSecret += "00"; // game = 0
 
 			unencodedSecret += Convert.ToString(_gameId, 2).PadLeft(15, '0').Reverse();
-			unencodedSecret += Quest == OracleHack.Quest.LinkedGame ? "0" : "1";
+			unencodedSecret += _isHeroQuest ? "1" : "0";
 			unencodedSecret += Game == OracleHack.Game.Ages ? "0" : "1";
 			unencodedSecret += Convert.ToString((byte)_hero[0], 2).PadLeft(8, '0').Reverse();
 			unencodedSecret += Convert.ToString((byte)_child[0], 2).PadLeft(8, '0').Reverse();
@@ -443,7 +457,7 @@ namespace Zyrenth.OracleHack
 			unencodedSecret += "1"; // unknown 5
 			unencodedSecret += Convert.ToString((byte)_hero[4], 2).PadLeft(8, '0').Reverse();
 			unencodedSecret += Convert.ToString((byte)_child[3], 2).PadLeft(8, '0').Reverse();
-			unencodedSecret += Quest == OracleHack.Quest.LinkedGame ? "1" : "0";
+			unencodedSecret += _isLinkedGame ? "1" : "0";
 			unencodedSecret += Convert.ToString((byte)_child[4], 2).PadLeft(8, '0').Reverse();
 
 			byte[] unencodedBytes = StringToBytes(unencodedSecret);
