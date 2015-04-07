@@ -1,4 +1,24 @@
-﻿using System;
+﻿/*
+ *  Copyright © 2013-2015, Andrew Nagle.
+ *  All rights reserved.
+ *
+ *  This file is part of OracleHack.
+ *
+ *  OracleHack is free software: you can redistribute it and/or modify
+ *  it under the terms of the GNU Lesser General Public License as
+ *  published by the Free Software Foundation, either version 3 of the
+ *  License, or (at your option) any later version.
+ *
+ *  OracleHack is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU Lesser General Public License for more details.
+ *
+ *  You should have received a copy of the GNU Lesser General Public
+ *  License along with OracleHack. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+using System;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 
@@ -10,7 +30,7 @@ using System.Runtime.CompilerServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("OracleHack")]
-[assembly: AssemblyCopyright("Copyright © Andrew \"Kabili\" Nagle 2013 - 2014")]
+[assembly: AssemblyCopyright("Copyright © Andrew \"Kabili\" Nagle 2013 - 2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -20,7 +40,7 @@ using System.Runtime.CompilerServices;
 // The form "{Major}.{Minor}.*" will automatically update the build and revision,
 // and "{Major}.{Minor}.{Build}.*" will update just the revision.
 
-[assembly: AssemblyVersion("2.0.0.*")]
+[assembly: AssemblyVersion("2.1.0.*")]
 
 // The following attributes are used to specify the signing key for the assembly, 
 // if desired. See the Mono documentation for more information about signing.
@@ -28,5 +48,5 @@ using System.Runtime.CompilerServices;
 //[assembly: AssemblyDelaySign(false)]
 //[assembly: AssemblyKeyFile("")]
 
-[assembly: AssemblyInformationalVersion("2.0")]
+[assembly: AssemblyInformationalVersion("2.1")]
 
