@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 
 namespace Zyrenth.OracleHack
 {
@@ -16,6 +17,7 @@ namespace Zyrenth.OracleHack
 	[JsonObject(MemberSerialization.OptIn)]
 	public class GameInfo : INotifyPropertyChanged
 	{
+		#region Constants
 
 		private static readonly byte[] Cipher =
 		{ 
@@ -26,6 +28,26 @@ namespace Zyrenth.OracleHack
 			14, 27, 18, 44, 33, 45, 37, 48,
 			25, 42,  6, 57, 60, 23, 51, 24
 		};
+
+		private static readonly char[] Symbols = 
+		{
+			'B', 'D', 'F', 'G', 'H', 'J', 'L', 'M', '♠', '♥', '♦', '♣', '#',
+			'N', 'Q', 'R', 'S', 'T', 'W', 'Y', '!', '●', '▲', '■', '+', '-',
+			'b', 'd', 'f', 'g', 'h', 'j',      'm', '$', '*', '/', ':', '~',
+			'n', 'q', 'r', 's', 't', 'w', 'y', '?', '%', '&', '(', '=', ')',
+			'2', '3', '4', '5', '6', '7', '8', '9', '↑', '↓', '←', '→', '@'
+		};
+
+		private static readonly Dictionary<string, string> SymbolRegexes =
+			new Dictionary<string, string> {
+			{ @"\{?spade\}?", "♠"}, { @"\{?heart\}?", "♥" }, { @"\{?diamond\}?", "♦" },
+			{ @"\{?club\}?", "♣" }, { @"\{?circle\}?", "●"}, { @"\{?triangle\}?", "▲" },
+			{ @"\{?square\}?", "■" }, { @"\{?up\}?", "↑" }, { @"\{?down\}?", "↓" },
+			{ @"\{?left\}?", "←" }, { @"\{?right\}?", "→" }, { "<", "(" }, { ">", ")" },
+			{ @"\w+", ""},
+		};
+
+		#endregion // Constants
 
 		#region Fields
 
@@ -221,13 +243,45 @@ namespace Zyrenth.OracleHack
 
 		#region Secret parsing logic
 
-		private string BytesToString(byte[] secret)
+		private string ByteArrayToBinaryString(byte[] secret)
 		{
 			string data = "";
 			foreach (byte b in secret)
 			{
 				data += Convert.ToString(b, 2).PadLeft(6, '0');
 			}
+			return data;
+		}
+
+		/// <summary>
+		/// Converts a secret string into a byte array.
+		/// </summary>
+		/// <returns>The secret</returns>
+		/// <param name="secret">Secret.</param>
+		/// <remarks>
+		/// This method will accept secrets in the following formats:
+		///   →N♥Nh
+		///   right N heart N h
+		///   {right}N{heart}Nh
+		/// </remarks>
+		public byte[] SecretStringToByteArray(string secret)
+		{
+			foreach (var kvp in SymbolRegexes)
+			{
+				secret = Regex.Replace(secret, kvp.Key, kvp.Value, RegexOptions.IgnoreCase);
+			}
+			byte[] data = new byte[secret.Length];
+
+			int symbol = 0;
+			for (int i = 0; i < secret.Length; ++i)
+			{
+				symbol = Array.IndexOf(Symbols, secret[i]);
+				if (symbol < 0 || symbol > 63)
+					throw new InvalidSecretException("Secret contains invalid symbols");
+
+				data[i] = (byte)symbol;
+			}
+
 			return data;
 		}
 
@@ -258,7 +312,7 @@ namespace Zyrenth.OracleHack
 				throw new InvalidSecretException("Secret must contatin exactly 20 bytes");
 
 			byte[] decodedBytes = DecodeBytes(secret);
-			string decodedSecret = BytesToString(decodedBytes);
+			string decodedSecret = ByteArrayToBinaryString(decodedBytes);
 
 			byte[] clonedBytes = (byte[])decodedBytes.Clone();
 			clonedBytes[19] = 0;
@@ -320,13 +374,17 @@ namespace Zyrenth.OracleHack
 		/// Sets the <see cref="Rings"/> property using the specified secret
 		/// </summary>
 		/// <param name="secret">The raw secret data</param>
+		/// <param name="appendRings">
+		/// If true, this will add the rings contained in the secret to the
+		/// existings Rings. If false, it will overwrite them.
+		/// </param>
 		public void LoadRings(byte[] secret, bool appendRings)
 		{
 			if (secret == null || secret.Length != 15)
 				throw new InvalidSecretException("Secret must contatin exactly 15 bytes");
 
 			byte[] decodedBytes = DecodeBytes(secret);
-			string decodedSecret = BytesToString(decodedBytes);
+			string decodedSecret = ByteArrayToBinaryString(decodedBytes);
 
 			byte[] clonedBytes = (byte[])decodedBytes.Clone();
 			clonedBytes[14] = 0;
@@ -371,7 +429,7 @@ namespace Zyrenth.OracleHack
 				throw new InvalidSecretException("Secret must contatin exactly 5 bytes");
 
 			byte[] decodedBytes = DecodeBytes(secret);
-			string decodedSecret = BytesToString(decodedBytes);
+			string decodedSecret = ByteArrayToBinaryString(decodedBytes);
 
 			short gameId = Convert.ToInt16(decodedSecret.ReversedSubstring(5, 15), 2);
 
@@ -382,7 +440,7 @@ namespace Zyrenth.OracleHack
 			bool unknown1 = decodedSecret[3] == '1';
 			bool unknown2 = decodedSecret[4] == '1';
 
-			// TODO: Checksum
+			// TODO: Verify checksum
 			byte checksum = secret[4];
 
 			return (Memory)memoryCode;
@@ -393,7 +451,7 @@ namespace Zyrenth.OracleHack
 
 		#region Secret generation logic
 
-		private byte[] StringToBytes(string data)
+		private byte[] BinaryStringToByteArray(string data)
 		{
 			byte[] secret = new byte[data.Length / 6 + 1];
 			for (int i = 0; i < secret.Length - 1; ++i)
@@ -418,6 +476,10 @@ namespace Zyrenth.OracleHack
 			return secret;
 		}
 
+		/// <summary>
+		/// Creates a game secret
+		/// </summary>
+		/// <returns>The game secret</returns>
 		public byte[] CreateGameSecret()
 		{
 			int cipherKey = ((_gameId >> 8) + (_gameId & 255)) & 7;
@@ -446,13 +508,17 @@ namespace Zyrenth.OracleHack
 			unencodedSecret += Quest == OracleHack.Quest.LinkedGame ? "1" : "0";
 			unencodedSecret += Convert.ToString((byte)_child[4], 2).PadLeft(8, '0').Reverse();
 
-			byte[] unencodedBytes = StringToBytes(unencodedSecret);
+			byte[] unencodedBytes = BinaryStringToByteArray(unencodedSecret);
 			unencodedBytes[19] = CalculateChecksum(unencodedBytes);
 			byte[] secret = EncodeBytes(unencodedBytes);
 
 			return secret;
 		}
 
+		/// <summary>
+		/// Creates the ring secret.
+		/// </summary>
+		/// <returns>The ring secret.</returns>
 		public byte[] CreateRingSecret()
 		{
 			byte ring1 = (byte)_rings;
@@ -479,13 +545,19 @@ namespace Zyrenth.OracleHack
 			unencodedSecret += Convert.ToString(ring3, 2).PadLeft(8, '0').Reverse();
 			unencodedSecret += Convert.ToString(ring7, 2).PadLeft(8, '0').Reverse();
 
-			byte[] unencodedBytes = StringToBytes(unencodedSecret);
+			byte[] unencodedBytes = BinaryStringToByteArray(unencodedSecret);
 			unencodedBytes[14] = CalculateChecksum(unencodedBytes);
 			byte[] secret = EncodeBytes(unencodedBytes);
 
 			return secret;
 		}
 
+		/// <summary>
+		/// Creates a secret for the specified <paramref name="memory"/>
+		/// </summary>
+		/// <returns>The memory secret.</returns>
+		/// <param name="memory">Memory.</param>
+		/// <param name="isReturnSecret">If set to <c>true</c> is return secret.</param>
 		public byte[] CreateMemorySecret(Memory memory, bool isReturnSecret)
 		{
 			int cipher = 0;
@@ -511,7 +583,7 @@ namespace Zyrenth.OracleHack
 				mask = isReturnSecret ? 3 : 0;
 			else
 				mask = isReturnSecret ? 2 : 1;
-			byte[] unencodedBytes = StringToBytes(unencodedSecret);
+			byte[] unencodedBytes = BinaryStringToByteArray(unencodedSecret);
 			unencodedBytes[4] = (byte)(CalculateChecksum(unencodedBytes) | (mask << 4));
 			byte[] secret = EncodeBytes(unencodedBytes);
 
