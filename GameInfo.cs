@@ -64,7 +64,7 @@ namespace Zyrenth.OracleHack
 			{ @"\{?club\}?", "♣" }, { @"\{?circle\}?", "●"}, { @"\{?triangle\}?", "▲" },
 			{ @"\{?square\}?", "■" }, { @"\{?up\}?", "↑" }, { @"\{?down\}?", "↓" },
 			{ @"\{?left\}?", "←" }, { @"\{?right\}?", "→" }, { "<", "(" }, { ">", ")" },
-			{ @"\w+", ""},
+			{ @"\s+", ""},
 		};
 
 		#endregion // Constants
@@ -296,7 +296,7 @@ namespace Zyrenth.OracleHack
 		///   right N heart N h
 		///   {right}N{heart}Nh
 		/// </remarks>
-		public byte[] SecretStringToByteArray(string secret)
+		public static byte[] SecretStringToByteArray(string secret)
 		{
 			foreach (var kvp in SymbolRegexes)
 			{
@@ -315,6 +315,24 @@ namespace Zyrenth.OracleHack
 			}
 
 			return data;
+		}
+
+		/// <summary>
+		/// Creates a string representation of a secret byte array.
+		/// </summary>
+		/// <param name="data">The secret data</param>
+		/// <returns>A representation of the secret data</returns>
+		/// <remarks>This method always returns the secret formatted as →N♥Nh</remarks>
+		public static string ByteArrayToSecretString(byte[] data)
+		{
+			StringBuilder sBuilder = new StringBuilder();
+			for (int i = 0; i < data.Length; ++i)
+			{
+				sBuilder.Append(Symbols[data[i]]);
+				if (i % 5 == 4)
+					sBuilder.Append(" ");
+			}
+			return sBuilder.ToString().Trim();
 		}
 
 		private byte[] DecodeBytes(byte[] secret)
