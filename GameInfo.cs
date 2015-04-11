@@ -72,8 +72,8 @@ namespace Zyrenth.OracleHack
 		#region Fields
 
 
-		string _hero = "     ";
-		string _child = "     ";
+		string _hero = "\0\0\0\0\0";
+		string _child = "\0\0\0\0\0";
 		short _gameId = 0;
 		byte _behavior = 0;
 		byte _animal = 0;
@@ -164,7 +164,7 @@ namespace Zyrenth.OracleHack
 			set
 			{
 				if (string.IsNullOrWhiteSpace(value))
-					_hero = "    ";
+					_hero = "\0\0\0\0\0";
 				else
 					_hero = value.TrimEnd().PadRight(5, '\0');
 				OnPropertyChanged("Hero");
@@ -181,7 +181,7 @@ namespace Zyrenth.OracleHack
 			set
 			{
 				if (string.IsNullOrWhiteSpace(value))
-					_child = "    ";
+					_child = "\0\0\0\0\0";
 				else
 					_child = value.TrimEnd().PadRight(5, '\0');
 				OnPropertyChanged("Child");
