@@ -117,6 +117,7 @@ namespace Zyrenth.OracleHack
 		/// <summary>
 		/// Gets or sets the Quest type used for this user data
 		/// </summary>
+		[JsonProperty]
 		public bool IsHeroQuest
 		{
 			get { return _isHeroQuest; }
@@ -130,6 +131,7 @@ namespace Zyrenth.OracleHack
 		/// <summary>
 		/// Gets or sets the Quest type used for this user data
 		/// </summary>
+		[JsonProperty]
 		public bool IsLinkedGame
 		{
 			get { return _isLinkedGame; }
@@ -664,7 +666,6 @@ namespace Zyrenth.OracleHack
 		/// <param name="stream">The stream to write to</param>
 		public void Write(Stream stream)
 		{
-			string json = JsonConvert.SerializeObject(this);
 			using (var swriter = new StreamWriter(stream))
 			using (var jwriter = new JsonTextWriter(swriter))
 			{
