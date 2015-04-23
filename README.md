@@ -1,4 +1,4 @@
-# OracleHack
+# OracleHack [![Build Status](https://travis-ci.org/kabili207/oracle-hack.svg?branch=master)](https://travis-ci.org/kabili207/oracle-hack)
 
 A library for working with the password system used in the Legend of Zelda Oracle of Ages and Oracle of Seasons games.
 Inspired by the [original password generator](http://home.earthlink.net/~paul3/zeldagbc.html) written by
