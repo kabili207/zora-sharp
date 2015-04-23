@@ -28,31 +28,14 @@ using System.Reflection;
 
 namespace Zyrenth.OracleHack
 {
-	public static class Extensions
+	internal static class Extensions
 	{
-		
-		public static IEnumerable<bool> GetBits(this byte b)
-		{
-			for (int i = 0; i < 8; i++)
-			{
-				yield return (b & 0x80) != 0;
-				b *= 2;
-			}
-		}
-
-		public static T Clamp<T>(this T val, T min, T max) where T : IComparable<T>
-		{
-			if (val.CompareTo(min) < 0) return min;
-			else if (val.CompareTo(max) > 0) return max;
-			else return val;
-		}
-
-		public static string Reverse(this string value)
+		internal static string Reverse(this string value)
 		{
 			return new string(Enumerable.Reverse(value).ToArray());
 		}
 
-		public static string ReversedSubstring(this string value, int start, int length)
+		internal static string ReversedSubstring(this string value, int start, int length)
 		{
 			return new string(Enumerable.Reverse(value.Substring(start, length)).ToArray());
 		}

@@ -25,7 +25,7 @@ using System.Collections.Generic;
 
 namespace Zyrenth.OracleHack
 {
-	public class VbaGameInfo : GameInfo
+	internal class VbaGameInfo : GameInfo
 	{
 
 		public VbaGameInfo()

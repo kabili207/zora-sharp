@@ -36,21 +36,6 @@ namespace Zyrenth.OracleHack
 	}
 
 	/// <summary>
-	/// Represents the type of game quest
-	/// </summary>
-	public enum Quest
-	{
-		/// <summary>
-		/// A continuation 
-		/// </summary>
-		LinkedGame = 0,
-		/// <summary>
-		/// This is game started using the secret given at the end of a LinkedGame
-		/// </summary>
-		HerosSecret = 1
-	}
-
-	/// <summary>
 	/// Represents the animal friend
 	/// </summary>
 	public enum Animal : byte
