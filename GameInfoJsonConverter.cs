@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Dynamic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Web.Script.Serialization;
 
@@ -26,21 +27,9 @@ namespace Zyrenth.OracleHack
 			info.IsLinkedGame = ReadValue<bool>(dictionary, "IsLinkedGame");
 			info.GameID = ReadValue<short>(dictionary, "GameID");
 			info.Rings = (Rings)ReadValue<long>(dictionary, "Rings");
-
-			var sGame = ReadValue<string>(dictionary, "Game");
-			var sAnimal = ReadValue<string>(dictionary, "Animal");
-			var sBehavior = ReadValue<string>(dictionary, "Behavior");
-
-			Game game;
-			if (Enum.TryParse<Game>(sGame, out game))
-				info.Game = game;
-			Animal animal;
-			if (Enum.TryParse<Animal>(sAnimal, out animal))
-				info.Animal = animal;
-			ChildBehavior behavior;
-			if (Enum.TryParse<ChildBehavior>(sBehavior, out behavior))
-				info.Behavior = behavior;
-
+			info.Game = ReadValue<Game>(dictionary, "Game");
+			info.Animal = ReadValue<Animal>(dictionary, "Animal");
+			info.Behavior = ReadValue<ChildBehavior>(dictionary, "Behavior");
 
 			return info;
 
@@ -71,14 +60,38 @@ namespace Zyrenth.OracleHack
 		{
 			get
 			{
-				return new ReadOnlyCollection<Type>(new [] { typeof(GameInfo) });
+				return new[] { typeof(GameInfo) };
 			}
 		}
 
-		private static T ReadValue<T>(IDictionary<string, object>  dict, string key) where T: IConvertible
+		private static T ReadValue<T>(IDictionary<string, object> dict, string key) where T : IConvertible
 		{
+
 			object obj = dict[key];
-			return (T)Convert.ChangeType(obj, typeof(T));
+			Type type = typeof(T);
+			T val = default(T);
+
+			if (dict.ContainsKey(key))
+			{
+				if (type.IsEnum)
+				{
+					// The T constraints on our method conflict with those on Enum.TryParse<T>
+					// so we have to use some black magic instead.
+					MethodInfo method = typeof(Enum).GetMethod("TryParse",
+						new Type[] { typeof(string), type.MakeByRefType() });
+
+					var args = new object[] { ReadValue<string>(dict, key), default(T) };
+					method.Invoke(null, args);
+
+					val = (T)args[1];
+				}
+				else
+				{
+					val = (T)Convert.ChangeType(obj, type);
+				}
+			}
+
+			return val;
 		}
 
 	}
