@@ -18,8 +18,6 @@
  *  License along with OracleHack. If not, see <http://www.gnu.org/licenses/>.
  */
 
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -27,6 +25,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Web.Script.Serialization;
 
 namespace Zyrenth.OracleHack
 {
@@ -34,7 +33,6 @@ namespace Zyrenth.OracleHack
 	/// Represents the user data for an idividual game
 	/// </summary>
 	[Serializable]
-	[JsonObject(MemberSerialization.OptIn)]
 	public class GameInfo : INotifyPropertyChanged
 	{
 		#region Constants
@@ -80,10 +78,6 @@ namespace Zyrenth.OracleHack
 		byte _agesSeasons = 0;
 		bool _isHeroQuest = false;
 		bool _isLinkedGame = false;
-
-		// JSON.Net has problems serializing the rings if it's an enum,
-		// so we have to put the attribute here instead
-		[JsonProperty("Rings")]
 		long _rings = 0L;
 
 		[NonSerialized]
@@ -102,8 +96,6 @@ namespace Zyrenth.OracleHack
 		/// <summary>
 		/// Gets or sets the Game used for this user data
 		/// </summary>
-		[JsonProperty]
-		[JsonConverter(typeof(StringEnumConverter))]
 		public Game Game
 		{
 			get { return (Game)_agesSeasons; }
@@ -117,7 +109,6 @@ namespace Zyrenth.OracleHack
 		/// <summary>
 		/// Gets or sets the Quest type used for this user data
 		/// </summary>
-		[JsonProperty]
 		public bool IsHeroQuest
 		{
 			get { return _isHeroQuest; }
@@ -131,7 +122,6 @@ namespace Zyrenth.OracleHack
 		/// <summary>
 		/// Gets or sets the Quest type used for this user data
 		/// </summary>
-		[JsonProperty]
 		public bool IsLinkedGame
 		{
 			get { return _isLinkedGame; }
@@ -145,7 +135,6 @@ namespace Zyrenth.OracleHack
 		/// <summary>
 		/// Gets or sets the unique game ID 
 		/// </summary>
-		[JsonProperty]
 		public short GameID
 		{
 			get { return _gameId; }
@@ -159,7 +148,6 @@ namespace Zyrenth.OracleHack
 		/// <summary>
 		/// Gets or sets the hero's name
 		/// </summary>
-		[JsonProperty]
 		public string Hero
 		{
 			get { return _hero.Trim(' ', '\0'); }
@@ -176,7 +164,6 @@ namespace Zyrenth.OracleHack
 		/// <summary>
 		/// Gets or sets the child's name
 		/// </summary>
-		[JsonProperty]
 		public string Child
 		{
 			get { return _child.Trim(' ', '\0'); }
@@ -193,8 +180,6 @@ namespace Zyrenth.OracleHack
 		/// <summary>
 		/// Gets or sets the animal friend
 		/// </summary>
-		[JsonProperty]
-		[JsonConverter(typeof(StringEnumConverter))]
 		public Animal Animal
 		{
 			get { return (Animal)_animal; }
@@ -208,8 +193,6 @@ namespace Zyrenth.OracleHack
 		/// <summary>
 		/// Gets or set the behavior of the child
 		/// </summary>
-		[JsonProperty]
-		[JsonConverter(typeof(StringEnumConverter))]
 		public ChildBehavior Behavior
 		{
 			get { return (ChildBehavior)_behavior; }
@@ -667,10 +650,11 @@ namespace Zyrenth.OracleHack
 		public void Write(Stream stream)
 		{
 			using (var swriter = new StreamWriter(stream))
-			using (var jwriter = new JsonTextWriter(swriter))
 			{
-				var serializer = new JsonSerializer();
-				serializer.Serialize(jwriter, this);
+				var serializer = new JavaScriptSerializer();
+				serializer.RegisterConverters(new [] { new GameInfoJsonConverter() });
+				string json = serializer.Serialize(this);
+				swriter.WriteLine(json);
 			}
 		}
 
@@ -695,10 +679,11 @@ namespace Zyrenth.OracleHack
 		public static GameInfo Load(Stream stream)
 		{
 			using (var sreader = new StreamReader(stream))
-			using (var jreader = new JsonTextReader(sreader))
 			{
-				var serializer = new JsonSerializer();
-				return serializer.Deserialize<GameInfo>(jreader);
+				string json = sreader.ReadToEnd();
+				var serializer = new JavaScriptSerializer();
+				serializer.RegisterConverters(new [] { new GameInfoJsonConverter() });
+				return serializer.Deserialize<GameInfo>(json);
 			}
 		}
 
