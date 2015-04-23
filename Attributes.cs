@@ -25,16 +25,31 @@ using System.Text;
 
 namespace Zyrenth.OracleHack
 {
+	/// <summary>
+	/// Provides additional information about a <see cref="Rings"/> value
+	/// </summary>
 	[AttributeUsage(AttributeTargets.Field)]
-	public class RingInfoAttribute : Attribute
+	public sealed class RingInfoAttribute : Attribute
 	{
-		public string name;
-		public string description;
+		/// <summary>
+		/// Gets or sets the ring name.
+		/// </summary>
+		public string Name { get; set; }
 
+		/// <summary>
+		/// Gets or sets the ring description.
+		/// </summary>
+		public string Description { get; set; }
+
+		/// <summary>
+		/// Initializes a new instance of the <see cref="RingInfoAttribute"/> class.
+		/// </summary>
+		/// <param name="name">The ring name.</param>
+		/// <param name="description">The ring description.</param>
 		public RingInfoAttribute(string name, string description)
 		{
-			this.name = name;
-			this.description = description;
+			this.Name = name;
+			this.Description = description;
 		}
 	}
 }

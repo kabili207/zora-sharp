@@ -30,14 +30,13 @@ using System.Web.Script.Serialization;
 namespace Zyrenth.OracleHack
 {
 	/// <summary>
-	/// Represents the user data for an idividual game
+	/// Represents the user data for an individual game
 	/// </summary>
 	[Serializable]
 	public class GameInfo : INotifyPropertyChanged
 	{
 
 		#region Fields
-
 
 		string _hero = "\0\0\0\0\0";
 		string _child = "\0\0\0\0\0";
@@ -184,6 +183,10 @@ namespace Zyrenth.OracleHack
 
 		#endregion // Properties
 
+		/// <summary>
+		/// Called when a property has changed.
+		/// </summary>
+		/// <param name="propertyName">Name of the property.</param>
 		protected void OnPropertyChanged(string propertyName)
 		{
 			if (PropertyChanged != null)

@@ -27,7 +27,7 @@ namespace Zyrenth.OracleHack
 {
 
 	/// <summary>
-	/// Represents which version of the Oracle
+	/// Specifies the game in the Zelda Oracle series.
 	/// </summary>
 	public enum Game
 	{
@@ -36,7 +36,7 @@ namespace Zyrenth.OracleHack
 	}
 
 	/// <summary>
-	/// Represents the animal friend
+	/// Specifies the animal friend.
 	/// </summary>
 	public enum Animal : byte
 	{
@@ -46,7 +46,7 @@ namespace Zyrenth.OracleHack
 	}
 
 	/// <summary>
-	/// Represents the values of the child's behavior
+	/// Specifies the child's behavior.
 	/// </summary>
 	public enum ChildBehavior : byte
 	{
@@ -68,6 +68,9 @@ namespace Zyrenth.OracleHack
 		HyperE
 	}
 
+	/// <summary>
+	/// Specifies the type of memory.
+	/// </summary>
 	public enum Memory : byte
 	{
 		ClockShopKingZora = 0,
@@ -82,6 +85,15 @@ namespace Zyrenth.OracleHack
 		RuulSymmetry = 9
 	}
 
+	/// <summary>
+	/// <para>
+	/// Specifies which rings a player has obtained.
+	/// </para>
+	/// <para>
+	/// This enumeration has a <see cref="FlagsAttribute"/> attribute that
+	/// allows a bitwise combination of its member values.
+	/// </para>
+	/// </summary>
 	[Flags]
 	public enum Rings : long
 	{
