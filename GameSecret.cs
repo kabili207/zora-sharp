@@ -166,7 +166,14 @@ namespace Zyrenth.OracleHack
 		/// </example>
 		public override void Load(GameInfo info)
 		{
-			this.GameID = info.GameID;
+			GameID = info.GameID;
+			TargetGame = info.Game;
+			Hero = info.Hero;
+			Child = info.Child;
+			Animal = info.Animal;
+			Behavior = info.Behavior;
+			IsLinkedGame = info.IsLinkedGame;
+			IsHeroQuest = info.IsHeroQuest;
 		}
 
 		/// <summary>
@@ -210,7 +217,7 @@ namespace Zyrenth.OracleHack
 
 			TargetGame = (Game)(byte)(decodedSecret[21] == '1' ? 1 : 0);
 			IsHeroQuest = decodedSecret[20] == '1';
-			IsLinkedGame = decodedSecret[106] == '1';
+			IsLinkedGame = decodedSecret[105] == '1';
 
 
 			Hero = System.Text.Encoding.ASCII.GetString(new byte[] {
@@ -238,7 +245,6 @@ namespace Zyrenth.OracleHack
 			bool unknown3 = decodedSecret[59] == '1';
 			bool unknown4 = decodedSecret[76] == '1';
 			bool unknown5 = decodedSecret[88] == '1';
-			bool unknown6 = decodedSecret[105] == '1';
 		}
 
 		/// <summary>
