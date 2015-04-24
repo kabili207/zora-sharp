@@ -111,19 +111,20 @@ namespace Zyrenth.OracleHack
 
 		private static T ReadValue<T>(IDictionary<string, object> dict, string key) where T : IConvertible
 		{
-
-			object obj = dict[key];
 			Type type = typeof(T);
 			T val = default(T);
 
 			if (dict.ContainsKey(key))
 			{
+				object obj = dict[key];
 				if (type.IsEnum)
 				{
 					// The T constraints on our method conflict with those on Enum.TryParse<T>
 					// so we have to use some black magic instead.
-					MethodInfo method = typeof(Enum).GetMethod("TryParse",
-						new Type[] { typeof(string), type.MakeByRefType() });
+					MethodInfo method = typeof(Enum).GetMethods().First(x => x.Name.StartsWith("TryParse") && 
+						x.GetParameters().Length == 2);
+
+					method = method.MakeGenericMethod(type);
 
 					var args = new object[] { ReadValue<string>(dict, key), default(T) };
 					method.Invoke(null, args);
