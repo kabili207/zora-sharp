@@ -15,7 +15,7 @@
     <!-- SHFB properties -->
     <FrameworkVersion>.NET Framework 4.0</FrameworkVersion>
     <OutputPath>doc\</OutputPath>
-    <HtmlHelpName>Documentation</HtmlHelpName>
+    <HtmlHelpName>OracleHack</HtmlHelpName>
     <Language>en-US</Language>
     <BuildAssemblerVerbosity>OnlyWarningsAndErrors</BuildAssemblerVerbosity>
     <HelpFileFormat>Website</HelpFileFormat>
@@ -30,10 +30,10 @@
     <NamespaceSummaries>
       <NamespaceSummaryItem name="Zyrenth.OracleHack" isDocumented="True">The Zyrenth.OracleHack namespace provides classes for working with secrets used in the Legend of Zelda &lt;a href="http://www.zelda.com/universe/game/oracleages/"&gt;Oracle of Ages&lt;/a&gt; and &lt;a href="http://www.zelda.com/universe/game/oracleseasons/"&gt;Oracle of Seasons&lt;/a&gt; video games.</NamespaceSummaryItem>
     </NamespaceSummaries>
-    <VisibleItems>InheritedMembers, Protected, ProtectedInternalAsProtected</VisibleItems>
+    <VisibleItems>Attributes, ExplicitInterfaceImplementations, InheritedMembers, InheritedFrameworkMembers, Protected</VisibleItems>
     <MaximumGroupParts>2</MaximumGroupParts>
     <NamespaceGrouping>False</NamespaceGrouping>
-    <SyntaxFilters>Standard</SyntaxFilters>
+    <SyntaxFilters>C#, Visual Basic</SyntaxFilters>
     <SdkLinkTarget>Blank</SdkLinkTarget>
     <RootNamespaceContainer>False</RootNamespaceContainer>
     <PresentationStyle>VS2013</PresentationStyle>
@@ -41,6 +41,7 @@
     <NamingMethod>MemberName</NamingMethod>
     <HelpTitle>Oracle Hack Secret Manipulation Library</HelpTitle>
     <ContentPlacement>AboveNamespaces</ContentPlacement>
+    <CopyrightText>Copyright &amp;#169%3b Andrew &amp;quot%3bKabili&amp;quot%3b Nagle 2013 - 2015</CopyrightText>
   </PropertyGroup>
   <!-- There are no properties for these groups.  AnyCPU needs to appear in order for Visual Studio to perform
 			 the build.  The others are optional common platform types that may appear. -->

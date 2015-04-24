@@ -64,7 +64,7 @@ namespace Zyrenth.OracleHack
 			set
 			{
 				_gameId = value;
-				OnPropertyChanged("GameID");
+				NotifyPropertyChanged("GameID");
 			}
 		}
 
@@ -84,6 +84,15 @@ namespace Zyrenth.OracleHack
 		/// Loads in data from the secret string provided
 		/// </summary>
 		/// <param name="secret">The secret</param>
+		/// <example>
+		/// This example demonstrates loading a <see cref="GameSecret"/> from a
+		/// secret string.
+		/// <code language="C#">
+		/// string gameSecret = "H~2:@ left 2 diamond yq GB3 circle ( 6 heart ? up 6";
+		/// Secret secret = new GameSecret();
+		/// secret.Load(gameSecret);
+		/// </code>
+		/// </example>
 		public virtual void Load(string secret)
 		{
 			Load(SecretParser.ParseSecret(secret));
@@ -99,6 +108,29 @@ namespace Zyrenth.OracleHack
 		/// Gets a string representation of the secret that's usable in the games
 		/// </summary>
 		/// <returns>A string representation of the string</returns>
+		/// <seealso cref="SecretParser.CreateString"/>
+		/// <remarks>
+		/// This method is just wrapper around <see cref="SecretParser.CreateString"/>.
+		/// It's been provided for convenience.
+		/// </remarks>
+		/// <example>
+		/// This example demonstrates how to get secret string from a <see cref="GameSecret"/>.
+		/// <code language="C#">
+		/// GameSecret secret = new GameSecret()
+		/// {
+		///     TargetGame = Game.Ages,
+		///     GameID = 14129,
+		///     Hero = "Link",
+		///     Child = "Pip",
+		///     Animal = Animal.Dimitri,
+		///     Behavior = ChildBehavior.BouncyD,
+		///     IsLinkedGame = true,
+		///     IsHeroQuest = false
+		/// };
+		/// string secretString = secret.GetSecretString(secret);
+		/// // H~2:@ ←2♦yq GB3●( 6♥?↑6
+		/// </code>
+		/// </example>
 		public virtual string GetSecretString()
 		{
 			return SecretParser.CreateString(GetSecretBytes());
@@ -192,11 +224,27 @@ namespace Zyrenth.OracleHack
 			return secret;
 		}
 
+
+
 		/// <summary>
-		/// Called when a property has changed.
+		/// Sends a notification that a property has changed.
 		/// </summary>
 		/// <param name="propertyName">Name of the property.</param>
-		protected void OnPropertyChanged(string propertyName)
+		/// <example>
+		/// <code language="C#">
+		/// private short _gameID = 0;
+		/// public short GameID
+		///		{
+		///			get { return _gameId; }
+		///			set
+		///			{
+		///				_gameId = value;
+		///				NotifyPropertyChanged("GameID");
+		///			}
+		///		}
+		/// </code>
+		/// </example>
+		protected void NotifyPropertyChanged(string propertyName)
 		{
 			if (PropertyChanged != null)
 			{

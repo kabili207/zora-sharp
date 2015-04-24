@@ -51,7 +51,7 @@ namespace Zyrenth.OracleHack
 			set
 			{
 				_memory = (byte)value;
-				OnPropertyChanged("Memory");
+				NotifyPropertyChanged("Memory");
 			}
 		}
 
@@ -64,7 +64,7 @@ namespace Zyrenth.OracleHack
 			set
 			{
 				_agesSeasons = (byte)value;
-				OnPropertyChanged("Game");
+				NotifyPropertyChanged("Game");
 			}
 		}
 
@@ -80,7 +80,7 @@ namespace Zyrenth.OracleHack
 			set
 			{
 				_isReturnSecret = value;
-				OnPropertyChanged("IsReturnSecret");
+				NotifyPropertyChanged("IsReturnSecret");
 			}
 		}
 
@@ -88,8 +88,25 @@ namespace Zyrenth.OracleHack
 		/// Loads in data from the specified game info
 		/// </summary>
 		/// <param name="info">The game info</param>
+		/// <remarks>
+		/// Because <see cref="GameInfo"/> does not contain information about
+		/// memories, only the properties <see cref="TargetGame"/> and
+		/// <see cref="Secret.GameID"/> will be populated by this method.
+		/// </remarks>
+		/// <example>
+		/// <code language="C#">
+		/// GameInfo info = new GameInfo()
+		/// {
+		///     Game = Game.Ages,
+		///     GameID = 14129
+		/// };
+		/// MemorySecret secret = new MemorySecret();
+		/// secret.Load(info);
+		/// </code>
+		/// </example>
 		public override void Load(GameInfo info)
 		{
+			TargetGame = info.Game;
 			GameID = info.GameID;
 		}
 
@@ -97,6 +114,19 @@ namespace Zyrenth.OracleHack
 		/// Loads in data from the raw secret data provided
 		/// </summary>
 		/// <param name="secret">The raw secret data</param>
+		/// <example>
+		/// This example demonstrates loading a <see cref="MemorySecret"/> from a
+		/// a byte array containing an encoded secret.
+		/// <code language="C#">
+		/// // 6●sW↑
+		/// byte[] rawSecret = new byte[]
+		///     {
+		///         55, 21, 41, 18, 59
+		///     };
+		/// Secret secret = new MemorySecret();
+		/// secret.Load(rawSecret);
+		/// </code>
+		/// </example>
 		public override void Load(byte[] secret)
 		{
 			// Loading the Game and IsReturnSecret properties require
@@ -123,6 +153,18 @@ namespace Zyrenth.OracleHack
 		/// Gets the raw secret data as a byte array
 		/// </summary>
 		/// <returns>A byte array containing the secret</returns>
+		/// <example>
+		/// <code language="C#">
+		/// MemorySecret secret = new MemorySecret()
+		/// {
+		///     GameID = 14129,
+		///     TargetGame = Game.Ages,
+		///     Memory = Memory.ClockShopKingZora,
+		///     IsReturnSecret = true
+		/// };
+		/// byte[] data = secret.GetSecretBytes();
+		/// </code>
+		/// </example>
 		public override byte[] GetSecretBytes()
 		{
 			int cipher = 0;

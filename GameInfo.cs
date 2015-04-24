@@ -67,7 +67,7 @@ namespace Zyrenth.OracleHack
 			set
 			{
 				_agesSeasons = (byte)value;
-				OnPropertyChanged("Game");
+				NotifyPropertyChanged("Game");
 			}
 		}
 
@@ -80,7 +80,7 @@ namespace Zyrenth.OracleHack
 			set
 			{
 				_isHeroQuest = value;
-				OnPropertyChanged("IsHeroQuest");
+				NotifyPropertyChanged("IsHeroQuest");
 			}
 		}
 
@@ -93,7 +93,7 @@ namespace Zyrenth.OracleHack
 			set
 			{
 				_isLinkedGame = value;
-				OnPropertyChanged("IsLinkedGame");
+				NotifyPropertyChanged("IsLinkedGame");
 			}
 		}
 
@@ -106,7 +106,7 @@ namespace Zyrenth.OracleHack
 			set
 			{
 				_gameId = value;
-				OnPropertyChanged("GameID");
+				NotifyPropertyChanged("GameID");
 			}
 		}
 
@@ -122,7 +122,7 @@ namespace Zyrenth.OracleHack
 					_hero = "\0\0\0\0\0";
 				else
 					_hero = value.TrimEnd().PadRight(5, '\0');
-				OnPropertyChanged("Hero");
+				NotifyPropertyChanged("Hero");
 			}
 		}
 
@@ -138,7 +138,7 @@ namespace Zyrenth.OracleHack
 					_child = "\0\0\0\0\0";
 				else
 					_child = value.TrimEnd().PadRight(5, '\0');
-				OnPropertyChanged("Child");
+				NotifyPropertyChanged("Child");
 			}
 		}
 
@@ -151,7 +151,7 @@ namespace Zyrenth.OracleHack
 			set
 			{
 				_animal = (byte)value;
-				OnPropertyChanged("Animal");
+				NotifyPropertyChanged("Animal");
 			}
 		}
 
@@ -164,7 +164,7 @@ namespace Zyrenth.OracleHack
 			set
 			{
 				_behavior = (byte)value;
-				OnPropertyChanged("Behavior");
+				NotifyPropertyChanged("Behavior");
 			}
 		}
 
@@ -177,17 +177,31 @@ namespace Zyrenth.OracleHack
 			set
 			{
 				_rings = (long)value;
-				OnPropertyChanged("Rings");
+				NotifyPropertyChanged("Rings");
 			}
 		}
 
 		#endregion // Properties
 
 		/// <summary>
-		/// Called when a property has changed.
+		/// Sends a notification that a property has changed.
 		/// </summary>
 		/// <param name="propertyName">Name of the property.</param>
-		protected void OnPropertyChanged(string propertyName)
+		/// <example>
+		/// <code language="C#">
+		/// private short _gameID = 0;
+		/// public short GameID
+		///		{
+		///			get { return _gameId; }
+		///			set
+		///			{
+		///				_gameId = value;
+		///				NotifyPropertyChanged("GameID");
+		///			}
+		///		}
+		/// </code>
+		/// </example>
+		protected void NotifyPropertyChanged(string propertyName)
 		{
 			if (PropertyChanged != null)
 			{
@@ -202,6 +216,13 @@ namespace Zyrenth.OracleHack
 		/// Writes this game info out to the specified file
 		/// </summary>
 		/// <param name="filename">The file name</param>
+		/// <example>
+		/// <code language="C#">
+		/// string file = @"C:\Users\Link\Documents\my_game.zora";
+		/// GameInfo info = new GameInfo();
+		/// info.Write(file);
+		/// </code>
+		/// </example>
 		public void Write(string filename)
 		{
 			using (FileStream outFile = File.Create(filename))
@@ -214,12 +235,25 @@ namespace Zyrenth.OracleHack
 		/// Writes the game info to the specified stream
 		/// </summary>
 		/// <param name="stream">The stream to write to</param>
+		/// <example>
+		/// This example demonstrates creating a .zora save file from a<see cref="GameInfo"/>
+		/// object.. If you have access to the file name you will be saving to, as in this
+		/// example, you should consider using the <see cref="Write(string)"/> method instead.
+		/// <code language="C#">
+		/// GameInfo info = new GameInfo();
+		/// string file = @"C:\Users\Link\Documents\my_game.zora";
+		/// using (FileStream outFile = File.Create(file))
+		///	{
+		///		info.Write(fileStream);
+		///	}
+		/// </code>
+		/// </example>
 		public void Write(Stream stream)
 		{
 			using (var swriter = new StreamWriter(stream))
 			{
 				var serializer = new JavaScriptSerializer();
-				serializer.RegisterConverters(new [] { new GameInfoJsonConverter() });
+				serializer.RegisterConverters(new[] { new GameInfoJsonConverter() });
 				string json = serializer.Serialize(this);
 				swriter.WriteLine(json);
 			}
@@ -230,6 +264,12 @@ namespace Zyrenth.OracleHack
 		/// </summary>
 		/// <param name="filename">The file name of the saved GameInfo</param>
 		/// <returns>A GameInfo</returns>
+		/// <example>
+		/// <code language="C#">
+		/// string file = @"C:\Users\Link\Documents\my_game.zora";
+		/// GameInfo info = GameInfo.Load(file);
+		/// </code>
+		/// </example>
 		public static GameInfo Load(string filename)
 		{
 			using (FileStream inFile = File.OpenRead(filename))
@@ -243,15 +283,53 @@ namespace Zyrenth.OracleHack
 		/// </summary>
 		/// <param name="stream">The stream containing the saved GameInfo</param>
 		/// <returns>A GameInfo</returns>
+		/// <example>
+		/// This example demonstrates creating a <see cref="GameInfo"/> object from a .zora
+		/// save file. If you have access to the file name you will be loading from, as in
+		/// this example, you should consider using the <see cref="Load(string)"/> method instead.
+		/// <code language="C#">
+		/// string file = @"C:\Users\Link\Documents\my_game.zora";
+		/// using (FileStream fileStream = File.OpenRead(file))
+		///	{
+		///		GameInfo info = GameInfo.Load(fileStream);
+		///	}
+		/// </code>
+		/// </example>
 		public static GameInfo Load(Stream stream)
 		{
 			using (var sreader = new StreamReader(stream))
 			{
 				string json = sreader.ReadToEnd();
-				var serializer = new JavaScriptSerializer();
-				serializer.RegisterConverters(new [] { new GameInfoJsonConverter() });
-				return serializer.Deserialize<GameInfo>(json);
+				return Parse(json);
 			}
+		}
+
+		/// <summary>
+		/// Parses the specified json.
+		/// </summary>
+		/// <param name="json">The json.</param>
+		/// <returns>A game info object</returns>
+		/// <example>
+		/// <code language="C#">
+		/// string json = @"{
+		///    ""Game"": ""Ages"",
+		///    ""GameID"": 14129,
+		///    ""Hero"": ""Link"",
+		///    ""Child"": ""Pip"",
+		///    ""Animal"": ""Dimitri"",
+		///    ""Behavior"": ""BouncyD"",
+		///    ""IsLinkedGame"": true,
+		///    ""IsHeroQuest"": false,
+		///    ""Rings"": -9222246136947933182
+		///}";
+		/// GameInfo info = GameInfo.Parse(json);
+		/// </code>
+		/// </example>
+		public static GameInfo Parse(string json)
+		{
+			var serializer = new JavaScriptSerializer();
+			serializer.RegisterConverters(new[] { new GameInfoJsonConverter() });
+			return serializer.Deserialize<GameInfo>(json);
 		}
 
 		#endregion // File Saving/Loading methods

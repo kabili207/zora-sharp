@@ -59,7 +59,7 @@ namespace Zyrenth.OracleHack
 		/// <param name="message">The error message that explains the reason for the exception.</param>
 		/// <param name="innerException">
 		/// The exception that is the cause of the current exception. If the <paramref name="innerException"/>
-		/// parameter is not a null reference (Nothing in Visual Basic), the current exception is raised in
+		/// parameter is not a <b>null</b> reference (<b>Nothing</b> in Visual Basic), the current exception is raised in
 		/// a catch block that handles the inner exception.
 		/// </param>
 		public InvalidSecretException(string message, Exception innerException)

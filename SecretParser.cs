@@ -58,12 +58,23 @@ namespace Zyrenth.OracleHack
 		/// <remarks>
 		/// This method is fairly flexible in what it will accept.
 		/// <list type="bullet">
-		/// <item><description><c>→N♥Nh</c></description></item>
-		/// <item><description><c>right N heart N h</c></description></item>
-		/// <item><description><c>{right}N{heart}Nh</c></description></item>
-		/// <item><description><c>RigHtN ♥N  h</c></description></item>
+		/// <item><description><c>6●sW↑</c></description></item>
+		/// <item><description><c>6 circle s W up</c></description></item>
+		/// <item><description><c>6{circle}sW{up}</c></description></item>
+		/// <item><description><c>6cIrClesW↑</c></description></item>
 		/// </list>
+		/// The lack of vowels in the normal secret keyboard is what makes the last
+		/// format possible. Whitespace in the secret is ignored so long as it doesn't separate
+		/// any keywords. Surrounding the keywords in curly braces is not required; they
+		/// are supported in order to maintain compatibility with how many users share
+		/// secrets online.
 		/// </remarks>
+		/// <example>
+		/// <code language="C#">
+		/// string gameSecret = "H~2:@ left 2 diamond yq GB3 circle ( 6 heart ? up 6";
+		/// byte[] rawGameSecret = SecretParser.ParseSecret(gameSecret);
+		/// </code>
+		/// </example>
 		public static byte[] ParseSecret(string secret)
 		{
 			foreach (var kvp in SymbolRegexes)
@@ -91,6 +102,19 @@ namespace Zyrenth.OracleHack
 		/// <param name="data">The secret data</param>
 		/// <returns>A representation of the secret data</returns>
 		/// <remarks>This method always returns the secret formatted as <c>→N♥Nh</c></remarks>
+		/// <example>
+		/// <code language="C#">
+		/// byte[] rawSecret = new byte[]
+		///     {
+		///          4, 37, 51, 36, 63,
+		///         61, 51, 10, 44, 39,
+		///          3,  0, 52, 21, 48,
+		///         55,  9, 45, 59, 55
+		///     };
+		/// string secret = SecretParser.CreateString(rawSecret);
+		/// // H~2:@ ←2♦yq GB3●( 6♥?↑6
+		/// </code>
+		/// </example>
 		public static string CreateString(byte[] data)
 		{
 			StringBuilder sBuilder = new StringBuilder();

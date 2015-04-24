@@ -34,7 +34,7 @@ namespace Zyrenth.OracleHack
 		string _child = "\0\0\0\0\0";
 		byte _behavior = 0;
 		byte _animal = 0;
-		byte _agesSeasons = 0;
+		Game _targetGame = 0;
 		bool _isHeroQuest = false;
 		bool _isLinkedGame = false;
 
@@ -49,13 +49,13 @@ namespace Zyrenth.OracleHack
 		/// <summary>
 		/// Gets or sets the Game used for this user data
 		/// </summary>
-		public Game Game
+		public Game TargetGame
 		{
-			get { return (Game)_agesSeasons; }
+			get { return _targetGame; }
 			set
 			{
-				_agesSeasons = (byte)value;
-				OnPropertyChanged("Game");
+				_targetGame = value;
+				NotifyPropertyChanged("Game");
 			}
 		}
 
@@ -68,7 +68,7 @@ namespace Zyrenth.OracleHack
 			set
 			{
 				_isHeroQuest = value;
-				OnPropertyChanged("IsHeroQuest");
+				NotifyPropertyChanged("IsHeroQuest");
 			}
 		}
 
@@ -81,7 +81,7 @@ namespace Zyrenth.OracleHack
 			set
 			{
 				_isLinkedGame = value;
-				OnPropertyChanged("IsLinkedGame");
+				NotifyPropertyChanged("IsLinkedGame");
 			}
 		}
 
@@ -97,7 +97,7 @@ namespace Zyrenth.OracleHack
 					_hero = "\0\0\0\0\0";
 				else
 					_hero = value.TrimEnd().PadRight(5, '\0');
-				OnPropertyChanged("Hero");
+				NotifyPropertyChanged("Hero");
 			}
 		}
 
@@ -113,7 +113,7 @@ namespace Zyrenth.OracleHack
 					_child = "\0\0\0\0\0";
 				else
 					_child = value.TrimEnd().PadRight(5, '\0');
-				OnPropertyChanged("Child");
+				NotifyPropertyChanged("Child");
 			}
 		}
 
@@ -126,7 +126,7 @@ namespace Zyrenth.OracleHack
 			set
 			{
 				_animal = (byte)value;
-				OnPropertyChanged("Animal");
+				NotifyPropertyChanged("Animal");
 			}
 		}
 
@@ -139,7 +139,7 @@ namespace Zyrenth.OracleHack
 			set
 			{
 				_behavior = (byte)value;
-				OnPropertyChanged("Behavior");
+				NotifyPropertyChanged("Behavior");
 			}
 		}
 
@@ -147,6 +147,23 @@ namespace Zyrenth.OracleHack
 		/// Loads in data from the specified game info
 		/// </summary>
 		/// <param name="info">The game info</param>
+		/// <example>
+		/// <code language="C#">
+		/// GameInfo info = new GameInfo()
+		/// {
+		///     Game = Game.Ages,
+		///     GameID = 14129,
+		///     Hero = "Link",
+		///     Child = "Pip",
+		///     Animal = Animal.Dimitri,
+		///     Behavior = ChildBehavior.BouncyD,
+		///     IsLinkedGame = true,
+		///     IsHeroQuest = false
+		/// };
+		/// GameSecret secret = new GameSecret();
+		/// secret.Load(info);
+		/// </code>
+		/// </example>
 		public override void Load(GameInfo info)
 		{
 			this.GameID = info.GameID;
@@ -156,6 +173,22 @@ namespace Zyrenth.OracleHack
 		/// Loads in data from the raw secret data provided
 		/// </summary>
 		/// <param name="secret">The raw secret data</param>
+		/// <example>
+		/// This example demonstrates loading a <see cref="GameSecret"/> from a
+		/// a byte array containing an encoded secret.
+		/// <code language="C#">
+		/// // H~2:@ ←2♦yq GB3●( 6♥?↑6
+		/// byte[] rawSecret = new byte[]
+		///     {
+		///         12, 52,  3,  3, 40,
+		///         39, 54, 58, 41, 62,
+		///         39, 19, 50, 34, 45,
+		///         49,  3, 34, 61, 48
+		///     };
+		/// Secret secret = new GameSecret();
+		/// secret.Load(rawSecret);
+		/// </code>
+		/// </example>
 		public override void Load(byte[] secret)
 		{
 			if (secret == null || secret.Length != Length)
@@ -175,7 +208,7 @@ namespace Zyrenth.OracleHack
 			if (decodedSecret[3] != '0' && decodedSecret[4] != '0')
 				throw new ArgumentException("The specified data is not a game code", "secret");
 
-			Game = (Game)(byte)(decodedSecret[21] == '1' ? 1 : 0);
+			TargetGame = (Game)(byte)(decodedSecret[21] == '1' ? 1 : 0);
 			IsHeroQuest = decodedSecret[20] == '1';
 			IsLinkedGame = decodedSecret[106] == '1';
 
@@ -212,6 +245,22 @@ namespace Zyrenth.OracleHack
 		/// Gets the raw secret data as a byte array
 		/// </summary>
 		/// <returns>A byte array containing the secret</returns>
+		/// <example>
+		/// <code language="C#">
+		/// GameSecret secret = new GameSecret()
+		/// {
+		///     TargetGame = Game.Ages,
+		///     GameID = 14129,
+		///     Hero = "Link",
+		///     Child = "Pip",
+		///     Animal = Animal.Dimitri,
+		///     Behavior = ChildBehavior.BouncyD,
+		///     IsLinkedGame = true,
+		///     IsHeroQuest = false
+		/// };
+		/// byte[] data = secret.GetSecretBytes();
+		/// </code>
+		/// </example>
 		public override byte[] GetSecretBytes()
 		{
 			int cipherKey = ((GameID >> 8) + (GameID & 255)) & 7;
@@ -221,7 +270,7 @@ namespace Zyrenth.OracleHack
 
 			unencodedSecret += Convert.ToString(GameID, 2).PadLeft(15, '0').Reverse();
 			unencodedSecret += _isHeroQuest ? "1" : "0";
-			unencodedSecret += Game == OracleHack.Game.Ages ? "0" : "1";
+			unencodedSecret += TargetGame == Game.Ages ? "0" : "1";
 			unencodedSecret += Convert.ToString((byte)_hero[0], 2).PadLeft(8, '0').Reverse();
 			unencodedSecret += Convert.ToString((byte)_child[0], 2).PadLeft(8, '0').Reverse();
 			unencodedSecret += Convert.ToString((byte)_hero[1], 2).PadLeft(8, '0').Reverse();

@@ -49,7 +49,7 @@ namespace Zyrenth.OracleHack
 			set
 			{
 				_rings = (long)value;
-				OnPropertyChanged("Rings");
+				NotifyPropertyChanged("Rings");
 			}
 		}
 
@@ -57,6 +57,17 @@ namespace Zyrenth.OracleHack
 		/// Loads in data from the specified game info
 		/// </summary>
 		/// <param name="info">The game info</param>
+		/// <example>
+		/// <code language="C#">
+		/// GameInfo info = new GameInfo()
+		/// {
+		///     GameID = 14129,
+		///     Rings = Rings.PowerRingL1 | Rings.DoubleEdgeRing | Rings.ProtectionRing
+		/// };
+		/// RingSecret secret = new RingSecret();
+		/// secret.Load(info);
+		/// </code>
+		/// </example>
 		public override void Load(GameInfo info)
 		{
 			GameID = info.GameID;
@@ -67,6 +78,21 @@ namespace Zyrenth.OracleHack
 		/// Loads in data from the raw secret data provided
 		/// </summary>
 		/// <param name="secret">The raw secret data</param>
+		/// <example>
+		/// This example demonstrates loading a <see cref="RingSecret"/> from a
+		/// a byte array containing an encoded secret.
+		/// <code language="C#">
+		/// // L~2:N @bB↑&amp; hmRh=
+		/// byte[] rawSecret = new byte[]
+		///     {
+		///          6, 37, 51, 36, 13,
+		///         63, 26,  0, 59, 47,
+		///         30, 32, 15, 30, 49
+		///     };
+		/// Secret secret = new RingSecret();
+		/// secret.Load(rawSecret);
+		/// </code>
+		/// </example>
 		public override void Load(byte[] secret)
 		{
 			if (secret == null || secret.Length != Length)
@@ -104,6 +130,16 @@ namespace Zyrenth.OracleHack
 		/// Gets the raw secret data as a byte array
 		/// </summary>
 		/// <returns>A byte array containing the secret</returns>
+		/// <example>
+		/// <code language="C#">
+		/// RingSecret secret = new RingSecret()
+		/// {
+		///     GameID = 14129,
+		///     Rings = Rings.PowerRingL1 | Rings.DoubleEdgeRing | Rings.ProtectionRing
+		/// };
+		/// byte[] data = secret.GetSecretBytes();
+		/// </code>
+		/// </example>
 		public override byte[] GetSecretBytes()
 		{
 			byte ring1 = (byte)_rings;
