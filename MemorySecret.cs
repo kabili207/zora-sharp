@@ -85,6 +85,36 @@ namespace Zyrenth.OracleHack
 		}
 
 		/// <summary>
+		/// Initializes a new instance of the <see cref="MemorySecret"/> class.
+		/// </summary>
+		public MemorySecret() { }
+
+		/// <summary>
+		/// Initializes a new instance of the <see cref="MemorySecret"/> class.
+		/// </summary>
+		/// <param name="info">The game information.</param>
+		/// <param name="memory">The memory.</param>
+		/// <param name="isReturnSecret">if set to <c>true</c> [is return secret].</param>
+		public MemorySecret(GameInfo info, Memory memory, bool isReturnSecret)
+			: this(info.Game, info.GameID, memory, isReturnSecret) { }
+
+		/// <summary>
+		/// Initializes a new instance of the <see cref="MemorySecret"/> class with
+		/// the specified values.
+		/// </summary>
+		/// <param name="game">The game.</param>
+		/// <param name="gameId">The game id.</param>
+		/// <param name="memory">The memory.</param>
+		/// <param name="isReturnSecret">if set to <c>true</c> is return secret.</param>
+		public MemorySecret(Game game, short gameId, Memory memory, bool isReturnSecret)
+		{
+			GameID = gameId;
+			TargetGame = game;
+			Memory = memory;
+			IsReturnSecret = isReturnSecret;
+		}
+
+		/// <summary>
 		/// Loads in data from the specified game info
 		/// </summary>
 		/// <param name="info">The game info</param>

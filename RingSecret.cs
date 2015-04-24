@@ -54,6 +54,33 @@ namespace Zyrenth.OracleHack
 		}
 
 		/// <summary>
+		/// Initializes a new instance of the <see cref="RingSecret"/> class.
+		/// </summary>
+		public RingSecret() { }
+
+		/// <summary>
+		/// Initializes a new instance of the <see cref="RingSecret"/> class with the
+		/// specified <paramref name="gameId"/> and <paramref name="rings"/>.
+		/// </summary>
+		/// <param name="gameId">The game identifier.</param>
+		/// <param name="rings">The rings.</param>
+		public RingSecret(short gameId, Rings rings)
+		{
+			GameID = gameId;
+			Rings = rings;
+		}
+
+		/// <summary>
+		/// Initializes a new instance of the <see cref="RingSecret"/> class from the
+		/// specified game <paramref name="info"/>.
+		/// </summary>
+		/// <param name="info">The game information.</param>
+		public RingSecret(GameInfo info)
+		{
+			Load(info);
+		}
+
+		/// <summary>
 		/// Loads in data from the specified game info
 		/// </summary>
 		/// <param name="info">The game info</param>
@@ -171,6 +198,38 @@ namespace Zyrenth.OracleHack
 			byte[] secret = EncodeBytes(unencodedBytes);
 
 			return secret;
+		}
+
+		/// <summary>
+		/// Updates the <see cref="GameInfo.Rings"/> property with the rings in this secret
+		/// </summary>
+		/// <param name="info">The information.</param>
+		/// <param name="appendRings">
+		/// If true, this will add the rings contained in the secret to the
+		/// existings Rings. If false, it will overwrite them.
+		/// </param>
+		/// <exception cref="InvalidSecretException">
+		/// The Game IDs of the secret and game info do not match.
+		/// </exception>
+		/// <example>
+		/// <code language="C#">
+		/// RingSecret secret = new RingSecret()
+		/// {
+		///     GameID = 14129,
+		///     Rings = -9222246136947933182
+		/// };
+		/// GameInfo info = new GameInfo() { GameID = 14129 };
+		/// bool appendRings = true;
+		/// secret.UpdateGameInfo(info, appendRings);
+		/// </code>
+		/// </example>
+		public void UpdateGameInfo(GameInfo info, bool appendRings)
+		{
+			if(info.GameID != GameID)
+				throw new InvalidSecretException("The Game IDs of the secret and game info do not match.");
+
+			info.Rings = Rings | (appendRings ? info.Rings : Rings.None);
+
 		}
 	}
 }

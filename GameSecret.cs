@@ -144,6 +144,21 @@ namespace Zyrenth.OracleHack
 		}
 
 		/// <summary>
+		/// Initializes a new instance of the <see cref="GameSecret"/> class.
+		/// </summary>
+		public GameSecret() { }
+
+		/// <summary>
+		/// Initializes a new instance of the <see cref="GameSecret"/> class from the
+		/// specified game <paramref name="info"/>.
+		/// </summary>
+		/// <param name="info">The game information.</param>
+		public GameSecret(GameInfo info) : base()
+		{
+			Load(info);
+		}
+
+		/// <summary>
 		/// Loads in data from the specified game info
 		/// </summary>
 		/// <param name="info">The game info</param>
@@ -300,6 +315,39 @@ namespace Zyrenth.OracleHack
 			byte[] secret = EncodeBytes(unencodedBytes);
 
 			return secret;
+		}
+
+		/// <summary>
+		/// Updates the game information.
+		/// </summary>
+		/// <param name="info">The information.</param>
+		/// <example>
+		/// <code language="C#">
+		/// GameSecret secret = new GameSecret()
+		/// {
+		///     TargetGame = Game.Ages,
+		///     GameID = 14129,
+		///     Hero = "Link",
+		///     Child = "Pip",
+		///     Animal = Animal.Dimitri,
+		///     Behavior = ChildBehavior.BouncyD,
+		///     IsLinkedGame = true,
+		///     IsHeroQuest = false
+		/// };
+		/// GameInfo info = new GameInfo();
+		/// secret.UpdateGameInfo(info);
+		/// </code>
+		/// </example>
+		public void UpdateGameInfo(GameInfo info)
+		{
+			info.GameID = GameID;
+			info.Game = TargetGame;
+			info.Hero = Hero;
+			info.Child = Child;
+			info.Animal = Animal;
+			info.Behavior = Behavior;
+			info.IsLinkedGame = IsLinkedGame;
+			info.IsHeroQuest = IsHeroQuest;
 		}
 	}
 }
