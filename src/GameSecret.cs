@@ -202,10 +202,10 @@ namespace Zyrenth.OracleHack
 		/// // H~2:@ ←2♦yq GB3●( 6♥?↑6
 		/// byte[] rawSecret = new byte[]
 		///     {
-		///         12, 52,  3,  3, 40,
-		///         39, 54, 58, 41, 62,
-		///         39, 19, 50, 34, 45,
-		///         49,  3, 34, 61, 48
+		///          4, 37, 51, 36, 63,
+		///         61, 51, 10, 44, 39,
+		///          3,  0, 52, 21, 48,
+		///         55,  9, 45, 59, 55
 		///     };
 		/// Secret secret = new GameSecret();
 		/// secret.Load(rawSecret);

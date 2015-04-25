@@ -5,6 +5,8 @@ VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OracleHack", "src\OracleHack.csproj", "{E40D4A82-F5F3-4712-A8E2-AD3C77B1E5A8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OracleHack.Tests", "test\OracleHack.Tests.csproj", "{A53C330E-8F16-4369-9C27-DBD331C64EA0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,12 +14,21 @@ Global
 		SignedRelease|Any CPU = SignedRelease|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A53C330E-8F16-4369-9C27-DBD331C64EA0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A53C330E-8F16-4369-9C27-DBD331C64EA0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A53C330E-8F16-4369-9C27-DBD331C64EA0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A53C330E-8F16-4369-9C27-DBD331C64EA0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A53C330E-8F16-4369-9C27-DBD331C64EA0}.SignedRelease|Any CPU.ActiveCfg = Release|Any CPU
+		{A53C330E-8F16-4369-9C27-DBD331C64EA0}.SignedRelease|Any CPU.Build.0 = Release|Any CPU
 		{E40D4A82-F5F3-4712-A8E2-AD3C77B1E5A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{E40D4A82-F5F3-4712-A8E2-AD3C77B1E5A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E40D4A82-F5F3-4712-A8E2-AD3C77B1E5A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E40D4A82-F5F3-4712-A8E2-AD3C77B1E5A8}.Release|Any CPU.Build.0 = Release|Any CPU
 		{E40D4A82-F5F3-4712-A8E2-AD3C77B1E5A8}.SignedRelease|Any CPU.ActiveCfg = SignedRelease|Any CPU
 		{E40D4A82-F5F3-4712-A8E2-AD3C77B1E5A8}.SignedRelease|Any CPU.Build.0 = SignedRelease|Any CPU
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = src\OracleHack.csproj
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
