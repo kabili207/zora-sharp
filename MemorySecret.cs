@@ -159,10 +159,6 @@ namespace Zyrenth.OracleHack
 		/// </example>
 		public override void Load(byte[] secret)
 		{
-			// Loading the Game and IsReturnSecret properties require
-			// parsing the cipher and checksum, which we don't do yet.
-			throw new NotImplementedException();
-
 			if (secret == null || secret.Length != Length)
 				throw new InvalidSecretException("Secret must contatin exactly 5 bytes");
 
@@ -175,8 +171,33 @@ namespace Zyrenth.OracleHack
 			GameID = Convert.ToInt16(decodedSecret.ReversedSubstring(5, 15), 2);
 			Memory = (Memory)Convert.ToByte(decodedSecret.ReversedSubstring(20, 4), 2);
 
-			// TODO: Verify checksum
-			byte checksum = secret[4];
+			// Because the game and return type are stored in the cipher and checksum
+			// we compare it against all four possible values. It's ugly, but it works.
+			string desiredString = SecretParser.CreateString(secret);
+
+			var memories = new[]
+			{
+				new MemorySecret(Game.Ages, GameID, Memory, true),
+				new MemorySecret(Game.Ages, GameID, Memory, false),
+				new MemorySecret(Game.Seasons, GameID, Memory, true),
+				new MemorySecret(Game.Seasons, GameID, Memory, false)
+			};
+
+			bool found = false;
+
+			foreach (var memSecret in memories)
+			{
+				if (desiredString == memSecret.ToString())
+				{
+					TargetGame = memSecret.TargetGame;
+					IsReturnSecret = memSecret.IsReturnSecret;
+					found = true;
+					break;
+				}
+			}
+
+			if (!found)
+				throw new InvalidSecretException("Cound not determine all properties of this secret");
 		}
 
 		/// <summary>
