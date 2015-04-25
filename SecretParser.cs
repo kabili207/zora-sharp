@@ -43,11 +43,11 @@ namespace Zyrenth.OracleHack
 
 		private static readonly Dictionary<string, string> SymbolRegexes =
 			new Dictionary<string, string> {
-			{ @"\{?spade\}?", "♠"}, { @"\{?heart\}?", "♥" }, { @"\{?diamond\}?", "♦" },
-			{ @"\{?club\}?", "♣" }, { @"\{?circle\}?", "●"}, { @"\{?triangle\}?", "▲" },
+			{ @"\{?spade\}?", "♠" }, { @"\{?heart\}?", "♥" }, { @"\{?diamond\}?", "♦" },
+			{ @"\{?club\}?", "♣" }, { @"\{?circle\}?", "●" }, { @"\{?triangle\}?", "▲" },
 			{ @"\{?square\}?", "■" }, { @"\{?up\}?", "↑" }, { @"\{?down\}?", "↓" },
 			{ @"\{?left\}?", "←" }, { @"\{?right\}?", "→" }, { "<", "(" }, { ">", ")" },
-			{ @"\s+", ""},
+			{ @"\s+", "" },
 		};
 
 		/// <summary>
