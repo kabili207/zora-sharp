@@ -1,5 +1,5 @@
 ﻿/*
- *  Copyright (c) 2011-2015, Andrew Nagle.
+ *  Copyright © 2011-2015, Andrew Nagle.
  *  All rights reserved.
  *
  *  This file is part of OracleHack.

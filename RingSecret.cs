@@ -229,7 +229,6 @@ namespace Zyrenth.OracleHack
 				throw new InvalidSecretException("The Game IDs of the secret and game info do not match.");
 
 			info.Rings = Rings | (appendRings ? info.Rings : Rings.None);
-
 		}
 	}
 }
