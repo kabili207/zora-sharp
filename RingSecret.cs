@@ -164,10 +164,10 @@ namespace Zyrenth.OracleHack
 		///     GameID = 14129,
 		///     Rings = Rings.PowerRingL1 | Rings.DoubleEdgeRing | Rings.ProtectionRing
 		/// };
-		/// byte[] data = secret.GetSecretBytes();
+		/// byte[] data = secret.ToBytes();
 		/// </code>
 		/// </example>
-		public override byte[] GetSecretBytes()
+		public override byte[] ToBytes()
 		{
 			byte ring1 = (byte)_rings;
 			byte ring2 = (byte)(_rings >> 8);

@@ -192,10 +192,10 @@ namespace Zyrenth.OracleHack
 		///     Memory = Memory.ClockShopKingZora,
 		///     IsReturnSecret = true
 		/// };
-		/// byte[] data = secret.GetSecretBytes();
+		/// byte[] data = secret.ToBytes();
 		/// </code>
 		/// </example>
-		public override byte[] GetSecretBytes()
+		public override byte[] ToBytes()
 		{
 			int cipher = 0;
 			if (TargetGame == Game.Ages)

@@ -102,16 +102,17 @@ namespace Zyrenth.OracleHack
 		/// Gets the raw secret data as a byte array
 		/// </summary>
 		/// <returns>A byte array containing the secret</returns>
-		public abstract byte[] GetSecretBytes();
+		public abstract byte[] ToBytes();
 
 		/// <summary>
-		/// Gets a string representation of the secret that's usable in the games
+		/// Returns a string that represents the current secret.
 		/// </summary>
-		/// <returns>A string representation of the string</returns>
+		/// <returns>A string that represents the current secret.</returns>
 		/// <seealso cref="SecretParser.CreateString"/>
 		/// <remarks>
-		/// This method is just wrapper around <see cref="SecretParser.CreateString"/>.
-		/// It's been provided for convenience.
+		/// ToString will format the secret as it would be represented in the games.
+		/// Internally, this method calls <see cref="ToBytes"/> and passes the result
+		/// to <see cref="SecretParser.CreateString"/>.
 		/// </remarks>
 		/// <example>
 		/// This example demonstrates how to get secret string from a <see cref="GameSecret"/>.
@@ -127,13 +128,13 @@ namespace Zyrenth.OracleHack
 		///     IsLinkedGame = true,
 		///     IsHeroQuest = false
 		/// };
-		/// string secretString = secret.GetSecretString(secret);
+		/// string secretString = secret.ToString(secret);
 		/// // H~2:@ ←2♦yq GB3●( 6♥?↑6
 		/// </code>
 		/// </example>
-		public virtual string GetSecretString()
+		public override string ToString()
 		{
-			return SecretParser.CreateString(GetSecretBytes());
+			return SecretParser.CreateString(ToBytes());
 		}
 
 		/// <summary>
@@ -141,7 +142,7 @@ namespace Zyrenth.OracleHack
 		/// </summary>
 		/// <param name="secret">The secret</param>
 		/// <returns>The calculated checksum</returns>
-		protected byte CalculateChecksum(byte[] secret)
+		internal protected byte CalculateChecksum(byte[] secret)
 		{
 			// LINQ doesn't support .Sum() for anything smaller than an int, so we
 			// have to use the lambda overload instead. Bytes get auto-promoted to
@@ -157,7 +158,7 @@ namespace Zyrenth.OracleHack
 		/// </summary>
 		/// <param name="data">The secret data.</param>
 		/// <returns>An encoded secret.</returns>
-		protected byte[] EncodeBytes(byte[] data)
+		internal protected byte[] EncodeBytes(byte[] data)
 		{
 			int cipherKey = (data[0] >> 3);
 			int cipherPosition = cipherKey * 4;
@@ -177,7 +178,7 @@ namespace Zyrenth.OracleHack
 		/// </summary>
 		/// <param name="secret">The encoded secret.</param>
 		/// <returns>A decoded secret.</returns>
-		protected byte[] DecodeBytes(byte[] secret)
+		internal protected byte[] DecodeBytes(byte[] secret)
 		{
 			int cipherKey = (secret[0] >> 3);
 			int cipherPosition = cipherKey * 4;
@@ -199,7 +200,7 @@ namespace Zyrenth.OracleHack
 		/// </summary>
 		/// <param name="secret">The secret.</param>
 		/// <returns>A string of ones and zeros</returns>
-		protected string ByteArrayToBinaryString(byte[] secret)
+		internal protected string ByteArrayToBinaryString(byte[] secret)
 		{
 			string data = "";
 			foreach (byte b in secret)
@@ -214,7 +215,7 @@ namespace Zyrenth.OracleHack
 		/// </summary>
 		/// <param name="data">The binary string</param>
 		/// <returns>A byte array that the string represents</returns>
-		protected byte[] BinaryStringToByteArray(string data)
+		internal protected byte[] BinaryStringToByteArray(string data)
 		{
 			byte[] secret = new byte[data.Length / 6 + 1];
 			for (int i = 0; i < secret.Length - 1; ++i)
@@ -223,8 +224,6 @@ namespace Zyrenth.OracleHack
 			}
 			return secret;
 		}
-
-
 
 		/// <summary>
 		/// Sends a notification that a property has changed.
@@ -244,7 +243,7 @@ namespace Zyrenth.OracleHack
 		///		}
 		/// </code>
 		/// </example>
-		protected void NotifyPropertyChanged(string propertyName)
+		internal protected void NotifyPropertyChanged(string propertyName)
 		{
 			if (PropertyChanged != null)
 			{

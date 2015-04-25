@@ -279,10 +279,10 @@ namespace Zyrenth.OracleHack
 		///     IsLinkedGame = true,
 		///     IsHeroQuest = false
 		/// };
-		/// byte[] data = secret.GetSecretBytes();
+		/// byte[] data = secret.ToBytes();
 		/// </code>
 		/// </example>
-		public override byte[] GetSecretBytes()
+		public override byte[] ToBytes()
 		{
 			int cipherKey = ((GameID >> 8) + (GameID & 255)) & 7;
 			string unencodedSecret = Convert.ToString(cipherKey, 2).PadLeft(3, '0').Reverse();
