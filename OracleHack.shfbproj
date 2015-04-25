@@ -25,7 +25,7 @@
     <CppCommentsFixup>False</CppCommentsFixup>
     <CleanIntermediates>True</CleanIntermediates>
     <DocumentationSources>
-      <DocumentationSource sourceFile="OracleHack.csproj" xmlns="" />
+      <DocumentationSource sourceFile="src\OracleHack.csproj" xmlns="" />
     </DocumentationSources>
     <NamespaceSummaries>
       <NamespaceSummaryItem name="Zyrenth.OracleHack" isDocumented="True">The Zyrenth.OracleHack namespace provides classes for working with secrets used in the Legend of Zelda &lt;a href="http://www.zelda.com/universe/game/oracleages/"&gt;Oracle of Ages&lt;/a&gt; and &lt;a href="http://www.zelda.com/universe/game/oracleseasons/"&gt;Oracle of Seasons&lt;/a&gt; video games.</NamespaceSummaryItem>
