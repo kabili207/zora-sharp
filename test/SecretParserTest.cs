@@ -41,6 +41,13 @@ namespace Zyrenth.OracleHack.Tests
 		{
 			SecretParser.ParseSecret("INVALID");
 		}
+
+		[Test]
+		[ExpectedException(typeof(InvalidSecretException))]
+		public void ParseInvalidBytes()
+		{
+			SecretParser.CreateString(new byte[] { 2, 15, 53, 21, 64 });
+		}
 	}
 }
 

@@ -55,6 +55,9 @@ namespace Zyrenth.OracleHack
 		/// </summary>
 		/// <returns>The secret</returns>
 		/// <param name="secret">Secret.</param>
+		/// <exception cref="InvalidSecretException">
+		/// The <paramref name="secret"/> contains invalid symbols.
+		/// </exception>
 		/// <remarks>
 		/// This method is fairly flexible in what it will accept.
 		/// <list type="bullet">
@@ -102,6 +105,9 @@ namespace Zyrenth.OracleHack
 		/// <param name="data">The secret data</param>
 		/// <returns>A representation of the secret data</returns>
 		/// <remarks>This method always returns the secret formatted as <c>→N♥Nh</c></remarks>
+		/// <exception cref="InvalidSecretException">
+		/// The <paramref name="data"/> contains values that cannot be used in a secret.
+		/// </exception>
 		/// <example>
 		/// <code language="C#">
 		/// byte[] rawSecret = new byte[]
@@ -120,6 +126,9 @@ namespace Zyrenth.OracleHack
 			StringBuilder sBuilder = new StringBuilder();
 			for (int i = 0; i < data.Length; ++i)
 			{
+				if(data[i] < 0 || data[i] > 63)
+					throw new InvalidSecretException("Secret contains invalid values");
+
 				sBuilder.Append(Symbols[data[i]]);
 				if (i % 5 == 4)
 					sBuilder.Append(" ");
