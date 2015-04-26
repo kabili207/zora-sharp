@@ -150,9 +150,9 @@ namespace Zyrenth.OracleHack
 		/// <code language="C#">
 		/// // 6●sW↑
 		/// byte[] rawSecret = new byte[]
-		///     {
-		///         55, 21, 41, 18, 59
-		///     };
+		/// {
+		///     55, 21, 41, 18, 59
+		/// };
 		/// Secret secret = new MemorySecret();
 		/// secret.Load(rawSecret);
 		/// </code>

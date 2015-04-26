@@ -111,11 +111,11 @@ namespace Zyrenth.OracleHack
 		/// <code language="C#">
 		/// // L~2:N @bB↑&amp; hmRh=
 		/// byte[] rawSecret = new byte[]
-		///     {
-		///          6, 37, 51, 36, 13,
-		///         63, 26,  0, 59, 47,
-		///         30, 32, 15, 30, 49
-		///     };
+		/// {
+		///      6, 37, 51, 36, 13,
+		///     63, 26,  0, 59, 47,
+		///     30, 32, 15, 30, 49
+		/// };
 		/// Secret secret = new RingSecret();
 		/// secret.Load(rawSecret);
 		/// </code>

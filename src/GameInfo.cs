@@ -191,14 +191,14 @@ namespace Zyrenth.OracleHack
 		/// <code language="C#">
 		/// private short _gameID = 0;
 		/// public short GameID
-		///		{
-		///			get { return _gameId; }
-		///			set
-		///			{
-		///				_gameId = value;
-		///				NotifyPropertyChanged("GameID");
-		///			}
-		///		}
+		/// {
+		///     get { return _gameId; }
+		///     set
+		///     {
+		///         _gameId = value;
+		///         NotifyPropertyChanged("GameID");
+		///     }
+		/// }
 		/// </code>
 		/// </example>
 		protected void NotifyPropertyChanged(string propertyName)
@@ -243,9 +243,9 @@ namespace Zyrenth.OracleHack
 		/// GameInfo info = new GameInfo();
 		/// string file = @"C:\Users\Link\Documents\my_game.zora";
 		/// using (FileStream outFile = File.Create(file))
-		///	{
-		///		info.Write(fileStream);
-		///	}
+		/// {
+		///     info.Write(fileStream);
+		/// }
 		/// </code>
 		/// </example>
 		public void Write(Stream stream)
@@ -290,9 +290,9 @@ namespace Zyrenth.OracleHack
 		/// <code language="C#">
 		/// string file = @"C:\Users\Link\Documents\my_game.zora";
 		/// using (FileStream fileStream = File.OpenRead(file))
-		///	{
-		///		GameInfo info = GameInfo.Load(fileStream);
-		///	}
+		/// {
+		///     GameInfo info = GameInfo.Load(fileStream);
+		/// }
 		/// </code>
 		/// </example>
 		public static GameInfo Load(Stream stream)
@@ -311,7 +311,8 @@ namespace Zyrenth.OracleHack
 		/// <returns>A game info object</returns>
 		/// <example>
 		/// <code language="C#">
-		/// string json = @"{
+		/// string json = @"
+		/// {
 		///    ""Game"": ""Ages"",
 		///    ""GameID"": 14129,
 		///    ""Hero"": ""Link"",
@@ -321,7 +322,7 @@ namespace Zyrenth.OracleHack
 		///    ""IsLinkedGame"": true,
 		///    ""IsHeroQuest"": false,
 		///    ""Rings"": -9222246136947933182
-		///}";
+		/// }";
 		/// GameInfo info = GameInfo.Parse(json);
 		/// </code>
 		/// </example>

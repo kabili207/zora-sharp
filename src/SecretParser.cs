@@ -105,12 +105,12 @@ namespace Zyrenth.OracleHack
 		/// <example>
 		/// <code language="C#">
 		/// byte[] rawSecret = new byte[]
-		///     {
-		///          4, 37, 51, 36, 63,
-		///         61, 51, 10, 44, 39,
-		///          3,  0, 52, 21, 48,
-		///         55,  9, 45, 59, 55
-		///     };
+		/// {
+		///      4, 37, 51, 36, 63,
+		///     61, 51, 10, 44, 39,
+		///      3,  0, 52, 21, 48,
+		///     55,  9, 45, 59, 55
+		/// };
 		/// string secret = SecretParser.CreateString(rawSecret);
 		/// // H~2:@ ←2♦yq GB3●( 6♥?↑6
 		/// </code>

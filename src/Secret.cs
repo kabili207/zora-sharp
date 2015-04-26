@@ -233,14 +233,14 @@ namespace Zyrenth.OracleHack
 		/// <code language="C#">
 		/// private short _gameID = 0;
 		/// public short GameID
-		///		{
-		///			get { return _gameId; }
-		///			set
-		///			{
-		///				_gameId = value;
-		///				NotifyPropertyChanged("GameID");
-		///			}
-		///		}
+		/// {
+		///     get { return _gameId; }
+		///     set
+		///     {
+		///         _gameId = value;
+		///         NotifyPropertyChanged("GameID");
+		///     }
+		/// }
 		/// </code>
 		/// </example>
 		internal protected void NotifyPropertyChanged(string propertyName)
