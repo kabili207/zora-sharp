@@ -251,15 +251,18 @@ namespace Zyrenth.OracleHack
 				Convert.ToByte(decodedSecret.ReversedSubstring(106, 8), 2)
 			});
 
+			// It should be noted that if we include the unknown bit at location 88 with the
+			// animal bytes, then the values will match those in the game's save file.
+			// Perhaps
 			Animal = (Animal)Convert.ToByte(decodedSecret.ReversedSubstring(85, 3), 2);
 			Behavior = (ChildBehavior)Convert.ToByte(decodedSecret.ReversedSubstring(54, 4), 2);
 
 
 			// TODO: Figure out what all the unknown values are for.
-			bool unknown2 = decodedSecret[58] == '1';
-			bool unknown3 = decodedSecret[59] == '1';
-			bool unknown4 = decodedSecret[76] == '1';
-			bool unknown5 = decodedSecret[88] == '1';
+			bool unknown1 = decodedSecret[58] == '1';
+			bool unknown2 = decodedSecret[59] == '1';
+			bool unknown3 = decodedSecret[76] == '1';
+			bool unknown4 = decodedSecret[88] == '1';
 		}
 
 		/// <summary>
@@ -297,14 +300,14 @@ namespace Zyrenth.OracleHack
 			unencodedSecret += Convert.ToString((byte)_hero[1], 2).PadLeft(8, '0').Reverse();
 			unencodedSecret += Convert.ToString((byte)_child[1], 2).PadLeft(8, '0').Reverse();
 			unencodedSecret += Convert.ToString(_behavior, 2).PadLeft(8, '0').Reverse().Substring(0, 4);
+			unencodedSecret += "0"; // unknown 1
 			unencodedSecret += "0"; // unknown 2
-			unencodedSecret += "0"; // unknown 3
 			unencodedSecret += Convert.ToString((byte)_hero[2], 2).PadLeft(8, '0').Reverse();
 			unencodedSecret += Convert.ToString((byte)_child[2], 2).PadLeft(8, '0').Reverse();
-			unencodedSecret += "1"; // unknown 4
+			unencodedSecret += "1"; // unknown 3
 			unencodedSecret += Convert.ToString((byte)_hero[3], 2).PadLeft(8, '0').Reverse();
 			unencodedSecret += Convert.ToString(_animal, 2).PadLeft(8, '0').Reverse().Substring(0, 3);
-			unencodedSecret += "1"; // unknown 5
+			unencodedSecret += "1"; // unknown 4
 			unencodedSecret += Convert.ToString((byte)_hero[4], 2).PadLeft(8, '0').Reverse();
 			unencodedSecret += Convert.ToString((byte)_child[3], 2).PadLeft(8, '0').Reverse();
 			unencodedSecret += _isLinkedGame ? "1" : "0";

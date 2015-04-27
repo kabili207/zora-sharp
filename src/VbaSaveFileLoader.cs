@@ -33,16 +33,32 @@ namespace Zyrenth.OracleHack
 		/// <summary>
 		/// Loads all the game data from the specified stream
 		/// </summary>
-		/// <returns>The all.</returns>
-		/// <param name="fsSource">Fs source.</param>
+		/// <returns>All of the game information in the save file</returns>
+		/// <param name="stream">The input stream.</param>
 		public static IEnumerable<GameInfo> LoadAll(Stream stream)
 		{
-			// These offset seem to be static for both versions, but I can't be certain.
-			return new [] {
-				Load(stream, 19), // Slot 1
-				Load(stream, 1379), // Slot 2
-				Load(stream, 2739) // Slot 3
-			};
+			List<GameInfo> gameData = new List<GameInfo>();
+			GameInfo tmp;
+
+			// These offsets seem to be static for both versions, but I can't be certain.
+
+			// Slot 1
+			tmp = Load(stream, 19);
+			if (tmp != null)
+				gameData.Add(tmp);
+
+			// Slot 2
+			tmp = Load(stream, 1379);
+			if (tmp != null)
+				gameData.Add(tmp);
+
+			// Slot 3
+			tmp = Load(stream, 2739);
+			if (tmp != null)
+				gameData.Add(tmp);
+
+
+			return gameData;
 		}
 
 		/// <summary>
@@ -50,6 +66,7 @@ namespace Zyrenth.OracleHack
 		/// </summary>
 		/// <param name="stream">Stream.</param>
 		/// <param name="offset">Offset.</param>
+		/// <remarks>This method has only been tested with the US version of the games</remarks>
 		public static GameInfo Load(Stream stream, int offset)
 		{
 			GameInfo info = new GameInfo();
@@ -69,6 +86,10 @@ namespace Zyrenth.OracleHack
 			stream.Seek(offset, SeekOrigin.Begin);
 
 			stream.Read(versionBytes, 0, 1);
+
+			// The version is represented by the char values '1' or '2'
+			if (versionBytes[0] != 49 && versionBytes[0] != 50)
+				return null;
 
 			stream.Seek(96, SeekOrigin.Begin);
 			stream.Read(gameIdBytes, 0, 2);
@@ -91,7 +112,11 @@ namespace Zyrenth.OracleHack
 			stream.Seek(5, SeekOrigin.Current);
 			stream.Read(ringBytes, 0, 8);
 
-			info.Game = (Game)(versionBytes[0] & 1);
+			// The save files use the values 11, 12, and 13 for the animal friends. Interestingly,
+			// the bit value before the animal in the secrets is always set to 1. Perhaps these
+			// are the actual values.
+
+			info.Game = versionBytes[0] == 49 ? Game.Seasons : Game.Ages;
 			info.GameID = BitConverter.ToInt16(gameIdBytes, 0);
 			info.Hero = System.Text.Encoding.ASCII.GetString(heroBytes);
 			info.Child = System.Text.Encoding.ASCII.GetString(kidBytes);
