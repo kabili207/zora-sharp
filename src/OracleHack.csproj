@@ -55,10 +55,10 @@
     <Compile Include="RingSecret.cs" />
     <Compile Include="Secret.cs" />
     <Compile Include="SecretParser.cs" />
-    <Compile Include="VbaGameInfo.cs" />
     <Compile Include="Extensions.cs" />
     <Compile Include="GameInfo.cs" />
     <Compile Include="GameInfoJsonConverter.cs" />
+    <Compile Include="VbaSaveFileLoader.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="OracleHack.pfx" />
