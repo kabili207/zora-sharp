@@ -65,18 +65,17 @@ namespace Zyrenth.OracleHack
 
 			GameInfo info = new GameInfo();
 
-			info.Hero = ReadValue<string>(dictionary, "Hero");
-			info.Child = ReadValue<string>(dictionary, "Child");
-			info.IsHeroQuest = ReadValue<bool>(dictionary, "IsHeroQuest");
-			info.IsLinkedGame = ReadValue<bool>(dictionary, "IsLinkedGame");
-			info.GameID = ReadValue<short>(dictionary, "GameID");
-			info.Rings = (Rings)ReadValue<long>(dictionary, "Rings");
-			info.Game = ReadValue<Game>(dictionary, "Game");
-			info.Animal = ReadValue<Animal>(dictionary, "Animal");
-			info.Behavior = ReadValue<ChildBehavior>(dictionary, "Behavior");
+			info.Hero = dictionary.ReadValue<string>("Hero");
+			info.Child = dictionary.ReadValue<string>("Child");
+			info.IsHeroQuest = dictionary.ReadValue<bool>("IsHeroQuest");
+			info.IsLinkedGame = dictionary.ReadValue<bool>("IsLinkedGame");
+			info.GameID = dictionary.ReadValue<short>("GameID");
+			info.Rings = (Rings)dictionary.ReadValue<long>("Rings");
+			info.Game = dictionary.ReadValue<Game>("Game");
+			info.Animal = dictionary.ReadValue<Animal>("Animal");
+			info.Behavior = dictionary.ReadValue<ChildBehavior>("Behavior");
 
 			return info;
-
 		}
 
 		/// <summary>
@@ -107,37 +106,6 @@ namespace Zyrenth.OracleHack
 			dict["Rings"] = (long)info.Rings;
 
 			return dict;
-		}
-
-		private static T ReadValue<T>(IDictionary<string, object> dict, string key) where T : IConvertible
-		{
-			Type type = typeof(T);
-			T val = default(T);
-
-			if (dict.ContainsKey(key))
-			{
-				object obj = dict[key];
-				if (type.IsEnum)
-				{
-					// The T constraints on our method conflict with those on Enum.TryParse<T>
-					// so we have to use some black magic instead.
-					MethodInfo method = typeof(Enum).GetMethods().First(x => x.Name.StartsWith("TryParse") && 
-						x.GetParameters().Length == 2);
-
-					method = method.MakeGenericMethod(type);
-
-					var args = new object[] { ReadValue<string>(dict, key), default(T) };
-					method.Invoke(null, args);
-
-					val = (T)args[1];
-				}
-				else
-				{
-					val = (T)Convert.ChangeType(obj, type);
-				}
-			}
-
-			return val;
 		}
 
 	}
