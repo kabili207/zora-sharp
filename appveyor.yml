@@ -1,0 +1,9 @@
+version: 2.1.{build}
+configuration: Release
+before_build:
+- nuget restore OracleHack.sln
+build:
+  project: OracleHack.sln
+  verbosity: minimal
+artifacts:
+- path: bin\$(configuration)\*.dll
