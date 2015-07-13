@@ -201,12 +201,12 @@ namespace Zyrenth.OracleHack
 		/// <code language="C#">
 		/// // H~2:@ ←2♦yq GB3●( 6♥?↑6
 		/// byte[] rawSecret = new byte[]
-		///     {
-		///          4, 37, 51, 36, 63,
-		///         61, 51, 10, 44, 39,
-		///          3,  0, 52, 21, 48,
-		///         55,  9, 45, 59, 55
-		///     };
+		/// {
+		///      4, 37, 51, 36, 63,
+		///     61, 51, 10, 44, 39,
+		///      3,  0, 52, 21, 48,
+		///     55,  9, 45, 59, 55
+		/// };
 		/// Secret secret = new GameSecret();
 		/// secret.Load(rawSecret);
 		/// </code>
@@ -229,7 +229,7 @@ namespace Zyrenth.OracleHack
 
 			if (decodedSecret[3] != '0' && decodedSecret[4] != '0')
 				throw new ArgumentException("The specified data is not a game code", "secret");
-
+			
 			TargetGame = (Game)(byte)(decodedSecret[21] == '1' ? 1 : 0);
 			IsHeroQuest = decodedSecret[20] == '1';
 			IsLinkedGame = decodedSecret[105] == '1';
@@ -253,7 +253,7 @@ namespace Zyrenth.OracleHack
 
 			// It should be noted that if we include the unknown bit at location 88 with the
 			// animal bytes, then the values will match those in the game's save file.
-			// Perhaps
+			// Perhaps they are the actual values.
 			Animal = (Animal)Convert.ToByte(decodedSecret.ReversedSubstring(85, 3), 2);
 			Behavior = (ChildBehavior)Convert.ToByte(decodedSecret.ReversedSubstring(54, 4), 2);
 
