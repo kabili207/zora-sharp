@@ -13,14 +13,14 @@ namespace Zyrenth.OracleHack.Tests
 			3,  0, 52, 21, 48,
 			55,  9, 45, 59, 55
 		};
-		
+
 		[Test]
 		public void CreateString()
 		{
 			string testString = SecretParser.CreateString(DesiredSecretBytes);
 			Assert.AreEqual(DesiredSecretString, testString);
 		}
-		
+
 		[Test]
 		public void ParseString()
 		{
@@ -28,11 +28,14 @@ namespace Zyrenth.OracleHack.Tests
 			string s2 = "H~2:@ {left}2{diamond}yq GB3{circle}( 6{heart}?{up}6";
 			string s3 = "H~2:@ left 2 diamond yq GB3 circle ( 6 heart ? up 6";
 			string s4 = "H~2 :@LEFT2{dIAmoNd}yq G B3cirCle (6 heaRT}?    UP   6";
-			
-			Assert.AreEqual(DesiredSecretBytes, SecretParser.ParseSecret(s1));
-			Assert.AreEqual(DesiredSecretBytes, SecretParser.ParseSecret(s2));
-			Assert.AreEqual(DesiredSecretBytes, SecretParser.ParseSecret(s3));
-			Assert.AreEqual(DesiredSecretBytes, SecretParser.ParseSecret(s4));
+
+			var allSecrets = new[] {
+				SecretParser.ParseSecret(s1),
+				SecretParser.ParseSecret(s2),
+				SecretParser.ParseSecret(s3),
+				SecretParser.ParseSecret(s4)
+			};
+			Assert.That(allSecrets, Is.All.EquivalentTo(DesiredSecretBytes));
 		}
 
 		[Test]
