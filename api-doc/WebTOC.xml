@@ -1,0 +1,192 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<HelpTOC>
+
+  <HelpTOCNode Id="7aa7b30e-12dc-465a-9422-5fab3ee5c83a" Title="Zyrenth.OracleHack" Url="html/N_Zyrenth_OracleHack.htm">
+    <HelpTOCNode Title="Animal Enumeration" Url="html/T_Zyrenth_OracleHack_Animal.htm" />
+    <HelpTOCNode Id="9beb4f63-88e9-46c3-9656-37ccfbad37ca" Title="AssemblyDetail Class" Url="html/T_Zyrenth_OracleHack_AssemblyDetail.htm">
+      <HelpTOCNode Title="AssemblyDetail Constructor " Url="html/M_Zyrenth_OracleHack_AssemblyDetail__ctor.htm" />
+      <HelpTOCNode Title="AssemblyDetail Methods" Url="html/Methods_T_Zyrenth_OracleHack_AssemblyDetail.htm" />
+      <HelpTOCNode Id="1d3532c6-a59b-438e-805c-471c2e7a7bba" Title="AssemblyDetail Properties" Url="html/Properties_T_Zyrenth_OracleHack_AssemblyDetail.htm">
+        <HelpTOCNode Title="Company Property " Url="html/P_Zyrenth_OracleHack_AssemblyDetail_Company.htm" />
+        <HelpTOCNode Title="Copyright Property " Url="html/P_Zyrenth_OracleHack_AssemblyDetail_Copyright.htm" />
+        <HelpTOCNode Title="Description Property " Url="html/P_Zyrenth_OracleHack_AssemblyDetail_Description.htm" />
+        <HelpTOCNode Title="FileVersion Property " Url="html/P_Zyrenth_OracleHack_AssemblyDetail_FileVersion.htm" />
+        <HelpTOCNode Title="Product Property " Url="html/P_Zyrenth_OracleHack_AssemblyDetail_Product.htm" />
+        <HelpTOCNode Title="ProductVersion Property " Url="html/P_Zyrenth_OracleHack_AssemblyDetail_ProductVersion.htm" />
+        <HelpTOCNode Title="Title Property " Url="html/P_Zyrenth_OracleHack_AssemblyDetail_Title.htm" />
+        <HelpTOCNode Title="Trademark Property " Url="html/P_Zyrenth_OracleHack_AssemblyDetail_Trademark.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Title="ChildBehavior Enumeration" Url="html/T_Zyrenth_OracleHack_ChildBehavior.htm" />
+    <HelpTOCNode Id="0db454c9-fa6e-4fbf-8796-47fef19566c7" Title="Extensions Class" Url="html/T_Zyrenth_OracleHack_Extensions.htm">
+      <HelpTOCNode Id="491e97e6-9f4f-42b4-9596-3b7a3858407d" Title="Extensions Methods" Url="html/Methods_T_Zyrenth_OracleHack_Extensions.htm">
+        <HelpTOCNode Title="ReadValue(T) Method " Url="html/M_Zyrenth_OracleHack_Extensions_ReadValue__1.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Title="Game Enumeration" Url="html/T_Zyrenth_OracleHack_Game.htm" />
+    <HelpTOCNode Id="3e143481-2958-47a4-86ea-e54f6d97942d" Title="GameInfo Class" Url="html/T_Zyrenth_OracleHack_GameInfo.htm">
+      <HelpTOCNode Title="GameInfo Constructor " Url="html/M_Zyrenth_OracleHack_GameInfo__ctor.htm" />
+      <HelpTOCNode Id="1a1e65e1-13ce-4e39-84b6-4a15b0835110" Title="GameInfo Methods" Url="html/Methods_T_Zyrenth_OracleHack_GameInfo.htm">
+        <HelpTOCNode Id="b0df7336-6f11-4a18-a90f-afb41695d5ce" Title="Load Method " Url="html/Overload_Zyrenth_OracleHack_GameInfo_Load.htm">
+          <HelpTOCNode Title="Load Method (Stream)" Url="html/M_Zyrenth_OracleHack_GameInfo_Load.htm" />
+          <HelpTOCNode Title="Load Method (String)" Url="html/M_Zyrenth_OracleHack_GameInfo_Load_1.htm" />
+        </HelpTOCNode>
+        <HelpTOCNode Title="NotifyPropertyChanged Method " Url="html/M_Zyrenth_OracleHack_GameInfo_NotifyPropertyChanged.htm" />
+        <HelpTOCNode Title="Parse Method " Url="html/M_Zyrenth_OracleHack_GameInfo_Parse.htm" />
+        <HelpTOCNode Id="c6a9b271-c204-4048-96ca-786933423d8a" Title="Write Method " Url="html/Overload_Zyrenth_OracleHack_GameInfo_Write.htm">
+          <HelpTOCNode Title="Write Method (Stream)" Url="html/M_Zyrenth_OracleHack_GameInfo_Write.htm" />
+          <HelpTOCNode Title="Write Method (String)" Url="html/M_Zyrenth_OracleHack_GameInfo_Write_1.htm" />
+        </HelpTOCNode>
+      </HelpTOCNode>
+      <HelpTOCNode Id="be7b08ad-8fa0-4020-972f-51b580c38a39" Title="GameInfo Properties" Url="html/Properties_T_Zyrenth_OracleHack_GameInfo.htm">
+        <HelpTOCNode Title="Animal Property " Url="html/P_Zyrenth_OracleHack_GameInfo_Animal.htm" />
+        <HelpTOCNode Title="Behavior Property " Url="html/P_Zyrenth_OracleHack_GameInfo_Behavior.htm" />
+        <HelpTOCNode Title="Child Property " Url="html/P_Zyrenth_OracleHack_GameInfo_Child.htm" />
+        <HelpTOCNode Title="Game Property " Url="html/P_Zyrenth_OracleHack_GameInfo_Game.htm" />
+        <HelpTOCNode Title="GameID Property " Url="html/P_Zyrenth_OracleHack_GameInfo_GameID.htm" />
+        <HelpTOCNode Title="Hero Property " Url="html/P_Zyrenth_OracleHack_GameInfo_Hero.htm" />
+        <HelpTOCNode Title="IsHeroQuest Property " Url="html/P_Zyrenth_OracleHack_GameInfo_IsHeroQuest.htm" />
+        <HelpTOCNode Title="IsLinkedGame Property " Url="html/P_Zyrenth_OracleHack_GameInfo_IsLinkedGame.htm" />
+        <HelpTOCNode Title="Rings Property " Url="html/P_Zyrenth_OracleHack_GameInfo_Rings.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="b0cdfdf8-8d87-43f3-b5e0-bbf99ae44cab" Title="GameInfo Events" Url="html/Events_T_Zyrenth_OracleHack_GameInfo.htm">
+        <HelpTOCNode Title="PropertyChanged Event" Url="html/E_Zyrenth_OracleHack_GameInfo_PropertyChanged.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="5b5f5620-f690-4998-beb7-331bb06a8789" Title="GameInfoJsonConverter Class" Url="html/T_Zyrenth_OracleHack_GameInfoJsonConverter.htm">
+      <HelpTOCNode Title="GameInfoJsonConverter Constructor " Url="html/M_Zyrenth_OracleHack_GameInfoJsonConverter__ctor.htm" />
+      <HelpTOCNode Id="665d5838-2b91-4dbe-8fba-f0fb0345b10d" Title="GameInfoJsonConverter Methods" Url="html/Methods_T_Zyrenth_OracleHack_GameInfoJsonConverter.htm">
+        <HelpTOCNode Title="Deserialize Method " Url="html/M_Zyrenth_OracleHack_GameInfoJsonConverter_Deserialize.htm" />
+        <HelpTOCNode Title="Serialize Method " Url="html/M_Zyrenth_OracleHack_GameInfoJsonConverter_Serialize.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="11dfa751-f190-4cd7-bd12-f8f057fd167a" Title="GameInfoJsonConverter Properties" Url="html/Properties_T_Zyrenth_OracleHack_GameInfoJsonConverter.htm">
+        <HelpTOCNode Title="SupportedTypes Property " Url="html/P_Zyrenth_OracleHack_GameInfoJsonConverter_SupportedTypes.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="1eb2a24c-5257-4561-b7b0-7d743c290c12" Title="GameSecret Class" Url="html/T_Zyrenth_OracleHack_GameSecret.htm">
+      <HelpTOCNode Id="65324b34-9c7e-4b2a-98ec-87c67584a464" Title="GameSecret Constructor " Url="html/Overload_Zyrenth_OracleHack_GameSecret__ctor.htm">
+        <HelpTOCNode Title="GameSecret Constructor " Url="html/M_Zyrenth_OracleHack_GameSecret__ctor.htm" />
+        <HelpTOCNode Title="GameSecret Constructor (GameInfo)" Url="html/M_Zyrenth_OracleHack_GameSecret__ctor_1.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="fe11a0cb-e38d-4699-b005-3cb39432e980" Title="GameSecret Methods" Url="html/Methods_T_Zyrenth_OracleHack_GameSecret.htm">
+        <HelpTOCNode Id="077c286c-e123-4218-b5d4-73ac5cbc56a6" Title="Load Method " Url="html/Overload_Zyrenth_OracleHack_GameSecret_Load.htm">
+          <HelpTOCNode Title="Load Method (Byte[])" Url="html/M_Zyrenth_OracleHack_GameSecret_Load.htm" />
+          <HelpTOCNode Title="Load Method (GameInfo)" Url="html/M_Zyrenth_OracleHack_GameSecret_Load_1.htm" />
+        </HelpTOCNode>
+        <HelpTOCNode Title="ToBytes Method " Url="html/M_Zyrenth_OracleHack_GameSecret_ToBytes.htm" />
+        <HelpTOCNode Title="UpdateGameInfo Method " Url="html/M_Zyrenth_OracleHack_GameSecret_UpdateGameInfo.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="e2d2fe64-6207-40fe-8d0f-323d838757ce" Title="GameSecret Properties" Url="html/Properties_T_Zyrenth_OracleHack_GameSecret.htm">
+        <HelpTOCNode Title="Animal Property " Url="html/P_Zyrenth_OracleHack_GameSecret_Animal.htm" />
+        <HelpTOCNode Title="Behavior Property " Url="html/P_Zyrenth_OracleHack_GameSecret_Behavior.htm" />
+        <HelpTOCNode Title="Child Property " Url="html/P_Zyrenth_OracleHack_GameSecret_Child.htm" />
+        <HelpTOCNode Title="Hero Property " Url="html/P_Zyrenth_OracleHack_GameSecret_Hero.htm" />
+        <HelpTOCNode Title="IsHeroQuest Property " Url="html/P_Zyrenth_OracleHack_GameSecret_IsHeroQuest.htm" />
+        <HelpTOCNode Title="IsLinkedGame Property " Url="html/P_Zyrenth_OracleHack_GameSecret_IsLinkedGame.htm" />
+        <HelpTOCNode Title="Length Property " Url="html/P_Zyrenth_OracleHack_GameSecret_Length.htm" />
+        <HelpTOCNode Title="TargetGame Property " Url="html/P_Zyrenth_OracleHack_GameSecret_TargetGame.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Title="GameSecret Events" Url="html/Events_T_Zyrenth_OracleHack_GameSecret.htm" />
+    </HelpTOCNode>
+    <HelpTOCNode Id="117db9b1-288b-4163-9373-c09aeea3cd0a" Title="InvalidSecretException Class" Url="html/T_Zyrenth_OracleHack_InvalidSecretException.htm">
+      <HelpTOCNode Id="a0a5e76b-8a9a-445f-ad02-d5879364df21" Title="InvalidSecretException Constructor " Url="html/Overload_Zyrenth_OracleHack_InvalidSecretException__ctor.htm">
+        <HelpTOCNode Title="InvalidSecretException Constructor " Url="html/M_Zyrenth_OracleHack_InvalidSecretException__ctor.htm" />
+        <HelpTOCNode Title="InvalidSecretException Constructor (String)" Url="html/M_Zyrenth_OracleHack_InvalidSecretException__ctor_2.htm" />
+        <HelpTOCNode Title="InvalidSecretException Constructor (SerializationInfo, StreamingContext)" Url="html/M_Zyrenth_OracleHack_InvalidSecretException__ctor_1.htm" />
+        <HelpTOCNode Title="InvalidSecretException Constructor (String, Exception)" Url="html/M_Zyrenth_OracleHack_InvalidSecretException__ctor_3.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Title="InvalidSecretException Methods" Url="html/Methods_T_Zyrenth_OracleHack_InvalidSecretException.htm" />
+      <HelpTOCNode Title="InvalidSecretException Properties" Url="html/Properties_T_Zyrenth_OracleHack_InvalidSecretException.htm" />
+      <HelpTOCNode Title="InvalidSecretException Events" Url="html/Events_T_Zyrenth_OracleHack_InvalidSecretException.htm" />
+    </HelpTOCNode>
+    <HelpTOCNode Title="Memory Enumeration" Url="html/T_Zyrenth_OracleHack_Memory.htm" />
+    <HelpTOCNode Id="1df3f487-faa0-4509-8e73-15650e780a34" Title="MemorySecret Class" Url="html/T_Zyrenth_OracleHack_MemorySecret.htm">
+      <HelpTOCNode Id="6af517f0-2e42-4e3a-a82a-c84da762659d" Title="MemorySecret Constructor " Url="html/Overload_Zyrenth_OracleHack_MemorySecret__ctor.htm">
+        <HelpTOCNode Title="MemorySecret Constructor " Url="html/M_Zyrenth_OracleHack_MemorySecret__ctor.htm" />
+        <HelpTOCNode Title="MemorySecret Constructor (GameInfo, Memory, Boolean)" Url="html/M_Zyrenth_OracleHack_MemorySecret__ctor_2.htm" />
+        <HelpTOCNode Title="MemorySecret Constructor (Game, Int16, Memory, Boolean)" Url="html/M_Zyrenth_OracleHack_MemorySecret__ctor_1.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="23095b1e-ac01-41ed-a49e-c4b76f0b20c4" Title="MemorySecret Methods" Url="html/Methods_T_Zyrenth_OracleHack_MemorySecret.htm">
+        <HelpTOCNode Id="8e0e305d-7ca5-40be-8fb6-22639e254b41" Title="Load Method " Url="html/Overload_Zyrenth_OracleHack_MemorySecret_Load.htm">
+          <HelpTOCNode Title="Load Method (Byte[])" Url="html/M_Zyrenth_OracleHack_MemorySecret_Load.htm" />
+          <HelpTOCNode Title="Load Method (GameInfo)" Url="html/M_Zyrenth_OracleHack_MemorySecret_Load_1.htm" />
+        </HelpTOCNode>
+        <HelpTOCNode Title="ToBytes Method " Url="html/M_Zyrenth_OracleHack_MemorySecret_ToBytes.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="b0468941-95e6-405d-8d76-42c9e9144574" Title="MemorySecret Properties" Url="html/Properties_T_Zyrenth_OracleHack_MemorySecret.htm">
+        <HelpTOCNode Title="IsReturnSecret Property " Url="html/P_Zyrenth_OracleHack_MemorySecret_IsReturnSecret.htm" />
+        <HelpTOCNode Title="Length Property " Url="html/P_Zyrenth_OracleHack_MemorySecret_Length.htm" />
+        <HelpTOCNode Title="Memory Property " Url="html/P_Zyrenth_OracleHack_MemorySecret_Memory.htm" />
+        <HelpTOCNode Title="TargetGame Property " Url="html/P_Zyrenth_OracleHack_MemorySecret_TargetGame.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Title="MemorySecret Events" Url="html/Events_T_Zyrenth_OracleHack_MemorySecret.htm" />
+    </HelpTOCNode>
+    <HelpTOCNode Id="c19b9b1c-707a-4b65-bd74-48cb5a2c6aa1" Title="RingInfoAttribute Class" Url="html/T_Zyrenth_OracleHack_RingInfoAttribute.htm">
+      <HelpTOCNode Title="RingInfoAttribute Constructor " Url="html/M_Zyrenth_OracleHack_RingInfoAttribute__ctor.htm" />
+      <HelpTOCNode Title="RingInfoAttribute Methods" Url="html/Methods_T_Zyrenth_OracleHack_RingInfoAttribute.htm" />
+      <HelpTOCNode Id="181d4c0d-4218-4d0b-8624-a98c58b60c25" Title="RingInfoAttribute Properties" Url="html/Properties_T_Zyrenth_OracleHack_RingInfoAttribute.htm">
+        <HelpTOCNode Title="Description Property " Url="html/P_Zyrenth_OracleHack_RingInfoAttribute_Description.htm" />
+        <HelpTOCNode Title="Name Property " Url="html/P_Zyrenth_OracleHack_RingInfoAttribute_Name.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Title="Rings Enumeration" Url="html/T_Zyrenth_OracleHack_Rings.htm" />
+    <HelpTOCNode Id="f7be35e5-ae2d-44f2-81d7-ac625f6edcff" Title="RingSecret Class" Url="html/T_Zyrenth_OracleHack_RingSecret.htm">
+      <HelpTOCNode Id="0cba93a1-d8fb-4091-bea2-6bba501d671b" Title="RingSecret Constructor " Url="html/Overload_Zyrenth_OracleHack_RingSecret__ctor.htm">
+        <HelpTOCNode Title="RingSecret Constructor " Url="html/M_Zyrenth_OracleHack_RingSecret__ctor.htm" />
+        <HelpTOCNode Title="RingSecret Constructor (GameInfo)" Url="html/M_Zyrenth_OracleHack_RingSecret__ctor_2.htm" />
+        <HelpTOCNode Title="RingSecret Constructor (Int16, Rings)" Url="html/M_Zyrenth_OracleHack_RingSecret__ctor_1.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="b777e96e-c292-4dca-acbd-fd6bf5930728" Title="RingSecret Methods" Url="html/Methods_T_Zyrenth_OracleHack_RingSecret.htm">
+        <HelpTOCNode Id="3224472b-a6cc-4fee-b9b3-13e48a6bda18" Title="Load Method " Url="html/Overload_Zyrenth_OracleHack_RingSecret_Load.htm">
+          <HelpTOCNode Title="Load Method (Byte[])" Url="html/M_Zyrenth_OracleHack_RingSecret_Load.htm" />
+          <HelpTOCNode Title="Load Method (GameInfo)" Url="html/M_Zyrenth_OracleHack_RingSecret_Load_1.htm" />
+        </HelpTOCNode>
+        <HelpTOCNode Title="ToBytes Method " Url="html/M_Zyrenth_OracleHack_RingSecret_ToBytes.htm" />
+        <HelpTOCNode Title="UpdateGameInfo Method " Url="html/M_Zyrenth_OracleHack_RingSecret_UpdateGameInfo.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="7a4d48b5-9e71-4cb8-8ebc-ef2d2b129ad2" Title="RingSecret Properties" Url="html/Properties_T_Zyrenth_OracleHack_RingSecret.htm">
+        <HelpTOCNode Title="Length Property " Url="html/P_Zyrenth_OracleHack_RingSecret_Length.htm" />
+        <HelpTOCNode Title="Rings Property " Url="html/P_Zyrenth_OracleHack_RingSecret_Rings.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Title="RingSecret Events" Url="html/Events_T_Zyrenth_OracleHack_RingSecret.htm" />
+    </HelpTOCNode>
+    <HelpTOCNode Id="e47f137f-26e3-44f0-bc05-dec3a6a74851" Title="Secret Class" Url="html/T_Zyrenth_OracleHack_Secret.htm">
+      <HelpTOCNode Title="Secret Constructor " Url="html/M_Zyrenth_OracleHack_Secret__ctor.htm" />
+      <HelpTOCNode Id="0b577709-d3dd-4beb-b878-b75ad8a4d680" Title="Secret Methods" Url="html/Methods_T_Zyrenth_OracleHack_Secret.htm">
+        <HelpTOCNode Title="BinaryStringToByteArray Method " Url="html/M_Zyrenth_OracleHack_Secret_BinaryStringToByteArray.htm" />
+        <HelpTOCNode Title="ByteArrayToBinaryString Method " Url="html/M_Zyrenth_OracleHack_Secret_ByteArrayToBinaryString.htm" />
+        <HelpTOCNode Title="CalculateChecksum Method " Url="html/M_Zyrenth_OracleHack_Secret_CalculateChecksum.htm" />
+        <HelpTOCNode Title="DecodeBytes Method " Url="html/M_Zyrenth_OracleHack_Secret_DecodeBytes.htm" />
+        <HelpTOCNode Title="EncodeBytes Method " Url="html/M_Zyrenth_OracleHack_Secret_EncodeBytes.htm" />
+        <HelpTOCNode Id="16f6a76b-00a1-4221-91e4-1082a043c293" Title="Load Method " Url="html/Overload_Zyrenth_OracleHack_Secret_Load.htm">
+          <HelpTOCNode Title="Load Method (Byte[])" Url="html/M_Zyrenth_OracleHack_Secret_Load.htm" />
+          <HelpTOCNode Title="Load Method (String)" Url="html/M_Zyrenth_OracleHack_Secret_Load_1.htm" />
+          <HelpTOCNode Title="Load Method (GameInfo)" Url="html/M_Zyrenth_OracleHack_Secret_Load_2.htm" />
+        </HelpTOCNode>
+        <HelpTOCNode Title="NotifyPropertyChanged Method " Url="html/M_Zyrenth_OracleHack_Secret_NotifyPropertyChanged.htm" />
+        <HelpTOCNode Title="ToBytes Method " Url="html/M_Zyrenth_OracleHack_Secret_ToBytes.htm" />
+        <HelpTOCNode Title="ToString Method " Url="html/M_Zyrenth_OracleHack_Secret_ToString.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="4b26a042-b65b-48b8-886d-f15cff5fa486" Title="Secret Properties" Url="html/Properties_T_Zyrenth_OracleHack_Secret.htm">
+        <HelpTOCNode Title="GameID Property " Url="html/P_Zyrenth_OracleHack_Secret_GameID.htm" />
+        <HelpTOCNode Title="Length Property " Url="html/P_Zyrenth_OracleHack_Secret_Length.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="4c4946b8-f567-4d82-8c0f-65ef74229765" Title="Secret Events" Url="html/Events_T_Zyrenth_OracleHack_Secret.htm">
+        <HelpTOCNode Title="PropertyChanged Event" Url="html/E_Zyrenth_OracleHack_Secret_PropertyChanged.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="aacdecb9-1a49-4b7a-add6-696a6ccba652" Title="SecretParser Class" Url="html/T_Zyrenth_OracleHack_SecretParser.htm">
+      <HelpTOCNode Id="e4257037-5bd1-4e0e-ae65-ba17725d6e10" Title="SecretParser Methods" Url="html/Methods_T_Zyrenth_OracleHack_SecretParser.htm">
+        <HelpTOCNode Title="CreateString Method " Url="html/M_Zyrenth_OracleHack_SecretParser_CreateString.htm" />
+        <HelpTOCNode Title="ParseSecret Method " Url="html/M_Zyrenth_OracleHack_SecretParser_ParseSecret.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="6cb07d0b-c3af-4e2e-b86d-95805c39f386" Title="VbaSaveFileLoader Class" Url="html/T_Zyrenth_OracleHack_VbaSaveFileLoader.htm">
+      <HelpTOCNode Title="VbaSaveFileLoader Constructor " Url="html/M_Zyrenth_OracleHack_VbaSaveFileLoader__ctor.htm" />
+      <HelpTOCNode Id="7984eb74-ebcd-47a3-b8f3-278cc8d7e16a" Title="VbaSaveFileLoader Methods" Url="html/Methods_T_Zyrenth_OracleHack_VbaSaveFileLoader.htm">
+        <HelpTOCNode Title="Load Method " Url="html/M_Zyrenth_OracleHack_VbaSaveFileLoader_Load.htm" />
+        <HelpTOCNode Title="LoadAll Method " Url="html/M_Zyrenth_OracleHack_VbaSaveFileLoader_LoadAll.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+  </HelpTOCNode>
+</HelpTOC>
