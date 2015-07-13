@@ -28,6 +28,9 @@ using System.Reflection;
 
 namespace Zyrenth.OracleHack
 {
+	/// <summary>
+	/// Extension methods used within the library
+	/// </summary>
 	public static class Extensions
 	{
 		internal static string Reverse(this string value)
@@ -40,14 +43,21 @@ namespace Zyrenth.OracleHack
 			return new string(Enumerable.Reverse(value.Substring(start, length)).ToArray());
 		}
 
-		public static T ReadValue<T>(this IDictionary<string, object> dict, string key) where T : IConvertible
+		/// <summary>
+		/// Reads the value of the dictionary in the specified key and casts it to the specified type.
+		/// </summary>
+		/// <typeparam name="T">The type to convert the stored value to</typeparam>
+		/// <param name="dictionary">The dictionary.</param>
+		/// <param name="key">The key.</param>
+		/// <returns>The value in the dictionary after it has been converted to the desired type</returns>
+		public static T ReadValue<T>(this IDictionary<string, object> dictionary, string key) where T : IConvertible
 		{
 			Type type = typeof(T);
 			T val = default(T);
 
-			if (dict.ContainsKey(key))
+			if (dictionary.ContainsKey(key))
 			{
-				object obj = dict[key];
+				object obj = dictionary[key];
 				if (type.IsEnum)
 				{
 					// The T constraints on our method conflict with those on Enum.TryParse<T>
@@ -57,7 +67,7 @@ namespace Zyrenth.OracleHack
 
 					method = method.MakeGenericMethod(type);
 
-					var args = new object[] { ReadValue<string>(dict, key), default(T) };
+					var args = new object[] { ReadValue<string>(dictionary, key), default(T) };
 					method.Invoke(null, args);
 
 					val = (T)args[1];

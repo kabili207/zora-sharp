@@ -66,6 +66,7 @@ namespace Zyrenth.OracleHack
 		/// </summary>
 		/// <param name="stream">Stream.</param>
 		/// <param name="offset">Offset.</param>
+		/// <returns>The game information at the specified offset</returns>
 		/// <remarks>This method has only been tested with the US version of the games</remarks>
 		public static GameInfo Load(Stream stream, int offset)
 		{
