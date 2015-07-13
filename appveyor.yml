@@ -6,4 +6,4 @@ build:
   project: OracleHack.sln
   verbosity: minimal
 artifacts:
-- path: bin\$(configuration)\*.dll
+- path: src\bin\$(configuration)\*.dll
