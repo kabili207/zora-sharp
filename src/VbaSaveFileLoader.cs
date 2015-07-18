@@ -30,6 +30,10 @@ namespace Zyrenth.OracleHack
 	/// </summary>
 	public class VbaSaveFileLoader
 	{
+		public const int Slot1Offset = 19;
+		public const int Slot2Offset = 1379;
+		public const int Slot3Offset = 2739;
+
 		/// <summary>
 		/// Loads all the game data from the specified stream
 		/// </summary>
@@ -43,17 +47,17 @@ namespace Zyrenth.OracleHack
 			// These offsets seem to be static for both versions, but I can't be certain.
 
 			// Slot 1
-			tmp = Load(stream, 19);
+			tmp = Load(stream, Slot1Offset);
 			if (tmp != null)
 				gameData.Add(tmp);
 
 			// Slot 2
-			tmp = Load(stream, 1379);
+			tmp = Load(stream, Slot2Offset);
 			if (tmp != null)
 				gameData.Add(tmp);
 
 			// Slot 3
-			tmp = Load(stream, 2739);
+			tmp = Load(stream, Slot3Offset);
 			if (tmp != null)
 				gameData.Add(tmp);
 
