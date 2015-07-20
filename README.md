@@ -23,15 +23,15 @@ races and enemies.
 
 ```json
 {
-    "Hero": "Kabi",
-    "GameID": 21353,
+    "Hero": "Link",
+    "GameID": 14129,
     "Game": "Ages",
-    "Child": "Derp",
-    "Animal": "Moosh",
-    "Behavior": "Infant",
+    "Child": "Pip",
+    "Animal": "Dimitri",
+    "Behavior": "BouncyD",
     "IsLinkedGame": true,
     "IsHeroQuest": false,
-    "Rings": -5188093993887465139
+    "Rings": -9222246136947933182
 }
 ```
 
@@ -56,12 +56,12 @@ cannot be guaranteed for other libraries that implement the `.zora` save file.
 OracleHack uses byte arrays for most operations with the secrets. Most people don't go passing byte values
 around, however, opting for a more readable text representation. These secret strings can be parsed like so:
 ```c#
-string gameSecret = "#3GGr q59s right qY)*? =G* left (";
-byte[] rawGameSecret = GameInfo.SecretStringToByteArray(gameSecret);
+string gameSecret = "H~2:@ left 2 diamond yq GB3 circle ( 6 heart ? up 6";
+byte[] rawGameSecret = SecretParser.ParseSecret(gameSecret);
 ```
-The `SecretStringToByteArray` method is fairly flexible in what it will accept. Possible formats include 
-`→N♥Nh`, `right N heart N h`, and `{right}N{heart}Nh`. You can even combine the formats like so: 
-`RigHtN ♥N h`. Brackets (`{` and `}`) also ignored, so long as they are next to a symbol word such as
+The `ParseSecret` method is fairly flexible in what it will accept. Possible formats include 
+`6●sW↑`, `6 circle s W up`, and `6{circle}sW{up}`. You can even combine the formats like so: 
+`6cIrClesW↑`. Brackets (`{` and `}`) also ignored, so long as they are next to a symbol word such as
 `circle` or `left`.
 
 Whitespace is also ignored. This does not cause any issues with the symbol words because the list of valid
@@ -71,58 +71,94 @@ characters does not include any vowels.
 It's also possible to take the raw bytes and convert them back into a readable string value.
 ```c#
 byte[] rawSecret = new byte[]
-    {
-        12, 52,  3,  3, 40,
-        39, 54, 58, 41, 62,
-        39, 19, 50, 34, 45,
-        49,  3, 34, 61, 48
-    };
-string secret = GameInfo.ByteArrayToSecretString(rawSecret);
-// #3GGr q59s→ qY)*? =G*←(
+{
+     4, 37, 51, 36, 63,
+    61, 51, 10, 44, 39,
+     3,  0, 52, 21, 48,
+    55,  9, 45, 59, 55
+};
+string secret = SecretParser.CreateString(rawSecret);
+// H~2:@ ←2♦yq GB3●( 6♥?↑6
 ```
 
-The `ByteArrayToSecretString` method is far less flexible than it's counter-part, and will only return
+The `CreateString` method is far less flexible than it's counter-part, and will only return
 a UTF-8 string, as shown above.
 
-### Loading a game secret
+### Loading a secret
+Secrets can be loaded from a string...
 ```c#
-byte[] rawGameSecret = new byte[] { 12, 52, 3, 3, 40, ... };
-GameInfo info = new GameInfo();
-info.LoadGameData(rawGameSecret);
+string gameSecret = "H~2:@ left 2 diamond yq GB3 circle ( 6 heart ? up 6";
+Secret secret = new GameSecret();
+secret.Load(gameSecret);
 ```
-
+...or from a byte array
+```c#
+// H~2:@ ←2♦yq GB3●( 6♥?↑6
+byte[] rawSecret = new byte[]
+{
+     4, 37, 51, 36, 63,
+    61, 51, 10, 44, 39,
+     3,  0, 52, 21, 48,
+    55,  9, 45, 59, 55
+};
+Secret secret = new GameSecret();
+secret.Load(rawSecret);
+```
 ### Loading a ring secret
 ```c#
-bool appendRings = false;
-byte[] rawRingSecret = new byte[]
-    {
-      14, 52,  3,  8, 58,
-      35, 25, 56, 45, 12,
-      54, 55,  9, 41, 61
-    };
-info.LoadRings(rawRingSecret, appendRings);
+// L~2:N @bB↑& hmRh=
+byte[] rawSecret = new byte[]
+{
+     6, 37, 51, 36, 13,
+    63, 26,  0, 59, 47,
+    30, 32, 15, 30, 49
+};
+Secret secret = new RingSecret();
+secret.Load(rawSecret);
 ```
 
 ### Creating a game secret
 ```c#
-byte[] rawGameSecret = info.CreateGameSecret();
-string gameSecret = GameInfo.ByteArrayToSecretString(rawGameSecret);
-// #3GGr q59s→ qY)*? =G*←(
+GameSecret secret = new GameSecret()
+{
+    GameID = 14129,
+    TargetGame = Game.Ages,
+    Hero = "Link",
+    Child = "Pip",
+    Animal = Animal.Dimitri,
+    Behavior = ChildBehavior.BouncyD,
+    IsLinkedGame = true,
+    IsHeroQuest = false
+};
+string secretString = secret.ToString();
+// H~2:@ ←2♦yq GB3●( 6♥?↑6
+byte[] data = secret.ToBytes();
 ```
 
 ### Creating a ring secret
 ```c#
-byte[] rawRingSecret = info.CreateGameSecret();
-string ringSecret = GameInfo.ByteArrayToSecretString(rawRingSecret);
-// Q3G♠9 /-7?# 56♥s←
+RingSecret secret = new RingSecret()
+{
+    GameID = 14129,
+    Rings = Rings.PowerRingL1 | Rings.DoubleEdgeRing | Rings.ProtectionRing
+};
+string ringSecret = secret.ToString();
+// L~2:N @bB↑& hmRh=
+byte[] data = secret.ToBytes();
 ```
 
 ### Creating a memory secret
 ```c#
-bool isReturnSecret = true;
-byte[] memorySecret = info.CreateMemorySecret(Memory.SmithLibrary, isReturnSecret);
-string secret = GameInfo.ByteArrayToSecretString(memorySecret);
-// →BYq↑
+MemorySecret secret = new MemorySecret()
+{
+    GameID = 14129,
+    TargetGame = Game.Ages,
+    Memory = Memory.ClockShopKingZora,
+    IsReturnSecret = true
+};
+string secret = secret.ToString();
+// 6●sW↑
+byte[] data = secret.ToBytes();
 ```
 
 ## Special Thanks
