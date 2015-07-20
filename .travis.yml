@@ -1,5 +1,6 @@
 language: csharp
 solution: OracleHack.sln
+sudo: false
 install:
   - nuget restore OracleHack.sln
   - nuget install NUnit.Runners -Version 2.6.4 -OutputDirectory testrunner
