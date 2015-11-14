@@ -47,10 +47,10 @@ namespace Zyrenth.OracleHack
 		bool _isHeroQuest = false;
 		bool _isLinkedGame = false;
 		long _rings = 0L;
+		bool _wasGivenFreeRing = false;
 
 		bool _unknown58 = false;
 		bool _unknown59 = false;
-		bool _unknown76 = false; // default true
 		bool _unknown88 = false; // default true
 
 		#endregion // Fields
@@ -174,6 +174,19 @@ namespace Zyrenth.OracleHack
 		}
 
 		/// <summary>
+		/// Gets or sets the value indicating if Vasu has given the player a free ring
+		/// </summary>
+		public bool WasGivenFreeRing
+		{
+			get { return _wasGivenFreeRing; }
+			set
+			{
+				_wasGivenFreeRing = value;
+				NotifyPropertyChanged("WasGivenFreeRing");
+			}
+		}
+
+		/// <summary>
 		/// Gets or sets the user's ring collection
 		/// </summary>
 		public Rings Rings
@@ -209,19 +222,6 @@ namespace Zyrenth.OracleHack
 			{
 				_unknown59 = value;
 				NotifyPropertyChanged("Unknown59");
-			}
-		}
-
-		/// <summary>
-		/// Gets or sets the unknown flag at offset 76
-		/// </summary>
-		public bool Unknown76
-		{
-			get { return _unknown76; }
-			set
-			{
-				_unknown76 = value;
-				NotifyPropertyChanged("Unknown76");
 			}
 		}
 

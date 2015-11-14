@@ -37,10 +37,10 @@ namespace Zyrenth.OracleHack
 		Game _targetGame = 0;
 		bool _isHeroQuest = false;
 		bool _isLinkedGame = false;
+		bool _wasGivenFreeRing = false;
 
 		bool _unknown58 = false;
 		bool _unknown59 = false;
-		bool _unknown76 = true;
 		bool _unknown88 = true;
 
 		/// <summary>
@@ -149,6 +149,19 @@ namespace Zyrenth.OracleHack
 		}
 
 		/// <summary>
+		/// Gets or sets the value indicating if Vasu has given the player a free ring
+		/// </summary>
+		public bool WasGivenFreeRing
+		{
+			get { return _wasGivenFreeRing; }
+			set
+			{
+				_wasGivenFreeRing = value;
+				NotifyPropertyChanged("WasGivenFreeRing");
+			}
+		}
+
+		/// <summary>
 		/// Gets or sets the unknown flag at offset 58
 		/// </summary>
 		public bool Unknown58
@@ -171,19 +184,6 @@ namespace Zyrenth.OracleHack
 			{
 				_unknown59 = value;
 				NotifyPropertyChanged("Unknown59");
-			}
-		}
-
-		/// <summary>
-		/// Gets or sets the unknown flag at offset 76
-		/// </summary>
-		public bool Unknown76
-		{
-			get { return _unknown76; }
-			set
-			{
-				_unknown76 = value;
-				NotifyPropertyChanged("Unknown76");
 			}
 		}
 
@@ -230,7 +230,8 @@ namespace Zyrenth.OracleHack
 		///     Animal = Animal.Dimitri,
 		///     Behavior = ChildBehavior.BouncyD,
 		///     IsLinkedGame = true,
-		///     IsHeroQuest = false
+		///     IsHeroQuest = false,
+		///     WasGivenFreeRing = true
 		/// };
 		/// GameSecret secret = new GameSecret();
 		/// secret.Load(info);
@@ -246,9 +247,9 @@ namespace Zyrenth.OracleHack
 			Behavior = info.Behavior;
 			IsLinkedGame = info.IsLinkedGame;
 			IsHeroQuest = info.IsHeroQuest;
+			WasGivenFreeRing = info.WasGivenFreeRing;
 			Unknown58 = info.Unknown58;
 			Unknown59 = info.Unknown59;
-			Unknown76 = info.Unknown76;
 			Unknown88 = info.Unknown88;
 		}
 
@@ -312,17 +313,14 @@ namespace Zyrenth.OracleHack
 				Convert.ToByte(decodedSecret.ReversedSubstring(106, 8), 2)
 			});
 
-			// It should be noted that if we include the unknown bit at location 88 with the
-			// animal bytes, then the values will match those in the game's save file.
-			// Perhaps they are the actual values.
 			Animal = (Animal)Convert.ToByte(decodedSecret.ReversedSubstring(85, 3), 2);
 			Behavior = (ChildBehavior)Convert.ToByte(decodedSecret.ReversedSubstring(54, 4), 2);
+			WasGivenFreeRing = decodedSecret[76] == '1';
 
 
 			// TODO: Figure out what all the unknown values are for.
 			Unknown58 = decodedSecret[58] == '1';
 			Unknown59 = decodedSecret[59] == '1';
-			Unknown76 = decodedSecret[76] == '1';
 			Unknown88 = decodedSecret[88] == '1';
 		}
 
@@ -341,7 +339,8 @@ namespace Zyrenth.OracleHack
 		///     Animal = Animal.Dimitri,
 		///     Behavior = ChildBehavior.BouncyD,
 		///     IsLinkedGame = true,
-		///     IsHeroQuest = false
+		///     IsHeroQuest = false,
+		///     WasGivenFreeRing = true
 		/// };
 		/// byte[] data = secret.ToBytes();
 		/// </code>
@@ -365,7 +364,7 @@ namespace Zyrenth.OracleHack
 			unencodedSecret += _unknown59 ? "1" : "0"; // TODO: This
 			unencodedSecret += Convert.ToString((byte)_hero[2], 2).PadLeft(8, '0').Reverse();
 			unencodedSecret += Convert.ToString((byte)_child[2], 2).PadLeft(8, '0').Reverse();
-			unencodedSecret += _unknown76 ? "1" : "0"; // TODO: This
+			unencodedSecret += _wasGivenFreeRing ? "1" : "0";
 			unencodedSecret += Convert.ToString((byte)_hero[3], 2).PadLeft(8, '0').Reverse();
 			unencodedSecret += Convert.ToString(_animal, 2).PadLeft(8, '0').Reverse().Substring(0, 3);
 			unencodedSecret += _unknown88 ? "1" : "0"; // TODO: This
@@ -396,7 +395,8 @@ namespace Zyrenth.OracleHack
 		///     Animal = Animal.Dimitri,
 		///     Behavior = ChildBehavior.BouncyD,
 		///     IsLinkedGame = true,
-		///     IsHeroQuest = false
+		///     IsHeroQuest = false,
+		///     WasGivenFreeRing = true
 		/// };
 		/// GameInfo info = new GameInfo();
 		/// secret.UpdateGameInfo(info);
@@ -412,9 +412,9 @@ namespace Zyrenth.OracleHack
 			info.Behavior = Behavior;
 			info.IsLinkedGame = IsLinkedGame;
 			info.IsHeroQuest = IsHeroQuest;
+			info.WasGivenFreeRing = WasGivenFreeRing;
 			info.Unknown58 = Unknown58;
 			info.Unknown59 = Unknown59;
-			info.Unknown76 = Unknown76;
 			info.Unknown88 = Unknown88;
 		}
 	}

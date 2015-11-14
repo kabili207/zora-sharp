@@ -32,6 +32,7 @@ races and enemies.
     "Behavior": "BouncyD",
     "IsLinkedGame": true,
     "IsHeroQuest": false,
+    "WasGivenFreeRing": true,
     "Rings": -9222246136947933182
 }
 ```
@@ -129,7 +130,8 @@ GameSecret secret = new GameSecret()
     Animal = Animal.Dimitri,
     Behavior = ChildBehavior.BouncyD,
     IsLinkedGame = true,
-    IsHeroQuest = false
+    IsHeroQuest = false,
+    WasGivenFreeRing = true
 };
 string secretString = secret.ToString();
 // H~2:@ ←2♦yq GB3●( 6♥?↑6

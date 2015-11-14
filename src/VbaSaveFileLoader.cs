@@ -112,7 +112,7 @@ namespace Zyrenth.OracleHack
 			byte[] animalBytes = new byte[1];
 			byte[] linkedBytes = new byte[1];
 			byte[] heroQuestBytes = new byte[1];
-			byte[] unknown = new byte[1];
+			byte[] freeRingBytes = new byte[1];
 			byte[] ringBytes = new byte[8];
 
 			stream.Seek(offset, SeekOrigin.Begin);
@@ -140,10 +140,7 @@ namespace Zyrenth.OracleHack
 			stream.Read(heroQuestBytes, 0, 1);
 
 			stream.Seek(1, SeekOrigin.Current);
-			stream.Read(unknown, 0, 1);
-
-			// TODO: Verify this. Things seem to have gotten bumped around several revisions ago
-			stream.Seek(1, SeekOrigin.Current);
+			stream.Read(freeRingBytes, 0, 1);
 			stream.Read(ringBytes, 0, 8);
 
 			info.Game = versionBytes[0] == 49 ? Game.Seasons : Game.Ages;
@@ -158,7 +155,7 @@ namespace Zyrenth.OracleHack
 
 			info.Unknown58 = (behaviorBytes[0] >> 4 & 1) == 1;
 			info.Unknown59 = (behaviorBytes[0] >> 5 & 1) == 1;
-			info.Unknown76 = unknown[0] == 1;
+			info.WasGivenFreeRing = freeRingBytes[0] == 1;
 			info.Unknown88 = animalBytes[0] >> 3 == 1;
 
 			return info;

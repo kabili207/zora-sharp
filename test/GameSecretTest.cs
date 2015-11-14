@@ -29,6 +29,7 @@ namespace Zyrenth.OracleHack.Tests
 			Assert.AreEqual(ChildBehavior.BouncyD, secret.Behavior);
 			Assert.AreEqual(true, secret.IsLinkedGame);
 			Assert.AreEqual(false, secret.IsHeroQuest);
+			Assert.AreEqual(true, secret.WasGivenFreeRing);
 		}
 
 		[Test]
@@ -45,6 +46,7 @@ namespace Zyrenth.OracleHack.Tests
 			Assert.AreEqual(ChildBehavior.BouncyD, secret.Behavior);
 			Assert.AreEqual(true, secret.IsLinkedGame);
 			Assert.AreEqual(false, secret.IsHeroQuest);
+			Assert.AreEqual(true, secret.WasGivenFreeRing);
 		}
 
 		[Test]
@@ -58,7 +60,8 @@ namespace Zyrenth.OracleHack.Tests
 				Animal = Animal.Dimitri,
 				Behavior = ChildBehavior.BouncyD,
 				IsLinkedGame = true,
-				IsHeroQuest = false
+				IsHeroQuest = false,
+				WasGivenFreeRing = true
 			};
 
 			Assert.AreEqual(DesiredSecretString, secret.ToString());
@@ -75,7 +78,8 @@ namespace Zyrenth.OracleHack.Tests
 				Animal = Animal.Dimitri,
 				Behavior = ChildBehavior.BouncyD,
 				IsLinkedGame = true,
-				IsHeroQuest = false
+				IsHeroQuest = false,
+				WasGivenFreeRing = true
 			};
 
 			Assert.AreEqual(DesiredSecretBytes, secret.ToBytes());
