@@ -84,9 +84,8 @@ namespace Zyrenth.OracleHack
 			byte[] animalBytes = new byte[1];
 			byte[] linkedBytes = new byte[1];
 			byte[] heroQuestBytes = new byte[1];
-			byte[] beatenBytes = new byte[1];
+			byte[] unknown = new byte[1];
 			byte[] ringBytes = new byte[8];
-
 
 			stream.Seek(offset, SeekOrigin.Begin);
 
@@ -96,7 +95,7 @@ namespace Zyrenth.OracleHack
 			if (versionBytes[0] != 49 && versionBytes[0] != 50)
 				return null;
 
-			stream.Seek(96, SeekOrigin.Begin);
+			stream.Seek(76, SeekOrigin.Current);
 			stream.Read(gameIdBytes, 0, 2);
 			stream.Read(heroBytes, 0, 5);
 
@@ -105,30 +104,34 @@ namespace Zyrenth.OracleHack
 
 			stream.Seek(1, SeekOrigin.Current);
 			stream.Read(behaviorBytes, 0, 1);
-
-			stream.Seek(2, SeekOrigin.Current);
 			stream.Read(animalBytes, 0, 1);
 
-			// These are mostly just a guess
+			stream.Seek(1, SeekOrigin.Current);
+
 			stream.Read(linkedBytes, 0, 1);
 			stream.Read(heroQuestBytes, 0, 1);
-			stream.Read(beatenBytes, 0, 1);
 
-			stream.Seek(5, SeekOrigin.Current);
+			stream.Seek(1, SeekOrigin.Current);
+			stream.Read(unknown, 0, 1);
+
+			// TODO: Verify this. Things seem to have gotten bumped around several revisions ago
+			stream.Seek(1, SeekOrigin.Current);
 			stream.Read(ringBytes, 0, 8);
-
-			// The save files use the values 11, 12, and 13 for the animal friends. Interestingly,
-			// the bit value before the animal in the secrets is always set to 1. Perhaps these
-			// are the actual values.
 
 			info.Game = versionBytes[0] == 49 ? Game.Seasons : Game.Ages;
 			info.GameID = BitConverter.ToInt16(gameIdBytes, 0);
 			info.Hero = System.Text.Encoding.ASCII.GetString(heroBytes);
 			info.Child = System.Text.Encoding.ASCII.GetString(kidBytes);
+			info.Behavior = (ChildBehavior)(behaviorBytes[0] & 15);
 			info.Animal = (Animal)(animalBytes[0] & 7);
-			info.IsLinkedGame = linkedBytes[0] == 0;
-			info.IsHeroQuest = heroQuestBytes[0] == 0;
+			info.IsLinkedGame = linkedBytes[0] == 1;
+			info.IsHeroQuest = heroQuestBytes[0] == 1;
 			info.Rings = (Rings)BitConverter.ToUInt64(ringBytes, 0);
+
+			info.Unknown58 = (behaviorBytes[0] >> 4 & 1) == 1;
+			info.Unknown59 = (behaviorBytes[0] >> 5 & 1) == 1;
+			info.Unknown76 = unknown[0] == 1;
+			info.Unknown88 = animalBytes[0] >> 3 == 1;
 
 			return info;
 		}
