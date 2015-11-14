@@ -38,6 +38,11 @@ namespace Zyrenth.OracleHack
 		bool _isHeroQuest = false;
 		bool _isLinkedGame = false;
 
+		bool _unknown58 = false;
+		bool _unknown59 = false;
+		bool _unknown76 = true;
+		bool _unknown88 = true;
+
 		/// <summary>
 		/// Gets the required length of the secret
 		/// </summary>
@@ -144,6 +149,58 @@ namespace Zyrenth.OracleHack
 		}
 
 		/// <summary>
+		/// Gets or sets the unknown flag at offset 58
+		/// </summary>
+		public bool Unknown58
+		{
+			get { return _unknown58; }
+			set
+			{
+				_unknown58 = value;
+				NotifyPropertyChanged("Unknown58");
+			}
+		}
+
+		/// <summary>
+		/// Gets or sets the unknown flag at offset 59
+		/// </summary>
+		public bool Unknown59
+		{
+			get { return _unknown59; }
+			set
+			{
+				_unknown59 = value;
+				NotifyPropertyChanged("Unknown59");
+			}
+		}
+
+		/// <summary>
+		/// Gets or sets the unknown flag at offset 76
+		/// </summary>
+		public bool Unknown76
+		{
+			get { return _unknown76; }
+			set
+			{
+				_unknown76 = value;
+				NotifyPropertyChanged("Unknown76");
+			}
+		}
+
+		/// <summary>
+		/// Gets or sets the unknown flag at offset 88
+		/// </summary>
+		public bool Unknown88
+		{
+			get { return _unknown88; }
+			set
+			{
+				_unknown88 = value;
+				NotifyPropertyChanged("Unknown88");
+			}
+		}
+
+		/// <summary>
 		/// Initializes a new instance of the <see cref="GameSecret"/> class.
 		/// </summary>
 		public GameSecret() { }
@@ -189,6 +246,10 @@ namespace Zyrenth.OracleHack
 			Behavior = info.Behavior;
 			IsLinkedGame = info.IsLinkedGame;
 			IsHeroQuest = info.IsHeroQuest;
+			Unknown58 = info.Unknown58;
+			Unknown59 = info.Unknown59;
+			Unknown76 = info.Unknown76;
+			Unknown88 = info.Unknown88;
 		}
 
 		/// <summary>
@@ -259,10 +320,10 @@ namespace Zyrenth.OracleHack
 
 
 			// TODO: Figure out what all the unknown values are for.
-			bool unknown1 = decodedSecret[58] == '1';
-			bool unknown2 = decodedSecret[59] == '1';
-			bool unknown3 = decodedSecret[76] == '1';
-			bool unknown4 = decodedSecret[88] == '1';
+			Unknown58 = decodedSecret[58] == '1';
+			Unknown59 = decodedSecret[59] == '1';
+			Unknown76 = decodedSecret[76] == '1';
+			Unknown88 = decodedSecret[88] == '1';
 		}
 
 		/// <summary>
@@ -300,14 +361,14 @@ namespace Zyrenth.OracleHack
 			unencodedSecret += Convert.ToString((byte)_hero[1], 2).PadLeft(8, '0').Reverse();
 			unencodedSecret += Convert.ToString((byte)_child[1], 2).PadLeft(8, '0').Reverse();
 			unencodedSecret += Convert.ToString(_behavior, 2).PadLeft(8, '0').Reverse().Substring(0, 4);
-			unencodedSecret += "0"; // unknown 1
-			unencodedSecret += "0"; // unknown 2
+			unencodedSecret += _unknown58 ? "1" : "0"; // TODO: This
+			unencodedSecret += _unknown59 ? "1" : "0"; // TODO: This
 			unencodedSecret += Convert.ToString((byte)_hero[2], 2).PadLeft(8, '0').Reverse();
 			unencodedSecret += Convert.ToString((byte)_child[2], 2).PadLeft(8, '0').Reverse();
-			unencodedSecret += "1"; // unknown 3
+			unencodedSecret += _unknown76 ? "1" : "0"; // TODO: This
 			unencodedSecret += Convert.ToString((byte)_hero[3], 2).PadLeft(8, '0').Reverse();
 			unencodedSecret += Convert.ToString(_animal, 2).PadLeft(8, '0').Reverse().Substring(0, 3);
-			unencodedSecret += "1"; // unknown 4
+			unencodedSecret += _unknown88 ? "1" : "0"; // TODO: This
 			unencodedSecret += Convert.ToString((byte)_hero[4], 2).PadLeft(8, '0').Reverse();
 			unencodedSecret += Convert.ToString((byte)_child[3], 2).PadLeft(8, '0').Reverse();
 			unencodedSecret += _isLinkedGame ? "1" : "0";
@@ -351,6 +412,10 @@ namespace Zyrenth.OracleHack
 			info.Behavior = Behavior;
 			info.IsLinkedGame = IsLinkedGame;
 			info.IsHeroQuest = IsHeroQuest;
+			info.Unknown58 = Unknown58;
+			info.Unknown59 = Unknown59;
+			info.Unknown76 = Unknown76;
+			info.Unknown88 = Unknown88;
 		}
 	}
 }

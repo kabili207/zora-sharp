@@ -48,6 +48,11 @@ namespace Zyrenth.OracleHack
 		bool _isLinkedGame = false;
 		long _rings = 0L;
 
+		bool _unknown58 = false;
+		bool _unknown59 = false;
+		bool _unknown76 = false; // default true
+		bool _unknown88 = false; // default true
+
 		#endregion // Fields
 
 		/// <summary>
@@ -178,6 +183,58 @@ namespace Zyrenth.OracleHack
 			{
 				_rings = (long)value;
 				NotifyPropertyChanged("Rings");
+			}
+		}
+
+		/// <summary>
+		/// Gets or sets the unknown flag at offset 58
+		/// </summary>
+		public bool Unknown58
+		{
+			get { return _unknown58; }
+			set
+			{
+				_unknown58 = value;
+				NotifyPropertyChanged("Unknown58");
+			}
+		}
+
+		/// <summary>
+		/// Gets or sets the unknown flag at offset 59
+		/// </summary>
+		public bool Unknown59
+		{
+			get { return _unknown59; }
+			set
+			{
+				_unknown59 = value;
+				NotifyPropertyChanged("Unknown59");
+			}
+		}
+
+		/// <summary>
+		/// Gets or sets the unknown flag at offset 76
+		/// </summary>
+		public bool Unknown76
+		{
+			get { return _unknown76; }
+			set
+			{
+				_unknown76 = value;
+				NotifyPropertyChanged("Unknown76");
+			}
+		}
+
+		/// <summary>
+		/// Gets or sets the unknown flag at offset 88
+		/// </summary>
+		public bool Unknown88
+		{
+			get { return _unknown88; }
+			set
+			{
+				_unknown88 = value;
+				NotifyPropertyChanged("Unknown88");
 			}
 		}
 
