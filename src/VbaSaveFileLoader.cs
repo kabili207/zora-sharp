@@ -35,6 +35,19 @@ namespace Zyrenth.OracleHack
 		public const int Slot3Offset = 2739;
 
 		/// <summary>
+		/// Loads all the game data from the specified file
+		/// </summary>
+		/// <returns>All of the game information in the save file</returns>
+		/// <param name="stream">The input file path.</param>
+		public static IEnumerable<GameInfo> LoadAll(string filename)
+		{
+			using (FileStream inFile = File.OpenRead(filename))
+			{
+				return LoadAll(inFile);
+			}
+		}
+
+		/// <summary>
 		/// Loads all the game data from the specified stream
 		/// </summary>
 		/// <returns>All of the game information in the save file</returns>
@@ -63,6 +76,21 @@ namespace Zyrenth.OracleHack
 
 
 			return gameData;
+		}
+
+		/// <summary>
+		/// Loads a game info from the file at the specified offset
+		/// </summary>
+		/// <param name="filename">File.</param>
+		/// <param name="offset">Offset.</param>
+		/// <returns>The game information at the specified offset</returns>
+		/// <remarks>This method has only been tested with the US version of the games</remarks>
+		public static GameInfo Load(string filename, int offset)
+		{
+			using (FileStream inFile = File.OpenRead(filename))
+			{
+				return Load(inFile, offset);
+			}
 		}
 
 		/// <summary>
