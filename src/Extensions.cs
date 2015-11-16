@@ -50,6 +50,7 @@ namespace Zyrenth.OracleHack
 		/// <param name="dictionary">The dictionary.</param>
 		/// <param name="key">The key.</param>
 		/// <returns>The value in the dictionary after it has been converted to the desired type</returns>
+		[CLSCompliant(false)]
 		public static T ReadValue<T>(this IDictionary<string, object> dictionary, string key) where T : IConvertible
 		{
 			Type type = typeof(T);
