@@ -47,7 +47,7 @@
     <Compile Include="Extensions.cs" />
     <Compile Include="GameInfo.cs" />
     <Compile Include="GameInfoJsonConverter.cs" />
-    <Compile Include="VbaSaveFileLoader.cs" />
+    <Compile Include="BatteryFileLoader.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

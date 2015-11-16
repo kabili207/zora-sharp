@@ -26,9 +26,9 @@ using System.Collections.Generic;
 namespace Zyrenth.OracleHack
 {
 	/// <summary>
-	/// Vba save file loader.
+	/// Battery file loader.
 	/// </summary>
-	public class VbaSaveFileLoader
+	public class BatteryFileLoader
 	{
 		/// <summary>
 		/// The offset for slot 1
