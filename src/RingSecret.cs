@@ -216,7 +216,7 @@ namespace Zyrenth.OracleHack
 		/// RingSecret secret = new RingSecret()
 		/// {
 		///     GameID = 14129,
-		///     Rings = -9222246136947933182
+		///     Rings = Rings.PowerRingL1 | Rings.DoubleEdgeRing | Rings.ProtectionRing
 		/// };
 		/// GameInfo info = new GameInfo() { GameID = 14129 };
 		/// bool appendRings = true;

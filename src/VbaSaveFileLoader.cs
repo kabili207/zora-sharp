@@ -30,15 +30,26 @@ namespace Zyrenth.OracleHack
 	/// </summary>
 	public class VbaSaveFileLoader
 	{
+		/// <summary>
+		/// The offset for slot 1
+		/// </summary>
 		public const int Slot1Offset = 19;
+
+		/// <summary>
+		/// The offset for slot 2
+		/// </summary>
 		public const int Slot2Offset = 1379;
+
+		/// <summary>
+		/// The offset for slot 3
+		/// </summary>
 		public const int Slot3Offset = 2739;
 
 		/// <summary>
 		/// Loads all the game data from the specified file
 		/// </summary>
 		/// <returns>All of the game information in the save file</returns>
-		/// <param name="stream">The input file path.</param>
+		/// <param name="filename">The input file path.</param>
 		public static IEnumerable<GameInfo> LoadAll(string filename)
 		{
 			using (FileStream inFile = File.OpenRead(filename))

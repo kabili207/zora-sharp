@@ -294,7 +294,7 @@ namespace Zyrenth.OracleHack
 		/// <param name="stream">The stream to write to</param>
 		/// <example>
 		/// This example demonstrates creating a .zora save file from a<see cref="GameInfo"/>
-		/// object.. If you have access to the file name you will be saving to, as in this
+		/// object. If you have access to the file name you will be saving to, as in this
 		/// example, you should consider using the <see cref="Write(string)"/> method instead.
 		/// <code language="C#">
 		/// GameInfo info = new GameInfo();
