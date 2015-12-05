@@ -5,8 +5,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{E40D4A82-F5F3-4712-A8E2-AD3C77B1E5A8}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>Zyrenth.OracleHack</RootNamespace>
-    <AssemblyName>OracleHack</AssemblyName>
+    <RootNamespace>Zyrenth.Zora</RootNamespace>
+    <AssemblyName>ZoraSharp</AssemblyName>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>True</DebugSymbols>
@@ -17,7 +17,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <ConsolePause>False</ConsolePause>
-    <DocumentationFile>bin\Debug\OracleHack.xml</DocumentationFile>
+    <DocumentationFile>bin\Debug\ZoraSharp.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>none</DebugType>
@@ -26,7 +26,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <ConsolePause>False</ConsolePause>
-    <DocumentationFile>bin\Release\OracleHack.xml</DocumentationFile>
+    <DocumentationFile>bin\Release\ZoraSharp.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />

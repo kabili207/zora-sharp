@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OracleHack", "src\OracleHack.csproj", "{E40D4A82-F5F3-4712-A8E2-AD3C77B1E5A8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZoraSharp", "src\ZoraSharp.csproj", "{E40D4A82-F5F3-4712-A8E2-AD3C77B1E5A8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OracleHack.Tests", "test\OracleHack.Tests.csproj", "{A53C330E-8F16-4369-9C27-DBD331C64EA0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZoraSharp.Tests", "test\ZoraSharp.Tests.csproj", "{A53C330E-8F16-4369-9C27-DBD331C64EA0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,7 +31,7 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
-		StartupItem = src\OracleHack.csproj
+		StartupItem = src\ZoraSharp.csproj
 		Policies = $0
 		$0.TextStylePolicy = $6
 		$1.inheritsSet = null

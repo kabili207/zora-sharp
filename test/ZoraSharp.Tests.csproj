@@ -5,8 +5,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{A53C330E-8F16-4369-9C27-DBD331C64EA0}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>Zyrenth.OracleHack.Tests</RootNamespace>
-    <AssemblyName>OracleHack.Tests</AssemblyName>
+    <RootNamespace>Zyrenth.Zora.Tests</RootNamespace>
+    <AssemblyName>ZoraSharp.Tests</AssemblyName>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -43,9 +43,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\src\OracleHack.csproj">
+    <ProjectReference Include="..\src\ZoraSharp.csproj">
       <Project>{E40D4A82-F5F3-4712-A8E2-AD3C77B1E5A8}</Project>
-      <Name>OracleHack</Name>
+      <Name>ZoraSharp</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

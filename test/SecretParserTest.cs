@@ -1,7 +1,7 @@
 ﻿using NUnit.Framework;
 using System;
 
-namespace Zyrenth.OracleHack.Tests
+namespace Zyrenth.Zora
 {
 	[TestFixture]
 	public class SecretParserTest

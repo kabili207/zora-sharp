@@ -15,7 +15,7 @@
     <!-- SHFB properties -->
     <FrameworkVersion>.NET Framework 4.0</FrameworkVersion>
     <OutputPath>doc\</OutputPath>
-    <HtmlHelpName>OracleHack</HtmlHelpName>
+    <HtmlHelpName>ZoraSharp</HtmlHelpName>
     <Language>en-US</Language>
     <BuildAssemblerVerbosity>OnlyWarningsAndErrors</BuildAssemblerVerbosity>
     <HelpFileFormat>Website</HelpFileFormat>
@@ -25,10 +25,10 @@
     <CppCommentsFixup>False</CppCommentsFixup>
     <CleanIntermediates>True</CleanIntermediates>
     <DocumentationSources>
-      <DocumentationSource sourceFile="src\OracleHack.csproj" xmlns="" />
+      <DocumentationSource sourceFile="src\ZoraSharp.csproj" xmlns="" />
     </DocumentationSources>
     <NamespaceSummaries>
-      <NamespaceSummaryItem name="Zyrenth.OracleHack" isDocumented="True">The Zyrenth.OracleHack namespace provides classes for working with secrets used in the Legend of Zelda &lt;a href="http://www.zelda.com/universe/game/oracleages/"&gt;Oracle of Ages&lt;/a&gt; and &lt;a href="http://www.zelda.com/universe/game/oracleseasons/"&gt;Oracle of Seasons&lt;/a&gt; video games.</NamespaceSummaryItem>
+      <NamespaceSummaryItem name="Zyrenth.Zora" isDocumented="True">The Zyrenth.Zora namespace provides classes for working with secrets used in the Legend of Zelda &lt;a href="http://www.zelda.com/universe/game/oracleages/"&gt;Oracle of Ages&lt;/a&gt; and &lt;a href="http://www.zelda.com/universe/game/oracleseasons/"&gt;Oracle of Seasons&lt;/a&gt; video games.</NamespaceSummaryItem>
     </NamespaceSummaries>
     <VisibleItems>Attributes, ExplicitInterfaceImplementations, InheritedMembers, InheritedFrameworkMembers, Protected</VisibleItems>
     <MaximumGroupParts>2</MaximumGroupParts>

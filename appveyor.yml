@@ -1,9 +1,9 @@
 version: 2.1.{build}
 configuration: Release
 before_build:
-- nuget restore OracleHack.sln
+- nuget restore ZoraSharp.sln
 build:
-  project: OracleHack.sln
+  project: ZoraSharp.sln
   verbosity: minimal
 artifacts:
 - path: src\bin\$(configuration)\*.dll
