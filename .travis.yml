@@ -3,7 +3,7 @@ solution: ZoraSharp.sln
 sudo: false
 install:
   - nuget restore ZoraSharp.sln
-  - nuget install NUnit.Runners -Version 2.6.4 -OutputDirectory testrunner
+  - nuget install NUnit.Console -Version 3.0.1 -OutputDirectory testrunner
 script:
   - xbuild /p:Configuration=Release ZoraSharp.sln
-  - mono ./testrunner/NUnit.Runners.2.6.4/tools/nunit-console.exe ./test/bin/Release/ZoraSharp.Tests.dll
+  - mono ./testrunner/NUnit.Console.3.0.1/tools/nunit3-console.exe ./test/bin/Release/ZoraSharp.Tests.dll

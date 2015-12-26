@@ -29,7 +29,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="nunit.framework">
-      <HintPath>..\packages\NUnit.2.6.4\lib\nunit.framework.dll</HintPath>
+      <HintPath>..\packages\NUnit.3.0.1\lib\net40\nunit.framework.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -40,9 +40,6 @@
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\src\ZoraSharp.csproj">
       <Project>{E40D4A82-F5F3-4712-A8E2-AD3C77B1E5A8}</Project>
       <Name>ZoraSharp</Name>
@@ -50,5 +47,8 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
 </Project>
