@@ -391,5 +391,59 @@ namespace Zyrenth.Zora
 		}
 
 		#endregion // File Saving/Loading methods
+
+		/// <summary>
+		/// Determines whether the specified <see cref="System.Object" />, is equal to this instance.
+		/// </summary>
+		/// <param name="obj">The <see cref="System.Object" /> to compare with this instance.</param>
+		/// <returns>
+		///   <c>true</c> if the specified <see cref="System.Object" /> is equal to this instance; otherwise, <c>false</c>.
+		/// </returns>
+		public override bool Equals(object obj)
+		{
+			if (obj == null || GetType() != obj.GetType())
+				return false;
+
+			GameInfo g = (GameInfo)obj;
+
+			return
+				(_gameId == g._gameId) &&
+				(_agesSeasons == g._agesSeasons) &&
+				(_hero == g._hero) &&
+				(_child == g._child) &&
+				(_behavior == g._behavior) &&
+				(_animal == g._animal) &&
+				(_isHeroQuest == g._isHeroQuest) &&
+				(_isLinkedGame == g._isLinkedGame) &&
+				(_rings == g._rings) &&
+				(_wasGivenFreeRing == g._wasGivenFreeRing) &&
+				(_unknown58 == g._unknown58) &&
+				(_unknown59 == g._unknown59) &&
+				(_unknown88 == g._unknown88);
+
+		}
+
+		/// <summary>
+		/// Returns a hash code for this instance.
+		/// </summary>
+		/// <returns>
+		/// A hash code for this instance, suitable for use in hashing algorithms and data structures like a hash table. 
+		/// </returns>
+		public override int GetHashCode()
+		{
+			return _gameId.GetHashCode() ^
+				_agesSeasons.GetHashCode() ^
+				_hero.GetHashCode() ^
+				_child.GetHashCode() ^
+				_behavior.GetHashCode() ^
+				_animal.GetHashCode() ^
+				_isHeroQuest.GetHashCode() ^
+				_isLinkedGame.GetHashCode() ^
+				_rings.GetHashCode() ^
+				_wasGivenFreeRing.GetHashCode() ^
+				_unknown58.GetHashCode() ^
+				_unknown59.GetHashCode() ^
+				_unknown88.GetHashCode();
+		}
 	}
 }

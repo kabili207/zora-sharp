@@ -7,6 +7,13 @@ namespace Zyrenth.Zora
 	public class RingSecretTest
 	{
 		const string DesiredSecretString = "L~2:N @bB↑& hmRh=";
+
+		static readonly RingSecret DesiredSecret = new RingSecret()
+		{
+			GameID = 14129,
+			Rings = Rings.PowerRingL1 | Rings.DoubleEdgeRing | Rings.ProtectionRing
+		};
+
 		static readonly byte[] DesiredSecretBytes = new byte[] {
 			6, 37, 51, 36, 13,
 			63, 26,  0, 59, 47,
@@ -18,9 +25,7 @@ namespace Zyrenth.Zora
 		{
 			RingSecret secret = new RingSecret();
 			secret.Load(DesiredSecretBytes);
-
-			Assert.AreEqual(14129, secret.GameID);
-			Assert.AreEqual(Rings.PowerRingL1 | Rings.DoubleEdgeRing | Rings.ProtectionRing, secret.Rings);
+			Assert.AreEqual(DesiredSecret, secret);
 		}
 
 		[Test]
@@ -28,31 +33,46 @@ namespace Zyrenth.Zora
 		{
 			RingSecret secret = new RingSecret();
 			secret.Load(DesiredSecretString);
-
-			Assert.AreEqual(14129, secret.GameID);
-			Assert.AreEqual(Rings.PowerRingL1 | Rings.DoubleEdgeRing | Rings.ProtectionRing, secret.Rings);
+			Assert.AreEqual(DesiredSecret, secret);
 		}
 
 		[Test]
 		public void TestToString()
 		{
-			RingSecret secret = new RingSecret() {
-				GameID = 14129,
-				Rings = Rings.PowerRingL1 | Rings.DoubleEdgeRing | Rings.ProtectionRing
-			};
+			string secret = DesiredSecret.ToString();
 
-			Assert.AreEqual(DesiredSecretString, secret.ToString());
+			Assert.AreEqual(DesiredSecretString, secret);
 		}
 
 		[Test]
 		public void TestToBytes()
 		{
-			RingSecret secret = new RingSecret() {
+			byte[] bytes = DesiredSecret.ToBytes();	
+			Assert.AreEqual(DesiredSecretBytes, bytes);
+		}
+
+		[Test]
+		public void TestEquals()
+		{
+			RingSecret s2 = new RingSecret()
+			{
 				GameID = 14129,
 				Rings = Rings.PowerRingL1 | Rings.DoubleEdgeRing | Rings.ProtectionRing
 			};
 
-			Assert.AreEqual(DesiredSecretBytes, secret.ToBytes());
+			Assert.AreEqual(DesiredSecret, s2);
+		}
+
+		[Test]
+		public void TestNotEquals()
+		{
+			RingSecret s2 = new RingSecret()
+			{
+				GameID = 14129,
+				Rings = Rings.BlueJoyRing | Rings.BombproofRing | Rings.HundredthRing
+			};
+
+			Assert.AreNotEqual(DesiredSecret, s2);
 		}
 	}
 }

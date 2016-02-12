@@ -6,8 +6,21 @@ namespace Zyrenth.Zora
 	[TestFixture]
 	public class GameSecretTest
 	{
-		
 		const string DesiredSecretString = "H~2:@ ←2♦yq GB3●( 6♥?↑6";
+
+		static readonly GameSecret DesiredSecret = new GameSecret()
+		{
+			TargetGame = Game.Ages,
+			GameID = 14129,
+			Hero = "Link",
+			Child = "Pip",
+			Animal = Animal.Dimitri,
+			Behavior = ChildBehavior.BouncyD,
+			IsLinkedGame = true,
+			IsHeroQuest = false,
+			WasGivenFreeRing = true
+		};
+		
 		static readonly byte[] DesiredSecretBytes = new byte[] {
 			4, 37, 51, 36, 63,
 			61, 51, 10, 44, 39,
@@ -20,16 +33,7 @@ namespace Zyrenth.Zora
 		{
 			GameSecret secret = new GameSecret();
 			secret.Load(DesiredSecretBytes);
-
-			Assert.AreEqual("Link", secret.Hero);
-			Assert.AreEqual("Pip", secret.Child);
-			Assert.AreEqual(Game.Ages, secret.TargetGame);
-			Assert.AreEqual(14129, secret.GameID);
-			Assert.AreEqual(Animal.Dimitri, secret.Animal);
-			Assert.AreEqual(ChildBehavior.BouncyD, secret.Behavior);
-			Assert.AreEqual(true, secret.IsLinkedGame);
-			Assert.AreEqual(false, secret.IsHeroQuest);
-			Assert.AreEqual(true, secret.WasGivenFreeRing);
+			Assert.AreEqual(DesiredSecret, secret);
 		}
 
 		[Test]
@@ -38,39 +42,28 @@ namespace Zyrenth.Zora
 			GameSecret secret = new GameSecret();
 			secret.Load(DesiredSecretString);
 
-			Assert.AreEqual("Link", secret.Hero);
-			Assert.AreEqual("Pip", secret.Child);
-			Assert.AreEqual(Game.Ages, secret.TargetGame);
-			Assert.AreEqual(14129, secret.GameID);
-			Assert.AreEqual(Animal.Dimitri, secret.Animal);
-			Assert.AreEqual(ChildBehavior.BouncyD, secret.Behavior);
-			Assert.AreEqual(true, secret.IsLinkedGame);
-			Assert.AreEqual(false, secret.IsHeroQuest);
-			Assert.AreEqual(true, secret.WasGivenFreeRing);
+			Assert.AreEqual(DesiredSecret, secret);
 		}
 
 		[Test]
 		public void TestToString()
 		{
-			GameSecret secret = new GameSecret() {
-				TargetGame = Game.Ages,
-				GameID = 14129,
-				Hero = "Link",
-				Child = "Pip",
-				Animal = Animal.Dimitri,
-				Behavior = ChildBehavior.BouncyD,
-				IsLinkedGame = true,
-				IsHeroQuest = false,
-				WasGivenFreeRing = true
-			};
-
-			Assert.AreEqual(DesiredSecretString, secret.ToString());
+			string secret = DesiredSecret.ToString();
+			Assert.AreEqual(DesiredSecretString, secret);
 		}
 
 		[Test]
 		public void TestToBytes()
 		{
-			GameSecret secret = new GameSecret() {
+			byte[] bytes = DesiredSecret.ToBytes();
+			Assert.AreEqual(DesiredSecretBytes, bytes);
+		}
+
+		[Test]
+		public void TestEquals()
+		{
+			GameSecret s2 = new GameSecret()
+			{
 				TargetGame = Game.Ages,
 				GameID = 14129,
 				Hero = "Link",
@@ -82,9 +75,29 @@ namespace Zyrenth.Zora
 				WasGivenFreeRing = true
 			};
 
-			Assert.AreEqual(DesiredSecretBytes, secret.ToBytes());
+			Assert.AreEqual(DesiredSecret, s2);
 		}
-		
+
+		[Test]
+		public void TestNotEquals()
+		{
+			GameSecret s2 = new GameSecret()
+			{
+				TargetGame = Game.Seasons,
+				GameID = 14129,
+				Hero = "Link",
+				Child = "Pip",
+				Animal = Animal.Dimitri,
+				Behavior = ChildBehavior.BouncyD,
+				IsLinkedGame = true,
+				IsHeroQuest = false,
+				WasGivenFreeRing = true
+			};
+
+			Assert.AreNotEqual(DesiredSecret, s2);
+			Assert.AreNotEqual(DesiredSecret, null);
+			Assert.AreNotEqual(DesiredSecret, "");
+		}
 	}
 }
 

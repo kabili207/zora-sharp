@@ -32,7 +32,7 @@ namespace Zyrenth.Zora
 	{
 		byte _memory = 0;
 		bool _isReturnSecret = true;
-		byte _agesSeasons = 0;
+		byte _targetGame = 0;
 
 		/// <summary>
 		/// Gets the required length of the secret
@@ -60,10 +60,10 @@ namespace Zyrenth.Zora
 		/// </summary>
 		public Game TargetGame
 		{
-			get { return (Game)_agesSeasons; }
+			get { return (Game)_targetGame; }
 			set
 			{
-				_agesSeasons = (byte)value;
+				_targetGame = (byte)value;
 				NotifyPropertyChanged("Game");
 			}
 		}
@@ -246,6 +246,42 @@ namespace Zyrenth.Zora
 			byte[] secret = EncodeBytes(unencodedBytes);
 
 			return secret;
+		}
+
+		/// <summary>
+		/// Determines whether the specified <see cref="System.Object" />, is equal to this instance.
+		/// </summary>
+		/// <param name="obj">The <see cref="System.Object" /> to compare with this instance.</param>
+		/// <returns>
+		///   <c>true</c> if the specified <see cref="System.Object" /> is equal to this instance; otherwise, <c>false</c>.
+		/// </returns>
+		public override bool Equals(object obj)
+		{
+			if (obj == null || GetType() != obj.GetType())
+				return false;
+
+			MemorySecret g = (MemorySecret)obj;
+
+			return
+				(base.Equals(g)) &&
+				(_targetGame == g._targetGame) &&
+				(_memory == g._memory) &&
+				(_isReturnSecret == g._isReturnSecret);
+
+		}
+
+		/// <summary>
+		/// Returns a hash code for this instance.
+		/// </summary>
+		/// <returns>
+		/// A hash code for this instance, suitable for use in hashing algorithms and data structures like a hash table. 
+		/// </returns>
+		public override int GetHashCode()
+		{
+			return base.GetHashCode() ^
+				_targetGame.GetHashCode() ^
+				_memory.GetHashCode() ^
+				_isReturnSecret.GetHashCode();
 		}
 	}
 }

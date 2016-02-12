@@ -7,6 +7,15 @@ namespace Zyrenth.Zora
 	public class MemorySecretTest
 	{
 		const string DesiredSecretString = "6●sW↑";
+
+		static readonly MemorySecret DesiredSecret = new MemorySecret()
+		{
+			TargetGame = Game.Ages,
+			GameID = 14129,
+			Memory = Memory.ClockShopKingZora,
+			IsReturnSecret = true
+		};
+
 		static readonly byte[] DesiredSecretBytes = new byte[] {
 			55, 21, 41, 18, 59
 		};
@@ -16,11 +25,7 @@ namespace Zyrenth.Zora
 		{
 			MemorySecret secret = new MemorySecret();
 			secret.Load(DesiredSecretBytes);
-			
-			Assert.AreEqual(Game.Ages, secret.TargetGame);
-			Assert.AreEqual(14129, secret.GameID);
-			Assert.AreEqual(Memory.ClockShopKingZora, secret.Memory);
-			Assert.AreEqual(true, secret.IsReturnSecret);
+			Assert.AreEqual(DesiredSecret, secret);
 		}
 
 		[Test]
@@ -28,37 +33,51 @@ namespace Zyrenth.Zora
 		{
 			MemorySecret secret = new MemorySecret();
 			secret.Load(DesiredSecretString);
-
-			Assert.AreEqual(Game.Ages, secret.TargetGame);
-			Assert.AreEqual(14129, secret.GameID);
-			Assert.AreEqual(Memory.ClockShopKingZora, secret.Memory);
-			Assert.AreEqual(true, secret.IsReturnSecret);
+			Assert.AreEqual(DesiredSecret, secret);
 		}
 
 		[Test]
 		public void TestToString()
 		{
-			MemorySecret secret = new MemorySecret() {
-				TargetGame = Game.Ages,
-				GameID = 14129,
-				Memory = Memory.ClockShopKingZora,
-				IsReturnSecret = true
-			};
-
-			Assert.AreEqual(DesiredSecretString, secret.ToString());
+			string secret = DesiredSecret.ToString();
+			Assert.AreEqual(DesiredSecretString, secret);
 		}
 
 		[Test]
 		public void TestToBytes()
 		{
-			MemorySecret secret = new MemorySecret() {
+			byte[] bytes = DesiredSecret.ToBytes();
+			Assert.AreEqual(DesiredSecretBytes, bytes);
+		}
+
+		[Test]
+		public void TestEquals()
+		{
+			MemorySecret s2 = new MemorySecret()
+			{
 				TargetGame = Game.Ages,
 				GameID = 14129,
 				Memory = Memory.ClockShopKingZora,
 				IsReturnSecret = true
 			};
 
-			Assert.AreEqual(DesiredSecretBytes, secret.ToBytes());
+			Assert.AreEqual(DesiredSecret, s2);
+		}
+
+		[Test]
+		public void TestNotEquals()
+		{
+			MemorySecret s2 = new MemorySecret()
+			{
+				TargetGame = Game.Ages,
+				GameID = 14129,
+				Memory = Memory.GraveyardFairy,
+				IsReturnSecret = true
+			};
+
+			Assert.AreNotEqual(DesiredSecret, s2);
+			Assert.AreNotEqual(DesiredSecret, null);
+			Assert.AreNotEqual(DesiredSecret, "");
 		}
 	}
 }
