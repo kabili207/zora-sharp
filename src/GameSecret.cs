@@ -41,7 +41,7 @@ namespace Zyrenth.Zora
 
 		bool _unknown58 = false;
 		bool _unknown59 = false;
-		bool _unknown88 = true;
+		bool _unknown88 = false;
 
 		/// <summary>
 		/// Gets the required length of the secret

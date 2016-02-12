@@ -1,12 +1,12 @@
 ﻿using NUnit.Framework;
 using System;
 
-namespace Zyrenth.Zora
+namespace Zyrenth.Zora.Tests
 {
 	[TestFixture]
 	public class GameSecretTest
 	{
-		const string DesiredSecretString = "H~2:@ ←2♦yq GB3●( 6♥?↑6";
+		const string DesiredSecretString = "H~2:@ ←2♦yq GB3●) 6♥?↑4";
 
 		static readonly GameSecret DesiredSecret = new GameSecret()
 		{
@@ -24,8 +24,8 @@ namespace Zyrenth.Zora
 		static readonly byte[] DesiredSecretBytes = new byte[] {
 			4, 37, 51, 36, 63,
 			61, 51, 10, 44, 39,
-			3,  0, 52, 21, 48,
-			55,  9, 45, 59, 55
+			3,  0, 52, 21, 50,
+			55,  9, 45, 59, 53
 		};
 
 		[Test]
@@ -42,6 +42,14 @@ namespace Zyrenth.Zora
 			GameSecret secret = new GameSecret();
 			secret.Load(DesiredSecretString);
 
+			Assert.AreEqual(DesiredSecret, secret);
+		}
+
+		[Test]
+		public void LoadFromGameInfo()
+		{
+			GameSecret secret = new GameSecret();
+			secret.Load(GameInfoTest.DesiredInfo);
 			Assert.AreEqual(DesiredSecret, secret);
 		}
 

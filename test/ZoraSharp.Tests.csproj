@@ -31,8 +31,10 @@
     <Reference Include="nunit.framework">
       <HintPath>..\packages\NUnit.3.0.1\lib\net40\nunit.framework.dll</HintPath>
     </Reference>
+    <Reference Include="System.Web.Extensions" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GameInfoTest.cs" />
     <Compile Include="MemorySecretTest.cs" />
     <Compile Include="GameSecretTest.cs" />
     <Compile Include="RingSecretTest.cs" />

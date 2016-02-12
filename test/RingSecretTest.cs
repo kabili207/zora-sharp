@@ -1,7 +1,7 @@
 ﻿using NUnit.Framework;
 using System;
 
-namespace Zyrenth.Zora
+namespace Zyrenth.Zora.Tests
 {
 	[TestFixture]
 	public class RingSecretTest
@@ -33,6 +33,14 @@ namespace Zyrenth.Zora
 		{
 			RingSecret secret = new RingSecret();
 			secret.Load(DesiredSecretString);
+			Assert.AreEqual(DesiredSecret, secret);
+		}
+
+		[Test]
+		public void LoadFromGameInfo()
+		{
+			RingSecret secret = new RingSecret();
+			secret.Load(GameInfoTest.DesiredInfo);
 			Assert.AreEqual(DesiredSecret, secret);
 		}
 

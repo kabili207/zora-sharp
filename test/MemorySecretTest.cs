@@ -1,7 +1,7 @@
 ﻿using NUnit.Framework;
 using System;
 
-namespace Zyrenth.Zora
+namespace Zyrenth.Zora.Tests
 {
 	[TestFixture]
 	public class MemorySecretTest
@@ -33,6 +33,18 @@ namespace Zyrenth.Zora
 		{
 			MemorySecret secret = new MemorySecret();
 			secret.Load(DesiredSecretString);
+			Assert.AreEqual(DesiredSecret, secret);
+		}
+
+		[Test]
+		public void LoadFromGameInfo()
+		{
+			MemorySecret secret = new MemorySecret()
+			{
+				Memory = Memory.ClockShopKingZora,
+				IsReturnSecret = true
+			};
+			secret.Load(GameInfoTest.DesiredInfo);
 			Assert.AreEqual(DesiredSecret, secret);
 		}
 
