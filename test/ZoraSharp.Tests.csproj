@@ -39,6 +39,7 @@
     <Compile Include="GameSecretTest.cs" />
     <Compile Include="RingSecretTest.cs" />
     <Compile Include="SecretParserTest.cs" />
+    <Compile Include="BatteryFileTest.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -52,5 +53,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="AgesSave.sav" />
   </ItemGroup>
 </Project>
