@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<shfbBuild product="Sandcastle Help File Builder" version="2015.1.12.0" projectFile="C:\Users\anagle\git\oracle-hack\OracleHack.shfbproj" started="7/13/2015 4:41:00 PM">
+<shfbBuild product="Sandcastle Help File Builder" version="2015.1.12.0" projectFile="C:\Users\anagle\git\oracle-hack\ZoraSharp.shfbproj" started="2/19/2016 3:13:59 PM">
 <buildStep step="Initializing">
 Finding tools...
 The Sandcastle tools are located in &#39;C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\&#39;
@@ -13,31 +13,31 @@ Portions Copyright &#169; 2014, Sam Harwell, All Rights Reserved
 </buildStep>
 <buildStep step="ValidatingDocumentationSources">
 Validating and copying documentation source information
-Source: C:\Users\anagle\git\oracle-hack\src\OracleHack.csproj
-    Found project &#39;C:\Users\anagle\git\oracle-hack\src\OracleHack.csproj&#39;
+Source: C:\Users\anagle\git\oracle-hack\src\ZoraSharp.csproj
+    Found project &#39;C:\Users\anagle\git\oracle-hack\src\ZoraSharp.csproj&#39;
 
 Parsing project files
-    Found assembly &#39;C:\Users\anagle\git\oracle-hack\src\bin\Debug\OracleHack.dll&#39;
+    Found assembly &#39;C:\Users\anagle\git\oracle-hack\src\bin\Debug\ZoraSharp.dll&#39;
 
 References to include (excluding framework assemblies):
     None
 
 Copying XML comments files
-    C:\Users\anagle\git\oracle-hack\src\bin\Debug\OracleHack.xml -&gt; C:\Users\anagle\git\oracle-hack\doc\Working\OracleHack.xml
+    C:\Users\anagle\git\oracle-hack\src\bin\Debug\ZoraSharp.xml -&gt; C:\Users\anagle\git\oracle-hack\doc\Working\ZoraSharp.xml
 </buildStep>
 <buildStep step="GenerateSharedContent">
 Generating shared content files (en-US, English (United States))...
 <plugIn name="Lightweight Website Style" behavior="After" priority="1000">
-</plugIn>    Last step completed in 00:00:00.1448
+</plugIn>    Last step completed in 00:00:00.0100
 </buildStep>
 <buildStep step="GenerateApiFilter">
 Generating API filter for MRefBuilder...
-    Last step completed in 00:00:00.0031
+    Last step completed in 00:00:00.0140
 </buildStep>
 <buildStep step="GenerateReflectionInfo">
 Generating reflection information...
 [C:\Windows\Microsoft.NET\Framework64\v4.0.30319\MSBuild.exe]
-Build started 7/13/2015 4:41:02 PM.
+Build started 2/19/2016 3:14:01 PM.
 Project &quot;C:\Users\anagle\git\oracle-hack\doc\Working\GenerateRefInfo.proj&quot; on node 1 (default targets).
 PrepareForBuild:
   Creating directory &quot;obj\Debug\&quot;.
@@ -46,7 +46,7 @@ GenerateRefInfo:
   Copyright c 2006-2015, Microsoft Corporation, All Rights Reserved.
   Portions Copyright c 2006-2014, Eric Woodruff, All Rights Reserved.
   Loaded 1 assemblies for reflection and 1 dependency assemblies.
-  Wrote information on 1 namespaces, 17 types, and 188 members
+  Wrote information on 1 namespaces, 17 types, and 211 members
   Copying file from &quot;reflection.org&quot; to &quot;reflection.all&quot;.
   XslTransform (v2015.1.12.0)
   Copyright c 2006-2015, Microsoft Corporation, All Rights Reserved.
@@ -56,13 +56,13 @@ Done Building Project &quot;C:\Users\anagle\git\oracle-hack\doc\Working\Generate
 
 Build succeeded.
 
-Time Elapsed 00:00:03.32
-    Last step completed in 00:00:04.2568
+Time Elapsed 00:00:03.20
+    Last step completed in 00:00:04.0498
 </buildStep>
 <buildStep step="TransformReflectionInfo">
 Transforming reflection output...
 [C:\Windows\Microsoft.NET\Framework64\v4.0.30319\MSBuild.exe]
-Build started 7/13/2015 4:41:07 PM.
+Build started 2/19/2016 3:14:05 PM.
 Project &quot;C:\Users\anagle\git\oracle-hack\doc\Working\TransformManifest.proj&quot; on node 1 (default targets).
 TransformManifest:
   XslTransform (v2015.1.12.0)
@@ -74,21 +74,23 @@ TransformManifest:
   Copyright c 2006-2015, Microsoft Corporation, All Rights Reserved.
   Portions Copyright c 2006-2014, Eric Woodruff, All Rights Reserved.
   Applying XSL transformation &#39;C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\ProductionTransforms\AddFilenames.xsl&#39;.
-    Unique name M_Zyrenth_OracleHack_GameInfo_Load_1 generated for M:Zyrenth.OracleHack.GameInfo.Load(System.String)
-    Unique name M_Zyrenth_OracleHack_GameInfo_Write_1 generated for M:Zyrenth.OracleHack.GameInfo.Write(System.String)
-    Unique name M_Zyrenth_OracleHack_GameSecret__ctor_1 generated for M:Zyrenth.OracleHack.GameSecret.#ctor(Zyrenth.OracleHack.GameInfo)
-    Unique name M_Zyrenth_OracleHack_GameSecret_Load_1 generated for M:Zyrenth.OracleHack.GameSecret.Load(Zyrenth.OracleHack.GameInfo)
-    Unique name M_Zyrenth_OracleHack_InvalidSecretException__ctor_1 generated for M:Zyrenth.OracleHack.InvalidSecretException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
-    Unique name M_Zyrenth_OracleHack_InvalidSecretException__ctor_2 generated for M:Zyrenth.OracleHack.InvalidSecretException.#ctor(System.String)
-    Unique name M_Zyrenth_OracleHack_InvalidSecretException__ctor_3 generated for M:Zyrenth.OracleHack.InvalidSecretException.#ctor(System.String,System.Exception)
-    Unique name M_Zyrenth_OracleHack_MemorySecret__ctor_1 generated for M:Zyrenth.OracleHack.MemorySecret.#ctor(Zyrenth.OracleHack.Game,System.Int16,Zyrenth.OracleHack.Memory,System.Boolean)
-    Unique name M_Zyrenth_OracleHack_MemorySecret__ctor_2 generated for M:Zyrenth.OracleHack.MemorySecret.#ctor(Zyrenth.OracleHack.GameInfo,Zyrenth.OracleHack.Memory,System.Boolean)
-    Unique name M_Zyrenth_OracleHack_MemorySecret_Load_1 generated for M:Zyrenth.OracleHack.MemorySecret.Load(Zyrenth.OracleHack.GameInfo)
-    Unique name M_Zyrenth_OracleHack_RingSecret__ctor_1 generated for M:Zyrenth.OracleHack.RingSecret.#ctor(System.Int16,Zyrenth.OracleHack.Rings)
-    Unique name M_Zyrenth_OracleHack_RingSecret__ctor_2 generated for M:Zyrenth.OracleHack.RingSecret.#ctor(Zyrenth.OracleHack.GameInfo)
-    Unique name M_Zyrenth_OracleHack_RingSecret_Load_1 generated for M:Zyrenth.OracleHack.RingSecret.Load(Zyrenth.OracleHack.GameInfo)
-    Unique name M_Zyrenth_OracleHack_Secret_Load_1 generated for M:Zyrenth.OracleHack.Secret.Load(System.String)
-    Unique name M_Zyrenth_OracleHack_Secret_Load_2 generated for M:Zyrenth.OracleHack.Secret.Load(Zyrenth.OracleHack.GameInfo)
+    Unique name M_Zyrenth_Zora_BatteryFileLoader_Load_1 generated for M:Zyrenth.Zora.BatteryFileLoader.Load(System.String,System.Int32)
+    Unique name M_Zyrenth_Zora_BatteryFileLoader_LoadAll_1 generated for M:Zyrenth.Zora.BatteryFileLoader.LoadAll(System.String)
+    Unique name M_Zyrenth_Zora_GameInfo_Load_1 generated for M:Zyrenth.Zora.GameInfo.Load(System.String)
+    Unique name M_Zyrenth_Zora_GameInfo_Write_1 generated for M:Zyrenth.Zora.GameInfo.Write(System.String)
+    Unique name M_Zyrenth_Zora_GameSecret__ctor_1 generated for M:Zyrenth.Zora.GameSecret.#ctor(Zyrenth.Zora.GameInfo)
+    Unique name M_Zyrenth_Zora_GameSecret_Load_1 generated for M:Zyrenth.Zora.GameSecret.Load(Zyrenth.Zora.GameInfo)
+    Unique name M_Zyrenth_Zora_InvalidSecretException__ctor_1 generated for M:Zyrenth.Zora.InvalidSecretException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+    Unique name M_Zyrenth_Zora_InvalidSecretException__ctor_2 generated for M:Zyrenth.Zora.InvalidSecretException.#ctor(System.String)
+    Unique name M_Zyrenth_Zora_InvalidSecretException__ctor_3 generated for M:Zyrenth.Zora.InvalidSecretException.#ctor(System.String,System.Exception)
+    Unique name M_Zyrenth_Zora_MemorySecret__ctor_1 generated for M:Zyrenth.Zora.MemorySecret.#ctor(Zyrenth.Zora.Game,System.Int16,Zyrenth.Zora.Memory,System.Boolean)
+    Unique name M_Zyrenth_Zora_MemorySecret__ctor_2 generated for M:Zyrenth.Zora.MemorySecret.#ctor(Zyrenth.Zora.GameInfo,Zyrenth.Zora.Memory,System.Boolean)
+    Unique name M_Zyrenth_Zora_MemorySecret_Load_1 generated for M:Zyrenth.Zora.MemorySecret.Load(Zyrenth.Zora.GameInfo)
+    Unique name M_Zyrenth_Zora_RingSecret__ctor_1 generated for M:Zyrenth.Zora.RingSecret.#ctor(System.Int16,Zyrenth.Zora.Rings)
+    Unique name M_Zyrenth_Zora_RingSecret__ctor_2 generated for M:Zyrenth.Zora.RingSecret.#ctor(Zyrenth.Zora.GameInfo)
+    Unique name M_Zyrenth_Zora_RingSecret_Load_1 generated for M:Zyrenth.Zora.RingSecret.Load(Zyrenth.Zora.GameInfo)
+    Unique name M_Zyrenth_Zora_Secret_Load_1 generated for M:Zyrenth.Zora.Secret.Load(System.String)
+    Unique name M_Zyrenth_Zora_Secret_Load_2 generated for M:Zyrenth.Zora.Secret.Load(Zyrenth.Zora.GameInfo)
   XslTransform (v2015.1.12.0)
   Copyright c 2006-2015, Microsoft Corporation, All Rights Reserved.
   Portions Copyright c 2006-2014, Eric Woodruff, All Rights Reserved.
@@ -97,26 +99,26 @@ Done Building Project &quot;C:\Users\anagle\git\oracle-hack\doc\Working\Transfor
 
 Build succeeded.
 
-Time Elapsed 00:00:02.47
-    Last step completed in 00:00:03.3158
+Time Elapsed 00:00:02.38
+    Last step completed in 00:00:03.1901
 </buildStep>
 <buildStep step="GenerateNamespaceSummaries">
 Generating namespace summary information...
-    Last step completed in 00:00:00.0902
+    Last step completed in 00:00:00.0340
 </buildStep>
 <buildStep step="CopyAdditionalContent">
 Copying additional content files...
 No additional content to copy
-    Last step completed in 00:00:00.0062
+    Last step completed in 00:00:00.0060
 </buildStep>
 <buildStep step="MergeTablesOfContents">
 Merging conceptual and additional tables of contents...
-    Last step completed in 00:00:00.0000
+    Last step completed in 00:00:00.0030
 </buildStep>
 <buildStep step="GenerateIntermediateTableOfContents">
 Generating intermediate table of contents file...
 [C:\Windows\Microsoft.NET\Framework64\v4.0.30319\MSBuild.exe]
-Build started 7/13/2015 4:41:10 PM.
+Build started 2/19/2016 3:14:08 PM.
 Project &quot;C:\Users\anagle\git\oracle-hack\doc\Working\GenerateIntermediateTOC.proj&quot; on node 1 (default targets).
 GenerateIntermediateTOC:
   XslTransform (v2015.1.12.0)
@@ -127,24 +129,24 @@ Done Building Project &quot;C:\Users\anagle\git\oracle-hack\doc\Working\Generate
 
 Build succeeded.
 
-Time Elapsed 00:00:01.71
+Time Elapsed 00:00:01.66
 Generating conceptual content intermediate TOC file...
-    Last step completed in 00:00:02.5491
+    Last step completed in 00:00:02.4727
 </buildStep>
 <buildStep step="CreateBuildAssemblerConfigs">
 Creating Sandcastle configuration files...
     sandcastle.config
-    Last step completed in 00:00:00.3263
+    Last step completed in 00:00:00.2362
 </buildStep>
 <buildStep step="MergeCustomConfigs">
 Merging custom build component configurations
 C:\Users\anagle\git\oracle-hack\doc\Working\sandcastle.config
-    Last step completed in 00:00:00.0420
+    Last step completed in 00:00:00.0460
 </buildStep>
 <buildStep step="BuildReferenceTopics">
 Building reference help topics...
 [C:\Windows\Microsoft.NET\Framework64\v4.0.30319\MSBuild.exe]
-Build started 7/13/2015 4:41:13 PM.
+Build started 2/19/2016 3:14:11 PM.
 Project &quot;C:\Users\anagle\git\oracle-hack\doc\Working\BuildReferenceTopics.proj&quot; on node 1 (default targets).
 BuildReferenceTopics:
   BuildAssembler (v2015.1.12.0)
@@ -152,21 +154,21 @@ BuildReferenceTopics:
   Portions Copyright c 2006-2014, Eric Woodruff, All Rights Reserved.
   Loading configuration...
   Processing topics...
-  Processed 146 topic(s)
+  Processed 172 topic(s)
   CopyFromIndexComponent: &quot;reflection&quot; in-memory cache entries used: 8 of 15.
   CopyFromIndexComponent: &quot;comments&quot; in-memory cache entries used: 3 of 30.
 Done Building Project &quot;C:\Users\anagle\git\oracle-hack\doc\Working\BuildReferenceTopics.proj&quot; (default targets).
 
 Build succeeded.
 
-Time Elapsed 00:00:16.76
-    Last step completed in 00:00:17.7401
+Time Elapsed 00:00:17.62
+    Last step completed in 00:00:18.5085
 </buildStep>
 <buildStep step="CombiningIntermediateTocFiles">
 Combining conceptual and API intermediate TOC files...
 
 Clearing any prior web output
-    Last step completed in 00:00:00.1516
+    Last step completed in 00:00:00.4133
 </buildStep>
 <buildStep step="ExtractingHtmlInfo">
 Extracting HTML info for HTML Help 1 and/or website...
@@ -178,11 +180,11 @@ E-Mail: Eric@EWoodruff.us
 Using LCID &#39;1033&#39;, code page &#39;65001&#39;, encoding charset &#39;UTF-8&#39;.
 
 Processing website files in C:\Users\anagle\git\oracle-hack\doc\Working\Output\Website
-Processed 146 HTML files
+Processed 172 HTML files
 Sorting keywords and generating See Also indices
 Saving website keyword index to C:\Users\anagle\git\oracle-hack\doc\Working\WebKI.xml
 Saving website table of contents to C:\Users\anagle\git\oracle-hack\doc\Working\WebTOC.xml
-    Last step completed in 00:00:02.9251
+    Last step completed in 00:00:03.8886
 </buildStep>
 <buildStep step="CopyStandardHelpContent">
 Copying standard help content...
@@ -262,34 +264,35 @@ C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyle
 C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\Web\icons\TocOpen.gif -&gt; C:\Users\anagle\git\oracle-hack\doc\Working\Output\Website\icons\TocOpen.gif
 C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\Web\scripts\branding-Website.js -&gt; C:\Users\anagle\git\oracle-hack\doc\Working\Output\Website\scripts\branding-Website.js
 C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\Web\scripts\jquery-1.11.0.min.js -&gt; C:\Users\anagle\git\oracle-hack\doc\Working\Output\Website\scripts\jquery-1.11.0.min.js
-    Last step completed in 00:00:00.3499
+    Last step completed in 00:00:00.5364
 </buildStep>
 <buildStep step="GenerateHelpFormatTableOfContents">
 Generating website table of contents file...
-    Last step completed in 00:00:00.0050
+    Last step completed in 00:00:00.0030
 </buildStep>
 <buildStep step="GenerateFullTextIndex">
 Generating full-text index for the website...
 
 <plugIn name="Lightweight Website Style" behavior="After" priority="1000">
 Adding lightweight search and TOC elements to each topic...
-</plugIn>    Last step completed in 00:00:01.2903
+</plugIn>    Last step completed in 00:00:02.4006
 </buildStep>
 <buildStep step="CopyingWebsiteFiles">
 Copying website files to output folder...
 
 Copied 100 files
 Copied 200 files
-Copied 293 files for the website content
-    Last step completed in 00:00:01.6795
+Copied 300 files
+Copied 322 files for the website content
+    Last step completed in 00:00:03.1671
 </buildStep>
 <buildStep step="CleanIntermediates">
 Removing intermediate files...
-    Last step completed in 00:00:00.1505
+    Last step completed in 00:00:00.3742
 </buildStep>
 <buildStep step="Completed">
 
-Build completed successfully at 7/13/2015 4:41:36 PM.  Total time: 00:00:36.2784
+Build completed successfully at 2/19/2016 3:14:39 PM.  Total time: 00:00:40.2171
 
 </buildStep>
 </shfbBuild>
