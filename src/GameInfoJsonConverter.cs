@@ -26,42 +26,27 @@ using System.Dynamic;
 using System.Linq;
 using System.Reflection;
 using System.Text;
-using System.Web.Script.Serialization;
 
 namespace Zyrenth.Zora
 {
 	/// <summary>
 	/// A javascript converter for the <see cref="GameInfo"/> class
 	/// </summary>
-	public class GameInfoJsonConverter : JavaScriptConverter
+	public class GameInfoJsonConverter
 	{
-		/// <summary>
-		/// Gets a collection of the supported types.
-		/// </summary>
-		public override IEnumerable<Type> SupportedTypes
-		{
-			get
-			{
-				return new[] { typeof(GameInfo) };
-			}
-		}
 
 		/// <summary>
 		/// Converts the provided dictionary into an object of the specified type.
 		/// </summary>
 		/// <param name="dictionary">An <see cref="T:System.Collections.Generic.IDictionary`2" /> instance of property data stored as name/value pairs.</param>
-		/// <param name="type">The type of the resulting object.</param>
-		/// <param name="serializer">The <see cref="T:System.Web.Script.Serialization.JavaScriptSerializer" /> instance.</param>
 		/// <returns>
 		/// The deserialized object.
 		/// </returns>
 		/// <exception cref="ArgumentNullException">dictionary</exception>
-		public override object Deserialize(IDictionary<string, object> dictionary, Type type, JavaScriptSerializer serializer)
+		public GameInfo Deserialize(IDictionary<string, object> dictionary)
 		{
 			if (dictionary == null)
 				throw new ArgumentNullException("dictionary");
-			if (type != typeof(GameInfo))
-				return null;
 
 			GameInfo info = new GameInfo();
 
@@ -83,16 +68,14 @@ namespace Zyrenth.Zora
 		/// Builds a dictionary of name/value pairs.
 		/// </summary>
 		/// <param name="obj">The object to serialize.</param>
-		/// <param name="serializer">The object that is responsible for the serialization.</param>
 		/// <returns>
 		/// An object that contains key/value pairs that represent the object’s data.
 		/// </returns>
 		/// <exception cref="ArgumentException">Invalid type;obj</exception>
-		public override IDictionary<string, object> Serialize(object obj, JavaScriptSerializer serializer)
+		public IDictionary<string, object> Serialize(GameInfo info)
 		{
-			GameInfo info = obj as GameInfo;
 			if (info == null)
-				throw new ArgumentException("Invalid type", "obj");
+				throw new ArgumentNullException("info cannot be null");
 
 			var dict = new Dictionary<string, object>();
 

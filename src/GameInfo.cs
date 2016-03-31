@@ -25,7 +25,6 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
-using System.Web.Script.Serialization;
 
 namespace Zyrenth.Zora
 {
@@ -309,9 +308,9 @@ namespace Zyrenth.Zora
 		{
 			using (var swriter = new StreamWriter(stream))
 			{
-				var serializer = new JavaScriptSerializer();
-				serializer.RegisterConverters(new[] { new GameInfoJsonConverter() });
-				string json = serializer.Serialize(this);
+				GameInfoJsonConverter converter = new GameInfoJsonConverter();
+				IDictionary<string, object> dict = converter.Serialize(this);
+				string json = SimpleJson.SimpleJson.SerializeObject(dict);
 				swriter.WriteLine(json);
 			}
 		}
@@ -385,9 +384,9 @@ namespace Zyrenth.Zora
 		/// </example>
 		public static GameInfo Parse(string json)
 		{
-			var serializer = new JavaScriptSerializer();
-			serializer.RegisterConverters(new[] { new GameInfoJsonConverter() });
-			return serializer.Deserialize<GameInfo>(json);
+			var dict = (IDictionary<string, object>)SimpleJson.SimpleJson.DeserializeObject(json);
+			var converter = new GameInfoJsonConverter();
+			return converter.Deserialize(dict);
 		}
 
 		#endregion // File Saving/Loading methods
