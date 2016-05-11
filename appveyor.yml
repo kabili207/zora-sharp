@@ -9,7 +9,7 @@ artifacts:
 - path: src\bin\$(configuration)\*.dll
 test_script:
 - nuget.exe install OpenCover -ExcludeVersion
-- OpenCover\tools\OpenCover.Console.exe -register:user -target:nunit3-console.exe -targetargs:"test\bin\%CONFIGURATION%\ZoraSharp.Tests.dll --result=myresults.xml;format=AppVeyor" -returntargetcode -filter:"+[*]* -[ZoraSharp.Tests]*" -excludebyattribute:"*.ExcludeFromCodeCoverage*" -hideskipped:All -output:coverage.xml
+- OpenCover\tools\OpenCover.Console.exe -register:user -target:nunit3-console.exe -targetargs:"test\bin\%CONFIGURATION%\ZoraSharp.Tests.dll --result=myresults.xml;format=AppVeyor" -returntargetcode -filter:"+[*]* -[ZoraSharp.Tests]* -[ZoraSharp]*Exception -[ZoraSharp]SimpleJson.* -[ZoraSharp]*.AssemblyDetail -[ZoraSharp]*.Attributes" -excludebyattribute:"*.ExcludeFromCodeCoverage*" -hideskipped:All -output:coverage.xml
 - "SET PATH=C:\\Python34;C:\\Python34\\Scripts;%PATH%"
 - pip install codecov
-- codecov -f "coverage.xml"
+- codecov -f "coverage.xml" -X gcov
