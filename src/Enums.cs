@@ -53,8 +53,7 @@ namespace Zyrenth.Zora
 	{
 		Ricky = 0x0b,
 		Dimitri = 0x0c,
-		Moosh = 0x0d,
-		None = 0
+		Moosh = 0x0d
 	}
 
 	/// <summary>
