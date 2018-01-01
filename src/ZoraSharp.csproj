@@ -49,6 +49,7 @@
     <Compile Include="BatteryFileLoader.cs" />
     <Compile Include="SimpleJson.cs" />
     <Compile Include="JapaneseEncoding.cs" />
+    <Compile Include="USEncoding.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

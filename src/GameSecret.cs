@@ -288,7 +288,7 @@ namespace Zyrenth.Zora
 
 			Encoding encoding;
 			if (Region == GameRegion.US)
-				encoding = Encoding.ASCII;
+				encoding = new USEncoding();
 			else
 				encoding = new JapaneseEncoding();
 
@@ -343,7 +343,7 @@ namespace Zyrenth.Zora
 		{
 			Encoding encoding;
 			if (Region == GameRegion.US)
-				encoding = Encoding.ASCII;
+				encoding = new USEncoding();
 			else
 				encoding = new JapaneseEncoding();
 
