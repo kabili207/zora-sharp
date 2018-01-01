@@ -8,7 +8,7 @@ namespace Zyrenth.Zora.Tests
 	{
 		const string DesiredSecretString = "H~2:@ ←2♦yq GB3●) 6♥?↑4";
 
-		static readonly GameSecret DesiredSecret = new GameSecret()
+		static readonly GameSecret DesiredSecret = new GameSecret(GameRegion.US)
 		{
 			TargetGame = Game.Ages,
 			GameID = 14129,
@@ -31,7 +31,7 @@ namespace Zyrenth.Zora.Tests
 		[Test]
 		public void LoadSecretFromBytes()
 		{
-			GameSecret secret = new GameSecret();
+			GameSecret secret = new GameSecret(GameRegion.US);
 			secret.Load(DesiredSecretBytes);
 			Assert.AreEqual(DesiredSecret, secret);
 		}
@@ -39,7 +39,7 @@ namespace Zyrenth.Zora.Tests
 		[Test]
 		public void LoadSecretFromString()
 		{
-			GameSecret secret = new GameSecret();
+			GameSecret secret = new GameSecret(GameRegion.US);
 			secret.Load(DesiredSecretString);
 
 			Assert.AreEqual(DesiredSecret, secret);
@@ -48,7 +48,7 @@ namespace Zyrenth.Zora.Tests
 		[Test]
 		public void LoadFromGameInfo()
 		{
-			GameSecret secret = new GameSecret();
+			GameSecret secret = new GameSecret(GameRegion.US);
 			secret.Load(GameInfoTest.DesiredInfo);
 			Assert.AreEqual(DesiredSecret, secret);
 		}
@@ -70,7 +70,7 @@ namespace Zyrenth.Zora.Tests
 		[Test]
 		public void TestEquals()
 		{
-			GameSecret s2 = new GameSecret()
+			GameSecret s2 = new GameSecret(GameRegion.US)
 			{
 				TargetGame = Game.Ages,
 				GameID = 14129,
@@ -89,7 +89,7 @@ namespace Zyrenth.Zora.Tests
 		[Test]
 		public void TestNotEquals()
 		{
-			GameSecret s2 = new GameSecret()
+			GameSecret s2 = new GameSecret(GameRegion.US)
 			{
 				TargetGame = Game.Seasons,
 				GameID = 14129,

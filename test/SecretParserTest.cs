@@ -17,7 +17,7 @@ namespace Zyrenth.Zora.Tests
 		[Test]
 		public void CreateString()
 		{
-			string testString = SecretParser.CreateString(DesiredSecretBytes);
+			string testString = SecretParser.CreateString(DesiredSecretBytes, GameRegion.US);
 			Assert.AreEqual(DesiredSecretString, testString);
 		}
 
@@ -30,10 +30,10 @@ namespace Zyrenth.Zora.Tests
 			string s4 = "H~2 :@LEFT2{dIAmoNd}yq G B3cirCle )6 heaRT}?    UP   4";
 
 			var allSecrets = new[] {
-				SecretParser.ParseSecret(s1),
-				SecretParser.ParseSecret(s2),
-				SecretParser.ParseSecret(s3),
-				SecretParser.ParseSecret(s4)
+				SecretParser.ParseSecret(s1, GameRegion.US),
+				SecretParser.ParseSecret(s2, GameRegion.US),
+				SecretParser.ParseSecret(s3, GameRegion.US),
+				SecretParser.ParseSecret(s4, GameRegion.US)
 			};
 			Assert.That(allSecrets, Is.All.EquivalentTo(DesiredSecretBytes));
 		}
@@ -41,13 +41,13 @@ namespace Zyrenth.Zora.Tests
 		[Test]
 		public void ParseInvalidString()
 		{
-			Assert.Throws<InvalidSecretException>(() => SecretParser.ParseSecret("INVALID"));
+			Assert.Throws<InvalidSecretException>(() => SecretParser.ParseSecret("INVALID", GameRegion.US));
 		}
 
 		[Test]
 		public void ParseInvalidBytes()
 		{
-			Assert.Throws<InvalidSecretException>(() => SecretParser.CreateString(new byte[] { 2, 15, 53, 21, 64 }));
+			Assert.Throws<InvalidSecretException>(() => SecretParser.CreateString(new byte[] { 2, 15, 53, 21, 64 }, GameRegion.US));
 		}
 	}
 }

@@ -8,7 +8,7 @@ namespace Zyrenth.Zora.Tests
 	{
 		const string DesiredSecretString = "6●sW↑";
 
-		static readonly MemorySecret DesiredSecret = new MemorySecret()
+		static readonly MemorySecret DesiredSecret = new MemorySecret(GameRegion.US)
 		{
 			TargetGame = Game.Ages,
 			GameID = 14129,
@@ -23,7 +23,7 @@ namespace Zyrenth.Zora.Tests
 		[Test]
 		public void LoadSecretFromBytes()
 		{
-			MemorySecret secret = new MemorySecret();
+			MemorySecret secret = new MemorySecret(GameRegion.US);
 			secret.Load(DesiredSecretBytes);
 			Assert.AreEqual(DesiredSecret, secret);
 		}
@@ -31,7 +31,7 @@ namespace Zyrenth.Zora.Tests
 		[Test]
 		public void LoadSecretFromString()
 		{
-			MemorySecret secret = new MemorySecret();
+			MemorySecret secret = new MemorySecret(GameRegion.US);
 			secret.Load(DesiredSecretString);
 			Assert.AreEqual(DesiredSecret, secret);
 		}
@@ -39,7 +39,7 @@ namespace Zyrenth.Zora.Tests
 		[Test]
 		public void LoadFromGameInfo()
 		{
-			MemorySecret secret = new MemorySecret()
+			MemorySecret secret = new MemorySecret(GameRegion.US)
 			{
 				Memory = Memory.ClockShopKingZora,
 				IsReturnSecret = true
@@ -65,7 +65,7 @@ namespace Zyrenth.Zora.Tests
 		[Test]
 		public void TestEquals()
 		{
-			MemorySecret s2 = new MemorySecret()
+			MemorySecret s2 = new MemorySecret(GameRegion.US)
 			{
 				TargetGame = Game.Ages,
 				GameID = 14129,
@@ -79,7 +79,7 @@ namespace Zyrenth.Zora.Tests
 		[Test]
 		public void TestNotEquals()
 		{
-			MemorySecret s2 = new MemorySecret()
+			MemorySecret s2 = new MemorySecret(GameRegion.US)
 			{
 				TargetGame = Game.Ages,
 				GameID = 14129,

@@ -8,7 +8,7 @@ namespace Zyrenth.Zora.Tests
 	{
 		const string DesiredSecretString = "L~2:N @bB↑& hmRh=";
 
-		static readonly RingSecret DesiredSecret = new RingSecret()
+		static readonly RingSecret DesiredSecret = new RingSecret(GameRegion.US)
 		{
 			GameID = 14129,
 			Rings = Rings.PowerRingL1 | Rings.DoubleEdgeRing | Rings.ProtectionRing
@@ -23,7 +23,7 @@ namespace Zyrenth.Zora.Tests
 		[Test]
 		public void LoadSecretFromBytes()
 		{
-			RingSecret secret = new RingSecret();
+			RingSecret secret = new RingSecret(GameRegion.US);
 			secret.Load(DesiredSecretBytes);
 			Assert.AreEqual(DesiredSecret, secret);
 		}
@@ -31,7 +31,7 @@ namespace Zyrenth.Zora.Tests
 		[Test]
 		public void LoadSecretFromString()
 		{
-			RingSecret secret = new RingSecret();
+			RingSecret secret = new RingSecret(GameRegion.US);
 			secret.Load(DesiredSecretString);
 			Assert.AreEqual(DesiredSecret, secret);
 		}
@@ -39,7 +39,7 @@ namespace Zyrenth.Zora.Tests
 		[Test]
 		public void LoadFromGameInfo()
 		{
-			RingSecret secret = new RingSecret();
+			RingSecret secret = new RingSecret(GameRegion.US);
 			secret.Load(GameInfoTest.DesiredInfo);
 			Assert.AreEqual(DesiredSecret, secret);
 		}
@@ -62,7 +62,7 @@ namespace Zyrenth.Zora.Tests
 		[Test]
 		public void TestEquals()
 		{
-			RingSecret s2 = new RingSecret()
+			RingSecret s2 = new RingSecret(GameRegion.US)
 			{
 				GameID = 14129,
 				Rings = Rings.PowerRingL1 | Rings.DoubleEdgeRing | Rings.ProtectionRing
@@ -74,7 +74,7 @@ namespace Zyrenth.Zora.Tests
 		[Test]
 		public void TestNotEquals()
 		{
-			RingSecret s2 = new RingSecret()
+			RingSecret s2 = new RingSecret(GameRegion.US)
 			{
 				GameID = 14129,
 				Rings = Rings.BlueJoyRing | Rings.BombproofRing | Rings.HundredthRing
