@@ -50,7 +50,6 @@ namespace Zyrenth.Zora
 
 		bool _unknown58 = false;
 		bool _unknown59 = false;
-		bool _unknown88 = false; // default true
 
 		#endregion // Fields
 
@@ -221,19 +220,6 @@ namespace Zyrenth.Zora
 			{
 				_unknown59 = value;
 				NotifyPropertyChanged("Unknown59");
-			}
-		}
-
-		/// <summary>
-		/// Gets or sets the unknown flag at offset 88
-		/// </summary>
-		public bool Unknown88
-		{
-			get { return _unknown88; }
-			set
-			{
-				_unknown88 = value;
-				NotifyPropertyChanged("Unknown88");
 			}
 		}
 
@@ -417,8 +403,7 @@ namespace Zyrenth.Zora
 				(_rings == g._rings) &&
 				(_wasGivenFreeRing == g._wasGivenFreeRing) &&
 				(_unknown58 == g._unknown58) &&
-				(_unknown59 == g._unknown59) &&
-				(_unknown88 == g._unknown88);
+				(_unknown59 == g._unknown59);
 
 		}
 
@@ -441,8 +426,7 @@ namespace Zyrenth.Zora
 				_rings.GetHashCode() ^
 				_wasGivenFreeRing.GetHashCode() ^
 				_unknown58.GetHashCode() ^
-				_unknown59.GetHashCode() ^
-				_unknown88.GetHashCode();
+				_unknown59.GetHashCode();
 		}
 	}
 }

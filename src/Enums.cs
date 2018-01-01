@@ -43,9 +43,10 @@ namespace Zyrenth.Zora
 	/// </summary>
 	public enum Animal : byte
 	{
-		Ricky = 3,
-		Dimitri = 4,
-		Moosh = 5
+		Ricky = 0x0b,
+		Dimitri = 0x0c,
+		Moosh = 0x0d,
+		None = 0
 	}
 
 	/// <summary>

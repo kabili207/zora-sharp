@@ -159,7 +159,7 @@ namespace Zyrenth.Zora
 			info.Hero = System.Text.Encoding.ASCII.GetString(heroBytes);
 			info.Child = System.Text.Encoding.ASCII.GetString(kidBytes);
 			info.Behavior = (ChildBehavior)(behaviorBytes[0] & 15);
-			info.Animal = (Animal)(animalBytes[0] & 7);
+			info.Animal = (Animal)(animalBytes[0] & 15);
 			info.IsLinkedGame = linkedBytes[0] == 1;
 			info.IsHeroQuest = heroQuestBytes[0] == 1;
 			info.Rings = (Rings)BitConverter.ToUInt64(ringBytes, 0);
@@ -167,7 +167,6 @@ namespace Zyrenth.Zora
 			info.Unknown58 = (behaviorBytes[0] >> 4 & 1) == 1;
 			info.Unknown59 = (behaviorBytes[0] >> 5 & 1) == 1;
 			info.WasGivenFreeRing = freeRingBytes[0] == 1;
-			info.Unknown88 = animalBytes[0] >> 3 == 1;
 
 			return info;
 		}
