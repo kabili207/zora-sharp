@@ -48,6 +48,7 @@
     <Compile Include="GameInfoJsonConverter.cs" />
     <Compile Include="BatteryFileLoader.cs" />
     <Compile Include="SimpleJson.cs" />
+    <Compile Include="JapaneseEncoding.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

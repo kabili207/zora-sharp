@@ -286,7 +286,13 @@ namespace Zyrenth.Zora
 			IsLinkedGame = decodedSecret[105] == '1';
 
 
-			Hero = System.Text.Encoding.ASCII.GetString(new byte[] {
+			Encoding encoding;
+			if (Region == GameRegion.US)
+				encoding = Encoding.ASCII;
+			else
+				encoding = new JapaneseEncoding();
+
+			Hero = encoding.GetString(new byte[] {
 				Convert.ToByte(decodedSecret.ReversedSubstring(22, 8), 2),
 				Convert.ToByte(decodedSecret.ReversedSubstring(38, 8), 2),
 				Convert.ToByte(decodedSecret.ReversedSubstring(60, 8), 2),
@@ -294,7 +300,7 @@ namespace Zyrenth.Zora
 				Convert.ToByte(decodedSecret.ReversedSubstring(89, 8), 2)
 			});
 
-			Child = System.Text.Encoding.ASCII.GetString(new byte[] {
+			Child = encoding.GetString(new byte[] {
 				Convert.ToByte(decodedSecret.ReversedSubstring(30, 8), 2),
 				Convert.ToByte(decodedSecret.ReversedSubstring(46, 8), 2),
 				Convert.ToByte(decodedSecret.ReversedSubstring(68, 8), 2),
@@ -335,6 +341,15 @@ namespace Zyrenth.Zora
 		/// </example>
 		public override byte[] ToBytes()
 		{
+			Encoding encoding;
+			if (Region == GameRegion.US)
+				encoding = Encoding.ASCII;
+			else
+				encoding = new JapaneseEncoding();
+
+			byte[] heroBytes = encoding.GetBytes(_hero);
+			byte[] childBytes = encoding.GetBytes(_child);
+
 			int cipherKey = ((GameID >> 8) + (GameID & 255)) & 7;
 			string unencodedSecret = Convert.ToString(cipherKey, 2).PadLeft(3, '0').Reverse();
 
@@ -343,22 +358,22 @@ namespace Zyrenth.Zora
 			unencodedSecret += Convert.ToString(GameID, 2).PadLeft(15, '0').Reverse();
 			unencodedSecret += _isHeroQuest ? "1" : "0";
 			unencodedSecret += TargetGame == Game.Ages ? "0" : "1";
-			unencodedSecret += Convert.ToString((byte)_hero[0], 2).PadLeft(8, '0').Reverse();
-			unencodedSecret += Convert.ToString((byte)_child[0], 2).PadLeft(8, '0').Reverse();
-			unencodedSecret += Convert.ToString((byte)_hero[1], 2).PadLeft(8, '0').Reverse();
-			unencodedSecret += Convert.ToString((byte)_child[1], 2).PadLeft(8, '0').Reverse();
+			unencodedSecret += Convert.ToString(heroBytes[0], 2).PadLeft(8, '0').Reverse();
+			unencodedSecret += Convert.ToString(childBytes[0], 2).PadLeft(8, '0').Reverse();
+			unencodedSecret += Convert.ToString(heroBytes[1], 2).PadLeft(8, '0').Reverse();
+			unencodedSecret += Convert.ToString(childBytes[1], 2).PadLeft(8, '0').Reverse();
 			unencodedSecret += Convert.ToString(_behavior, 2).PadLeft(8, '0').Reverse().Substring(0, 4);
 			unencodedSecret += _unknown58 ? "1" : "0"; // TODO: This
 			unencodedSecret += _unknown59 ? "1" : "0"; // TODO: This
-			unencodedSecret += Convert.ToString((byte)_hero[2], 2).PadLeft(8, '0').Reverse();
-			unencodedSecret += Convert.ToString((byte)_child[2], 2).PadLeft(8, '0').Reverse();
+			unencodedSecret += Convert.ToString(heroBytes[2], 2).PadLeft(8, '0').Reverse();
+			unencodedSecret += Convert.ToString(childBytes[2], 2).PadLeft(8, '0').Reverse();
 			unencodedSecret += _wasGivenFreeRing ? "1" : "0";
-			unencodedSecret += Convert.ToString((byte)_hero[3], 2).PadLeft(8, '0').Reverse();
+			unencodedSecret += Convert.ToString(heroBytes[3], 2).PadLeft(8, '0').Reverse();
 			unencodedSecret += Convert.ToString(_animal, 2).PadLeft(4, '0').Reverse();
-			unencodedSecret += Convert.ToString((byte)_hero[4], 2).PadLeft(8, '0').Reverse();
-			unencodedSecret += Convert.ToString((byte)_child[3], 2).PadLeft(8, '0').Reverse();
+			unencodedSecret += Convert.ToString(heroBytes[4], 2).PadLeft(8, '0').Reverse();
+			unencodedSecret += Convert.ToString(childBytes[3], 2).PadLeft(8, '0').Reverse();
 			unencodedSecret += _isLinkedGame ? "1" : "0";
-			unencodedSecret += Convert.ToString((byte)_child[4], 2).PadLeft(8, '0').Reverse();
+			unencodedSecret += Convert.ToString(childBytes[4], 2).PadLeft(8, '0').Reverse();
 
 			byte[] unencodedBytes = BinaryStringToByteArray(unencodedSecret);
 			unencodedBytes[19] = CalculateChecksum(unencodedBytes);
