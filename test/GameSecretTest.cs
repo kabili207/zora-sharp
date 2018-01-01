@@ -6,7 +6,7 @@ namespace Zyrenth.Zora.Tests
 	[TestFixture]
 	public class GameSecretTest
 	{
-		const string DesiredSecretString = "H~2:@ ←2♦yq GB3●) 6♥?↑4";
+		const string DesiredSecretString = "H~2:@ ←2♦yq GB3●( 6♥?↑6";
 
 		static readonly GameSecret DesiredSecret = new GameSecret(GameRegion.US)
 		{
@@ -24,8 +24,8 @@ namespace Zyrenth.Zora.Tests
 		static readonly byte[] DesiredSecretBytes = new byte[] {
 			4, 37, 51, 36, 63,
 			61, 51, 10, 44, 39,
-			3,  0, 52, 21, 50,
-			55,  9, 45, 59, 53
+			3,  0, 52, 21, 48,
+			55,  9, 45, 59, 55
 		};
 
 		[Test]
