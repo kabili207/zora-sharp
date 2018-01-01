@@ -54,12 +54,16 @@ cannot be guaranteed for other libraries that implement the `.zora` save file.
 
 ## Using the library
 
+### Regions
+There are two supported regions, "GameRegion.US" and "GameRegion.JP". (The PAL region is
+nearly identical to the US region for the purpose of secrets.)
+
 ### Getting the raw secret
 OracleHack uses byte arrays for most operations with the secrets. Most people don't go passing byte values
 around, however, opting for a more readable text representation. These secret strings can be parsed like so:
 ```c#
 string gameSecret = "H~2:@ left 2 diamond yq GB3 circle ( 6 heart ? up 6";
-byte[] rawGameSecret = SecretParser.ParseSecret(gameSecret);
+byte[] rawGameSecret = SecretParser.ParseSecret(gameSecret, GameRegion.US);
 ```
 The `ParseSecret` method is fairly flexible in what it will accept. Possible formats include 
 `6●sW↑`, `6 circle s W up`, and `6{circle}sW{up}`. You can even combine the formats like so: 
@@ -79,7 +83,7 @@ byte[] rawSecret = new byte[]
      3,  0, 52, 21, 48,
     55,  9, 45, 59, 55
 };
-string secret = SecretParser.CreateString(rawSecret);
+string secret = SecretParser.CreateString(rawSecret, GameRegion.US);
 // H~2:@ ←2♦yq GB3●( 6♥?↑6
 ```
 
@@ -90,7 +94,7 @@ a UTF-8 string, as shown above.
 Secrets can be loaded from a string...
 ```c#
 string gameSecret = "H~2:@ left 2 diamond yq GB3 circle ( 6 heart ? up 6";
-Secret secret = new GameSecret();
+Secret secret = new GameSecret(GameRegion.US);
 secret.Load(gameSecret);
 ```
 ...or from a byte array
@@ -103,7 +107,7 @@ byte[] rawSecret = new byte[]
      3,  0, 52, 21, 48,
     55,  9, 45, 59, 55
 };
-Secret secret = new GameSecret();
+Secret secret = new GameSecret(GameRegion.US);
 secret.Load(rawSecret);
 ```
 ### Loading a ring secret
@@ -115,13 +119,13 @@ byte[] rawSecret = new byte[]
     63, 26,  0, 59, 47,
     30, 32, 15, 30, 49
 };
-Secret secret = new RingSecret();
+Secret secret = new RingSecret(GameRegion.US);
 secret.Load(rawSecret);
 ```
 
 ### Creating a game secret
 ```c#
-GameSecret secret = new GameSecret()
+GameSecret secret = new GameSecret(GameRegion.US)
 {
     GameID = 14129,
     TargetGame = Game.Ages,
@@ -140,7 +144,7 @@ byte[] data = secret.ToBytes();
 
 ### Creating a ring secret
 ```c#
-RingSecret secret = new RingSecret()
+RingSecret secret = new RingSecret(GameRegion.US)
 {
     GameID = 14129,
     Rings = Rings.PowerRingL1 | Rings.DoubleEdgeRing | Rings.ProtectionRing
@@ -152,7 +156,7 @@ byte[] data = secret.ToBytes();
 
 ### Creating a memory secret
 ```c#
-MemorySecret secret = new MemorySecret()
+MemorySecret secret = new MemorySecret(GameRegion.US)
 {
     GameID = 14129,
     TargetGame = Game.Ages,
