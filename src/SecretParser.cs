@@ -32,22 +32,44 @@ namespace Zyrenth.Zora
 	/// </summary>
 	public static class SecretParser
 	{
-		private static readonly char[] Symbols = 
+		private static readonly char[][] Symbols =
 		{
-			'B', 'D', 'F', 'G', 'H', 'J', 'L', 'M', '♠', '♥', '♦', '♣', '#',
-			'N', 'Q', 'R', 'S', 'T', 'W', 'Y', '!', '●', '▲', '■', '+', '-',
-			'b', 'd', 'f', 'g', 'h', 'j',      'm', '$', '*', '/', ':', '~',
-			'n', 'q', 'r', 's', 't', 'w', 'y', '?', '%', '&', '(', '=', ')',
-			'2', '3', '4', '5', '6', '7', '8', '9', '↑', '↓', '←', '→', '@'
+			// JP
+			new char[]
+			{
+				'え', 'か', 'く', '0', 'け', 'つ', '1', 'し',
+				'に', 'ね', 'そ', 'ぺ', '2', 'た', 'せ', 'い',
+				'て', 'み', 'ほ', 'す', 'う', 'お', 'ら', 'の',
+				'3', 'ふ', 'さ', 'ざ', 'き', 'ひ', 'わ', 'や',
+				'こ', 'は', 'ゆ', 'よ', 'へ', 'る', 'な', 'と',
+				'5', '6', '7', 'を', 'ぷ', 'も', 'め', 'り',
+				'ち', 'ま', 'あ', 'ん', 'ぞ', 'れ', '8', 'ご',
+				'ど', 'む', 'ぴ', '9', '4', 'ぼ', 'が', 'だ',
+			},
+			// US/PAL
+			new char[] {
+				'B', 'D', 'F', 'G', 'H', 'J', 'L', 'M', '♠', '♥', '♦', '♣', '#',
+				'N', 'Q', 'R', 'S', 'T', 'W', 'Y', '!', '●', '▲', '■', '+', '-',
+				'b', 'd', 'f', 'g', 'h', 'j',      'm', '$', '*', '/', ':', '~',
+				'n', 'q', 'r', 's', 't', 'w', 'y', '?', '%', '&', '(', '=', ')',
+				'2', '3', '4', '5', '6', '7', '8', '9', '↑', '↓', '←', '→', '@'
+			}
 		};
 
-		private static readonly Dictionary<string, string> SymbolRegexes =
+		private static readonly Dictionary<string, string>[] SymbolRegexes =
+		{
+			// JP
 			new Dictionary<string, string> {
-			{ @"\{?spade\}?", "♠" }, { @"\{?heart\}?", "♥" }, { @"\{?diamond\}?", "♦" },
-			{ @"\{?club\}?", "♣" }, { @"\{?circle\}?", "●" }, { @"\{?triangle\}?", "▲" },
-			{ @"\{?square\}?", "■" }, { @"\{?up\}?", "↑" }, { @"\{?down\}?", "↓" },
-			{ @"\{?left\}?", "←" }, { @"\{?right\}?", "→" }, { "<", "(" }, { ">", ")" },
-			{ @"\s+", "" },
+				{ @"\s+", "" },
+			},
+			// US/PAL
+			new Dictionary<string, string> {
+				{ @"\{?spade\}?", "♠" }, { @"\{?heart\}?", "♥" }, { @"\{?diamond\}?", "♦" },
+				{ @"\{?club\}?", "♣" }, { @"\{?circle\}?", "●" }, { @"\{?triangle\}?", "▲" },
+				{ @"\{?square\}?", "■" }, { @"\{?up\}?", "↑" }, { @"\{?down\}?", "↓" },
+				{ @"\{?left\}?", "←" }, { @"\{?right\}?", "→" }, { "<", "(" }, { ">", ")" },
+				{ @"\s+", "" },
+			}
 		};
 
 		/// <summary>
@@ -55,6 +77,7 @@ namespace Zyrenth.Zora
 		/// </summary>
 		/// <returns>The secret</returns>
 		/// <param name="secret">Secret.</param>
+		/// <param name="region">Game region.</param>
 		/// <exception cref="InvalidSecretException">
 		/// The <paramref name="secret"/> contains invalid symbols.
 		/// </exception>
@@ -78,9 +101,9 @@ namespace Zyrenth.Zora
 		/// byte[] rawGameSecret = SecretParser.ParseSecret(gameSecret);
 		/// </code>
 		/// </example>
-		public static byte[] ParseSecret(string secret)
+		public static byte[] ParseSecret(string secret, GameRegion region)
 		{
-			foreach (var kvp in SymbolRegexes)
+			foreach (var kvp in SymbolRegexes[(int)region])
 			{
 				secret = Regex.Replace(secret, kvp.Key, kvp.Value, RegexOptions.IgnoreCase);
 			}
@@ -89,7 +112,7 @@ namespace Zyrenth.Zora
 			int symbol = 0;
 			for (int i = 0; i < secret.Length; ++i)
 			{
-				symbol = Array.IndexOf(Symbols, secret[i]);
+				symbol = Array.IndexOf(Symbols[(int)region], secret[i]);
 				if (symbol < 0 || symbol > 63)
 					throw new InvalidSecretException("Secret contains invalid symbols");
 
@@ -103,6 +126,7 @@ namespace Zyrenth.Zora
 		/// Creates a string representation of a secret byte array.
 		/// </summary>
 		/// <param name="data">The secret data</param>
+		/// <param name="region">Game region.</param>
 		/// <returns>A representation of the secret data</returns>
 		/// <remarks>This method always returns the secret formatted as <c>→N♥Nh</c></remarks>
 		/// <exception cref="InvalidSecretException">
@@ -121,7 +145,7 @@ namespace Zyrenth.Zora
 		/// // H~2:@ ←2♦yq GB3●( 6♥?↑6
 		/// </code>
 		/// </example>
-		public static string CreateString(byte[] data)
+		public static string CreateString(byte[] data, GameRegion region)
 		{
 			StringBuilder sBuilder = new StringBuilder();
 			for (int i = 0; i < data.Length; ++i)
@@ -129,7 +153,7 @@ namespace Zyrenth.Zora
 				if(data[i] < 0 || data[i] > 63)
 					throw new InvalidSecretException("Secret contains invalid values");
 
-				sBuilder.Append(Symbols[data[i]]);
+				sBuilder.Append(Symbols[(int)region][data[i]]);
 				if (i % 5 == 4)
 					sBuilder.Append(" ");
 			}

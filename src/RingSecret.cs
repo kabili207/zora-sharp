@@ -56,7 +56,10 @@ namespace Zyrenth.Zora
 		/// <summary>
 		/// Initializes a new instance of the <see cref="RingSecret"/> class.
 		/// </summary>
-		public RingSecret() { }
+		public RingSecret(GameRegion r)
+		{
+			Region = r;
+		}
 
 		/// <summary>
 		/// Initializes a new instance of the <see cref="RingSecret"/> class with the
@@ -97,6 +100,7 @@ namespace Zyrenth.Zora
 		/// </example>
 		public override void Load(GameInfo info)
 		{
+			Region = info.Region;
 			GameID = info.GameID;
 			Rings = info.Rings;
 		}
@@ -209,7 +213,7 @@ namespace Zyrenth.Zora
 		/// existings Rings. If false, it will overwrite them.
 		/// </param>
 		/// <exception cref="InvalidSecretException">
-		/// The Game IDs of the secret and game info do not match.
+		/// The Game IDs or regions of the secret and game info do not match.
 		/// </exception>
 		/// <example>
 		/// <code language="C#">
@@ -225,6 +229,9 @@ namespace Zyrenth.Zora
 		/// </example>
 		public void UpdateGameInfo(GameInfo info, bool appendRings)
 		{
+			if (info.Region != Region)
+				throw new InvalidSecretException("The regions of the secret and game info do not match.");
+
 			if(info.GameID != GameID)
 				throw new InvalidSecretException("The Game IDs of the secret and game info do not match.");
 

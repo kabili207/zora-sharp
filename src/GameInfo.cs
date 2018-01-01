@@ -37,6 +37,8 @@ namespace Zyrenth.Zora
 
 		#region Fields
 
+		GameRegion region = GameRegion.US;
+
 		string _hero = "\0\0\0\0\0";
 		string _child = "\0\0\0\0\0";
 		short _gameId = 0;
@@ -60,6 +62,19 @@ namespace Zyrenth.Zora
 		public event PropertyChangedEventHandler PropertyChanged;
 
 		#region Properties
+
+		/// <summary>
+		/// Gets or sets the Region used for this user data
+		/// </summary>
+		public GameRegion Region
+		{
+			get { return region; }
+			set
+			{
+				region = value;
+				NotifyPropertyChanged("Region");
+			}
+		}
 
 		/// <summary>
 		/// Gets or sets the Game used for this user data

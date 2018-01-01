@@ -189,7 +189,10 @@ namespace Zyrenth.Zora
 		/// <summary>
 		/// Initializes a new instance of the <see cref="GameSecret"/> class.
 		/// </summary>
-		public GameSecret() { }
+		public GameSecret(GameRegion r)
+		{
+			Region = r;
+		}
 
 		/// <summary>
 		/// Initializes a new instance of the <see cref="GameSecret"/> class from the
@@ -225,6 +228,7 @@ namespace Zyrenth.Zora
 		/// </example>
 		public override void Load(GameInfo info)
 		{
+			Region = info.Region;
 			GameID = info.GameID;
 			TargetGame = info.Game;
 			Hero = info.Hero;
@@ -387,6 +391,7 @@ namespace Zyrenth.Zora
 		/// </example>
 		public void UpdateGameInfo(GameInfo info)
 		{
+			info.Region = Region;
 			info.GameID = GameID;
 			info.Game = TargetGame;
 			info.Hero = Hero;

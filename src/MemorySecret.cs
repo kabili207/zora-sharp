@@ -87,7 +87,10 @@ namespace Zyrenth.Zora
 		/// <summary>
 		/// Initializes a new instance of the <see cref="MemorySecret"/> class.
 		/// </summary>
-		public MemorySecret() { }
+		public MemorySecret(GameRegion r)
+		{
+			Region = r;
+		}
 
 		/// <summary>
 		/// Initializes a new instance of the <see cref="MemorySecret"/> class.
@@ -96,7 +99,7 @@ namespace Zyrenth.Zora
 		/// <param name="memory">The memory.</param>
 		/// <param name="isReturnSecret">if set to <c>true</c> [is return secret].</param>
 		public MemorySecret(GameInfo info, Memory memory, bool isReturnSecret)
-			: this(info.Game, info.GameID, memory, isReturnSecret) { }
+			: this(info.Game, info.Region, info.GameID, memory, isReturnSecret) { }
 
 		/// <summary>
 		/// Initializes a new instance of the <see cref="MemorySecret"/> class with
@@ -106,10 +109,11 @@ namespace Zyrenth.Zora
 		/// <param name="gameId">The game id.</param>
 		/// <param name="memory">The memory.</param>
 		/// <param name="isReturnSecret">if set to <c>true</c> is return secret.</param>
-		public MemorySecret(Game game, short gameId, Memory memory, bool isReturnSecret)
+		public MemorySecret(Game game, GameRegion region, short gameId, Memory memory, bool isReturnSecret)
 		{
-			GameID = gameId;
 			TargetGame = game;
+			Region = region;
+			GameID = gameId;
 			Memory = memory;
 			IsReturnSecret = isReturnSecret;
 		}
@@ -136,6 +140,7 @@ namespace Zyrenth.Zora
 		/// </example>
 		public override void Load(GameInfo info)
 		{
+			Region = info.Region;
 			TargetGame = info.Game;
 			GameID = info.GameID;
 		}
@@ -173,14 +178,14 @@ namespace Zyrenth.Zora
 
 			// Because the game and return type are stored in the cipher and checksum
 			// we compare it against all four possible values. It's ugly, but it works.
-			string desiredString = SecretParser.CreateString(secret);
+			string desiredString = SecretParser.CreateString(secret, Region);
 
 			var memories = new[]
 			{
-				new MemorySecret(Game.Ages, GameID, Memory, true),
-				new MemorySecret(Game.Ages, GameID, Memory, false),
-				new MemorySecret(Game.Seasons, GameID, Memory, true),
-				new MemorySecret(Game.Seasons, GameID, Memory, false)
+				new MemorySecret(Game.Ages, Region, GameID, Memory, true),
+				new MemorySecret(Game.Ages, Region, GameID, Memory, false),
+				new MemorySecret(Game.Seasons, Region, GameID, Memory, true),
+				new MemorySecret(Game.Seasons, Region, GameID, Memory, false)
 			};
 
 			bool found = false;

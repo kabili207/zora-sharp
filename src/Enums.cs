@@ -28,6 +28,14 @@ using System.Text;
 
 namespace Zyrenth.Zora
 {
+	/// <summary>
+	/// Specifies the region for the game.
+	/// </summary>
+	public enum GameRegion
+	{
+		JP=0,
+		US=1
+	}
 
 	/// <summary>
 	/// Specifies the game in the Zelda Oracle series.
