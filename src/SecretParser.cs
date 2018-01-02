@@ -150,7 +150,7 @@ namespace Zyrenth.Zora
 			StringBuilder sBuilder = new StringBuilder();
 			for (int i = 0; i < data.Length; ++i)
 			{
-				if(data[i] < 0 || data[i] > 63)
+				if (data[i] < 0 || data[i] > 63)
 					throw new InvalidSecretException("Secret contains invalid values");
 
 				sBuilder.Append(Symbols[(int)region][data[i]]);

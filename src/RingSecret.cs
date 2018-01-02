@@ -232,7 +232,7 @@ namespace Zyrenth.Zora
 			if (info.Region != Region)
 				throw new InvalidSecretException("The regions of the secret and game info do not match.");
 
-			if(info.GameID != GameID)
+			if (info.GameID != GameID)
 				throw new InvalidSecretException("The Game IDs of the secret and game info do not match. (Secret's Game ID is " + GameID + ".)");
 
 			info.Rings = Rings | (appendRings ? info.Rings : Rings.None);

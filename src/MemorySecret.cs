@@ -45,7 +45,7 @@ namespace Zyrenth.Zora
 		/// <summary>
 		/// Gets or sets the memory to use for this secret
 		/// </summary>
-		public Memory Memory 
+		public Memory Memory
 		{
 			get { return (Memory)_memory; }
 			set
@@ -169,7 +169,7 @@ namespace Zyrenth.Zora
 
 			byte[] decodedBytes = DecodeBytes(secret);
 			string decodedSecret = ByteArrayToBinaryString(decodedBytes);
-			
+
 			if (decodedSecret[3] != '1' && decodedSecret[4] != '1')
 				throw new ArgumentException("The specified data is not a memory code", "secret");
 

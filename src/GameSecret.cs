@@ -301,7 +301,7 @@ namespace Zyrenth.Zora
 
 			if (decodedSecret[3] != '0' && decodedSecret[4] != '0')
 				throw new ArgumentException("The specified data is not a game code", "secret");
-			
+
 			TargetGame = (Game)(byte)(decodedSecret[21] == '1' ? 1 : 0);
 			IsHeroQuest = decodedSecret[20] == '1';
 			IsLinkedGame = decodedSecret[105] == '1';
@@ -453,7 +453,7 @@ namespace Zyrenth.Zora
 			byte[] heroBytes = encoding.GetBytes(_hero);
 			byte[] childBytes = encoding.GetBytes(_child);
 
-			for (int i=0; i<5; i++)
+			for (int i = 0; i < 5; i++)
 			{
 				if (!validPALCharacters.Contains(heroBytes[i]))
 					return false;

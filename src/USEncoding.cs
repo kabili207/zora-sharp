@@ -44,7 +44,7 @@ namespace Zyrenth.Zora
 			'ü','\0','\0','\0','\0','\0','\0','\0','\0','\0','\0','\0','\0','♥','\0','\0'
 		};
 
-		public USEncoding ()
+		public USEncoding()
 		{
 		}
 
@@ -66,9 +66,10 @@ namespace Zyrenth.Zora
 				if (c == 0)
 					b = 0;
 				else {
-					for (int j=0; j<characters.Length; j++)
+					for (int j = 0; j < characters.Length; j++)
 					{
-						if (characters[j] == c) {
+						if (characters[j] == c)
+						{
 							b = (byte)(j + 0x10);
 							break;
 						}
@@ -93,7 +94,7 @@ namespace Zyrenth.Zora
 		{
 			for (int i = byteIndex; i < byteCount; i++)
 			{
-				int b = bytes[i]-0x10;
+				int b = bytes[i] - 0x10;
 				if (b < 0 || b >= characters.Length)
 					chars[i] = '\0';
 				else

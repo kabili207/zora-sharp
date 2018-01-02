@@ -67,7 +67,7 @@ namespace Zyrenth.Zora
 		{
 			// Add implementation.
 		}
-		
+
 		/// <summary>
 		/// Initializes a new instance of the <see cref="InvalidSecretException"/> class
 		/// with serialized data.
