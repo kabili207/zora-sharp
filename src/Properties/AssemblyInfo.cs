@@ -1,5 +1,5 @@
 ﻿/*
- *  Copyright © 2013-2015, Andrew Nagle.
+ *  Copyright © 2013-2018, Amy Nagle.
  *  All rights reserved.
  *
  *  This file is part of ZoraSharp.
@@ -30,7 +30,7 @@ using System.Runtime.CompilerServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("ZoraSharp")]
-[assembly: AssemblyCopyright("Copyright © Andrew \"Kabili\" Nagle 2013 - 2015")]
+[assembly: AssemblyCopyright("Copyright © Amy Nagle 2013 - 2018")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

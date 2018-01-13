@@ -1,5 +1,5 @@
 ﻿/*
- *  Copyright © 2011-2015, Andrew Nagle.
+ *  Copyright © 2011-2018, Amy Nagle.
  *  All rights reserved.
  *
  *  This file is part of ZoraSharp.
