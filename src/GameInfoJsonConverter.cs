@@ -59,7 +59,7 @@ namespace Zyrenth.Zora
 			info.Rings = (Rings)dictionary.ReadValue<long>("Rings");
 			info.Game = dictionary.ReadValue<Game>("Game");
 			info.Animal = dictionary.ReadValue<Animal>("Animal");
-			info.Behavior = dictionary.ReadValue<ChildBehavior>("Behavior");
+			info.Behavior = dictionary.ReadValue<byte>("Behavior");
 
 			return info;
 		}

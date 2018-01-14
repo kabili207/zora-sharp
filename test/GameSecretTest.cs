@@ -15,7 +15,7 @@ namespace Zyrenth.Zora.Tests
 			Hero = "Link",
 			Child = "Pip",
 			Animal = Animal.Dimitri,
-			Behavior = ChildBehavior.BouncyD,
+			Behavior = 4,
 			IsLinkedGame = true,
 			IsHeroQuest = false,
 			WasGivenFreeRing = true
@@ -77,7 +77,7 @@ namespace Zyrenth.Zora.Tests
 				Hero = "Link",
 				Child = "Pip",
 				Animal = Animal.Dimitri,
-				Behavior = ChildBehavior.BouncyD,
+				Behavior = 4,
 				IsLinkedGame = true,
 				IsHeroQuest = false,
 				WasGivenFreeRing = true
@@ -96,7 +96,7 @@ namespace Zyrenth.Zora.Tests
 				Hero = "Link",
 				Child = "Pip",
 				Animal = Animal.Dimitri,
-				Behavior = ChildBehavior.BouncyD,
+				Behavior = 4,
 				IsLinkedGame = true,
 				IsHeroQuest = false,
 				WasGivenFreeRing = true

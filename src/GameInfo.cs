@@ -50,9 +50,6 @@ namespace Zyrenth.Zora
 		long _rings = 0L;
 		bool _wasGivenFreeRing = false;
 
-		bool _unknown58 = false;
-		bool _unknown59 = false;
-
 		#endregion // Fields
 
 		/// <summary>
@@ -176,9 +173,9 @@ namespace Zyrenth.Zora
 		/// <summary>
 		/// Gets or set the behavior of the child
 		/// </summary>
-		public ChildBehavior Behavior
+		public byte Behavior
 		{
-			get { return (ChildBehavior)_behavior; }
+			get { return (byte)_behavior; }
 			set
 			{
 				_behavior = (byte)value;
@@ -209,32 +206,6 @@ namespace Zyrenth.Zora
 			{
 				_rings = (long)value;
 				NotifyPropertyChanged("Rings");
-			}
-		}
-
-		/// <summary>
-		/// Gets or sets the unknown flag at offset 58
-		/// </summary>
-		public bool Unknown58
-		{
-			get { return _unknown58; }
-			set
-			{
-				_unknown58 = value;
-				NotifyPropertyChanged("Unknown58");
-			}
-		}
-
-		/// <summary>
-		/// Gets or sets the unknown flag at offset 59
-		/// </summary>
-		public bool Unknown59
-		{
-			get { return _unknown59; }
-			set
-			{
-				_unknown59 = value;
-				NotifyPropertyChanged("Unknown59");
 			}
 		}
 
@@ -416,9 +387,7 @@ namespace Zyrenth.Zora
 				(_isHeroQuest == g._isHeroQuest) &&
 				(_isLinkedGame == g._isLinkedGame) &&
 				(_rings == g._rings) &&
-				(_wasGivenFreeRing == g._wasGivenFreeRing) &&
-				(_unknown58 == g._unknown58) &&
-				(_unknown59 == g._unknown59);
+				(_wasGivenFreeRing == g._wasGivenFreeRing);
 
 		}
 
@@ -439,9 +408,7 @@ namespace Zyrenth.Zora
 				_isHeroQuest.GetHashCode() ^
 				_isLinkedGame.GetHashCode() ^
 				_rings.GetHashCode() ^
-				_wasGivenFreeRing.GetHashCode() ^
-				_unknown58.GetHashCode() ^
-				_unknown59.GetHashCode();
+				_wasGivenFreeRing.GetHashCode();
 		}
 	}
 }

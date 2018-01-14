@@ -60,9 +60,6 @@ namespace Zyrenth.Zora
 		bool _isLinkedGame = false;
 		bool _wasGivenFreeRing = false;
 
-		bool _unknown58 = false;
-		bool _unknown59 = false;
-
 		/// <summary>
 		/// Gets the required length of the secret
 		/// </summary>
@@ -158,9 +155,9 @@ namespace Zyrenth.Zora
 		/// <summary>
 		/// Gets or set the behavior of the child
 		/// </summary>
-		public ChildBehavior Behavior
+		public byte Behavior
 		{
-			get { return (ChildBehavior)_behavior; }
+			get { return (byte)_behavior; }
 			set
 			{
 				_behavior = (byte)value;
@@ -178,32 +175,6 @@ namespace Zyrenth.Zora
 			{
 				_wasGivenFreeRing = value;
 				NotifyPropertyChanged("WasGivenFreeRing");
-			}
-		}
-
-		/// <summary>
-		/// Gets or sets the unknown flag at offset 58
-		/// </summary>
-		public bool Unknown58
-		{
-			get { return _unknown58; }
-			set
-			{
-				_unknown58 = value;
-				NotifyPropertyChanged("Unknown58");
-			}
-		}
-
-		/// <summary>
-		/// Gets or sets the unknown flag at offset 59
-		/// </summary>
-		public bool Unknown59
-		{
-			get { return _unknown59; }
-			set
-			{
-				_unknown59 = value;
-				NotifyPropertyChanged("Unknown59");
 			}
 		}
 
@@ -259,8 +230,6 @@ namespace Zyrenth.Zora
 			IsLinkedGame = info.IsLinkedGame;
 			IsHeroQuest = info.IsHeroQuest;
 			WasGivenFreeRing = info.WasGivenFreeRing;
-			Unknown58 = info.Unknown58;
-			Unknown59 = info.Unknown59;
 		}
 
 		/// <summary>
@@ -330,13 +299,8 @@ namespace Zyrenth.Zora
 			});
 
 			Animal = (Animal)Convert.ToByte(decodedSecret.ReversedSubstring(85, 4), 2);
-			Behavior = (ChildBehavior)Convert.ToByte(decodedSecret.ReversedSubstring(54, 4), 2);
+			Behavior = Convert.ToByte(decodedSecret.ReversedSubstring(54, 6), 2);
 			WasGivenFreeRing = decodedSecret[76] == '1';
-
-
-			// TODO: Figure out what all the unknown values are for.
-			Unknown58 = decodedSecret[58] == '1';
-			Unknown59 = decodedSecret[59] == '1';
 		}
 
 		/// <summary>
@@ -383,9 +347,7 @@ namespace Zyrenth.Zora
 			unencodedSecret += Convert.ToString(childBytes[0], 2).PadLeft(8, '0').Reverse();
 			unencodedSecret += Convert.ToString(heroBytes[1], 2).PadLeft(8, '0').Reverse();
 			unencodedSecret += Convert.ToString(childBytes[1], 2).PadLeft(8, '0').Reverse();
-			unencodedSecret += Convert.ToString(_behavior, 2).PadLeft(8, '0').Reverse().Substring(0, 4);
-			unencodedSecret += _unknown58 ? "1" : "0"; // TODO: This
-			unencodedSecret += _unknown59 ? "1" : "0"; // TODO: This
+			unencodedSecret += Convert.ToString(_behavior, 2).PadLeft(6, '0').Reverse();
 			unencodedSecret += Convert.ToString(heroBytes[2], 2).PadLeft(8, '0').Reverse();
 			unencodedSecret += Convert.ToString(childBytes[2], 2).PadLeft(8, '0').Reverse();
 			unencodedSecret += _wasGivenFreeRing ? "1" : "0";
@@ -437,8 +399,6 @@ namespace Zyrenth.Zora
 			info.IsLinkedGame = IsLinkedGame;
 			info.IsHeroQuest = IsHeroQuest;
 			info.WasGivenFreeRing = WasGivenFreeRing;
-			info.Unknown58 = Unknown58;
-			info.Unknown59 = Unknown59;
 		}
 
 		/// <summary>
@@ -487,9 +447,7 @@ namespace Zyrenth.Zora
 				(_animal == g._animal) &&
 				(_isHeroQuest == g._isHeroQuest) &&
 				(_isLinkedGame == g._isLinkedGame) &&
-				(_wasGivenFreeRing == g._wasGivenFreeRing) &&
-				(_unknown58 == g._unknown58) &&
-				(_unknown59 == g._unknown59);
+				(_wasGivenFreeRing == g._wasGivenFreeRing);
 
 		}
 
@@ -509,9 +467,7 @@ namespace Zyrenth.Zora
 				_animal.GetHashCode() ^
 				_isHeroQuest.GetHashCode() ^
 				_isLinkedGame.GetHashCode() ^
-				_wasGivenFreeRing.GetHashCode() ^
-				_unknown58.GetHashCode() ^
-				_unknown59.GetHashCode();
+				_wasGivenFreeRing.GetHashCode();
 		}
 	}
 }

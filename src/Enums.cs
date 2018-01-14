@@ -51,32 +51,10 @@ namespace Zyrenth.Zora
 	/// </summary>
 	public enum Animal : byte
 	{
+		None = 0,
 		Ricky = 0x0b,
 		Dimitri = 0x0c,
 		Moosh = 0x0d
-	}
-
-	/// <summary>
-	/// Specifies the child's behavior.
-	/// </summary>
-	public enum ChildBehavior : byte
-	{
-		Infant = 0,
-		BouncyA,
-		BouncyB,
-		BouncyC,
-		BouncyD,
-		BouncyE,
-		ShyA,
-		ShyB,
-		ShyC,
-		ShyD,
-		ShyE,
-		HyperA,
-		HyperB,
-		HyperC,
-		HyperD,
-		HyperE
 	}
 
 	/// <summary>
