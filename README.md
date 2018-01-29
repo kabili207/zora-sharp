@@ -9,7 +9,7 @@ The name comes from a contraction of **Z**elda **Ora**cle and from the Zora, one
 ### User Interfaces
 ZoraSharp is only a library for manipulating the codes from the Oracle series games, meant for use by developers.
 General users should instead use of the the following user interfaces:
- * Windows WPF - https://github.com/kabili207/oracle-of-secrets-win
+ * Windows WPF - https://github.com/kabili207/zoragen-wpf
  * Linux GTK - https://github.com/kabili207/zoragen-gtk
 
 ### Features
@@ -24,6 +24,7 @@ as a JSON object, with the intention that it can be used with other implementati
 
 ```json
 {
+    "Region": "US",
     "Hero": "Link",
     "GameID": 14129,
     "Game": "Ages",
@@ -50,7 +51,7 @@ cannot be guaranteed for other libraries that implement the `.zora` save file.
 ## Using the library
 
 ### Regions
-There are two supported regions, "GameRegion.US" and "GameRegion.JP". (The PAL region is
+There are two supported regions, `US` and `JP`. (The PAL region is
 nearly identical to the US region for the purpose of secrets.)
 
 ### Getting the raw secret
