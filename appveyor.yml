@@ -1,15 +1,32 @@
 version: 2.1.{build}
 configuration: Debug
+
+# environment variables
+environment:
+  SandcastleVersion: 2017.12.30.2
+
 before_build:
 - nuget restore ZoraSharp.sln
+
 build:
   project: ZoraSharp.sln
   verbosity: minimal
-artifacts:
-- path: src\bin\$(configuration)\*.dll
+
 test_script:
 - nuget.exe install OpenCover -ExcludeVersion
 - OpenCover\tools\OpenCover.Console.exe -register:user -target:nunit3-console.exe -targetargs:"test\bin\%CONFIGURATION%\ZoraSharp.Tests.dll --result=myresults.xml;format=AppVeyor" -returntargetcode -filter:"+[*]* -[ZoraSharp.Tests]* -[ZoraSharp]*Exception -[ZoraSharp]SimpleJson.* -[ZoraSharp]*.AssemblyDetail -[ZoraSharp]*.Attributes" -excludebyattribute:"*.ExcludeFromCodeCoverage*" -hideskipped:All -output:coverage.xml
 - "SET PATH=C:\\Python34;C:\\Python34\\Scripts;%PATH%"
 - pip install codecov
 - codecov -f "coverage.xml" -X gcov
+
+after_test:
+    - echo Building Sandcastle
+    - SET SHFBROOT=%APPVEYOR_BUILD_FOLDER%\EWSoftware.SHFB.%SandcastleVersion%\Tools\
+    - nuget install EWSoftware.SHFB -Version %SandcastleVersion%
+    - nuget install EWSoftware.SHFB.NETFramework
+    - msbuild ZoraSharp.shfbproj /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll" /p:Configuration=%CONFIGURATION%
+    - 7z a -tzip api_doc.zip %APPVEYOR_BUILD_FOLDER%\doc\*
+
+artifacts:
+- path: src\bin\$(configuration)\*.dll
+- path: api_doc.zip
