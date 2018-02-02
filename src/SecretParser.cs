@@ -115,7 +115,7 @@ namespace Zyrenth.Zora
 		/// <example>
 		/// <code language="C#">
 		/// string gameSecret = "H~2:@ left 2 diamond yq GB3 circle ( 6 heart ? up 6";
-		/// byte[] rawGameSecret = SecretParser.ParseSecret(gameSecret);
+		/// byte[] rawGameSecret = SecretParser.ParseSecret(gameSecret, GameRegion.US);
 		/// </code>
 		/// </example>
 		public static byte[] ParseSecret(string secret, GameRegion region)
@@ -158,7 +158,7 @@ namespace Zyrenth.Zora
 		///      3,  0, 52, 21, 48,
 		///     55,  9, 45, 59, 55
 		/// };
-		/// string secret = SecretParser.CreateString(rawSecret);
+		/// string secret = SecretParser.CreateString(rawSecret, GameRegion.US);
 		/// // H~2:@ ←2♦yq GB3●( 6♥?↑6
 		/// </code>
 		/// </example>

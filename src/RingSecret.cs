@@ -56,10 +56,7 @@ namespace Zyrenth.Zora
 		/// <summary>
 		/// Initializes a new instance of the <see cref="RingSecret"/> class.
 		/// </summary>
-		public RingSecret(GameRegion r)
-		{
-			Region = r;
-		}
+		public RingSecret() { }
 
 		/// <summary>
 		/// Initializes a new instance of the <see cref="RingSecret"/> class with the
@@ -67,9 +64,10 @@ namespace Zyrenth.Zora
 		/// </summary>
 		/// <param name="gameId">The game identifier.</param>
 		/// <param name="rings">The rings.</param>
-		public RingSecret(short gameId, Rings rings)
+		public RingSecret(short gameId, GameRegion region, Rings rings)
 		{
 			GameID = gameId;
+			Region = region;
 			Rings = rings;
 		}
 
@@ -109,6 +107,7 @@ namespace Zyrenth.Zora
 		/// Loads in data from the raw secret data provided
 		/// </summary>
 		/// <param name="secret">The raw secret data</param>
+		/// <param name="region">The the region this secret is for</param>
 		/// <example>
 		/// This example demonstrates loading a <see cref="RingSecret"/> from a
 		/// a byte array containing an encoded secret.
@@ -121,10 +120,10 @@ namespace Zyrenth.Zora
 		///     30, 32, 15, 30, 49
 		/// };
 		/// Secret secret = new RingSecret();
-		/// secret.Load(rawSecret);
+		/// secret.Load(rawSecret, GameRegion.US);
 		/// </code>
 		/// </example>
-		public override void Load(byte[] secret)
+		public override void Load(byte[] secret, GameRegion region)
 		{
 			if (secret == null || secret.Length != Length)
 				throw new InvalidSecretException("Secret must contatin exactly 15 bytes");
@@ -142,6 +141,7 @@ namespace Zyrenth.Zora
 			if (decodedSecret[3] != '0' && decodedSecret[4] != '1')
 				throw new ArgumentException("The specified data is not a ring code", "secret");
 
+			Region = region;
 			GameID = Convert.ToInt16(decodedSecret.ReversedSubstring(5, 15), 2);
 
 			long rings = unchecked((long)Convert.ToUInt64(

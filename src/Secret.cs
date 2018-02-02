@@ -106,24 +106,26 @@ namespace Zyrenth.Zora
 		/// Loads in data from the raw secret data provided
 		/// </summary>
 		/// <param name="secret">The raw secret data</param>
-		public abstract void Load(byte[] secret);
+		/// <param name="region">The the region this secret is for</param>
+		public abstract void Load(byte[] secret, GameRegion region);
 
 		/// <summary>
 		/// Loads in data from the secret string provided
 		/// </summary>
 		/// <param name="secret">The secret</param>
+		/// <param name="region">The the region this secret is for</param>
 		/// <example>
 		/// This example demonstrates loading a <see cref="GameSecret"/> from a
 		/// secret string.
 		/// <code language="C#">
 		/// string gameSecret = "H~2:@ left 2 diamond yq GB3 circle ( 6 heart ? up 6";
 		/// Secret secret = new GameSecret();
-		/// secret.Load(gameSecret);
+		/// secret.Load(gameSecret, GameRegion.US);
 		/// </code>
 		/// </example>
-		public virtual void Load(string secret)
+		public virtual void Load(string secret, GameRegion region)
 		{
-			Load(SecretParser.ParseSecret(secret, Region));
+			Load(SecretParser.ParseSecret(secret, region), region);
 		}
 
 		/// <summary>
@@ -162,7 +164,7 @@ namespace Zyrenth.Zora
 		/// </example>
 		public override string ToString()
 		{
-			return SecretParser.CreateString(ToBytes(), Region);
+			return SecretParser.CreateString(ToBytes(), _region);
 		}
 
 		/// <summary>
@@ -306,7 +308,7 @@ namespace Zyrenth.Zora
 		/// </returns>
 		public override int GetHashCode()
 		{
-			return _gameId.GetHashCode() ^ (int)_region.GetHashCode();
+			return _gameId.GetHashCode() ^ _region.GetHashCode();
 		}
 
 	}

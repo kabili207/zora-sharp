@@ -50,16 +50,17 @@ namespace Zyrenth.Zora
 
 			GameInfo info = new GameInfo();
 
+			info.Region = dictionary.ReadValue<GameRegion>("Region");
+			info.Game = dictionary.ReadValue<Game>("Game");
+			info.GameID = dictionary.ReadValue<short>("GameID");
 			info.Hero = dictionary.ReadValue<string>("Hero");
 			info.Child = dictionary.ReadValue<string>("Child");
+			info.Animal = dictionary.ReadValue<Animal>("Animal");
+			info.Behavior = dictionary.ReadValue<byte>("Behavior");
 			info.IsHeroQuest = dictionary.ReadValue<bool>("IsHeroQuest");
 			info.IsLinkedGame = dictionary.ReadValue<bool>("IsLinkedGame");
 			info.WasGivenFreeRing = dictionary.ReadValue<bool>("WasGivenFreeRing");
-			info.GameID = dictionary.ReadValue<short>("GameID");
 			info.Rings = (Rings)dictionary.ReadValue<long>("Rings");
-			info.Game = dictionary.ReadValue<Game>("Game");
-			info.Animal = dictionary.ReadValue<Animal>("Animal");
-			info.Behavior = dictionary.ReadValue<byte>("Behavior");
 
 			return info;
 		}
@@ -79,14 +80,15 @@ namespace Zyrenth.Zora
 
 			var dict = new Dictionary<string, object>();
 
+			dict["Region"] = info.Region;
+			dict["Game"] = info.Game.ToString();
+			dict["GameID"] = info.GameID;
 			dict["Hero"] = info.Hero;
 			dict["Child"] = info.Child;
-			dict["GameID"] = info.GameID;
-			dict["Game"] = info.Game.ToString();
 			dict["Animal"] = info.Animal.ToString();
 			dict["Behavior"] = info.Behavior.ToString();
-			dict["IsLinkedGame"] = info.IsLinkedGame;
 			dict["IsHeroQuest"] = info.IsHeroQuest;
+			dict["IsLinkedGame"] = info.IsLinkedGame;
 			dict["WasGivenFreeRing"] = info.WasGivenFreeRing;
 			dict["Rings"] = (long)info.Rings;
 

@@ -8,8 +8,9 @@ namespace Zyrenth.Zora.Tests
 	{
 		const string DesiredSecretString = "6●sW↑";
 
-		static readonly MemorySecret DesiredSecret = new MemorySecret(GameRegion.US)
+		static readonly MemorySecret DesiredSecret = new MemorySecret()
 		{
+			Region = GameRegion.US,
 			TargetGame = Game.Ages,
 			GameID = 14129,
 			Memory = Memory.ClockShopKingZora,
@@ -23,24 +24,25 @@ namespace Zyrenth.Zora.Tests
 		[Test]
 		public void LoadSecretFromBytes()
 		{
-			MemorySecret secret = new MemorySecret(GameRegion.US);
-			secret.Load(DesiredSecretBytes);
+			MemorySecret secret = new MemorySecret();
+			secret.Load(DesiredSecretBytes, GameRegion.US);
 			Assert.AreEqual(DesiredSecret, secret);
 		}
 
 		[Test]
 		public void LoadSecretFromString()
 		{
-			MemorySecret secret = new MemorySecret(GameRegion.US);
-			secret.Load(DesiredSecretString);
+			MemorySecret secret = new MemorySecret();
+			secret.Load(DesiredSecretString, GameRegion.US);
 			Assert.AreEqual(DesiredSecret, secret);
 		}
 
 		[Test]
 		public void LoadFromGameInfo()
 		{
-			MemorySecret secret = new MemorySecret(GameRegion.US)
+			MemorySecret secret = new MemorySecret()
 			{
+				Region = GameRegion.US,
 				Memory = Memory.ClockShopKingZora,
 				IsReturnSecret = true
 			};
@@ -65,8 +67,9 @@ namespace Zyrenth.Zora.Tests
 		[Test]
 		public void TestEquals()
 		{
-			MemorySecret s2 = new MemorySecret(GameRegion.US)
+			MemorySecret s2 = new MemorySecret()
 			{
+				Region = GameRegion.US,
 				TargetGame = Game.Ages,
 				GameID = 14129,
 				Memory = Memory.ClockShopKingZora,
@@ -79,8 +82,9 @@ namespace Zyrenth.Zora.Tests
 		[Test]
 		public void TestNotEquals()
 		{
-			MemorySecret s2 = new MemorySecret(GameRegion.US)
+			MemorySecret s2 = new MemorySecret()
 			{
+				Region = GameRegion.US,
 				TargetGame = Game.Ages,
 				GameID = 14129,
 				Memory = Memory.GraveyardFairy,

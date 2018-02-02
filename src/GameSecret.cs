@@ -181,10 +181,7 @@ namespace Zyrenth.Zora
 		/// <summary>
 		/// Initializes a new instance of the <see cref="GameSecret"/> class.
 		/// </summary>
-		public GameSecret(GameRegion r)
-		{
-			Region = r;
-		}
+		public GameSecret() { }
 
 		/// <summary>
 		/// Initializes a new instance of the <see cref="GameSecret"/> class from the
@@ -252,7 +249,7 @@ namespace Zyrenth.Zora
 		/// secret.Load(rawSecret);
 		/// </code>
 		/// </example>
-		public override void Load(byte[] secret)
+		public override void Load(byte[] secret, GameRegion region)
 		{
 			if (secret == null || secret.Length != Length)
 				throw new InvalidSecretException("Secret must contatin exactly 20 bytes");
@@ -275,9 +272,10 @@ namespace Zyrenth.Zora
 			IsHeroQuest = decodedSecret[20] == '1';
 			IsLinkedGame = decodedSecret[105] == '1';
 
+			Region = region;
 
 			Encoding encoding;
-			if (Region == GameRegion.US)
+			if (region == GameRegion.US)
 				encoding = new USEncoding();
 			else
 				encoding = new JapaneseEncoding();
@@ -373,6 +371,7 @@ namespace Zyrenth.Zora
 		/// <code language="C#">
 		/// GameSecret secret = new GameSecret()
 		/// {
+		///     Region = GameRegion.US,
 		///     TargetGame = Game.Ages,
 		///     GameID = 14129,
 		///     Hero = "Link",

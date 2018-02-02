@@ -37,8 +37,7 @@ namespace Zyrenth.Zora
 
 		#region Fields
 
-		GameRegion region = GameRegion.US;
-
+		GameRegion _region = GameRegion.US;
 		string _hero = "\0\0\0\0\0";
 		string _child = "\0\0\0\0\0";
 		short _gameId = 0;
@@ -65,10 +64,10 @@ namespace Zyrenth.Zora
 		/// </summary>
 		public GameRegion Region
 		{
-			get { return region; }
+			get { return _region; }
 			set
 			{
-				region = value;
+				_region = value;
 				NotifyPropertyChanged("Region");
 			}
 		}
@@ -341,6 +340,7 @@ namespace Zyrenth.Zora
 		/// <code language="C#">
 		/// string json = @"
 		/// {
+		///    ""Region"": ""US"",
 		///    ""Game"": ""Ages"",
 		///    ""GameID"": 14129,
 		///    ""Hero"": ""Link"",
@@ -378,6 +378,7 @@ namespace Zyrenth.Zora
 			GameInfo g = (GameInfo)obj;
 
 			return
+				(_region == g._region) &&
 				(_gameId == g._gameId) &&
 				(_agesSeasons == g._agesSeasons) &&
 				(_hero == g._hero) &&
@@ -399,7 +400,8 @@ namespace Zyrenth.Zora
 		/// </returns>
 		public override int GetHashCode()
 		{
-			return _gameId.GetHashCode() ^
+			return _region.GetHashCode() ^
+				_gameId.GetHashCode() ^
 				_agesSeasons.GetHashCode() ^
 				_hero.GetHashCode() ^
 				_child.GetHashCode() ^

@@ -8,8 +8,9 @@ namespace Zyrenth.Zora.Tests
 	{
 		const string DesiredSecretString = "L~2:N @bB↑& hmRh=";
 
-		static readonly RingSecret DesiredSecret = new RingSecret(GameRegion.US)
+		public static readonly RingSecret DesiredSecret = new RingSecret()
 		{
+			Region = GameRegion.US,
 			GameID = 14129,
 			Rings = Rings.PowerRingL1 | Rings.DoubleEdgeRing | Rings.ProtectionRing
 		};
@@ -23,23 +24,23 @@ namespace Zyrenth.Zora.Tests
 		[Test]
 		public void LoadSecretFromBytes()
 		{
-			RingSecret secret = new RingSecret(GameRegion.US);
-			secret.Load(DesiredSecretBytes);
+			RingSecret secret = new RingSecret();
+			secret.Load(DesiredSecretBytes, GameRegion.US);
 			Assert.AreEqual(DesiredSecret, secret);
 		}
 
 		[Test]
 		public void LoadSecretFromString()
 		{
-			RingSecret secret = new RingSecret(GameRegion.US);
-			secret.Load(DesiredSecretString);
+			RingSecret secret = new RingSecret();
+			secret.Load(DesiredSecretString, GameRegion.US);
 			Assert.AreEqual(DesiredSecret, secret);
 		}
 
 		[Test]
 		public void LoadFromGameInfo()
 		{
-			RingSecret secret = new RingSecret(GameRegion.US);
+			RingSecret secret = new RingSecret();
 			secret.Load(GameInfoTest.DesiredInfo);
 			Assert.AreEqual(DesiredSecret, secret);
 		}
@@ -48,7 +49,6 @@ namespace Zyrenth.Zora.Tests
 		public void TestToString()
 		{
 			string secret = DesiredSecret.ToString();
-
 			Assert.AreEqual(DesiredSecretString, secret);
 		}
 
@@ -62,8 +62,9 @@ namespace Zyrenth.Zora.Tests
 		[Test]
 		public void TestEquals()
 		{
-			RingSecret s2 = new RingSecret(GameRegion.US)
+			RingSecret s2 = new RingSecret()
 			{
+				Region = GameRegion.US,
 				GameID = 14129,
 				Rings = Rings.PowerRingL1 | Rings.DoubleEdgeRing | Rings.ProtectionRing
 			};
@@ -74,8 +75,9 @@ namespace Zyrenth.Zora.Tests
 		[Test]
 		public void TestNotEquals()
 		{
-			RingSecret s2 = new RingSecret(GameRegion.US)
+			RingSecret s2 = new RingSecret()
 			{
+				Region = GameRegion.US,
 				GameID = 14129,
 				Rings = Rings.BlueJoyRing | Rings.BombproofRing | Rings.HundredthRing
 			};

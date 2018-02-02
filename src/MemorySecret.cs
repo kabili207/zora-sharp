@@ -87,10 +87,7 @@ namespace Zyrenth.Zora
 		/// <summary>
 		/// Initializes a new instance of the <see cref="MemorySecret"/> class.
 		/// </summary>
-		public MemorySecret(GameRegion r)
-		{
-			Region = r;
-		}
+		public MemorySecret() { }
 
 		/// <summary>
 		/// Initializes a new instance of the <see cref="MemorySecret"/> class.
@@ -106,6 +103,7 @@ namespace Zyrenth.Zora
 		/// the specified values.
 		/// </summary>
 		/// <param name="game">The game.</param>
+		/// <param name="region">The the region this secret is for</param>
 		/// <param name="gameId">The game id.</param>
 		/// <param name="memory">The memory.</param>
 		/// <param name="isReturnSecret">if set to <c>true</c> is return secret.</param>
@@ -131,6 +129,7 @@ namespace Zyrenth.Zora
 		/// <code language="C#">
 		/// GameInfo info = new GameInfo()
 		/// {
+		///     Region = GameRegion.US,
 		///     Game = Game.Ages,
 		///     GameID = 14129
 		/// };
@@ -149,6 +148,7 @@ namespace Zyrenth.Zora
 		/// Loads in data from the raw secret data provided
 		/// </summary>
 		/// <param name="secret">The raw secret data</param>
+		/// <param name="region">The the region this secret is for</param>
 		/// <example>
 		/// This example demonstrates loading a <see cref="MemorySecret"/> from a
 		/// a byte array containing an encoded secret.
@@ -159,10 +159,10 @@ namespace Zyrenth.Zora
 		///     55, 21, 41, 18, 59
 		/// };
 		/// Secret secret = new MemorySecret();
-		/// secret.Load(rawSecret);
+		/// secret.Load(rawSecret, GameRegion.US);
 		/// </code>
 		/// </example>
-		public override void Load(byte[] secret)
+		public override void Load(byte[] secret, GameRegion region)
 		{
 			if (secret == null || secret.Length != Length)
 				throw new InvalidSecretException("Secret must contatin exactly 5 bytes");
@@ -173,6 +173,7 @@ namespace Zyrenth.Zora
 			if (decodedSecret[3] != '1' && decodedSecret[4] != '1')
 				throw new ArgumentException("The specified data is not a memory code", "secret");
 
+			Region = region;
 			GameID = Convert.ToInt16(decodedSecret.ReversedSubstring(5, 15), 2);
 			Memory = (Memory)Convert.ToByte(decodedSecret.ReversedSubstring(20, 4), 2);
 
@@ -182,10 +183,10 @@ namespace Zyrenth.Zora
 
 			var memories = new[]
 			{
-				new MemorySecret(Game.Ages, Region, GameID, Memory, true),
-				new MemorySecret(Game.Ages, Region, GameID, Memory, false),
-				new MemorySecret(Game.Seasons, Region, GameID, Memory, true),
-				new MemorySecret(Game.Seasons, Region, GameID, Memory, false)
+				new MemorySecret(Game.Ages, region, GameID, Memory, true),
+				new MemorySecret(Game.Ages, region, GameID, Memory, false),
+				new MemorySecret(Game.Seasons, region, GameID, Memory, true),
+				new MemorySecret(Game.Seasons, region, GameID, Memory, false)
 			};
 
 			bool found = false;

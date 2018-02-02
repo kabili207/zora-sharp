@@ -8,8 +8,9 @@ namespace Zyrenth.Zora.Tests
 	{
 		const string DesiredSecretString = "H~2:@ ←2♦yq GB3●( 6♥?↑6";
 
-		static readonly GameSecret DesiredSecret = new GameSecret(GameRegion.US)
+		public static readonly GameSecret DesiredSecret = new GameSecret()
 		{
+			Region = GameRegion.US,
 			TargetGame = Game.Ages,
 			GameID = 14129,
 			Hero = "Link",
@@ -31,16 +32,16 @@ namespace Zyrenth.Zora.Tests
 		[Test]
 		public void LoadSecretFromBytes()
 		{
-			GameSecret secret = new GameSecret(GameRegion.US);
-			secret.Load(DesiredSecretBytes);
+			GameSecret secret = new GameSecret();
+			secret.Load(DesiredSecretBytes, GameRegion.US);
 			Assert.AreEqual(DesiredSecret, secret);
 		}
 
 		[Test]
 		public void LoadSecretFromString()
 		{
-			GameSecret secret = new GameSecret(GameRegion.US);
-			secret.Load(DesiredSecretString);
+			GameSecret secret = new GameSecret();
+			secret.Load(DesiredSecretString, GameRegion.US);
 
 			Assert.AreEqual(DesiredSecret, secret);
 		}
@@ -48,7 +49,7 @@ namespace Zyrenth.Zora.Tests
 		[Test]
 		public void LoadFromGameInfo()
 		{
-			GameSecret secret = new GameSecret(GameRegion.US);
+			GameSecret secret = new GameSecret();
 			secret.Load(GameInfoTest.DesiredInfo);
 			Assert.AreEqual(DesiredSecret, secret);
 		}
@@ -70,8 +71,9 @@ namespace Zyrenth.Zora.Tests
 		[Test]
 		public void TestEquals()
 		{
-			GameSecret s2 = new GameSecret(GameRegion.US)
+			GameSecret s2 = new GameSecret()
 			{
+				Region = GameRegion.US,
 				TargetGame = Game.Ages,
 				GameID = 14129,
 				Hero = "Link",
@@ -89,8 +91,9 @@ namespace Zyrenth.Zora.Tests
 		[Test]
 		public void TestNotEquals()
 		{
-			GameSecret s2 = new GameSecret(GameRegion.US)
+			GameSecret s2 = new GameSecret()
 			{
+				Region = GameRegion.US,
 				TargetGame = Game.Seasons,
 				GameID = 14129,
 				Hero = "Link",
@@ -105,6 +108,15 @@ namespace Zyrenth.Zora.Tests
 			Assert.AreNotEqual(DesiredSecret, s2);
 			Assert.AreNotEqual(DesiredSecret, null);
 			Assert.AreNotEqual(DesiredSecret, "");
+		}
+		
+		[Test]
+		public void TestInvalidByteLoad()
+		{
+			GameSecret secret = new GameSecret();
+			Assert.Throws<InvalidSecretException>(() => secret.Load((byte[])null, GameRegion.US));
+			Assert.Throws<InvalidSecretException>(() => secret.Load(new byte[] { 0 }, GameRegion.US));
+			Assert.Throws<InvalidSecretException>(() => secret.Load("H~2:@ ←2♦yq GB3●( 6♥?↑X", GameRegion.US));
 		}
 	}
 }

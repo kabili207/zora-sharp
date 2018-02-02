@@ -10,6 +10,7 @@ namespace Zyrenth.Zora.Tests
 	{
 		public static readonly GameInfo DesiredInfo = new GameInfo()
 		{
+			Region = GameRegion.US,
 			Game = Game.Ages,
 			GameID = 14129,
 			Hero = "Link",
@@ -27,6 +28,7 @@ namespace Zyrenth.Zora.Tests
 		{
 			string json = @"
 			 {
+				""Region"": ""US"",
 				""Game"": ""Ages"",
 				""GameID"": 14129,
 				""Hero"": ""Link"",
@@ -58,6 +60,15 @@ namespace Zyrenth.Zora.Tests
 			{
 				File.Delete(outFile);
 			}
+		}
+
+		[Test]
+		public void UpdateGameInfo()
+		{
+			GameInfo info = new GameInfo();
+			GameSecretTest.DesiredSecret.UpdateGameInfo(info);
+			RingSecretTest.DesiredSecret.UpdateGameInfo(info, false);
+			Assert.AreEqual(GameInfoTest.DesiredInfo, info);
 		}
 	}
 }

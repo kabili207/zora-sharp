@@ -50,11 +50,11 @@ namespace Zyrenth.Zora
 		/// </summary>
 		/// <returns>All of the game information in the save file</returns>
 		/// <param name="filename">The input file path.</param>
-		public static IEnumerable<GameInfo> LoadAll(string filename)
+		public static IEnumerable<GameInfo> LoadAll(string filename, GameRegion region)
 		{
 			using (FileStream inFile = File.OpenRead(filename))
 			{
-				return LoadAll(inFile);
+				return LoadAll(inFile, region);
 			}
 		}
 
@@ -63,7 +63,7 @@ namespace Zyrenth.Zora
 		/// </summary>
 		/// <returns>All of the game information in the save file</returns>
 		/// <param name="stream">The input stream.</param>
-		public static IEnumerable<GameInfo> LoadAll(Stream stream)
+		public static IEnumerable<GameInfo> LoadAll(Stream stream, GameRegion region)
 		{
 			List<GameInfo> gameData = new List<GameInfo>();
 			GameInfo tmp;
@@ -71,17 +71,17 @@ namespace Zyrenth.Zora
 			// These offsets seem to be static for both versions, but I can't be certain.
 
 			// Slot 1
-			tmp = Load(stream, Slot1Offset);
+			tmp = Load(stream, region, Slot1Offset);
 			if (tmp != null)
 				gameData.Add(tmp);
 
 			// Slot 2
-			tmp = Load(stream, Slot2Offset);
+			tmp = Load(stream, region, Slot2Offset);
 			if (tmp != null)
 				gameData.Add(tmp);
 
 			// Slot 3
-			tmp = Load(stream, Slot3Offset);
+			tmp = Load(stream, region, Slot3Offset);
 			if (tmp != null)
 				gameData.Add(tmp);
 
@@ -96,11 +96,11 @@ namespace Zyrenth.Zora
 		/// <param name="offset">Offset.</param>
 		/// <returns>The game information at the specified offset</returns>
 		/// <remarks>This method has only been tested with the US version of the games</remarks>
-		public static GameInfo Load(string filename, int offset)
+		public static GameInfo Load(string filename, GameRegion region, int offset)
 		{
 			using (FileStream inFile = File.OpenRead(filename))
 			{
-				return Load(inFile, offset);
+				return Load(inFile, region, offset);
 			}
 		}
 
@@ -111,9 +111,10 @@ namespace Zyrenth.Zora
 		/// <param name="offset">Offset.</param>
 		/// <returns>The game information at the specified offset</returns>
 		/// <remarks>This method has only been tested with the US version of the games</remarks>
-		public static GameInfo Load(Stream stream, int offset)
+		public static GameInfo Load(Stream stream, GameRegion region, int offset)
 		{
 			GameInfo info = new GameInfo();
+			info.Region = region;
 
 			byte[] versionBytes = new byte[1];
 			byte[] gameIdBytes = new byte[2];
@@ -154,10 +155,16 @@ namespace Zyrenth.Zora
 			stream.Read(freeRingBytes, 0, 1);
 			stream.Read(ringBytes, 0, 8);
 
+			System.Text.Encoding enc = null;
+			if(region == GameRegion.US)
+				enc = new USEncoding();
+			else
+				enc = new JapaneseEncoding();
+			
 			info.Game = versionBytes[0] == 49 ? Game.Seasons : Game.Ages;
 			info.GameID = BitConverter.ToInt16(gameIdBytes, 0);
-			info.Hero = System.Text.Encoding.ASCII.GetString(heroBytes);
-			info.Child = System.Text.Encoding.ASCII.GetString(kidBytes);
+			info.Hero = enc.GetString(heroBytes);
+			info.Child = enc.GetString(kidBytes);
 			info.Behavior = (byte)(behaviorBytes[0] & 63);
 			info.Animal = (Animal)(animalBytes[0] & 15);
 			info.IsLinkedGame = linkedBytes[0] == 1;

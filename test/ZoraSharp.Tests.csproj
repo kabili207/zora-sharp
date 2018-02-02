@@ -55,6 +55,11 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="AgesSave.sav" />
+    <EmbeddedResource Include="TestSaves\Ages_US.srm" />
+    <EmbeddedResource Include="TestSaves\Seasons_US.srm" />
+    <EmbeddedResource Include="TestSaves\Ages_JP.srm" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="TestSaves\" />
   </ItemGroup>
 </Project>
