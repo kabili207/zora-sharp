@@ -166,14 +166,15 @@ namespace Zyrenth.Zora
 		{
 			if (secret == null || secret.Length != Length)
 				throw new InvalidSecretException("Secret must contatin exactly 5 bytes");
-
+			
+			Region = region;
+			
 			byte[] decodedBytes = DecodeBytes(secret);
 			string decodedSecret = ByteArrayToBinaryString(decodedBytes);
 
 			if (decodedSecret[3] != '1' && decodedSecret[4] != '1')
 				throw new ArgumentException("The specified data is not a memory code", "secret");
 
-			Region = region;
 			GameID = Convert.ToInt16(decodedSecret.ReversedSubstring(5, 15), 2);
 			Memory = (Memory)Convert.ToByte(decodedSecret.ReversedSubstring(20, 4), 2);
 

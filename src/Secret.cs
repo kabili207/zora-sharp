@@ -125,6 +125,7 @@ namespace Zyrenth.Zora
 		/// </example>
 		public virtual void Load(string secret, GameRegion region)
 		{
+			Region = region;
 			Load(SecretParser.ParseSecret(secret, region), region);
 		}
 

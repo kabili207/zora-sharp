@@ -127,7 +127,9 @@ namespace Zyrenth.Zora
 		{
 			if (secret == null || secret.Length != Length)
 				throw new InvalidSecretException("Secret must contatin exactly 15 bytes");
-
+			
+			Region = region;
+			
 			byte[] decodedBytes = DecodeBytes(secret);
 			string decodedSecret = ByteArrayToBinaryString(decodedBytes);
 
@@ -141,7 +143,6 @@ namespace Zyrenth.Zora
 			if (decodedSecret[3] != '0' && decodedSecret[4] != '1')
 				throw new ArgumentException("The specified data is not a ring code", "secret");
 
-			Region = region;
 			GameID = Convert.ToInt16(decodedSecret.ReversedSubstring(5, 15), 2);
 
 			long rings = unchecked((long)Convert.ToUInt64(

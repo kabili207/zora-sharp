@@ -253,7 +253,9 @@ namespace Zyrenth.Zora
 		{
 			if (secret == null || secret.Length != Length)
 				throw new InvalidSecretException("Secret must contatin exactly 20 bytes");
-
+			
+			Region = region;
+			
 			byte[] decodedBytes = DecodeBytes(secret);
 			string decodedSecret = ByteArrayToBinaryString(decodedBytes);
 
@@ -271,8 +273,6 @@ namespace Zyrenth.Zora
 			TargetGame = (Game)(byte)(decodedSecret[21] == '1' ? 1 : 0);
 			IsHeroQuest = decodedSecret[20] == '1';
 			IsLinkedGame = decodedSecret[105] == '1';
-
-			Region = region;
 
 			Encoding encoding;
 			if (region == GameRegion.US)

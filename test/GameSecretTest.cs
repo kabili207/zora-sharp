@@ -7,6 +7,7 @@ namespace Zyrenth.Zora.Tests
 	public class GameSecretTest
 	{
 		const string DesiredSecretString = "H~2:@ ←2♦yq GB3●( 6♥?↑6";
+		const string DesiredSecretString_JP = "かね69わ 4さをれか さ7ちわも るこぴりお";
 
 		public static readonly GameSecret DesiredSecret = new GameSecret()
 		{
