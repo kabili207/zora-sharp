@@ -22,11 +22,25 @@ namespace Zyrenth.Zora.Tests
 			IsHeroQuest = false,
 			WasGivenFreeRing = true
 		};
+
+		public static readonly GameSecret DesiredSecret_JP = new GameSecret()
+		{
+			Region = GameRegion.JP,
+			TargetGame = Game.Ages,
+			GameID = 0,
+			Hero = "あしうま",
+			Child = "",
+			Animal = Animal.None,
+			Behavior = 0,
+			IsLinkedGame = false,
+			IsHeroQuest = false,
+			WasGivenFreeRing = false
+		};
 		
 		static readonly byte[] DesiredSecretBytes = new byte[] {
-			4, 37, 51, 36, 63,
+			 4, 37, 51, 36, 63,
 			61, 51, 10, 44, 39,
-			3,  0, 52, 21, 48,
+			 3,  0, 52, 21, 48,
 			55,  9, 45, 59, 55
 		};
 
@@ -48,10 +62,18 @@ namespace Zyrenth.Zora.Tests
 		}
 
 		[Test]
-		public void LoadFromGameInfo()
+		public void LoadSecretFromString_JP()
 		{
 			GameSecret secret = new GameSecret();
-			secret.Load(GameInfoTest.DesiredInfo);
+			secret.Load(DesiredSecretString_JP, GameRegion.JP);
+
+			Assert.AreEqual(DesiredSecret_JP, secret);
+		}
+
+		[Test]
+		public void LoadFromGameInfo()
+		{
+			GameSecret secret = new GameSecret(GameInfoTest.DesiredInfo);
 			Assert.AreEqual(DesiredSecret, secret);
 		}
 
@@ -60,6 +82,13 @@ namespace Zyrenth.Zora.Tests
 		{
 			string secret = DesiredSecret.ToString();
 			Assert.AreEqual(DesiredSecretString, secret);
+		}
+
+		[Test]
+		public void TestToString_JP()
+		{
+			string secret = DesiredSecret_JP.ToString();
+			Assert.AreEqual(DesiredSecretString_JP, secret);
 		}
 
 		[Test]
@@ -126,8 +155,8 @@ namespace Zyrenth.Zora.Tests
 		[Test]
 		public void TestPalValidity()
 		{
-			GameSecret g1 = new GameSecret() { Hero = "Link~", Animal = Animal.Ricky };
-			GameSecret g2 = new GameSecret() { Child = "Pip~", Animal = Animal.Ricky };
+			GameSecret g1 = new GameSecret() { Hero = "Link~", Child = "    ", Animal = Animal.Ricky };
+			GameSecret g2 = new GameSecret() { Hero = "     ", Child = "Pip~", Animal = Animal.Ricky };
 			GameSecret g3 = new GameSecret() { Hero = "Link", Child = "Pip", Animal = Animal.None };
 			GameSecret g4 = new GameSecret() { Hero = "Link", Child = "Pip", Animal = Animal.Ricky };
 			

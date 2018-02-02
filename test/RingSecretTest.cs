@@ -40,8 +40,7 @@ namespace Zyrenth.Zora.Tests
 		[Test]
 		public void LoadFromGameInfo()
 		{
-			RingSecret secret = new RingSecret();
-			secret.Load(GameInfoTest.DesiredInfo);
+			RingSecret secret = new RingSecret(GameInfoTest.DesiredInfo);
 			Assert.AreEqual(DesiredSecret, secret);
 		}
 
