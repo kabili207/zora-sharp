@@ -83,6 +83,61 @@ namespace Zyrenth.Zora.Tests
 			};
 
 			Assert.AreNotEqual(DesiredSecret, s2);
+			Assert.AreNotEqual(DesiredSecret, null);
+			Assert.AreNotEqual(DesiredSecret, "");
+		}
+		
+		[Test]
+		public void TestInvalidByteLoad()
+		{
+			RingSecret secret = new RingSecret();
+			Assert.Throws<SecretException>(() => secret.Load((byte[])null, GameRegion.US));
+			Assert.Throws<SecretException>(() => secret.Load(new byte[] { 0 }, GameRegion.US));
+			Assert.Throws<InvalidChecksumException>(() => secret.Load("L~2:N @bB↑& hmRhh", GameRegion.US));
+			Assert.Throws<ArgumentException>(() => {
+				secret.Load("H~2:@ ←2♦yq GB3●9", GameRegion.US);
+			});
+		}
+
+		[Test]
+		public void UpdateGameInfo()
+		{
+			GameInfo info = new GameInfo()
+			{
+				Region = GameRegion.US,
+				GameID = 14129,
+				Rings = Rings.PowerRingL1
+			};
+
+			// Mismatched region
+			RingSecret s1 = new RingSecret()
+			{
+				Region = GameRegion.JP,
+				GameID = 14129,
+				Rings = Rings.DoubleEdgeRing | Rings.ProtectionRing
+			};
+
+			// Mismatched game ID
+			RingSecret s2 = new RingSecret()
+			{
+				Region = GameRegion.US,
+				GameID = 1,
+				Rings = Rings.DoubleEdgeRing | Rings.ProtectionRing
+			};
+
+			RingSecret s3 = new RingSecret()
+			{
+				Region = GameRegion.US,
+				GameID = 14129,
+				Rings = Rings.DoubleEdgeRing | Rings.ProtectionRing
+			};
+			
+			GameSecretTest.DesiredSecret.UpdateGameInfo(info);
+			
+			Assert.Throws<SecretException>(() => s1.UpdateGameInfo(info, true));
+			Assert.Throws<SecretException>(() => s2.UpdateGameInfo(info, true));
+			Assert.DoesNotThrow(() => s3.UpdateGameInfo(info, true));
+			Assert.AreEqual(GameInfoTest.DesiredInfo, info);
 		}
 	}
 }

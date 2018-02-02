@@ -252,7 +252,7 @@ namespace Zyrenth.Zora
 		public override void Load(byte[] secret, GameRegion region)
 		{
 			if (secret == null || secret.Length != Length)
-				throw new InvalidSecretException("Secret must contatin exactly 20 bytes");
+				throw new SecretException("Secret must contatin exactly 20 bytes");
 			
 			Region = region;
 			
@@ -262,12 +262,13 @@ namespace Zyrenth.Zora
 			byte[] clonedBytes = (byte[])decodedBytes.Clone();
 			clonedBytes[19] = 0;
 			var checksum = CalculateChecksum(clonedBytes);
+			
 			if ((decodedBytes[19] & 7) != (checksum & 7))
-				throw new InvalidSecretException("Checksum does not match expected value");
+				throw new InvalidChecksumException("Checksum does not match expected value");
 
 			GameID = Convert.ToInt16(decodedSecret.ReversedSubstring(5, 15), 2);
 
-			if (decodedSecret[3] != '0' && decodedSecret[4] != '0')
+			if (decodedSecret[3] != '0' || decodedSecret[4] != '0')
 				throw new ArgumentException("The specified data is not a game code", "secret");
 
 			TargetGame = (Game)(byte)(decodedSecret[21] == '1' ? 1 : 0);

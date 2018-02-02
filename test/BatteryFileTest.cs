@@ -24,9 +24,16 @@ namespace Zyrenth.Zora.Tests
 		[Test]
 		public void TestLoadAllFile()
 		{
+			string tempFile = Path.GetTempFileName();
 			Assembly asm = Assembly.GetExecutingAssembly();
-			Stream s = asm.GetManifestResourceStream("Zyrenth.Zora.Tests.TestSaves.Seasons_US.srm");
-			IEnumerable<GameInfo> infos = BatteryFileLoader.LoadAll(s, GameRegion.US);
+
+			using(Stream s = asm.GetManifestResourceStream("Zyrenth.Zora.Tests.TestSaves.Seasons_US.srm"))
+			using(FileStream fs = File.OpenWrite(tempFile))
+			{
+				s.CopyTo(fs);
+			}
+			
+			IEnumerable<GameInfo> infos = BatteryFileLoader.LoadAll(tempFile, GameRegion.US);
 			Assert.AreEqual(2, infos.Count());
 			//Assert.AreEqual(GameInfoTest.DesiredInfo, infos.First());
 		}

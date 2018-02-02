@@ -41,13 +41,13 @@ namespace Zyrenth.Zora.Tests
 		[Test]
 		public void ParseInvalidString()
 		{
-			Assert.Throws<InvalidSecretException>(() => SecretParser.ParseSecret("INVALID", GameRegion.US));
+			Assert.Throws<SecretException>(() => SecretParser.ParseSecret("INVALID", GameRegion.US));
 		}
 
 		[Test]
 		public void ParseInvalidBytes()
 		{
-			Assert.Throws<InvalidSecretException>(() => SecretParser.CreateString(new byte[] { 2, 15, 53, 21, 64 }, GameRegion.US));
+			Assert.Throws<SecretException>(() => SecretParser.CreateString(new byte[] { 2, 15, 53, 21, 64 }, GameRegion.US));
 		}
 	}
 }

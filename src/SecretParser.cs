@@ -95,7 +95,7 @@ namespace Zyrenth.Zora
 		/// <returns>The secret</returns>
 		/// <param name="secret">Secret.</param>
 		/// <param name="region">Game region.</param>
-		/// <exception cref="InvalidSecretException">
+		/// <exception cref="SecretException">
 		/// The <paramref name="secret"/> contains invalid symbols.
 		/// </exception>
 		/// <remarks>
@@ -131,7 +131,7 @@ namespace Zyrenth.Zora
 			{
 				symbol = Array.IndexOf(Symbols[(int)region], secret[i]);
 				if (symbol < 0 || symbol > 63)
-					throw new InvalidSecretException("Secret contains invalid symbols");
+					throw new SecretException("Secret contains invalid symbols");
 
 				data[i] = (byte)symbol;
 			}
@@ -146,7 +146,7 @@ namespace Zyrenth.Zora
 		/// <param name="region">Game region.</param>
 		/// <returns>A representation of the secret data</returns>
 		/// <remarks>This method always returns the secret formatted as <c>→N♥Nh</c></remarks>
-		/// <exception cref="InvalidSecretException">
+		/// <exception cref="SecretException">
 		/// The <paramref name="data"/> contains values that cannot be used in a secret.
 		/// </exception>
 		/// <example>
@@ -168,7 +168,7 @@ namespace Zyrenth.Zora
 			for (int i = 0; i < data.Length; ++i)
 			{
 				if (data[i] < 0 || data[i] > 63)
-					throw new InvalidSecretException("Secret contains invalid values");
+					throw new SecretException("Secret contains invalid values");
 
 				sBuilder.Append(Symbols[(int)region][data[i]]);
 				if (i % 5 == 4)

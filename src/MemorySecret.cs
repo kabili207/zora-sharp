@@ -165,16 +165,23 @@ namespace Zyrenth.Zora
 		public override void Load(byte[] secret, GameRegion region)
 		{
 			if (secret == null || secret.Length != Length)
-				throw new InvalidSecretException("Secret must contatin exactly 5 bytes");
+				throw new SecretException("Secret must contatin exactly 5 bytes");
 			
 			Region = region;
 			
 			byte[] decodedBytes = DecodeBytes(secret);
 			string decodedSecret = ByteArrayToBinaryString(decodedBytes);
 
-			if (decodedSecret[3] != '1' && decodedSecret[4] != '1')
-				throw new ArgumentException("The specified data is not a memory code", "secret");
+			byte[] clonedBytes = (byte[])decodedBytes.Clone();
+			clonedBytes[4] = 0;
+			var checksum = CalculateChecksum(clonedBytes);
 
+			if ((decodedBytes[4] & 7) != (checksum & 7))
+				throw new InvalidChecksumException("Checksum does not match expected value");
+
+			if (decodedSecret[3] != '1' || decodedSecret[4] != '1')
+				throw new ArgumentException("The specified data is not a memory code", "secret");
+			
 			GameID = Convert.ToInt16(decodedSecret.ReversedSubstring(5, 15), 2);
 			Memory = (Memory)Convert.ToByte(decodedSecret.ReversedSubstring(20, 4), 2);
 
@@ -204,7 +211,7 @@ namespace Zyrenth.Zora
 			}
 
 			if (!found)
-				throw new InvalidSecretException("Cound not determine all properties of this secret");
+				throw new SecretException("Cound not determine all properties of this secret");
 		}
 
 		/// <summary>

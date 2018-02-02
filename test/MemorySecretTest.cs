@@ -51,6 +51,13 @@ namespace Zyrenth.Zora.Tests
 		}
 
 		[Test]
+		public void LoadFromGameInfoConstuct()
+		{
+			MemorySecret secret = new MemorySecret(GameInfoTest.DesiredInfo, Memory.ClockShopKingZora, true);
+			Assert.AreEqual(DesiredSecret, secret);
+		}
+
+		[Test]
 		public void TestToString()
 		{
 			string secret = DesiredSecret.ToString();
@@ -94,6 +101,18 @@ namespace Zyrenth.Zora.Tests
 			Assert.AreNotEqual(DesiredSecret, s2);
 			Assert.AreNotEqual(DesiredSecret, null);
 			Assert.AreNotEqual(DesiredSecret, "");
+		}
+		
+		[Test]
+		public void TestInvalidByteLoad()
+		{
+			MemorySecret secret = new MemorySecret();
+			Assert.Throws<SecretException>(() => secret.Load((byte[])null, GameRegion.US));
+			Assert.Throws<SecretException>(() => secret.Load(new byte[] { 0 }, GameRegion.US));
+			Assert.Throws<InvalidChecksumException>(() => secret.Load("6●sWh", GameRegion.US));
+			Assert.Throws<ArgumentException>(() => {
+				secret.Load("H~2:♥", GameRegion.US);
+			});
 		}
 	}
 }

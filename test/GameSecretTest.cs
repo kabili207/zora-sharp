@@ -115,10 +115,28 @@ namespace Zyrenth.Zora.Tests
 		public void TestInvalidByteLoad()
 		{
 			GameSecret secret = new GameSecret();
-			Assert.Throws<InvalidSecretException>(() => secret.Load((byte[])null, GameRegion.US));
-			Assert.Throws<InvalidSecretException>(() => secret.Load(new byte[] { 0 }, GameRegion.US));
-			Assert.Throws<InvalidSecretException>(() => secret.Load("H~2:@ ←2♦yq GB3●( 6♥?↑X", GameRegion.US));
+			Assert.Throws<SecretException>(() => secret.Load((byte[])null, GameRegion.US));
+			Assert.Throws<SecretException>(() => secret.Load(new byte[] { 0 }, GameRegion.US));
+			Assert.Throws<InvalidChecksumException>(() => secret.Load("H~2:@ ←2♦yq GB3●( 6♥?↑b", GameRegion.US));
+			Assert.Throws<ArgumentException>(() => {
+				secret.Load("L~2:N @bB↑& hmRh= HHHH↑", GameRegion.US);
+			});
 		}
+		
+		[Test]
+		public void TestPalValidity()
+		{
+			GameSecret g1 = new GameSecret() { Hero = "Link~", Animal = Animal.Ricky };
+			GameSecret g2 = new GameSecret() { Child = "Pip~", Animal = Animal.Ricky };
+			GameSecret g3 = new GameSecret() { Hero = "Link", Child = "Pip", Animal = Animal.None };
+			GameSecret g4 = new GameSecret() { Hero = "Link", Child = "Pip", Animal = Animal.Ricky };
+			
+			Assert.IsFalse(g1.IsValidForPAL(), "Hero check failed");
+			Assert.IsFalse(g2.IsValidForPAL(), "Child check failed");
+			Assert.IsFalse(g3.IsValidForPAL(), "Animal check failed");
+			Assert.IsTrue(g4.IsValidForPAL(), "Both failed");
+		}
+		
 	}
 }
 

@@ -70,5 +70,13 @@ namespace Zyrenth.Zora.Tests
 			RingSecretTest.DesiredSecret.UpdateGameInfo(info, false);
 			Assert.AreEqual(GameInfoTest.DesiredInfo, info);
 		}
+		
+		[Test]
+		public void NullJsonConvert()
+		{
+			var converter = new GameInfoJsonConverter();
+			Assert.Throws<ArgumentNullException>(() => converter.Serialize(null));
+			Assert.Throws<ArgumentNullException>(() => converter.Deserialize(null));
+		}
 	}
 }

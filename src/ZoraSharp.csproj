@@ -35,7 +35,7 @@
   <ItemGroup>
     <Compile Include="AssemblyDetail.cs" />
     <Compile Include="GameSecret.cs" />
-    <Compile Include="InvalidSecretException.cs" />
+    <Compile Include="SecretException.cs" />
     <Compile Include="MemorySecret.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Attributes.cs" />
@@ -50,6 +50,7 @@
     <Compile Include="SimpleJson.cs" />
     <Compile Include="JapaneseEncoding.cs" />
     <Compile Include="USEncoding.cs" />
+    <Compile Include="InvalidChecksumException.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ProjectExtensions>
