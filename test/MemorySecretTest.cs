@@ -170,6 +170,16 @@ namespace Zyrenth.Zora.Tests
 			Assert.That(dict, !Contains.Key(r3));
 			Assert.That(dict, Contains.Key(r4));
 		}
+		
+		[Test]
+		public void TestNotifyPropChanged()
+		{
+			bool hit = false;
+			MemorySecret g = new MemorySecret();
+			g.PropertyChanged += (s, e) => { hit = true; };
+			g.GameID = 42;
+			Assert.IsTrue(hit);
+		}
 	}
 }
 

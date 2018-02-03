@@ -40,10 +40,40 @@ namespace Zyrenth.Zora.Tests
 				""WasGivenFreeRing"": true,
 				""Rings"": -9222246136947933182
 			 }";
-
+			
 			GameInfo parsed = GameInfo.Parse(json);
 
 			Assert.AreEqual(DesiredInfo, parsed);
+		}
+
+		[Test]
+		public void TestParsePartialJson()
+		{
+			string json = @"
+			 {
+				""Region"": ""US"",
+				""Game"": ""Ages"",
+				""GameID"": 14129,
+				""Hero"": ""Link"",
+				""IsLinkedGame"": true,
+				""IsHeroQuest"": false,
+				""WasGivenFreeRing"": true
+			 }";
+
+			GameInfo partialInfo = new GameInfo()
+			{
+				Region = GameRegion.US,
+				Game = Game.Ages,
+				GameID = 14129,
+				Hero = "Link",
+				IsLinkedGame = true,
+				IsHeroQuest = false,
+				WasGivenFreeRing = true
+			};
+
+			GameInfo parsed = GameInfo.Parse(json);
+
+			Assert.AreEqual(partialInfo, parsed);
 		}
 
 		[Test]
@@ -120,6 +150,16 @@ namespace Zyrenth.Zora.Tests
 			Assert.AreNotEqual(DesiredInfo, s2);
 			Assert.AreNotEqual(DesiredInfo, null);
 			Assert.AreNotEqual(DesiredInfo, "");
+		}
+		
+		[Test]
+		public void TestNotifyPropChanged()
+		{
+			bool hit = false;
+			GameInfo g = new GameInfo();
+			g.PropertyChanged += (s, e) => { hit = true; };
+			g.GameID = 42;
+			Assert.IsTrue(hit);
 		}
 	}
 }

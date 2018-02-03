@@ -1,5 +1,6 @@
 ﻿using NUnit.Framework;
 using System;
+using System.Collections.Generic;
 
 namespace Zyrenth.Zora.Tests
 {
@@ -7,7 +8,7 @@ namespace Zyrenth.Zora.Tests
 	public class GameSecretTest
 	{
 		const string DesiredSecretString = "H~2:@ ←2♦yq GB3●( 6♥?↑6";
-		const string DesiredSecretString_JP = "かね69わ 4さをれか さ7ちわも るこぴりお";
+		const string DesiredSecretString_JP = "かね6ごわ 4さをれか さ7ちわも るこぴりふ";
 
 		public static readonly GameSecret DesiredSecret = new GameSecret()
 		{
@@ -26,14 +27,14 @@ namespace Zyrenth.Zora.Tests
 		public static readonly GameSecret DesiredSecret_JP = new GameSecret()
 		{
 			Region = GameRegion.JP,
-			TargetGame = Game.Ages,
+			TargetGame = Game.Seasons,
 			GameID = 0,
 			Hero = "あしうま",
 			Child = "",
 			Animal = Animal.None,
 			Behavior = 0,
 			IsLinkedGame = false,
-			IsHeroQuest = false,
+			IsHeroQuest = true,
 			WasGivenFreeRing = false
 		};
 		
@@ -166,6 +167,32 @@ namespace Zyrenth.Zora.Tests
 			Assert.IsTrue(g4.IsValidForPAL(), "Both failed");
 		}
 		
+		[Test]
+		public void TestHashCode()
+		{
+			GameSecret s1 = new GameSecret() { Hero = "Link", Child = "Pip", Animal = Animal.Ricky };
+			GameSecret s2 = new GameSecret() { Hero = "Link", Child = "Pip~", Animal = Animal.Ricky };
+			GameSecret s3 = new GameSecret() { Hero = "Link", Child = "Pip", Animal = Animal.None };
+			GameSecret s4 = new GameSecret() { Hero = "Link", Child = "Pip", Animal = Animal.Ricky };
+
+			// Because using mutable objects as a key is an awesome idea...
+			Dictionary<GameSecret, bool> dict = new Dictionary<GameSecret, bool>();
+			dict.Add(s1, true);
+			dict.Add(s2, true);
+
+			Assert.That(dict, !Contains.Key(s3));
+			Assert.That(dict, Contains.Key(s4));
+		}
+		
+		[Test]
+		public void TestNotifyPropChanged()
+		{
+			bool hit = false;
+			GameSecret g = new GameSecret();
+			g.PropertyChanged += (s, e) => { hit = true; };
+			g.GameID = 42;
+			Assert.IsTrue(hit);
+		}
 	}
 }
 
