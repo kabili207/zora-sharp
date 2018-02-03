@@ -1,439 +1,464 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <HelpKI>
-  <HelpKINode Title="Ages enumeration member" Url="html/T_Zyrenth_Zora_Game.htm" />
-  <HelpKINode Title="All enumeration member" Url="html/T_Zyrenth_Zora_Rings.htm" />
-  <HelpKINode Title="Animal enumeration" Url="html/T_Zyrenth_Zora_Animal.htm" />
+  <HelpKINode Title="Ages enumeration member" Url="html/BDD1C6F1.htm" />
+  <HelpKINode Title="All enumeration member" Url="html/AD31B02F.htm" />
+  <HelpKINode Title="Animal enumeration" Url="html/BE5CAD54.htm" />
   <HelpKINode Title="Animal property">
-    <HelpKINode Title="GameInfo.Animal Property " Url="html/P_Zyrenth_Zora_GameInfo_Animal.htm" />
-    <HelpKINode Title="GameSecret.Animal Property " Url="html/P_Zyrenth_Zora_GameSecret_Animal.htm" />
+    <HelpKINode Title="GameInfo.Animal Property " Url="html/65A826C.htm" />
+    <HelpKINode Title="GameSecret.Animal Property " Url="html/2080B29A.htm" />
   </HelpKINode>
-  <HelpKINode Title="ArmorRingL1 enumeration member" Url="html/T_Zyrenth_Zora_Rings.htm" />
-  <HelpKINode Title="ArmorRingL2 enumeration member" Url="html/T_Zyrenth_Zora_Rings.htm" />
-  <HelpKINode Title="ArmorRingL3 enumeration member" Url="html/T_Zyrenth_Zora_Rings.htm" />
+  <HelpKINode Title="ArmorRingL1 enumeration member" Url="html/AD31B02F.htm" />
+  <HelpKINode Title="ArmorRingL2 enumeration member" Url="html/AD31B02F.htm" />
+  <HelpKINode Title="ArmorRingL3 enumeration member" Url="html/AD31B02F.htm" />
   <HelpKINode Title="AssemblyDetail class">
-    <HelpKINode Title="AssemblyDetail Class" Url="html/T_Zyrenth_Zora_AssemblyDetail.htm" />
-    <HelpKINode Title="about AssemblyDetail class" Url="html/T_Zyrenth_Zora_AssemblyDetail.htm" />
-    <HelpKINode Title="constructor" Url="html/M_Zyrenth_Zora_AssemblyDetail__ctor.htm" />
-    <HelpKINode Title="methods" Url="html/Methods_T_Zyrenth_Zora_AssemblyDetail.htm" />
-    <HelpKINode Title="properties" Url="html/Properties_T_Zyrenth_Zora_AssemblyDetail.htm" />
+    <HelpKINode Title="AssemblyDetail Class" Url="html/EE200176.htm" />
+    <HelpKINode Title="constructor" Url="html/8037D52A.htm" />
+    <HelpKINode Title="methods" Url="html/DD727EA6.htm" />
+    <HelpKINode Title="properties" Url="html/3B97A93A.htm" />
   </HelpKINode>
-  <HelpKINode Title="AssemblyDetail.AssemblyDetail constructor" Url="html/M_Zyrenth_Zora_AssemblyDetail__ctor.htm" />
-  <HelpKINode Title="AssemblyDetail.Company property" Url="html/P_Zyrenth_Zora_AssemblyDetail_Company.htm" />
-  <HelpKINode Title="AssemblyDetail.Copyright property" Url="html/P_Zyrenth_Zora_AssemblyDetail_Copyright.htm" />
-  <HelpKINode Title="AssemblyDetail.Description property" Url="html/P_Zyrenth_Zora_AssemblyDetail_Description.htm" />
-  <HelpKINode Title="AssemblyDetail.FileVersion property" Url="html/P_Zyrenth_Zora_AssemblyDetail_FileVersion.htm" />
-  <HelpKINode Title="AssemblyDetail.Product property" Url="html/P_Zyrenth_Zora_AssemblyDetail_Product.htm" />
-  <HelpKINode Title="AssemblyDetail.ProductVersion property" Url="html/P_Zyrenth_Zora_AssemblyDetail_ProductVersion.htm" />
-  <HelpKINode Title="AssemblyDetail.Title property" Url="html/P_Zyrenth_Zora_AssemblyDetail_Title.htm" />
-  <HelpKINode Title="AssemblyDetail.Trademark property" Url="html/P_Zyrenth_Zora_AssemblyDetail_Trademark.htm" />
+  <HelpKINode Title="AssemblyDetail.AssemblyDetail constructor" Url="html/8037D52A.htm" />
+  <HelpKINode Title="AssemblyDetail.Company property" Url="html/9CA665DD.htm" />
+  <HelpKINode Title="AssemblyDetail.Copyright property" Url="html/8368C860.htm" />
+  <HelpKINode Title="AssemblyDetail.Description property" Url="html/5CA6217A.htm" />
+  <HelpKINode Title="AssemblyDetail.FileVersion property" Url="html/EC24D1C7.htm" />
+  <HelpKINode Title="AssemblyDetail.Product property" Url="html/60A2B2C7.htm" />
+  <HelpKINode Title="AssemblyDetail.ProductVersion property" Url="html/FF857F8E.htm" />
+  <HelpKINode Title="AssemblyDetail.Title property" Url="html/70FA270B.htm" />
+  <HelpKINode Title="AssemblyDetail.Trademark property" Url="html/8BD6D2E.htm" />
   <HelpKINode Title="BatteryFileLoader class">
-    <HelpKINode Title="BatteryFileLoader Class" Url="html/T_Zyrenth_Zora_BatteryFileLoader.htm" />
-    <HelpKINode Title="about BatteryFileLoader class" Url="html/T_Zyrenth_Zora_BatteryFileLoader.htm" />
-    <HelpKINode Title="constructor" Url="html/M_Zyrenth_Zora_BatteryFileLoader__ctor.htm" />
-    <HelpKINode Title="fields" Url="html/Fields_T_Zyrenth_Zora_BatteryFileLoader.htm" />
-    <HelpKINode Title="methods" Url="html/Methods_T_Zyrenth_Zora_BatteryFileLoader.htm" />
+    <HelpKINode Title="BatteryFileLoader Class" Url="html/33B4051C.htm" />
+    <HelpKINode Title="constructor" Url="html/34F49651.htm" />
+    <HelpKINode Title="fields" Url="html/67D77272.htm" />
+    <HelpKINode Title="methods" Url="html/4076CB83.htm" />
   </HelpKINode>
-  <HelpKINode Title="BatteryFileLoader.BatteryFileLoader constructor" Url="html/M_Zyrenth_Zora_BatteryFileLoader__ctor.htm" />
-  <HelpKINode Title="BatteryFileLoader.Load method" Url="html/Overload_Zyrenth_Zora_BatteryFileLoader_Load.htm" />
-  <HelpKINode Title="BatteryFileLoader.LoadAll method" Url="html/Overload_Zyrenth_Zora_BatteryFileLoader_LoadAll.htm" />
-  <HelpKINode Title="BatteryFileLoader.Slot1Offset field" Url="html/F_Zyrenth_Zora_BatteryFileLoader_Slot1Offset.htm" />
-  <HelpKINode Title="BatteryFileLoader.Slot2Offset field" Url="html/F_Zyrenth_Zora_BatteryFileLoader_Slot2Offset.htm" />
-  <HelpKINode Title="BatteryFileLoader.Slot3Offset field" Url="html/F_Zyrenth_Zora_BatteryFileLoader_Slot3Offset.htm" />
+  <HelpKINode Title="BatteryFileLoader.BatteryFileLoader constructor" Url="html/34F49651.htm" />
+  <HelpKINode Title="BatteryFileLoader.Load method" Url="html/F0CCDB1A.htm" />
+  <HelpKINode Title="BatteryFileLoader.LoadAll method" Url="html/20E99A5F.htm" />
+  <HelpKINode Title="BatteryFileLoader.Slot1Offset field" Url="html/E4B7AC3A.htm" />
+  <HelpKINode Title="BatteryFileLoader.Slot2Offset field" Url="html/E41AAC3A.htm" />
+  <HelpKINode Title="BatteryFileLoader.Slot3Offset field" Url="html/E3F9AC3A.htm" />
   <HelpKINode Title="Behavior property">
-    <HelpKINode Title="GameInfo.Behavior Property " Url="html/P_Zyrenth_Zora_GameInfo_Behavior.htm" />
-    <HelpKINode Title="GameSecret.Behavior Property " Url="html/P_Zyrenth_Zora_GameSecret_Behavior.htm" />
+    <HelpKINode Title="GameInfo.Behavior Property " Url="html/8080D865.htm" />
+    <HelpKINode Title="GameSecret.Behavior Property " Url="html/11479BFF.htm" />
   </HelpKINode>
-  <HelpKINode Title="BiggoronElder enumeration member" Url="html/T_Zyrenth_Zora_Memory.htm" />
-  <HelpKINode Title="BinaryStringToByteArray method" Url="html/M_Zyrenth_Zora_Secret_BinaryStringToByteArray.htm" />
-  <HelpKINode Title="BlastRing enumeration member" Url="html/T_Zyrenth_Zora_Rings.htm" />
-  <HelpKINode Title="BlueHolyRing enumeration member" Url="html/T_Zyrenth_Zora_Rings.htm" />
-  <HelpKINode Title="BlueJoyRing enumeration member" Url="html/T_Zyrenth_Zora_Rings.htm" />
-  <HelpKINode Title="BlueLuckRing enumeration member" Url="html/T_Zyrenth_Zora_Rings.htm" />
-  <HelpKINode Title="BlueRing enumeration member" Url="html/T_Zyrenth_Zora_Rings.htm" />
-  <HelpKINode Title="BombersRing enumeration member" Url="html/T_Zyrenth_Zora_Rings.htm" />
-  <HelpKINode Title="BombproofRing enumeration member" Url="html/T_Zyrenth_Zora_Rings.htm" />
-  <HelpKINode Title="BouncyA enumeration member" Url="html/T_Zyrenth_Zora_ChildBehavior.htm" />
-  <HelpKINode Title="BouncyB enumeration member" Url="html/T_Zyrenth_Zora_ChildBehavior.htm" />
-  <HelpKINode Title="BouncyC enumeration member" Url="html/T_Zyrenth_Zora_ChildBehavior.htm" />
-  <HelpKINode Title="BouncyD enumeration member" Url="html/T_Zyrenth_Zora_ChildBehavior.htm" />
-  <HelpKINode Title="BouncyE enumeration member" Url="html/T_Zyrenth_Zora_ChildBehavior.htm" />
-  <HelpKINode Title="ByteArrayToBinaryString method" Url="html/M_Zyrenth_Zora_Secret_ByteArrayToBinaryString.htm" />
-  <HelpKINode Title="CalculateChecksum method" Url="html/M_Zyrenth_Zora_Secret_CalculateChecksum.htm" />
-  <HelpKINode Title="ChargeRing enumeration member" Url="html/T_Zyrenth_Zora_Rings.htm" />
+  <HelpKINode Title="BiggoronElder enumeration member" Url="html/E269640.htm" />
+  <HelpKINode Title="BinaryStringToByteArray method" Url="html/D3560EA9.htm" />
+  <HelpKINode Title="BlastRing enumeration member" Url="html/AD31B02F.htm" />
+  <HelpKINode Title="BlueHolyRing enumeration member" Url="html/AD31B02F.htm" />
+  <HelpKINode Title="BlueJoyRing enumeration member" Url="html/AD31B02F.htm" />
+  <HelpKINode Title="BlueLuckRing enumeration member" Url="html/AD31B02F.htm" />
+  <HelpKINode Title="BlueRing enumeration member" Url="html/AD31B02F.htm" />
+  <HelpKINode Title="BombersRing enumeration member" Url="html/AD31B02F.htm" />
+  <HelpKINode Title="BombproofRing enumeration member" Url="html/AD31B02F.htm" />
+  <HelpKINode Title="ByteArrayToBinaryString method" Url="html/F5FA5D6E.htm" />
+  <HelpKINode Title="CalculateChecksum method" Url="html/2468395A.htm" />
+  <HelpKINode Title="ChargeRing enumeration member" Url="html/AD31B02F.htm" />
   <HelpKINode Title="Child property">
-    <HelpKINode Title="GameInfo.Child Property " Url="html/P_Zyrenth_Zora_GameInfo_Child.htm" />
-    <HelpKINode Title="GameSecret.Child Property " Url="html/P_Zyrenth_Zora_GameSecret_Child.htm" />
+    <HelpKINode Title="GameInfo.Child Property " Url="html/915582AF.htm" />
+    <HelpKINode Title="GameSecret.Child Property " Url="html/23BCBC17.htm" />
   </HelpKINode>
-  <HelpKINode Title="ChildBehavior enumeration" Url="html/T_Zyrenth_Zora_ChildBehavior.htm" />
-  <HelpKINode Title="ClockShopKingZora enumeration member" Url="html/T_Zyrenth_Zora_Memory.htm" />
-  <HelpKINode Title="Company property" Url="html/P_Zyrenth_Zora_AssemblyDetail_Company.htm" />
-  <HelpKINode Title="Copyright property" Url="html/P_Zyrenth_Zora_AssemblyDetail_Copyright.htm" />
-  <HelpKINode Title="CreateString method" Url="html/M_Zyrenth_Zora_SecretParser_CreateString.htm" />
-  <HelpKINode Title="CursedRing enumeration member" Url="html/T_Zyrenth_Zora_Rings.htm" />
-  <HelpKINode Title="DecodeBytes method" Url="html/M_Zyrenth_Zora_Secret_DecodeBytes.htm" />
-  <HelpKINode Title="DekuTingle enumeration member" Url="html/T_Zyrenth_Zora_Memory.htm" />
+  <HelpKINode Title="ClockShopKingZora enumeration member" Url="html/E269640.htm" />
+  <HelpKINode Title="Company property" Url="html/9CA665DD.htm" />
+  <HelpKINode Title="Copyright property" Url="html/8368C860.htm" />
+  <HelpKINode Title="CreateString method" Url="html/5ABE0A86.htm" />
+  <HelpKINode Title="CursedRing enumeration member" Url="html/AD31B02F.htm" />
+  <HelpKINode Title="DecodeBytes method" Url="html/A3C4351C.htm" />
+  <HelpKINode Title="DekuTingle enumeration member" Url="html/E269640.htm" />
   <HelpKINode Title="Description property">
-    <HelpKINode Title="AssemblyDetail.Description Property " Url="html/P_Zyrenth_Zora_AssemblyDetail_Description.htm" />
-    <HelpKINode Title="RingInfoAttribute.Description Property " Url="html/P_Zyrenth_Zora_RingInfoAttribute_Description.htm" />
+    <HelpKINode Title="AssemblyDetail.Description Property " Url="html/5CA6217A.htm" />
+    <HelpKINode Title="RingInfoAttribute.Description Property " Url="html/359DC89C.htm" />
   </HelpKINode>
-  <HelpKINode Title="Deserialize method" Url="html/M_Zyrenth_Zora_GameInfoJsonConverter_Deserialize.htm" />
-  <HelpKINode Title="Dimitri enumeration member" Url="html/T_Zyrenth_Zora_Animal.htm" />
-  <HelpKINode Title="DiscoveryRing enumeration member" Url="html/T_Zyrenth_Zora_Rings.htm" />
-  <HelpKINode Title="DiverPlen enumeration member" Url="html/T_Zyrenth_Zora_Memory.htm" />
-  <HelpKINode Title="DoubleEdgeRing enumeration member" Url="html/T_Zyrenth_Zora_Rings.htm" />
-  <HelpKINode Title="EncodeBytes method" Url="html/M_Zyrenth_Zora_Secret_EncodeBytes.htm" />
-  <HelpKINode Title="EnergyRing enumeration member" Url="html/T_Zyrenth_Zora_Rings.htm" />
+  <HelpKINode Title="Deserialize method" Url="html/F7C00695.htm" />
+  <HelpKINode Title="Dimitri enumeration member" Url="html/BE5CAD54.htm" />
+  <HelpKINode Title="DiscoveryRing enumeration member" Url="html/AD31B02F.htm" />
+  <HelpKINode Title="DiverPlen enumeration member" Url="html/E269640.htm" />
+  <HelpKINode Title="DoubleEdgeRing enumeration member" Url="html/AD31B02F.htm" />
+  <HelpKINode Title="EncodeBytes method" Url="html/195DD159.htm" />
+  <HelpKINode Title="EnergyRing enumeration member" Url="html/AD31B02F.htm" />
   <HelpKINode Title="Equals method">
-    <HelpKINode Title="GameInfo.Equals Method " Url="html/M_Zyrenth_Zora_GameInfo_Equals.htm" />
-    <HelpKINode Title="GameSecret.Equals Method " Url="html/M_Zyrenth_Zora_GameSecret_Equals.htm" />
-    <HelpKINode Title="MemorySecret.Equals Method " Url="html/M_Zyrenth_Zora_MemorySecret_Equals.htm" />
-    <HelpKINode Title="RingSecret.Equals Method " Url="html/M_Zyrenth_Zora_RingSecret_Equals.htm" />
-    <HelpKINode Title="Secret.Equals Method " Url="html/M_Zyrenth_Zora_Secret_Equals.htm" />
+    <HelpKINode Title="GameInfo.Equals Method " Url="html/818BA16E.htm" />
+    <HelpKINode Title="GameSecret.Equals Method " Url="html/8475616B.htm" />
+    <HelpKINode Title="MemorySecret.Equals Method " Url="html/6E036964.htm" />
+    <HelpKINode Title="RingSecret.Equals Method " Url="html/70BB54EB.htm" />
+    <HelpKINode Title="Secret.Equals Method " Url="html/71584224.htm" />
   </HelpKINode>
-  <HelpKINode Title="ExpertsRing enumeration member" Url="html/T_Zyrenth_Zora_Rings.htm" />
+  <HelpKINode Title="ExpertsRing enumeration member" Url="html/AD31B02F.htm" />
   <HelpKINode Title="Extensions class">
-    <HelpKINode Title="Extensions Class" Url="html/T_Zyrenth_Zora_Extensions.htm" />
-    <HelpKINode Title="about Extensions class" Url="html/T_Zyrenth_Zora_Extensions.htm" />
-    <HelpKINode Title="methods" Url="html/Methods_T_Zyrenth_Zora_Extensions.htm" />
+    <HelpKINode Title="Extensions Class" Url="html/817AEFCE.htm" />
+    <HelpKINode Title="methods" Url="html/8775D370.htm" />
   </HelpKINode>
-  <HelpKINode Title="Extensions.ReadValue(Of T) method" Url="html/M_Zyrenth_Zora_Extensions_ReadValue__1.htm" />
-  <HelpKINode Title="Extensions.ReadValue&lt;T&gt; method" Url="html/M_Zyrenth_Zora_Extensions_ReadValue__1.htm" />
-  <HelpKINode Title="FileVersion property" Url="html/P_Zyrenth_Zora_AssemblyDetail_FileVersion.htm" />
-  <HelpKINode Title="FirstGenRing enumeration member" Url="html/T_Zyrenth_Zora_Rings.htm" />
-  <HelpKINode Title="FistRing enumeration member" Url="html/T_Zyrenth_Zora_Rings.htm" />
-  <HelpKINode Title="FriendshipRing enumeration member" Url="html/T_Zyrenth_Zora_Rings.htm" />
-  <HelpKINode Title="Game enumeration" Url="html/T_Zyrenth_Zora_Game.htm" />
-  <HelpKINode Title="Game property" Url="html/P_Zyrenth_Zora_GameInfo_Game.htm" />
+  <HelpKINode Title="Extensions.ReadValue(Of T) method" Url="html/B7B1F4A0.htm" />
+  <HelpKINode Title="Extensions.ReadValue&lt;T&gt; method" Url="html/B7B1F4A0.htm" />
+  <HelpKINode Title="FileVersion property" Url="html/EC24D1C7.htm" />
+  <HelpKINode Title="FirstGenRing enumeration member" Url="html/AD31B02F.htm" />
+  <HelpKINode Title="FistRing enumeration member" Url="html/AD31B02F.htm" />
+  <HelpKINode Title="FriendshipRing enumeration member" Url="html/AD31B02F.htm" />
+  <HelpKINode Title="Game enumeration" Url="html/BDD1C6F1.htm" />
+  <HelpKINode Title="Game property" Url="html/D5497D77.htm" />
   <HelpKINode Title="GameID property">
-    <HelpKINode Title="GameInfo.GameID Property " Url="html/P_Zyrenth_Zora_GameInfo_GameID.htm" />
-    <HelpKINode Title="Secret.GameID Property " Url="html/P_Zyrenth_Zora_Secret_GameID.htm" />
+    <HelpKINode Title="GameInfo.GameID Property " Url="html/D595AFE2.htm" />
+    <HelpKINode Title="Secret.GameID Property " Url="html/DC1F1939.htm" />
   </HelpKINode>
   <HelpKINode Title="GameInfo class">
-    <HelpKINode Title="GameInfo Class" Url="html/T_Zyrenth_Zora_GameInfo.htm" />
-    <HelpKINode Title="about GameInfo class" Url="html/T_Zyrenth_Zora_GameInfo.htm" />
-    <HelpKINode Title="constructor" Url="html/M_Zyrenth_Zora_GameInfo__ctor.htm" />
-    <HelpKINode Title="events" Url="html/Events_T_Zyrenth_Zora_GameInfo.htm" />
-    <HelpKINode Title="methods" Url="html/Methods_T_Zyrenth_Zora_GameInfo.htm" />
-    <HelpKINode Title="properties" Url="html/Properties_T_Zyrenth_Zora_GameInfo.htm" />
+    <HelpKINode Title="GameInfo Class" Url="html/C82F346A.htm" />
+    <HelpKINode Title="constructor" Url="html/6AD327C7.htm" />
+    <HelpKINode Title="events" Url="html/CA9F3B54.htm" />
+    <HelpKINode Title="methods" Url="html/50FF29A5.htm" />
+    <HelpKINode Title="properties" Url="html/D22EAB76.htm" />
   </HelpKINode>
-  <HelpKINode Title="GameInfo.Animal property" Url="html/P_Zyrenth_Zora_GameInfo_Animal.htm" />
-  <HelpKINode Title="GameInfo.Behavior property" Url="html/P_Zyrenth_Zora_GameInfo_Behavior.htm" />
-  <HelpKINode Title="GameInfo.Child property" Url="html/P_Zyrenth_Zora_GameInfo_Child.htm" />
-  <HelpKINode Title="GameInfo.Equals method" Url="html/M_Zyrenth_Zora_GameInfo_Equals.htm" />
-  <HelpKINode Title="GameInfo.Game property" Url="html/P_Zyrenth_Zora_GameInfo_Game.htm" />
-  <HelpKINode Title="GameInfo.GameID property" Url="html/P_Zyrenth_Zora_GameInfo_GameID.htm" />
-  <HelpKINode Title="GameInfo.GameInfo constructor" Url="html/M_Zyrenth_Zora_GameInfo__ctor.htm" />
-  <HelpKINode Title="GameInfo.GetHashCode method" Url="html/M_Zyrenth_Zora_GameInfo_GetHashCode.htm" />
-  <HelpKINode Title="GameInfo.Hero property" Url="html/P_Zyrenth_Zora_GameInfo_Hero.htm" />
-  <HelpKINode Title="GameInfo.IsHeroQuest property" Url="html/P_Zyrenth_Zora_GameInfo_IsHeroQuest.htm" />
-  <HelpKINode Title="GameInfo.IsLinkedGame property" Url="html/P_Zyrenth_Zora_GameInfo_IsLinkedGame.htm" />
-  <HelpKINode Title="GameInfo.Load method" Url="html/Overload_Zyrenth_Zora_GameInfo_Load.htm" />
-  <HelpKINode Title="GameInfo.NotifyPropertyChanged method" Url="html/M_Zyrenth_Zora_GameInfo_NotifyPropertyChanged.htm" />
-  <HelpKINode Title="GameInfo.Parse method" Url="html/M_Zyrenth_Zora_GameInfo_Parse.htm" />
-  <HelpKINode Title="GameInfo.PropertyChanged event" Url="html/E_Zyrenth_Zora_GameInfo_PropertyChanged.htm" />
-  <HelpKINode Title="GameInfo.Rings property" Url="html/P_Zyrenth_Zora_GameInfo_Rings.htm" />
-  <HelpKINode Title="GameInfo.Unknown58 property" Url="html/P_Zyrenth_Zora_GameInfo_Unknown58.htm" />
-  <HelpKINode Title="GameInfo.Unknown59 property" Url="html/P_Zyrenth_Zora_GameInfo_Unknown59.htm" />
-  <HelpKINode Title="GameInfo.Unknown88 property" Url="html/P_Zyrenth_Zora_GameInfo_Unknown88.htm" />
-  <HelpKINode Title="GameInfo.WasGivenFreeRing property" Url="html/P_Zyrenth_Zora_GameInfo_WasGivenFreeRing.htm" />
-  <HelpKINode Title="GameInfo.Write method" Url="html/Overload_Zyrenth_Zora_GameInfo_Write.htm" />
+  <HelpKINode Title="GameInfo.Animal property" Url="html/65A826C.htm" />
+  <HelpKINode Title="GameInfo.Behavior property" Url="html/8080D865.htm" />
+  <HelpKINode Title="GameInfo.Child property" Url="html/915582AF.htm" />
+  <HelpKINode Title="GameInfo.Equals method" Url="html/818BA16E.htm" />
+  <HelpKINode Title="GameInfo.Game property" Url="html/D5497D77.htm" />
+  <HelpKINode Title="GameInfo.GameID property" Url="html/D595AFE2.htm" />
+  <HelpKINode Title="GameInfo.GameInfo constructor" Url="html/6AD327C7.htm" />
+  <HelpKINode Title="GameInfo.GetHashCode method" Url="html/E89803BB.htm" />
+  <HelpKINode Title="GameInfo.Hero property" Url="html/A8F91FB3.htm" />
+  <HelpKINode Title="GameInfo.IsHeroQuest property" Url="html/C136E126.htm" />
+  <HelpKINode Title="GameInfo.IsLinkedGame property" Url="html/CE81C6C1.htm" />
+  <HelpKINode Title="GameInfo.Load method" Url="html/A533E1B6.htm" />
+  <HelpKINode Title="GameInfo.NotifyPropertyChanged method" Url="html/FC8187D3.htm" />
+  <HelpKINode Title="GameInfo.Parse method" Url="html/7989E9F1.htm" />
+  <HelpKINode Title="GameInfo.PropertyChanged event" Url="html/7C951F4F.htm" />
+  <HelpKINode Title="GameInfo.Region property" Url="html/3223C5B.htm" />
+  <HelpKINode Title="GameInfo.Rings property" Url="html/8FCB22FC.htm" />
+  <HelpKINode Title="GameInfo.WasGivenFreeRing property" Url="html/D468A092.htm" />
+  <HelpKINode Title="GameInfo.Write method" Url="html/E1E72B59.htm" />
   <HelpKINode Title="GameInfoJsonConverter class">
-    <HelpKINode Title="GameInfoJsonConverter Class" Url="html/T_Zyrenth_Zora_GameInfoJsonConverter.htm" />
-    <HelpKINode Title="about GameInfoJsonConverter class" Url="html/T_Zyrenth_Zora_GameInfoJsonConverter.htm" />
-    <HelpKINode Title="constructor" Url="html/M_Zyrenth_Zora_GameInfoJsonConverter__ctor.htm" />
-    <HelpKINode Title="methods" Url="html/Methods_T_Zyrenth_Zora_GameInfoJsonConverter.htm" />
-    <HelpKINode Title="properties" Url="html/Properties_T_Zyrenth_Zora_GameInfoJsonConverter.htm" />
+    <HelpKINode Title="GameInfoJsonConverter Class" Url="html/A99807CB.htm" />
+    <HelpKINode Title="constructor" Url="html/8F6F4C13.htm" />
+    <HelpKINode Title="methods" Url="html/885D6FF0.htm" />
   </HelpKINode>
-  <HelpKINode Title="GameInfoJsonConverter.Deserialize method" Url="html/M_Zyrenth_Zora_GameInfoJsonConverter_Deserialize.htm" />
-  <HelpKINode Title="GameInfoJsonConverter.GameInfoJsonConverter constructor" Url="html/M_Zyrenth_Zora_GameInfoJsonConverter__ctor.htm" />
-  <HelpKINode Title="GameInfoJsonConverter.Serialize method" Url="html/M_Zyrenth_Zora_GameInfoJsonConverter_Serialize.htm" />
-  <HelpKINode Title="GameInfoJsonConverter.SupportedTypes property" Url="html/P_Zyrenth_Zora_GameInfoJsonConverter_SupportedTypes.htm" />
+  <HelpKINode Title="GameInfoJsonConverter.Deserialize method" Url="html/F7C00695.htm" />
+  <HelpKINode Title="GameInfoJsonConverter.GameInfoJsonConverter constructor" Url="html/8F6F4C13.htm" />
+  <HelpKINode Title="GameInfoJsonConverter.Serialize method" Url="html/B27944DC.htm" />
+  <HelpKINode Title="GameRegion enumeration" Url="html/C297CB44.htm" />
   <HelpKINode Title="GameSecret class">
-    <HelpKINode Title="GameSecret Class" Url="html/T_Zyrenth_Zora_GameSecret.htm" />
-    <HelpKINode Title="about GameSecret class" Url="html/T_Zyrenth_Zora_GameSecret.htm" />
-    <HelpKINode Title="constructor" Url="html/Overload_Zyrenth_Zora_GameSecret__ctor.htm" />
-    <HelpKINode Title="events" Url="html/Events_T_Zyrenth_Zora_GameSecret.htm" />
-    <HelpKINode Title="methods" Url="html/Methods_T_Zyrenth_Zora_GameSecret.htm" />
-    <HelpKINode Title="properties" Url="html/Properties_T_Zyrenth_Zora_GameSecret.htm" />
+    <HelpKINode Title="GameSecret Class" Url="html/BABAFB87.htm" />
+    <HelpKINode Title="constructor" Url="html/58192692.htm" />
+    <HelpKINode Title="events" Url="html/4AFC97B1.htm" />
+    <HelpKINode Title="methods" Url="html/53044425.htm" />
+    <HelpKINode Title="properties" Url="html/5C29C0E9.htm" />
   </HelpKINode>
-  <HelpKINode Title="GameSecret.Animal property" Url="html/P_Zyrenth_Zora_GameSecret_Animal.htm" />
-  <HelpKINode Title="GameSecret.Behavior property" Url="html/P_Zyrenth_Zora_GameSecret_Behavior.htm" />
-  <HelpKINode Title="GameSecret.Child property" Url="html/P_Zyrenth_Zora_GameSecret_Child.htm" />
-  <HelpKINode Title="GameSecret.Equals method" Url="html/M_Zyrenth_Zora_GameSecret_Equals.htm" />
-  <HelpKINode Title="GameSecret.GameSecret constructor" Url="html/Overload_Zyrenth_Zora_GameSecret__ctor.htm" />
-  <HelpKINode Title="GameSecret.GetHashCode method" Url="html/M_Zyrenth_Zora_GameSecret_GetHashCode.htm" />
-  <HelpKINode Title="GameSecret.Hero property" Url="html/P_Zyrenth_Zora_GameSecret_Hero.htm" />
-  <HelpKINode Title="GameSecret.IsHeroQuest property" Url="html/P_Zyrenth_Zora_GameSecret_IsHeroQuest.htm" />
-  <HelpKINode Title="GameSecret.IsLinkedGame property" Url="html/P_Zyrenth_Zora_GameSecret_IsLinkedGame.htm" />
-  <HelpKINode Title="GameSecret.Length property" Url="html/P_Zyrenth_Zora_GameSecret_Length.htm" />
-  <HelpKINode Title="GameSecret.Load method" Url="html/Overload_Zyrenth_Zora_GameSecret_Load.htm" />
-  <HelpKINode Title="GameSecret.TargetGame property" Url="html/P_Zyrenth_Zora_GameSecret_TargetGame.htm" />
-  <HelpKINode Title="GameSecret.ToBytes method" Url="html/M_Zyrenth_Zora_GameSecret_ToBytes.htm" />
-  <HelpKINode Title="GameSecret.Unknown58 property" Url="html/P_Zyrenth_Zora_GameSecret_Unknown58.htm" />
-  <HelpKINode Title="GameSecret.Unknown59 property" Url="html/P_Zyrenth_Zora_GameSecret_Unknown59.htm" />
-  <HelpKINode Title="GameSecret.Unknown88 property" Url="html/P_Zyrenth_Zora_GameSecret_Unknown88.htm" />
-  <HelpKINode Title="GameSecret.UpdateGameInfo method" Url="html/M_Zyrenth_Zora_GameSecret_UpdateGameInfo.htm" />
-  <HelpKINode Title="GameSecret.WasGivenFreeRing property" Url="html/P_Zyrenth_Zora_GameSecret_WasGivenFreeRing.htm" />
-  <HelpKINode Title="GashaRing enumeration member" Url="html/T_Zyrenth_Zora_Rings.htm" />
-  <HelpKINode Title="GBANatureRing enumeration member" Url="html/T_Zyrenth_Zora_Rings.htm" />
-  <HelpKINode Title="GBATimeRing enumeration member" Url="html/T_Zyrenth_Zora_Rings.htm" />
+  <HelpKINode Title="GameSecret.Animal property" Url="html/2080B29A.htm" />
+  <HelpKINode Title="GameSecret.Behavior property" Url="html/11479BFF.htm" />
+  <HelpKINode Title="GameSecret.Child property" Url="html/23BCBC17.htm" />
+  <HelpKINode Title="GameSecret.Equals method" Url="html/8475616B.htm" />
+  <HelpKINode Title="GameSecret.GameSecret constructor" Url="html/58192692.htm" />
+  <HelpKINode Title="GameSecret.GetHashCode method" Url="html/FFD596AD.htm" />
+  <HelpKINode Title="GameSecret.Hero property" Url="html/396775F2.htm" />
+  <HelpKINode Title="GameSecret.IsHeroQuest property" Url="html/152199DF.htm" />
+  <HelpKINode Title="GameSecret.IsLinkedGame property" Url="html/3CDEB1A3.htm" />
+  <HelpKINode Title="GameSecret.IsValidForPAL method" Url="html/758820E7.htm" />
+  <HelpKINode Title="GameSecret.Length property" Url="html/8FEB5FC1.htm" />
+  <HelpKINode Title="GameSecret.Load method" Url="html/DA82F8F5.htm" />
+  <HelpKINode Title="GameSecret.TargetGame property" Url="html/A1618C91.htm" />
+  <HelpKINode Title="GameSecret.ToBytes method" Url="html/EFEFC189.htm" />
+  <HelpKINode Title="GameSecret.UpdateGameInfo method" Url="html/3B400974.htm" />
+  <HelpKINode Title="GameSecret.WasGivenFreeRing property" Url="html/6FE09157.htm" />
+  <HelpKINode Title="GashaRing enumeration member" Url="html/AD31B02F.htm" />
+  <HelpKINode Title="GBANatureRing enumeration member" Url="html/AD31B02F.htm" />
+  <HelpKINode Title="GBATimeRing enumeration member" Url="html/AD31B02F.htm" />
+  <HelpKINode Title="GetByteCount method">
+    <HelpKINode Title="JapaneseEncoding.GetByteCount Method " Url="html/6916CB64.htm" />
+    <HelpKINode Title="USEncoding.GetByteCount Method " Url="html/E5952124.htm" />
+  </HelpKINode>
+  <HelpKINode Title="GetBytes method">
+    <HelpKINode Title="JapaneseEncoding.GetBytes Method " Url="html/D23FEA5D.htm" />
+    <HelpKINode Title="USEncoding.GetBytes Method " Url="html/1E4F103A.htm" />
+  </HelpKINode>
+  <HelpKINode Title="GetCharCount method">
+    <HelpKINode Title="JapaneseEncoding.GetCharCount Method " Url="html/750C2530.htm" />
+    <HelpKINode Title="USEncoding.GetCharCount Method " Url="html/55D2C3F0.htm" />
+  </HelpKINode>
+  <HelpKINode Title="GetChars method">
+    <HelpKINode Title="JapaneseEncoding.GetChars Method " Url="html/3C3A4D6B.htm" />
+    <HelpKINode Title="USEncoding.GetChars Method " Url="html/BF42B7DC.htm" />
+  </HelpKINode>
   <HelpKINode Title="GetHashCode method">
-    <HelpKINode Title="GameInfo.GetHashCode Method " Url="html/M_Zyrenth_Zora_GameInfo_GetHashCode.htm" />
-    <HelpKINode Title="GameSecret.GetHashCode Method " Url="html/M_Zyrenth_Zora_GameSecret_GetHashCode.htm" />
-    <HelpKINode Title="MemorySecret.GetHashCode Method " Url="html/M_Zyrenth_Zora_MemorySecret_GetHashCode.htm" />
-    <HelpKINode Title="RingSecret.GetHashCode Method " Url="html/M_Zyrenth_Zora_RingSecret_GetHashCode.htm" />
-    <HelpKINode Title="Secret.GetHashCode Method " Url="html/M_Zyrenth_Zora_Secret_GetHashCode.htm" />
+    <HelpKINode Title="GameInfo.GetHashCode Method " Url="html/E89803BB.htm" />
+    <HelpKINode Title="GameSecret.GetHashCode Method " Url="html/FFD596AD.htm" />
+    <HelpKINode Title="MemorySecret.GetHashCode Method " Url="html/A0453F58.htm" />
+    <HelpKINode Title="RingSecret.GetHashCode Method " Url="html/C3D7CB84.htm" />
+    <HelpKINode Title="Secret.GetHashCode Method " Url="html/CD0F06BE.htm" />
   </HelpKINode>
-  <HelpKINode Title="GoldJoyRing enumeration member" Url="html/T_Zyrenth_Zora_Rings.htm" />
-  <HelpKINode Title="GoldLuckRing enumeration member" Url="html/T_Zyrenth_Zora_Rings.htm" />
-  <HelpKINode Title="GraveyardFairy enumeration member" Url="html/T_Zyrenth_Zora_Memory.htm" />
-  <HelpKINode Title="GreenHolyRing enumeration member" Url="html/T_Zyrenth_Zora_Rings.htm" />
-  <HelpKINode Title="GreenJoyRing enumeration member" Url="html/T_Zyrenth_Zora_Rings.htm" />
-  <HelpKINode Title="GreenLuckRing enumeration member" Url="html/T_Zyrenth_Zora_Rings.htm" />
-  <HelpKINode Title="GreenRing enumeration member" Url="html/T_Zyrenth_Zora_Rings.htm" />
-  <HelpKINode Title="HeartRingL1 enumeration member" Url="html/T_Zyrenth_Zora_Rings.htm" />
-  <HelpKINode Title="HeartRingL2 enumeration member" Url="html/T_Zyrenth_Zora_Rings.htm" />
+  <HelpKINode Title="GetMaxByteCount method">
+    <HelpKINode Title="JapaneseEncoding.GetMaxByteCount Method " Url="html/3EA86D49.htm" />
+    <HelpKINode Title="USEncoding.GetMaxByteCount Method " Url="html/EE34FB10.htm" />
+  </HelpKINode>
+  <HelpKINode Title="GetMaxCharCount method">
+    <HelpKINode Title="JapaneseEncoding.GetMaxCharCount Method " Url="html/22C1C563.htm" />
+    <HelpKINode Title="USEncoding.GetMaxCharCount Method " Url="html/F63C80C0.htm" />
+  </HelpKINode>
+  <HelpKINode Title="GoldJoyRing enumeration member" Url="html/AD31B02F.htm" />
+  <HelpKINode Title="GoldLuckRing enumeration member" Url="html/AD31B02F.htm" />
+  <HelpKINode Title="GraveyardFairy enumeration member" Url="html/E269640.htm" />
+  <HelpKINode Title="GreenHolyRing enumeration member" Url="html/AD31B02F.htm" />
+  <HelpKINode Title="GreenJoyRing enumeration member" Url="html/AD31B02F.htm" />
+  <HelpKINode Title="GreenLuckRing enumeration member" Url="html/AD31B02F.htm" />
+  <HelpKINode Title="GreenRing enumeration member" Url="html/AD31B02F.htm" />
+  <HelpKINode Title="HeartRingL1 enumeration member" Url="html/AD31B02F.htm" />
+  <HelpKINode Title="HeartRingL2 enumeration member" Url="html/AD31B02F.htm" />
   <HelpKINode Title="Hero property">
-    <HelpKINode Title="GameInfo.Hero Property " Url="html/P_Zyrenth_Zora_GameInfo_Hero.htm" />
-    <HelpKINode Title="GameSecret.Hero Property " Url="html/P_Zyrenth_Zora_GameSecret_Hero.htm" />
+    <HelpKINode Title="GameInfo.Hero Property " Url="html/A8F91FB3.htm" />
+    <HelpKINode Title="GameSecret.Hero Property " Url="html/396775F2.htm" />
   </HelpKINode>
-  <HelpKINode Title="HundredthRing enumeration member" Url="html/T_Zyrenth_Zora_Rings.htm" />
-  <HelpKINode Title="HyperA enumeration member" Url="html/T_Zyrenth_Zora_ChildBehavior.htm" />
-  <HelpKINode Title="HyperB enumeration member" Url="html/T_Zyrenth_Zora_ChildBehavior.htm" />
-  <HelpKINode Title="HyperC enumeration member" Url="html/T_Zyrenth_Zora_ChildBehavior.htm" />
-  <HelpKINode Title="HyperD enumeration member" Url="html/T_Zyrenth_Zora_ChildBehavior.htm" />
-  <HelpKINode Title="HyperE enumeration member" Url="html/T_Zyrenth_Zora_ChildBehavior.htm" />
-  <HelpKINode Title="Infant enumeration member" Url="html/T_Zyrenth_Zora_ChildBehavior.htm" />
-  <HelpKINode Title="InvalidSecretException class">
-    <HelpKINode Title="InvalidSecretException Class" Url="html/T_Zyrenth_Zora_InvalidSecretException.htm" />
-    <HelpKINode Title="about InvalidSecretException class" Url="html/T_Zyrenth_Zora_InvalidSecretException.htm" />
-    <HelpKINode Title="constructor" Url="html/Overload_Zyrenth_Zora_InvalidSecretException__ctor.htm" />
-    <HelpKINode Title="events" Url="html/Events_T_Zyrenth_Zora_InvalidSecretException.htm" />
-    <HelpKINode Title="methods" Url="html/Methods_T_Zyrenth_Zora_InvalidSecretException.htm" />
-    <HelpKINode Title="properties" Url="html/Properties_T_Zyrenth_Zora_InvalidSecretException.htm" />
+  <HelpKINode Title="HundredthRing enumeration member" Url="html/AD31B02F.htm" />
+  <HelpKINode Title="InvalidChecksumException class">
+    <HelpKINode Title="InvalidChecksumException Class" Url="html/BF3B720E.htm" />
+    <HelpKINode Title="constructor" Url="html/9725129.htm" />
+    <HelpKINode Title="events" Url="html/22205891.htm" />
+    <HelpKINode Title="methods" Url="html/A2F55E82.htm" />
+    <HelpKINode Title="properties" Url="html/6B924C61.htm" />
   </HelpKINode>
-  <HelpKINode Title="InvalidSecretException.InvalidSecretException constructor" Url="html/Overload_Zyrenth_Zora_InvalidSecretException__ctor.htm" />
+  <HelpKINode Title="InvalidChecksumException.InvalidChecksumException constructor" Url="html/9725129.htm" />
   <HelpKINode Title="IsHeroQuest property">
-    <HelpKINode Title="GameInfo.IsHeroQuest Property " Url="html/P_Zyrenth_Zora_GameInfo_IsHeroQuest.htm" />
-    <HelpKINode Title="GameSecret.IsHeroQuest Property " Url="html/P_Zyrenth_Zora_GameSecret_IsHeroQuest.htm" />
+    <HelpKINode Title="GameInfo.IsHeroQuest Property " Url="html/C136E126.htm" />
+    <HelpKINode Title="GameSecret.IsHeroQuest Property " Url="html/152199DF.htm" />
   </HelpKINode>
   <HelpKINode Title="IsLinkedGame property">
-    <HelpKINode Title="GameInfo.IsLinkedGame Property " Url="html/P_Zyrenth_Zora_GameInfo_IsLinkedGame.htm" />
-    <HelpKINode Title="GameSecret.IsLinkedGame Property " Url="html/P_Zyrenth_Zora_GameSecret_IsLinkedGame.htm" />
+    <HelpKINode Title="GameInfo.IsLinkedGame Property " Url="html/CE81C6C1.htm" />
+    <HelpKINode Title="GameSecret.IsLinkedGame Property " Url="html/3CDEB1A3.htm" />
   </HelpKINode>
-  <HelpKINode Title="IsReturnSecret property" Url="html/P_Zyrenth_Zora_MemorySecret_IsReturnSecret.htm" />
+  <HelpKINode Title="IsReturnSecret property" Url="html/21749041.htm" />
+  <HelpKINode Title="IsValidForPAL method" Url="html/758820E7.htm" />
+  <HelpKINode Title="JapaneseEncoding class">
+    <HelpKINode Title="JapaneseEncoding Class" Url="html/C7508892.htm" />
+    <HelpKINode Title="constructor" Url="html/16721350.htm" />
+    <HelpKINode Title="methods" Url="html/406D3CE8.htm" />
+    <HelpKINode Title="properties" Url="html/E876E7C4.htm" />
+  </HelpKINode>
+  <HelpKINode Title="JapaneseEncoding.GetByteCount method" Url="html/6916CB64.htm" />
+  <HelpKINode Title="JapaneseEncoding.GetBytes method" Url="html/D23FEA5D.htm" />
+  <HelpKINode Title="JapaneseEncoding.GetCharCount method" Url="html/750C2530.htm" />
+  <HelpKINode Title="JapaneseEncoding.GetChars method" Url="html/3C3A4D6B.htm" />
+  <HelpKINode Title="JapaneseEncoding.GetMaxByteCount method" Url="html/3EA86D49.htm" />
+  <HelpKINode Title="JapaneseEncoding.GetMaxCharCount method" Url="html/22C1C563.htm" />
+  <HelpKINode Title="JapaneseEncoding.JapaneseEncoding constructor" Url="html/16721350.htm" />
+  <HelpKINode Title="JP enumeration member" Url="html/C297CB44.htm" />
   <HelpKINode Title="Length property">
-    <HelpKINode Title="GameSecret.Length Property " Url="html/P_Zyrenth_Zora_GameSecret_Length.htm" />
-    <HelpKINode Title="MemorySecret.Length Property " Url="html/P_Zyrenth_Zora_MemorySecret_Length.htm" />
-    <HelpKINode Title="RingSecret.Length Property " Url="html/P_Zyrenth_Zora_RingSecret_Length.htm" />
-    <HelpKINode Title="Secret.Length Property " Url="html/P_Zyrenth_Zora_Secret_Length.htm" />
+    <HelpKINode Title="GameSecret.Length Property " Url="html/8FEB5FC1.htm" />
+    <HelpKINode Title="MemorySecret.Length Property " Url="html/477859DD.htm" />
+    <HelpKINode Title="RingSecret.Length Property " Url="html/C37D6C6D.htm" />
+    <HelpKINode Title="Secret.Length Property " Url="html/5E88131C.htm" />
   </HelpKINode>
-  <HelpKINode Title="LightRingL1 enumeration member" Url="html/T_Zyrenth_Zora_Rings.htm" />
-  <HelpKINode Title="LightRingL2 enumeration member" Url="html/T_Zyrenth_Zora_Rings.htm" />
-  <HelpKINode Title="LikeLikeRing enumeration member" Url="html/T_Zyrenth_Zora_Rings.htm" />
+  <HelpKINode Title="LightRingL1 enumeration member" Url="html/AD31B02F.htm" />
+  <HelpKINode Title="LightRingL2 enumeration member" Url="html/AD31B02F.htm" />
+  <HelpKINode Title="LikeLikeRing enumeration member" Url="html/AD31B02F.htm" />
   <HelpKINode Title="Load method">
-    <HelpKINode Title="BatteryFileLoader.Load Method " Url="html/Overload_Zyrenth_Zora_BatteryFileLoader_Load.htm" />
-    <HelpKINode Title="GameInfo.Load Method " Url="html/Overload_Zyrenth_Zora_GameInfo_Load.htm" />
-    <HelpKINode Title="GameSecret.Load Method " Url="html/Overload_Zyrenth_Zora_GameSecret_Load.htm" />
-    <HelpKINode Title="MemorySecret.Load Method " Url="html/Overload_Zyrenth_Zora_MemorySecret_Load.htm" />
-    <HelpKINode Title="RingSecret.Load Method " Url="html/Overload_Zyrenth_Zora_RingSecret_Load.htm" />
-    <HelpKINode Title="Secret.Load Method " Url="html/Overload_Zyrenth_Zora_Secret_Load.htm" />
+    <HelpKINode Title="BatteryFileLoader.Load Method " Url="html/F0CCDB1A.htm" />
+    <HelpKINode Title="GameInfo.Load Method " Url="html/A533E1B6.htm" />
+    <HelpKINode Title="GameSecret.Load Method " Url="html/DA82F8F5.htm" />
+    <HelpKINode Title="MemorySecret.Load Method " Url="html/29BF1B68.htm" />
+    <HelpKINode Title="RingSecret.Load Method " Url="html/16BA5381.htm" />
+    <HelpKINode Title="Secret.Load Method " Url="html/D3C5C781.htm" />
   </HelpKINode>
-  <HelpKINode Title="LoadAll method" Url="html/Overload_Zyrenth_Zora_BatteryFileLoader_LoadAll.htm" />
-  <HelpKINode Title="MaplesRing enumeration member" Url="html/T_Zyrenth_Zora_Rings.htm" />
-  <HelpKINode Title="Memory enumeration" Url="html/T_Zyrenth_Zora_Memory.htm" />
-  <HelpKINode Title="Memory property" Url="html/P_Zyrenth_Zora_MemorySecret_Memory.htm" />
+  <HelpKINode Title="LoadAll method" Url="html/20E99A5F.htm" />
+  <HelpKINode Title="MaplesRing enumeration member" Url="html/AD31B02F.htm" />
+  <HelpKINode Title="Memory enumeration" Url="html/E269640.htm" />
+  <HelpKINode Title="Memory property" Url="html/8AA5B6CB.htm" />
   <HelpKINode Title="MemorySecret class">
-    <HelpKINode Title="MemorySecret Class" Url="html/T_Zyrenth_Zora_MemorySecret.htm" />
-    <HelpKINode Title="about MemorySecret class" Url="html/T_Zyrenth_Zora_MemorySecret.htm" />
-    <HelpKINode Title="constructor" Url="html/Overload_Zyrenth_Zora_MemorySecret__ctor.htm" />
-    <HelpKINode Title="events" Url="html/Events_T_Zyrenth_Zora_MemorySecret.htm" />
-    <HelpKINode Title="methods" Url="html/Methods_T_Zyrenth_Zora_MemorySecret.htm" />
-    <HelpKINode Title="properties" Url="html/Properties_T_Zyrenth_Zora_MemorySecret.htm" />
+    <HelpKINode Title="MemorySecret Class" Url="html/6F8A4167.htm" />
+    <HelpKINode Title="constructor" Url="html/539434DF.htm" />
+    <HelpKINode Title="events" Url="html/96EC7288.htm" />
+    <HelpKINode Title="methods" Url="html/688B1F94.htm" />
+    <HelpKINode Title="properties" Url="html/78794AA7.htm" />
   </HelpKINode>
-  <HelpKINode Title="MemorySecret.Equals method" Url="html/M_Zyrenth_Zora_MemorySecret_Equals.htm" />
-  <HelpKINode Title="MemorySecret.GetHashCode method" Url="html/M_Zyrenth_Zora_MemorySecret_GetHashCode.htm" />
-  <HelpKINode Title="MemorySecret.IsReturnSecret property" Url="html/P_Zyrenth_Zora_MemorySecret_IsReturnSecret.htm" />
-  <HelpKINode Title="MemorySecret.Length property" Url="html/P_Zyrenth_Zora_MemorySecret_Length.htm" />
-  <HelpKINode Title="MemorySecret.Load method" Url="html/Overload_Zyrenth_Zora_MemorySecret_Load.htm" />
-  <HelpKINode Title="MemorySecret.Memory property" Url="html/P_Zyrenth_Zora_MemorySecret_Memory.htm" />
-  <HelpKINode Title="MemorySecret.MemorySecret constructor" Url="html/Overload_Zyrenth_Zora_MemorySecret__ctor.htm" />
-  <HelpKINode Title="MemorySecret.TargetGame property" Url="html/P_Zyrenth_Zora_MemorySecret_TargetGame.htm" />
-  <HelpKINode Title="MemorySecret.ToBytes method" Url="html/M_Zyrenth_Zora_MemorySecret_ToBytes.htm" />
-  <HelpKINode Title="MoblinRing enumeration member" Url="html/T_Zyrenth_Zora_Rings.htm" />
-  <HelpKINode Title="Moosh enumeration member" Url="html/T_Zyrenth_Zora_Animal.htm" />
-  <HelpKINode Title="Name property" Url="html/P_Zyrenth_Zora_RingInfoAttribute_Name.htm" />
-  <HelpKINode Title="None enumeration member" Url="html/T_Zyrenth_Zora_Rings.htm" />
+  <HelpKINode Title="MemorySecret.Equals method" Url="html/6E036964.htm" />
+  <HelpKINode Title="MemorySecret.GetHashCode method" Url="html/A0453F58.htm" />
+  <HelpKINode Title="MemorySecret.IsReturnSecret property" Url="html/21749041.htm" />
+  <HelpKINode Title="MemorySecret.Length property" Url="html/477859DD.htm" />
+  <HelpKINode Title="MemorySecret.Load method" Url="html/29BF1B68.htm" />
+  <HelpKINode Title="MemorySecret.Memory property" Url="html/8AA5B6CB.htm" />
+  <HelpKINode Title="MemorySecret.MemorySecret constructor" Url="html/539434DF.htm" />
+  <HelpKINode Title="MemorySecret.TargetGame property" Url="html/659623E4.htm" />
+  <HelpKINode Title="MemorySecret.ToBytes method" Url="html/FEB3556D.htm" />
+  <HelpKINode Title="MoblinRing enumeration member" Url="html/AD31B02F.htm" />
+  <HelpKINode Title="Moosh enumeration member" Url="html/BE5CAD54.htm" />
+  <HelpKINode Title="Name property" Url="html/B5D886DE.htm" />
+  <HelpKINode Title="None enumeration member">
+    <HelpKINode Title="Animal Enumeration" Url="html/BE5CAD54.htm" />
+    <HelpKINode Title="Rings Enumeration" Url="html/AD31B02F.htm" />
+  </HelpKINode>
   <HelpKINode Title="NotifyPropertyChanged method">
-    <HelpKINode Title="GameInfo.NotifyPropertyChanged Method " Url="html/M_Zyrenth_Zora_GameInfo_NotifyPropertyChanged.htm" />
-    <HelpKINode Title="Secret.NotifyPropertyChanged Method " Url="html/M_Zyrenth_Zora_Secret_NotifyPropertyChanged.htm" />
+    <HelpKINode Title="GameInfo.NotifyPropertyChanged Method " Url="html/FC8187D3.htm" />
+    <HelpKINode Title="Secret.NotifyPropertyChanged Method " Url="html/95602162.htm" />
   </HelpKINode>
-  <HelpKINode Title="OctoRing enumeration member" Url="html/T_Zyrenth_Zora_Rings.htm" />
-  <HelpKINode Title="Parse method" Url="html/M_Zyrenth_Zora_GameInfo_Parse.htm" />
-  <HelpKINode Title="ParseSecret method" Url="html/M_Zyrenth_Zora_SecretParser_ParseSecret.htm" />
-  <HelpKINode Title="PeaceRing enumeration member" Url="html/T_Zyrenth_Zora_Rings.htm" />
-  <HelpKINode Title="PegasusRing enumeration member" Url="html/T_Zyrenth_Zora_Rings.htm" />
-  <HelpKINode Title="PirateTokay enumeration member" Url="html/T_Zyrenth_Zora_Memory.htm" />
-  <HelpKINode Title="PowerRingL1 enumeration member" Url="html/T_Zyrenth_Zora_Rings.htm" />
-  <HelpKINode Title="PowerRingL2 enumeration member" Url="html/T_Zyrenth_Zora_Rings.htm" />
-  <HelpKINode Title="PowerRingL3 enumeration member" Url="html/T_Zyrenth_Zora_Rings.htm" />
-  <HelpKINode Title="Product property" Url="html/P_Zyrenth_Zora_AssemblyDetail_Product.htm" />
-  <HelpKINode Title="ProductVersion property" Url="html/P_Zyrenth_Zora_AssemblyDetail_ProductVersion.htm" />
+  <HelpKINode Title="OctoRing enumeration member" Url="html/AD31B02F.htm" />
+  <HelpKINode Title="Parse method" Url="html/7989E9F1.htm" />
+  <HelpKINode Title="ParseSecret method" Url="html/C98E691C.htm" />
+  <HelpKINode Title="PeaceRing enumeration member" Url="html/AD31B02F.htm" />
+  <HelpKINode Title="PegasusRing enumeration member" Url="html/AD31B02F.htm" />
+  <HelpKINode Title="PirateTokay enumeration member" Url="html/E269640.htm" />
+  <HelpKINode Title="PowerRingL1 enumeration member" Url="html/AD31B02F.htm" />
+  <HelpKINode Title="PowerRingL2 enumeration member" Url="html/AD31B02F.htm" />
+  <HelpKINode Title="PowerRingL3 enumeration member" Url="html/AD31B02F.htm" />
+  <HelpKINode Title="Product property" Url="html/60A2B2C7.htm" />
+  <HelpKINode Title="ProductVersion property" Url="html/FF857F8E.htm" />
   <HelpKINode Title="PropertyChanged event">
-    <HelpKINode Title="GameInfo.PropertyChanged Event" Url="html/E_Zyrenth_Zora_GameInfo_PropertyChanged.htm" />
-    <HelpKINode Title="Secret.PropertyChanged Event" Url="html/E_Zyrenth_Zora_Secret_PropertyChanged.htm" />
+    <HelpKINode Title="GameInfo.PropertyChanged Event" Url="html/7C951F4F.htm" />
+    <HelpKINode Title="Secret.PropertyChanged Event" Url="html/1FF142F.htm" />
   </HelpKINode>
-  <HelpKINode Title="ProtectionRing enumeration member" Url="html/T_Zyrenth_Zora_Rings.htm" />
-  <HelpKINode Title="QuicksandRing enumeration member" Url="html/T_Zyrenth_Zora_Rings.htm" />
-  <HelpKINode Title="RangRingL1 enumeration member" Url="html/T_Zyrenth_Zora_Rings.htm" />
-  <HelpKINode Title="RangRingL2 enumeration member" Url="html/T_Zyrenth_Zora_Rings.htm" />
-  <HelpKINode Title="ReadValue(Of T) method" Url="html/M_Zyrenth_Zora_Extensions_ReadValue__1.htm" />
-  <HelpKINode Title="ReadValue&lt;T&gt; method" Url="html/M_Zyrenth_Zora_Extensions_ReadValue__1.htm" />
-  <HelpKINode Title="RedHolyRing enumeration member" Url="html/T_Zyrenth_Zora_Rings.htm" />
-  <HelpKINode Title="RedJoyRing enumeration member" Url="html/T_Zyrenth_Zora_Rings.htm" />
-  <HelpKINode Title="RedLuckRing enumeration member" Url="html/T_Zyrenth_Zora_Rings.htm" />
-  <HelpKINode Title="RedRing enumeration member" Url="html/T_Zyrenth_Zora_Rings.htm" />
-  <HelpKINode Title="Ricky enumeration member" Url="html/T_Zyrenth_Zora_Animal.htm" />
+  <HelpKINode Title="ProtectionRing enumeration member" Url="html/AD31B02F.htm" />
+  <HelpKINode Title="QuicksandRing enumeration member" Url="html/AD31B02F.htm" />
+  <HelpKINode Title="RangRingL1 enumeration member" Url="html/AD31B02F.htm" />
+  <HelpKINode Title="RangRingL2 enumeration member" Url="html/AD31B02F.htm" />
+  <HelpKINode Title="ReadValue(Of T) method" Url="html/B7B1F4A0.htm" />
+  <HelpKINode Title="ReadValue&lt;T&gt; method" Url="html/B7B1F4A0.htm" />
+  <HelpKINode Title="RedHolyRing enumeration member" Url="html/AD31B02F.htm" />
+  <HelpKINode Title="RedJoyRing enumeration member" Url="html/AD31B02F.htm" />
+  <HelpKINode Title="RedLuckRing enumeration member" Url="html/AD31B02F.htm" />
+  <HelpKINode Title="RedRing enumeration member" Url="html/AD31B02F.htm" />
+  <HelpKINode Title="Region property">
+    <HelpKINode Title="GameInfo.Region Property " Url="html/3223C5B.htm" />
+    <HelpKINode Title="Secret.Region Property " Url="html/906914F2.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Ricky enumeration member" Url="html/BE5CAD54.htm" />
   <HelpKINode Title="RingInfoAttribute class">
-    <HelpKINode Title="RingInfoAttribute Class" Url="html/T_Zyrenth_Zora_RingInfoAttribute.htm" />
-    <HelpKINode Title="about RingInfoAttribute class" Url="html/T_Zyrenth_Zora_RingInfoAttribute.htm" />
-    <HelpKINode Title="constructor" Url="html/M_Zyrenth_Zora_RingInfoAttribute__ctor.htm" />
-    <HelpKINode Title="methods" Url="html/Methods_T_Zyrenth_Zora_RingInfoAttribute.htm" />
-    <HelpKINode Title="properties" Url="html/Properties_T_Zyrenth_Zora_RingInfoAttribute.htm" />
+    <HelpKINode Title="RingInfoAttribute Class" Url="html/3E77D1FD.htm" />
+    <HelpKINode Title="constructor" Url="html/4DE08231.htm" />
+    <HelpKINode Title="methods" Url="html/CE8987A.htm" />
+    <HelpKINode Title="properties" Url="html/D7144E6A.htm" />
   </HelpKINode>
-  <HelpKINode Title="RingInfoAttribute.Description property" Url="html/P_Zyrenth_Zora_RingInfoAttribute_Description.htm" />
-  <HelpKINode Title="RingInfoAttribute.Name property" Url="html/P_Zyrenth_Zora_RingInfoAttribute_Name.htm" />
-  <HelpKINode Title="RingInfoAttribute.RingInfoAttribute constructor" Url="html/M_Zyrenth_Zora_RingInfoAttribute__ctor.htm" />
-  <HelpKINode Title="Rings enumeration" Url="html/T_Zyrenth_Zora_Rings.htm" />
+  <HelpKINode Title="RingInfoAttribute.Description property" Url="html/359DC89C.htm" />
+  <HelpKINode Title="RingInfoAttribute.Name property" Url="html/B5D886DE.htm" />
+  <HelpKINode Title="RingInfoAttribute.RingInfoAttribute constructor" Url="html/4DE08231.htm" />
+  <HelpKINode Title="Rings enumeration" Url="html/AD31B02F.htm" />
   <HelpKINode Title="Rings property">
-    <HelpKINode Title="GameInfo.Rings Property " Url="html/P_Zyrenth_Zora_GameInfo_Rings.htm" />
-    <HelpKINode Title="RingSecret.Rings Property " Url="html/P_Zyrenth_Zora_RingSecret_Rings.htm" />
+    <HelpKINode Title="GameInfo.Rings Property " Url="html/8FCB22FC.htm" />
+    <HelpKINode Title="RingSecret.Rings Property " Url="html/1392424E.htm" />
   </HelpKINode>
   <HelpKINode Title="RingSecret class">
-    <HelpKINode Title="RingSecret Class" Url="html/T_Zyrenth_Zora_RingSecret.htm" />
-    <HelpKINode Title="about RingSecret class" Url="html/T_Zyrenth_Zora_RingSecret.htm" />
-    <HelpKINode Title="constructor" Url="html/Overload_Zyrenth_Zora_RingSecret__ctor.htm" />
-    <HelpKINode Title="events" Url="html/Events_T_Zyrenth_Zora_RingSecret.htm" />
-    <HelpKINode Title="methods" Url="html/Methods_T_Zyrenth_Zora_RingSecret.htm" />
-    <HelpKINode Title="properties" Url="html/Properties_T_Zyrenth_Zora_RingSecret.htm" />
+    <HelpKINode Title="RingSecret Class" Url="html/301F3616.htm" />
+    <HelpKINode Title="constructor" Url="html/9F89CACE.htm" />
+    <HelpKINode Title="events" Url="html/AF1F20A7.htm" />
+    <HelpKINode Title="methods" Url="html/A66E8D3B.htm" />
+    <HelpKINode Title="properties" Url="html/897F55E8.htm" />
   </HelpKINode>
-  <HelpKINode Title="RingSecret.Equals method" Url="html/M_Zyrenth_Zora_RingSecret_Equals.htm" />
-  <HelpKINode Title="RingSecret.GetHashCode method" Url="html/M_Zyrenth_Zora_RingSecret_GetHashCode.htm" />
-  <HelpKINode Title="RingSecret.Length property" Url="html/P_Zyrenth_Zora_RingSecret_Length.htm" />
-  <HelpKINode Title="RingSecret.Load method" Url="html/Overload_Zyrenth_Zora_RingSecret_Load.htm" />
-  <HelpKINode Title="RingSecret.Rings property" Url="html/P_Zyrenth_Zora_RingSecret_Rings.htm" />
-  <HelpKINode Title="RingSecret.RingSecret constructor" Url="html/Overload_Zyrenth_Zora_RingSecret__ctor.htm" />
-  <HelpKINode Title="RingSecret.ToBytes method" Url="html/M_Zyrenth_Zora_RingSecret_ToBytes.htm" />
-  <HelpKINode Title="RingSecret.UpdateGameInfo method" Url="html/M_Zyrenth_Zora_RingSecret_UpdateGameInfo.htm" />
-  <HelpKINode Title="RocsRing enumeration member" Url="html/T_Zyrenth_Zora_Rings.htm" />
-  <HelpKINode Title="RupeeRing enumeration member" Url="html/T_Zyrenth_Zora_Rings.htm" />
-  <HelpKINode Title="RuulSymmetry enumeration member" Url="html/T_Zyrenth_Zora_Memory.htm" />
-  <HelpKINode Title="Seasons enumeration member" Url="html/T_Zyrenth_Zora_Game.htm" />
+  <HelpKINode Title="RingSecret.Equals method" Url="html/70BB54EB.htm" />
+  <HelpKINode Title="RingSecret.GetHashCode method" Url="html/C3D7CB84.htm" />
+  <HelpKINode Title="RingSecret.Length property" Url="html/C37D6C6D.htm" />
+  <HelpKINode Title="RingSecret.Load method" Url="html/16BA5381.htm" />
+  <HelpKINode Title="RingSecret.Rings property" Url="html/1392424E.htm" />
+  <HelpKINode Title="RingSecret.RingSecret constructor" Url="html/9F89CACE.htm" />
+  <HelpKINode Title="RingSecret.ToBytes method" Url="html/FF6209F7.htm" />
+  <HelpKINode Title="RingSecret.UpdateGameInfo method" Url="html/996F03A.htm" />
+  <HelpKINode Title="RocsRing enumeration member" Url="html/AD31B02F.htm" />
+  <HelpKINode Title="RupeeRing enumeration member" Url="html/AD31B02F.htm" />
+  <HelpKINode Title="RuulSymmetry enumeration member" Url="html/E269640.htm" />
+  <HelpKINode Title="Seasons enumeration member" Url="html/BDD1C6F1.htm" />
   <HelpKINode Title="Secret class">
-    <HelpKINode Title="Secret Class" Url="html/T_Zyrenth_Zora_Secret.htm" />
-    <HelpKINode Title="about Secret class" Url="html/T_Zyrenth_Zora_Secret.htm" />
-    <HelpKINode Title="constructor" Url="html/M_Zyrenth_Zora_Secret__ctor.htm" />
-    <HelpKINode Title="events" Url="html/Events_T_Zyrenth_Zora_Secret.htm" />
-    <HelpKINode Title="methods" Url="html/Methods_T_Zyrenth_Zora_Secret.htm" />
-    <HelpKINode Title="properties" Url="html/Properties_T_Zyrenth_Zora_Secret.htm" />
+    <HelpKINode Title="Secret Class" Url="html/CC724F3E.htm" />
+    <HelpKINode Title="constructor" Url="html/AD331F07.htm" />
+    <HelpKINode Title="events" Url="html/76BF05A5.htm" />
+    <HelpKINode Title="methods" Url="html/6B0A630A.htm" />
+    <HelpKINode Title="properties" Url="html/B4D52824.htm" />
   </HelpKINode>
-  <HelpKINode Title="Secret.BinaryStringToByteArray method" Url="html/M_Zyrenth_Zora_Secret_BinaryStringToByteArray.htm" />
-  <HelpKINode Title="Secret.ByteArrayToBinaryString method" Url="html/M_Zyrenth_Zora_Secret_ByteArrayToBinaryString.htm" />
-  <HelpKINode Title="Secret.CalculateChecksum method" Url="html/M_Zyrenth_Zora_Secret_CalculateChecksum.htm" />
-  <HelpKINode Title="Secret.DecodeBytes method" Url="html/M_Zyrenth_Zora_Secret_DecodeBytes.htm" />
-  <HelpKINode Title="Secret.EncodeBytes method" Url="html/M_Zyrenth_Zora_Secret_EncodeBytes.htm" />
-  <HelpKINode Title="Secret.Equals method" Url="html/M_Zyrenth_Zora_Secret_Equals.htm" />
-  <HelpKINode Title="Secret.GameID property" Url="html/P_Zyrenth_Zora_Secret_GameID.htm" />
-  <HelpKINode Title="Secret.GetHashCode method" Url="html/M_Zyrenth_Zora_Secret_GetHashCode.htm" />
-  <HelpKINode Title="Secret.Length property" Url="html/P_Zyrenth_Zora_Secret_Length.htm" />
-  <HelpKINode Title="Secret.Load method" Url="html/Overload_Zyrenth_Zora_Secret_Load.htm" />
-  <HelpKINode Title="Secret.NotifyPropertyChanged method" Url="html/M_Zyrenth_Zora_Secret_NotifyPropertyChanged.htm" />
-  <HelpKINode Title="Secret.PropertyChanged event" Url="html/E_Zyrenth_Zora_Secret_PropertyChanged.htm" />
-  <HelpKINode Title="Secret.Secret constructor" Url="html/M_Zyrenth_Zora_Secret__ctor.htm" />
-  <HelpKINode Title="Secret.ToBytes method" Url="html/M_Zyrenth_Zora_Secret_ToBytes.htm" />
-  <HelpKINode Title="Secret.ToString method" Url="html/M_Zyrenth_Zora_Secret_ToString.htm" />
+  <HelpKINode Title="Secret.BinaryStringToByteArray method" Url="html/D3560EA9.htm" />
+  <HelpKINode Title="Secret.ByteArrayToBinaryString method" Url="html/F5FA5D6E.htm" />
+  <HelpKINode Title="Secret.CalculateChecksum method" Url="html/2468395A.htm" />
+  <HelpKINode Title="Secret.DecodeBytes method" Url="html/A3C4351C.htm" />
+  <HelpKINode Title="Secret.EncodeBytes method" Url="html/195DD159.htm" />
+  <HelpKINode Title="Secret.Equals method" Url="html/71584224.htm" />
+  <HelpKINode Title="Secret.GameID property" Url="html/DC1F1939.htm" />
+  <HelpKINode Title="Secret.GetHashCode method" Url="html/CD0F06BE.htm" />
+  <HelpKINode Title="Secret.Length property" Url="html/5E88131C.htm" />
+  <HelpKINode Title="Secret.Load method" Url="html/D3C5C781.htm" />
+  <HelpKINode Title="Secret.NotifyPropertyChanged method" Url="html/95602162.htm" />
+  <HelpKINode Title="Secret.PropertyChanged event" Url="html/1FF142F.htm" />
+  <HelpKINode Title="Secret.Region property" Url="html/906914F2.htm" />
+  <HelpKINode Title="Secret.Secret constructor" Url="html/AD331F07.htm" />
+  <HelpKINode Title="Secret.ToBytes method" Url="html/53886693.htm" />
+  <HelpKINode Title="Secret.ToString method" Url="html/977D7F39.htm" />
+  <HelpKINode Title="SecretException class">
+    <HelpKINode Title="SecretException Class" Url="html/6830FBC0.htm" />
+    <HelpKINode Title="constructor" Url="html/6CAA98B7.htm" />
+    <HelpKINode Title="events" Url="html/F4AC5F18.htm" />
+    <HelpKINode Title="methods" Url="html/38A5A44E.htm" />
+    <HelpKINode Title="properties" Url="html/2FDE7220.htm" />
+  </HelpKINode>
+  <HelpKINode Title="SecretException.SecretException constructor" Url="html/6CAA98B7.htm" />
   <HelpKINode Title="SecretParser class">
-    <HelpKINode Title="SecretParser Class" Url="html/T_Zyrenth_Zora_SecretParser.htm" />
-    <HelpKINode Title="about SecretParser class" Url="html/T_Zyrenth_Zora_SecretParser.htm" />
-    <HelpKINode Title="methods" Url="html/Methods_T_Zyrenth_Zora_SecretParser.htm" />
+    <HelpKINode Title="SecretParser Class" Url="html/98E26E0A.htm" />
+    <HelpKINode Title="methods" Url="html/6AA56E70.htm" />
   </HelpKINode>
-  <HelpKINode Title="SecretParser.CreateString method" Url="html/M_Zyrenth_Zora_SecretParser_CreateString.htm" />
-  <HelpKINode Title="SecretParser.ParseSecret method" Url="html/M_Zyrenth_Zora_SecretParser_ParseSecret.htm" />
-  <HelpKINode Title="Serialize method" Url="html/M_Zyrenth_Zora_GameInfoJsonConverter_Serialize.htm" />
-  <HelpKINode Title="ShyA enumeration member" Url="html/T_Zyrenth_Zora_ChildBehavior.htm" />
-  <HelpKINode Title="ShyB enumeration member" Url="html/T_Zyrenth_Zora_ChildBehavior.htm" />
-  <HelpKINode Title="ShyC enumeration member" Url="html/T_Zyrenth_Zora_ChildBehavior.htm" />
-  <HelpKINode Title="ShyD enumeration member" Url="html/T_Zyrenth_Zora_ChildBehavior.htm" />
-  <HelpKINode Title="ShyE enumeration member" Url="html/T_Zyrenth_Zora_ChildBehavior.htm" />
-  <HelpKINode Title="SignRing enumeration member" Url="html/T_Zyrenth_Zora_Rings.htm" />
-  <HelpKINode Title="SlayersRing enumeration member" Url="html/T_Zyrenth_Zora_Rings.htm" />
-  <HelpKINode Title="Slot1Offset field" Url="html/F_Zyrenth_Zora_BatteryFileLoader_Slot1Offset.htm" />
-  <HelpKINode Title="Slot2Offset field" Url="html/F_Zyrenth_Zora_BatteryFileLoader_Slot2Offset.htm" />
-  <HelpKINode Title="Slot3Offset field" Url="html/F_Zyrenth_Zora_BatteryFileLoader_Slot3Offset.htm" />
-  <HelpKINode Title="SmithLibrary enumeration member" Url="html/T_Zyrenth_Zora_Memory.htm" />
-  <HelpKINode Title="SnowshoeRing enumeration member" Url="html/T_Zyrenth_Zora_Rings.htm" />
-  <HelpKINode Title="SpinRing enumeration member" Url="html/T_Zyrenth_Zora_Rings.htm" />
-  <HelpKINode Title="SteadfastRing enumeration member" Url="html/T_Zyrenth_Zora_Rings.htm" />
-  <HelpKINode Title="SubrosianRing enumeration member" Url="html/T_Zyrenth_Zora_Rings.htm" />
-  <HelpKINode Title="SubrosianTroy enumeration member" Url="html/T_Zyrenth_Zora_Memory.htm" />
-  <HelpKINode Title="SupportedTypes property" Url="html/P_Zyrenth_Zora_GameInfoJsonConverter_SupportedTypes.htm" />
-  <HelpKINode Title="SwimmersRing enumeration member" Url="html/T_Zyrenth_Zora_Rings.htm" />
+  <HelpKINode Title="SecretParser.CreateString method" Url="html/5ABE0A86.htm" />
+  <HelpKINode Title="SecretParser.ParseSecret method" Url="html/C98E691C.htm" />
+  <HelpKINode Title="Serialize method" Url="html/B27944DC.htm" />
+  <HelpKINode Title="SignRing enumeration member" Url="html/AD31B02F.htm" />
+  <HelpKINode Title="SlayersRing enumeration member" Url="html/AD31B02F.htm" />
+  <HelpKINode Title="Slot1Offset field" Url="html/E4B7AC3A.htm" />
+  <HelpKINode Title="Slot2Offset field" Url="html/E41AAC3A.htm" />
+  <HelpKINode Title="Slot3Offset field" Url="html/E3F9AC3A.htm" />
+  <HelpKINode Title="SmithLibrary enumeration member" Url="html/E269640.htm" />
+  <HelpKINode Title="SnowshoeRing enumeration member" Url="html/AD31B02F.htm" />
+  <HelpKINode Title="SpinRing enumeration member" Url="html/AD31B02F.htm" />
+  <HelpKINode Title="SteadfastRing enumeration member" Url="html/AD31B02F.htm" />
+  <HelpKINode Title="SubrosianRing enumeration member" Url="html/AD31B02F.htm" />
+  <HelpKINode Title="SubrosianTroy enumeration member" Url="html/E269640.htm" />
+  <HelpKINode Title="SwimmersRing enumeration member" Url="html/AD31B02F.htm" />
   <HelpKINode Title="TargetGame property">
-    <HelpKINode Title="GameSecret.TargetGame Property " Url="html/P_Zyrenth_Zora_GameSecret_TargetGame.htm" />
-    <HelpKINode Title="MemorySecret.TargetGame Property " Url="html/P_Zyrenth_Zora_MemorySecret_TargetGame.htm" />
+    <HelpKINode Title="GameSecret.TargetGame Property " Url="html/A1618C91.htm" />
+    <HelpKINode Title="MemorySecret.TargetGame Property " Url="html/659623E4.htm" />
   </HelpKINode>
-  <HelpKINode Title="TempleMamamu enumeration member" Url="html/T_Zyrenth_Zora_Memory.htm" />
-  <HelpKINode Title="Title property" Url="html/P_Zyrenth_Zora_AssemblyDetail_Title.htm" />
+  <HelpKINode Title="TempleMamamu enumeration member" Url="html/E269640.htm" />
+  <HelpKINode Title="Title property" Url="html/70FA270B.htm" />
   <HelpKINode Title="ToBytes method">
-    <HelpKINode Title="GameSecret.ToBytes Method " Url="html/M_Zyrenth_Zora_GameSecret_ToBytes.htm" />
-    <HelpKINode Title="MemorySecret.ToBytes Method " Url="html/M_Zyrenth_Zora_MemorySecret_ToBytes.htm" />
-    <HelpKINode Title="RingSecret.ToBytes Method " Url="html/M_Zyrenth_Zora_RingSecret_ToBytes.htm" />
-    <HelpKINode Title="Secret.ToBytes Method " Url="html/M_Zyrenth_Zora_Secret_ToBytes.htm" />
+    <HelpKINode Title="GameSecret.ToBytes Method " Url="html/EFEFC189.htm" />
+    <HelpKINode Title="MemorySecret.ToBytes Method " Url="html/FEB3556D.htm" />
+    <HelpKINode Title="RingSecret.ToBytes Method " Url="html/FF6209F7.htm" />
+    <HelpKINode Title="Secret.ToBytes Method " Url="html/53886693.htm" />
   </HelpKINode>
-  <HelpKINode Title="TossRing enumeration member" Url="html/T_Zyrenth_Zora_Rings.htm" />
-  <HelpKINode Title="ToString method" Url="html/M_Zyrenth_Zora_Secret_ToString.htm" />
-  <HelpKINode Title="Trademark property" Url="html/P_Zyrenth_Zora_AssemblyDetail_Trademark.htm" />
-  <HelpKINode Title="Unknown58 property">
-    <HelpKINode Title="GameInfo.Unknown58 Property " Url="html/P_Zyrenth_Zora_GameInfo_Unknown58.htm" />
-    <HelpKINode Title="GameSecret.Unknown58 Property " Url="html/P_Zyrenth_Zora_GameSecret_Unknown58.htm" />
-  </HelpKINode>
-  <HelpKINode Title="Unknown59 property">
-    <HelpKINode Title="GameInfo.Unknown59 Property " Url="html/P_Zyrenth_Zora_GameInfo_Unknown59.htm" />
-    <HelpKINode Title="GameSecret.Unknown59 Property " Url="html/P_Zyrenth_Zora_GameSecret_Unknown59.htm" />
-  </HelpKINode>
-  <HelpKINode Title="Unknown88 property">
-    <HelpKINode Title="GameInfo.Unknown88 Property " Url="html/P_Zyrenth_Zora_GameInfo_Unknown88.htm" />
-    <HelpKINode Title="GameSecret.Unknown88 Property " Url="html/P_Zyrenth_Zora_GameSecret_Unknown88.htm" />
-  </HelpKINode>
+  <HelpKINode Title="TossRing enumeration member" Url="html/AD31B02F.htm" />
+  <HelpKINode Title="ToString method" Url="html/977D7F39.htm" />
+  <HelpKINode Title="Trademark property" Url="html/8BD6D2E.htm" />
   <HelpKINode Title="UpdateGameInfo method">
-    <HelpKINode Title="GameSecret.UpdateGameInfo Method " Url="html/M_Zyrenth_Zora_GameSecret_UpdateGameInfo.htm" />
-    <HelpKINode Title="RingSecret.UpdateGameInfo Method " Url="html/M_Zyrenth_Zora_RingSecret_UpdateGameInfo.htm" />
+    <HelpKINode Title="GameSecret.UpdateGameInfo Method " Url="html/3B400974.htm" />
+    <HelpKINode Title="RingSecret.UpdateGameInfo Method " Url="html/996F03A.htm" />
   </HelpKINode>
-  <HelpKINode Title="VictoryRing enumeration member" Url="html/T_Zyrenth_Zora_Rings.htm" />
+  <HelpKINode Title="US enumeration member" Url="html/C297CB44.htm" />
+  <HelpKINode Title="USEncoding class">
+    <HelpKINode Title="USEncoding Class" Url="html/C27E9958.htm" />
+    <HelpKINode Title="constructor" Url="html/2D3F6B60.htm" />
+    <HelpKINode Title="methods" Url="html/1C8B4163.htm" />
+    <HelpKINode Title="properties" Url="html/5E973332.htm" />
+  </HelpKINode>
+  <HelpKINode Title="USEncoding.GetByteCount method" Url="html/E5952124.htm" />
+  <HelpKINode Title="USEncoding.GetBytes method" Url="html/1E4F103A.htm" />
+  <HelpKINode Title="USEncoding.GetCharCount method" Url="html/55D2C3F0.htm" />
+  <HelpKINode Title="USEncoding.GetChars method" Url="html/BF42B7DC.htm" />
+  <HelpKINode Title="USEncoding.GetMaxByteCount method" Url="html/EE34FB10.htm" />
+  <HelpKINode Title="USEncoding.GetMaxCharCount method" Url="html/F63C80C0.htm" />
+  <HelpKINode Title="USEncoding.USEncoding constructor" Url="html/2D3F6B60.htm" />
+  <HelpKINode Title="VictoryRing enumeration member" Url="html/AD31B02F.htm" />
   <HelpKINode Title="WasGivenFreeRing property">
-    <HelpKINode Title="GameInfo.WasGivenFreeRing Property " Url="html/P_Zyrenth_Zora_GameInfo_WasGivenFreeRing.htm" />
-    <HelpKINode Title="GameSecret.WasGivenFreeRing Property " Url="html/P_Zyrenth_Zora_GameSecret_WasGivenFreeRing.htm" />
+    <HelpKINode Title="GameInfo.WasGivenFreeRing Property " Url="html/D468A092.htm" />
+    <HelpKINode Title="GameSecret.WasGivenFreeRing Property " Url="html/6FE09157.htm" />
   </HelpKINode>
-  <HelpKINode Title="WhimsicalRing enumeration member" Url="html/T_Zyrenth_Zora_Rings.htm" />
-  <HelpKINode Title="WhispRing enumeration member" Url="html/T_Zyrenth_Zora_Rings.htm" />
-  <HelpKINode Title="Write method" Url="html/Overload_Zyrenth_Zora_GameInfo_Write.htm" />
-  <HelpKINode Title="ZoraRing enumeration member" Url="html/T_Zyrenth_Zora_Rings.htm" />
-  <HelpKINode Title="Zyrenth.Zora namespace" Url="html/N_Zyrenth_Zora.htm" />
-  <HelpKINode Title="Zyrenth.Zora.Animal enumeration" Url="html/T_Zyrenth_Zora_Animal.htm" />
-  <HelpKINode Title="Zyrenth.Zora.AssemblyDetail class" Url="html/T_Zyrenth_Zora_AssemblyDetail.htm" />
-  <HelpKINode Title="Zyrenth.Zora.BatteryFileLoader class" Url="html/T_Zyrenth_Zora_BatteryFileLoader.htm" />
-  <HelpKINode Title="Zyrenth.Zora.ChildBehavior enumeration" Url="html/T_Zyrenth_Zora_ChildBehavior.htm" />
-  <HelpKINode Title="Zyrenth.Zora.Extensions class" Url="html/T_Zyrenth_Zora_Extensions.htm" />
-  <HelpKINode Title="Zyrenth.Zora.Game enumeration" Url="html/T_Zyrenth_Zora_Game.htm" />
-  <HelpKINode Title="Zyrenth.Zora.GameInfo class" Url="html/T_Zyrenth_Zora_GameInfo.htm" />
-  <HelpKINode Title="Zyrenth.Zora.GameInfoJsonConverter class" Url="html/T_Zyrenth_Zora_GameInfoJsonConverter.htm" />
-  <HelpKINode Title="Zyrenth.Zora.GameSecret class" Url="html/T_Zyrenth_Zora_GameSecret.htm" />
-  <HelpKINode Title="Zyrenth.Zora.InvalidSecretException class" Url="html/T_Zyrenth_Zora_InvalidSecretException.htm" />
-  <HelpKINode Title="Zyrenth.Zora.Memory enumeration" Url="html/T_Zyrenth_Zora_Memory.htm" />
-  <HelpKINode Title="Zyrenth.Zora.MemorySecret class" Url="html/T_Zyrenth_Zora_MemorySecret.htm" />
-  <HelpKINode Title="Zyrenth.Zora.RingInfoAttribute class" Url="html/T_Zyrenth_Zora_RingInfoAttribute.htm" />
-  <HelpKINode Title="Zyrenth.Zora.Rings enumeration" Url="html/T_Zyrenth_Zora_Rings.htm" />
-  <HelpKINode Title="Zyrenth.Zora.RingSecret class" Url="html/T_Zyrenth_Zora_RingSecret.htm" />
-  <HelpKINode Title="Zyrenth.Zora.Secret class" Url="html/T_Zyrenth_Zora_Secret.htm" />
-  <HelpKINode Title="Zyrenth.Zora.SecretParser class" Url="html/T_Zyrenth_Zora_SecretParser.htm" />
+  <HelpKINode Title="WhimsicalRing enumeration member" Url="html/AD31B02F.htm" />
+  <HelpKINode Title="WhispRing enumeration member" Url="html/AD31B02F.htm" />
+  <HelpKINode Title="Write method" Url="html/E1E72B59.htm" />
+  <HelpKINode Title="ZoraRing enumeration member" Url="html/AD31B02F.htm" />
+  <HelpKINode Title="Zyrenth.Zora namespace" Url="html/F3BD7206.htm" />
+  <HelpKINode Title="Zyrenth.Zora.Animal enumeration" Url="html/BE5CAD54.htm" />
+  <HelpKINode Title="Zyrenth.Zora.AssemblyDetail class" Url="html/EE200176.htm" />
+  <HelpKINode Title="Zyrenth.Zora.BatteryFileLoader class" Url="html/33B4051C.htm" />
+  <HelpKINode Title="Zyrenth.Zora.Extensions class" Url="html/817AEFCE.htm" />
+  <HelpKINode Title="Zyrenth.Zora.Game enumeration" Url="html/BDD1C6F1.htm" />
+  <HelpKINode Title="Zyrenth.Zora.GameInfo class" Url="html/C82F346A.htm" />
+  <HelpKINode Title="Zyrenth.Zora.GameInfoJsonConverter class" Url="html/A99807CB.htm" />
+  <HelpKINode Title="Zyrenth.Zora.GameRegion enumeration" Url="html/C297CB44.htm" />
+  <HelpKINode Title="Zyrenth.Zora.GameSecret class" Url="html/BABAFB87.htm" />
+  <HelpKINode Title="Zyrenth.Zora.InvalidChecksumException class" Url="html/BF3B720E.htm" />
+  <HelpKINode Title="Zyrenth.Zora.JapaneseEncoding class" Url="html/C7508892.htm" />
+  <HelpKINode Title="Zyrenth.Zora.Memory enumeration" Url="html/E269640.htm" />
+  <HelpKINode Title="Zyrenth.Zora.MemorySecret class" Url="html/6F8A4167.htm" />
+  <HelpKINode Title="Zyrenth.Zora.RingInfoAttribute class" Url="html/3E77D1FD.htm" />
+  <HelpKINode Title="Zyrenth.Zora.Rings enumeration" Url="html/AD31B02F.htm" />
+  <HelpKINode Title="Zyrenth.Zora.RingSecret class" Url="html/301F3616.htm" />
+  <HelpKINode Title="Zyrenth.Zora.Secret class" Url="html/CC724F3E.htm" />
+  <HelpKINode Title="Zyrenth.Zora.SecretException class" Url="html/6830FBC0.htm" />
+  <HelpKINode Title="Zyrenth.Zora.SecretParser class" Url="html/98E26E0A.htm" />
+  <HelpKINode Title="Zyrenth.Zora.USEncoding class" Url="html/C27E9958.htm" />
 </HelpKI>

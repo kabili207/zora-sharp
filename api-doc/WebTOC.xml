@@ -1,220 +1,265 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <HelpTOC>
 
-  <HelpTOCNode Id="062bb303-662f-48e2-b6e6-5d4017886d36" Title="Zyrenth.Zora" Url="html/N_Zyrenth_Zora.htm">
-    <HelpTOCNode Title="Animal Enumeration" Url="html/T_Zyrenth_Zora_Animal.htm" />
-    <HelpTOCNode Id="8acad734-4c60-431e-aa8c-0e6c152ca0ac" Title="AssemblyDetail Class" Url="html/T_Zyrenth_Zora_AssemblyDetail.htm">
-      <HelpTOCNode Title="AssemblyDetail Constructor " Url="html/M_Zyrenth_Zora_AssemblyDetail__ctor.htm" />
-      <HelpTOCNode Title="AssemblyDetail Methods" Url="html/Methods_T_Zyrenth_Zora_AssemblyDetail.htm" />
-      <HelpTOCNode Id="76ae736a-e128-4702-b658-111a39bb9d64" Title="AssemblyDetail Properties" Url="html/Properties_T_Zyrenth_Zora_AssemblyDetail.htm">
-        <HelpTOCNode Title="Company Property " Url="html/P_Zyrenth_Zora_AssemblyDetail_Company.htm" />
-        <HelpTOCNode Title="Copyright Property " Url="html/P_Zyrenth_Zora_AssemblyDetail_Copyright.htm" />
-        <HelpTOCNode Title="Description Property " Url="html/P_Zyrenth_Zora_AssemblyDetail_Description.htm" />
-        <HelpTOCNode Title="FileVersion Property " Url="html/P_Zyrenth_Zora_AssemblyDetail_FileVersion.htm" />
-        <HelpTOCNode Title="Product Property " Url="html/P_Zyrenth_Zora_AssemblyDetail_Product.htm" />
-        <HelpTOCNode Title="ProductVersion Property " Url="html/P_Zyrenth_Zora_AssemblyDetail_ProductVersion.htm" />
-        <HelpTOCNode Title="Title Property " Url="html/P_Zyrenth_Zora_AssemblyDetail_Title.htm" />
-        <HelpTOCNode Title="Trademark Property " Url="html/P_Zyrenth_Zora_AssemblyDetail_Trademark.htm" />
+  <HelpTOCNode Id="071f7cf1-88fd-4382-808a-24b957740513" Title="Zyrenth.Zora" Url="html/F3BD7206.htm">
+    <HelpTOCNode Title="Animal Enumeration" Url="html/BE5CAD54.htm" />
+    <HelpTOCNode Id="7fc04d51-310a-4819-9467-4f9738dc7483" Title="AssemblyDetail Class" Url="html/EE200176.htm">
+      <HelpTOCNode Title="AssemblyDetail Constructor " Url="html/8037D52A.htm" />
+      <HelpTOCNode Id="181a88d3-768d-47c5-bf16-dd88064a64bc" Title="AssemblyDetail Properties" Url="html/3B97A93A.htm">
+        <HelpTOCNode Title="Company Property " Url="html/9CA665DD.htm" />
+        <HelpTOCNode Title="Copyright Property " Url="html/8368C860.htm" />
+        <HelpTOCNode Title="Description Property " Url="html/5CA6217A.htm" />
+        <HelpTOCNode Title="FileVersion Property " Url="html/EC24D1C7.htm" />
+        <HelpTOCNode Title="Product Property " Url="html/60A2B2C7.htm" />
+        <HelpTOCNode Title="ProductVersion Property " Url="html/FF857F8E.htm" />
+        <HelpTOCNode Title="Title Property " Url="html/70FA270B.htm" />
+        <HelpTOCNode Title="Trademark Property " Url="html/8BD6D2E.htm" />
       </HelpTOCNode>
+      <HelpTOCNode Title="AssemblyDetail Methods" Url="html/DD727EA6.htm" />
     </HelpTOCNode>
-    <HelpTOCNode Id="4223b686-9a5f-4537-8bf5-50a4769aec51" Title="BatteryFileLoader Class" Url="html/T_Zyrenth_Zora_BatteryFileLoader.htm">
-      <HelpTOCNode Title="BatteryFileLoader Constructor " Url="html/M_Zyrenth_Zora_BatteryFileLoader__ctor.htm" />
-      <HelpTOCNode Id="cb0dab31-9dc0-4bfe-94d5-6b3d8729f4f2" Title="BatteryFileLoader Fields" Url="html/Fields_T_Zyrenth_Zora_BatteryFileLoader.htm">
-        <HelpTOCNode Title="Slot1Offset Field" Url="html/F_Zyrenth_Zora_BatteryFileLoader_Slot1Offset.htm" />
-        <HelpTOCNode Title="Slot2Offset Field" Url="html/F_Zyrenth_Zora_BatteryFileLoader_Slot2Offset.htm" />
-        <HelpTOCNode Title="Slot3Offset Field" Url="html/F_Zyrenth_Zora_BatteryFileLoader_Slot3Offset.htm" />
-      </HelpTOCNode>
-      <HelpTOCNode Id="e8786342-2e6a-466b-a7ca-274c2b1d2a3e" Title="BatteryFileLoader Methods" Url="html/Methods_T_Zyrenth_Zora_BatteryFileLoader.htm">
-        <HelpTOCNode Id="1e781898-1683-4742-9f43-66d46ecd676a" Title="Load Method " Url="html/Overload_Zyrenth_Zora_BatteryFileLoader_Load.htm">
-          <HelpTOCNode Title="Load Method (Stream, Int32)" Url="html/M_Zyrenth_Zora_BatteryFileLoader_Load.htm" />
-          <HelpTOCNode Title="Load Method (String, Int32)" Url="html/M_Zyrenth_Zora_BatteryFileLoader_Load_1.htm" />
+    <HelpTOCNode Id="1a48d18c-46ea-4d02-bf32-ea4176009515" Title="BatteryFileLoader Class" Url="html/33B4051C.htm">
+      <HelpTOCNode Title="BatteryFileLoader Constructor " Url="html/34F49651.htm" />
+      <HelpTOCNode Id="39df36ee-e948-43f1-9178-70e1ea623aef" Title="BatteryFileLoader Methods" Url="html/4076CB83.htm">
+        <HelpTOCNode Id="a1df75c2-dd5e-4363-9922-b2f1e05ff62a" Title="Load Method " Url="html/F0CCDB1A.htm">
+          <HelpTOCNode Title="Load Method (Stream, GameRegion, Int32)" Url="html/92CD1F16.htm" />
+          <HelpTOCNode Title="Load Method (String, GameRegion, Int32)" Url="html/6E2F1EE6.htm" />
         </HelpTOCNode>
-        <HelpTOCNode Id="cf6e728d-8995-45de-b0cc-21c1b1c413d9" Title="LoadAll Method " Url="html/Overload_Zyrenth_Zora_BatteryFileLoader_LoadAll.htm">
-          <HelpTOCNode Title="LoadAll Method (Stream)" Url="html/M_Zyrenth_Zora_BatteryFileLoader_LoadAll.htm" />
-          <HelpTOCNode Title="LoadAll Method (String)" Url="html/M_Zyrenth_Zora_BatteryFileLoader_LoadAll_1.htm" />
+        <HelpTOCNode Id="ebac4f03-c7db-4ccf-9a99-7ec071e468ce" Title="LoadAll Method " Url="html/20E99A5F.htm">
+          <HelpTOCNode Title="LoadAll Method (Stream, GameRegion)" Url="html/D25CFE9F.htm" />
+          <HelpTOCNode Title="LoadAll Method (String, GameRegion)" Url="html/2E539834.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-    </HelpTOCNode>
-    <HelpTOCNode Title="ChildBehavior Enumeration" Url="html/T_Zyrenth_Zora_ChildBehavior.htm" />
-    <HelpTOCNode Id="72cf8b4c-20c4-4fa9-9fb8-20353069f418" Title="Extensions Class" Url="html/T_Zyrenth_Zora_Extensions.htm">
-      <HelpTOCNode Id="886d557f-f962-4d75-9f26-bda3302e6f36" Title="Extensions Methods" Url="html/Methods_T_Zyrenth_Zora_Extensions.htm">
-        <HelpTOCNode Title="ReadValue(T) Method " Url="html/M_Zyrenth_Zora_Extensions_ReadValue__1.htm" />
+      <HelpTOCNode Id="b51057fb-4de5-4e3f-81fb-c4a07351cdfc" Title="BatteryFileLoader Fields" Url="html/67D77272.htm">
+        <HelpTOCNode Title="Slot1Offset Field" Url="html/E4B7AC3A.htm" />
+        <HelpTOCNode Title="Slot2Offset Field" Url="html/E41AAC3A.htm" />
+        <HelpTOCNode Title="Slot3Offset Field" Url="html/E3F9AC3A.htm" />
       </HelpTOCNode>
     </HelpTOCNode>
-    <HelpTOCNode Title="Game Enumeration" Url="html/T_Zyrenth_Zora_Game.htm" />
-    <HelpTOCNode Id="7844ec32-4fc6-4d3a-bfd1-e7a856587895" Title="GameInfo Class" Url="html/T_Zyrenth_Zora_GameInfo.htm">
-      <HelpTOCNode Title="GameInfo Constructor " Url="html/M_Zyrenth_Zora_GameInfo__ctor.htm" />
-      <HelpTOCNode Id="969f720b-bb2b-4d01-94d0-418621fcb239" Title="GameInfo Methods" Url="html/Methods_T_Zyrenth_Zora_GameInfo.htm">
-        <HelpTOCNode Title="Equals Method " Url="html/M_Zyrenth_Zora_GameInfo_Equals.htm" />
-        <HelpTOCNode Title="GetHashCode Method " Url="html/M_Zyrenth_Zora_GameInfo_GetHashCode.htm" />
-        <HelpTOCNode Id="b33a953e-c1a6-487f-9913-a33c5f8c4355" Title="Load Method " Url="html/Overload_Zyrenth_Zora_GameInfo_Load.htm">
-          <HelpTOCNode Title="Load Method (Stream)" Url="html/M_Zyrenth_Zora_GameInfo_Load.htm" />
-          <HelpTOCNode Title="Load Method (String)" Url="html/M_Zyrenth_Zora_GameInfo_Load_1.htm" />
+    <HelpTOCNode Id="364358b5-2636-41f1-96ce-814fe37bec28" Title="Extensions Class" Url="html/817AEFCE.htm">
+      <HelpTOCNode Id="2206068a-e785-459a-9dcb-c7a2703b539b" Title="Extensions Methods" Url="html/8775D370.htm">
+        <HelpTOCNode Title="ReadValue(T) Method " Url="html/B7B1F4A0.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Title="Game Enumeration" Url="html/BDD1C6F1.htm" />
+    <HelpTOCNode Id="5cc16fd3-998c-4fef-83a4-c0cfa651cc78" Title="GameInfo Class" Url="html/C82F346A.htm">
+      <HelpTOCNode Title="GameInfo Constructor " Url="html/6AD327C7.htm" />
+      <HelpTOCNode Id="11b1eaf9-e7d7-4f67-87a4-a4dad1fc7652" Title="GameInfo Properties" Url="html/D22EAB76.htm">
+        <HelpTOCNode Title="Animal Property " Url="html/65A826C.htm" />
+        <HelpTOCNode Title="Behavior Property " Url="html/8080D865.htm" />
+        <HelpTOCNode Title="Child Property " Url="html/915582AF.htm" />
+        <HelpTOCNode Title="Game Property " Url="html/D5497D77.htm" />
+        <HelpTOCNode Title="GameID Property " Url="html/D595AFE2.htm" />
+        <HelpTOCNode Title="Hero Property " Url="html/A8F91FB3.htm" />
+        <HelpTOCNode Title="IsHeroQuest Property " Url="html/C136E126.htm" />
+        <HelpTOCNode Title="IsLinkedGame Property " Url="html/CE81C6C1.htm" />
+        <HelpTOCNode Title="Region Property " Url="html/3223C5B.htm" />
+        <HelpTOCNode Title="Rings Property " Url="html/8FCB22FC.htm" />
+        <HelpTOCNode Title="WasGivenFreeRing Property " Url="html/D468A092.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="ca56b363-d986-4a54-8800-f91e5feb5286" Title="GameInfo Methods" Url="html/50FF29A5.htm">
+        <HelpTOCNode Title="Equals Method " Url="html/818BA16E.htm" />
+        <HelpTOCNode Title="GetHashCode Method " Url="html/E89803BB.htm" />
+        <HelpTOCNode Id="cacbec19-8d12-420d-a2c7-572858b3ebb5" Title="Load Method " Url="html/A533E1B6.htm">
+          <HelpTOCNode Title="Load Method (Stream)" Url="html/146A9479.htm" />
+          <HelpTOCNode Title="Load Method (String)" Url="html/9095BE94.htm" />
         </HelpTOCNode>
-        <HelpTOCNode Title="NotifyPropertyChanged Method " Url="html/M_Zyrenth_Zora_GameInfo_NotifyPropertyChanged.htm" />
-        <HelpTOCNode Title="Parse Method " Url="html/M_Zyrenth_Zora_GameInfo_Parse.htm" />
-        <HelpTOCNode Id="6d63130f-5d37-4f21-9c32-4a53c17a0317" Title="Write Method " Url="html/Overload_Zyrenth_Zora_GameInfo_Write.htm">
-          <HelpTOCNode Title="Write Method (Stream)" Url="html/M_Zyrenth_Zora_GameInfo_Write.htm" />
-          <HelpTOCNode Title="Write Method (String)" Url="html/M_Zyrenth_Zora_GameInfo_Write_1.htm" />
+        <HelpTOCNode Title="NotifyPropertyChanged Method " Url="html/FC8187D3.htm" />
+        <HelpTOCNode Title="Parse Method " Url="html/7989E9F1.htm" />
+        <HelpTOCNode Id="ad828b41-f136-4d3a-9fc3-1ad001b7c46d" Title="Write Method " Url="html/E1E72B59.htm">
+          <HelpTOCNode Title="Write Method (Stream)" Url="html/35981A11.htm" />
+          <HelpTOCNode Title="Write Method (String)" Url="html/A873D2D9.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="23537fad-2d78-4655-b7d9-34a67e3055da" Title="GameInfo Properties" Url="html/Properties_T_Zyrenth_Zora_GameInfo.htm">
-        <HelpTOCNode Title="Animal Property " Url="html/P_Zyrenth_Zora_GameInfo_Animal.htm" />
-        <HelpTOCNode Title="Behavior Property " Url="html/P_Zyrenth_Zora_GameInfo_Behavior.htm" />
-        <HelpTOCNode Title="Child Property " Url="html/P_Zyrenth_Zora_GameInfo_Child.htm" />
-        <HelpTOCNode Title="Game Property " Url="html/P_Zyrenth_Zora_GameInfo_Game.htm" />
-        <HelpTOCNode Title="GameID Property " Url="html/P_Zyrenth_Zora_GameInfo_GameID.htm" />
-        <HelpTOCNode Title="Hero Property " Url="html/P_Zyrenth_Zora_GameInfo_Hero.htm" />
-        <HelpTOCNode Title="IsHeroQuest Property " Url="html/P_Zyrenth_Zora_GameInfo_IsHeroQuest.htm" />
-        <HelpTOCNode Title="IsLinkedGame Property " Url="html/P_Zyrenth_Zora_GameInfo_IsLinkedGame.htm" />
-        <HelpTOCNode Title="Rings Property " Url="html/P_Zyrenth_Zora_GameInfo_Rings.htm" />
-        <HelpTOCNode Title="Unknown58 Property " Url="html/P_Zyrenth_Zora_GameInfo_Unknown58.htm" />
-        <HelpTOCNode Title="Unknown59 Property " Url="html/P_Zyrenth_Zora_GameInfo_Unknown59.htm" />
-        <HelpTOCNode Title="Unknown88 Property " Url="html/P_Zyrenth_Zora_GameInfo_Unknown88.htm" />
-        <HelpTOCNode Title="WasGivenFreeRing Property " Url="html/P_Zyrenth_Zora_GameInfo_WasGivenFreeRing.htm" />
-      </HelpTOCNode>
-      <HelpTOCNode Id="ac92c925-83b3-4c21-af7b-27872c498b7f" Title="GameInfo Events" Url="html/Events_T_Zyrenth_Zora_GameInfo.htm">
-        <HelpTOCNode Title="PropertyChanged Event" Url="html/E_Zyrenth_Zora_GameInfo_PropertyChanged.htm" />
+      <HelpTOCNode Id="c8fe4701-072c-4458-b1c5-19b2e1311c48" Title="GameInfo Events" Url="html/CA9F3B54.htm">
+        <HelpTOCNode Title="PropertyChanged Event" Url="html/7C951F4F.htm" />
       </HelpTOCNode>
     </HelpTOCNode>
-    <HelpTOCNode Id="1ae8b84b-e82f-404e-8246-ac19b4e59c3f" Title="GameInfoJsonConverter Class" Url="html/T_Zyrenth_Zora_GameInfoJsonConverter.htm">
-      <HelpTOCNode Title="GameInfoJsonConverter Constructor " Url="html/M_Zyrenth_Zora_GameInfoJsonConverter__ctor.htm" />
-      <HelpTOCNode Id="42e66d62-8da8-4fd8-bfe5-36ea7cde7a80" Title="GameInfoJsonConverter Methods" Url="html/Methods_T_Zyrenth_Zora_GameInfoJsonConverter.htm">
-        <HelpTOCNode Title="Deserialize Method " Url="html/M_Zyrenth_Zora_GameInfoJsonConverter_Deserialize.htm" />
-        <HelpTOCNode Title="Serialize Method " Url="html/M_Zyrenth_Zora_GameInfoJsonConverter_Serialize.htm" />
-      </HelpTOCNode>
-      <HelpTOCNode Id="92abd3c8-0bf5-4e53-b4fd-15d3b8d64e7b" Title="GameInfoJsonConverter Properties" Url="html/Properties_T_Zyrenth_Zora_GameInfoJsonConverter.htm">
-        <HelpTOCNode Title="SupportedTypes Property " Url="html/P_Zyrenth_Zora_GameInfoJsonConverter_SupportedTypes.htm" />
+    <HelpTOCNode Id="982d7ff7-8d03-49a2-9478-4c09d2044045" Title="GameInfoJsonConverter Class" Url="html/A99807CB.htm">
+      <HelpTOCNode Title="GameInfoJsonConverter Constructor " Url="html/8F6F4C13.htm" />
+      <HelpTOCNode Id="4705bfaf-b131-4f6b-86f8-741b7f189f5c" Title="GameInfoJsonConverter Methods" Url="html/885D6FF0.htm">
+        <HelpTOCNode Title="Deserialize Method " Url="html/F7C00695.htm" />
+        <HelpTOCNode Title="Serialize Method " Url="html/B27944DC.htm" />
       </HelpTOCNode>
     </HelpTOCNode>
-    <HelpTOCNode Id="cd260dd1-837b-4e75-9897-5be687733aea" Title="GameSecret Class" Url="html/T_Zyrenth_Zora_GameSecret.htm">
-      <HelpTOCNode Id="5f75a419-42e9-4233-b1bd-9aacae5b7db3" Title="GameSecret Constructor " Url="html/Overload_Zyrenth_Zora_GameSecret__ctor.htm">
-        <HelpTOCNode Title="GameSecret Constructor " Url="html/M_Zyrenth_Zora_GameSecret__ctor.htm" />
-        <HelpTOCNode Title="GameSecret Constructor (GameInfo)" Url="html/M_Zyrenth_Zora_GameSecret__ctor_1.htm" />
+    <HelpTOCNode Title="GameRegion Enumeration" Url="html/C297CB44.htm" />
+    <HelpTOCNode Id="85edbdc7-614a-41ef-bd82-0f08052c970e" Title="GameSecret Class" Url="html/BABAFB87.htm">
+      <HelpTOCNode Id="f45dcbbe-2f5a-46ee-b088-138483710d3d" Title="GameSecret Constructor " Url="html/58192692.htm">
+        <HelpTOCNode Title="GameSecret Constructor " Url="html/1675B6D2.htm" />
+        <HelpTOCNode Title="GameSecret Constructor (GameInfo)" Url="html/A2995972.htm" />
       </HelpTOCNode>
-      <HelpTOCNode Id="d8df09ed-59bf-4c84-996d-bbde62126c5d" Title="GameSecret Methods" Url="html/Methods_T_Zyrenth_Zora_GameSecret.htm">
-        <HelpTOCNode Title="Equals Method " Url="html/M_Zyrenth_Zora_GameSecret_Equals.htm" />
-        <HelpTOCNode Title="GetHashCode Method " Url="html/M_Zyrenth_Zora_GameSecret_GetHashCode.htm" />
-        <HelpTOCNode Id="4574d9a8-ce34-4303-a5ae-5ab7011527d5" Title="Load Method " Url="html/Overload_Zyrenth_Zora_GameSecret_Load.htm">
-          <HelpTOCNode Title="Load Method (Byte[])" Url="html/M_Zyrenth_Zora_GameSecret_Load.htm" />
-          <HelpTOCNode Title="Load Method (GameInfo)" Url="html/M_Zyrenth_Zora_GameSecret_Load_1.htm" />
+      <HelpTOCNode Id="ca738bfc-eec8-44c6-917b-500cbc3765b2" Title="GameSecret Properties" Url="html/5C29C0E9.htm">
+        <HelpTOCNode Title="Animal Property " Url="html/2080B29A.htm" />
+        <HelpTOCNode Title="Behavior Property " Url="html/11479BFF.htm" />
+        <HelpTOCNode Title="Child Property " Url="html/23BCBC17.htm" />
+        <HelpTOCNode Title="Hero Property " Url="html/396775F2.htm" />
+        <HelpTOCNode Title="IsHeroQuest Property " Url="html/152199DF.htm" />
+        <HelpTOCNode Title="IsLinkedGame Property " Url="html/3CDEB1A3.htm" />
+        <HelpTOCNode Title="Length Property " Url="html/8FEB5FC1.htm" />
+        <HelpTOCNode Title="TargetGame Property " Url="html/A1618C91.htm" />
+        <HelpTOCNode Title="WasGivenFreeRing Property " Url="html/6FE09157.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="0d3f4905-62d6-4e76-b036-a38b6d5cdca0" Title="GameSecret Methods" Url="html/53044425.htm">
+        <HelpTOCNode Title="Equals Method " Url="html/8475616B.htm" />
+        <HelpTOCNode Title="GetHashCode Method " Url="html/FFD596AD.htm" />
+        <HelpTOCNode Title="IsValidForPAL Method " Url="html/758820E7.htm" />
+        <HelpTOCNode Id="973333b7-c66f-4e0d-a4ba-908bdd12366c" Title="Load Method " Url="html/DA82F8F5.htm">
+          <HelpTOCNode Title="Load Method (GameInfo)" Url="html/5054B4DF.htm" />
+          <HelpTOCNode Title="Load Method (Byte[], GameRegion)" Url="html/F1B6D9C3.htm" />
         </HelpTOCNode>
-        <HelpTOCNode Title="ToBytes Method " Url="html/M_Zyrenth_Zora_GameSecret_ToBytes.htm" />
-        <HelpTOCNode Title="UpdateGameInfo Method " Url="html/M_Zyrenth_Zora_GameSecret_UpdateGameInfo.htm" />
+        <HelpTOCNode Title="ToBytes Method " Url="html/EFEFC189.htm" />
+        <HelpTOCNode Title="UpdateGameInfo Method " Url="html/3B400974.htm" />
       </HelpTOCNode>
-      <HelpTOCNode Id="253a088c-c975-494b-975b-7198e09ab3e3" Title="GameSecret Properties" Url="html/Properties_T_Zyrenth_Zora_GameSecret.htm">
-        <HelpTOCNode Title="Animal Property " Url="html/P_Zyrenth_Zora_GameSecret_Animal.htm" />
-        <HelpTOCNode Title="Behavior Property " Url="html/P_Zyrenth_Zora_GameSecret_Behavior.htm" />
-        <HelpTOCNode Title="Child Property " Url="html/P_Zyrenth_Zora_GameSecret_Child.htm" />
-        <HelpTOCNode Title="Hero Property " Url="html/P_Zyrenth_Zora_GameSecret_Hero.htm" />
-        <HelpTOCNode Title="IsHeroQuest Property " Url="html/P_Zyrenth_Zora_GameSecret_IsHeroQuest.htm" />
-        <HelpTOCNode Title="IsLinkedGame Property " Url="html/P_Zyrenth_Zora_GameSecret_IsLinkedGame.htm" />
-        <HelpTOCNode Title="Length Property " Url="html/P_Zyrenth_Zora_GameSecret_Length.htm" />
-        <HelpTOCNode Title="TargetGame Property " Url="html/P_Zyrenth_Zora_GameSecret_TargetGame.htm" />
-        <HelpTOCNode Title="Unknown58 Property " Url="html/P_Zyrenth_Zora_GameSecret_Unknown58.htm" />
-        <HelpTOCNode Title="Unknown59 Property " Url="html/P_Zyrenth_Zora_GameSecret_Unknown59.htm" />
-        <HelpTOCNode Title="Unknown88 Property " Url="html/P_Zyrenth_Zora_GameSecret_Unknown88.htm" />
-        <HelpTOCNode Title="WasGivenFreeRing Property " Url="html/P_Zyrenth_Zora_GameSecret_WasGivenFreeRing.htm" />
-      </HelpTOCNode>
-      <HelpTOCNode Title="GameSecret Events" Url="html/Events_T_Zyrenth_Zora_GameSecret.htm" />
+      <HelpTOCNode Title="GameSecret Events" Url="html/4AFC97B1.htm" />
     </HelpTOCNode>
-    <HelpTOCNode Id="fa683201-13b1-46c5-9e20-3472d3105418" Title="InvalidSecretException Class" Url="html/T_Zyrenth_Zora_InvalidSecretException.htm">
-      <HelpTOCNode Id="62445183-773c-4594-ae06-a3dc62058e22" Title="InvalidSecretException Constructor " Url="html/Overload_Zyrenth_Zora_InvalidSecretException__ctor.htm">
-        <HelpTOCNode Title="InvalidSecretException Constructor " Url="html/M_Zyrenth_Zora_InvalidSecretException__ctor.htm" />
-        <HelpTOCNode Title="InvalidSecretException Constructor (String)" Url="html/M_Zyrenth_Zora_InvalidSecretException__ctor_2.htm" />
-        <HelpTOCNode Title="InvalidSecretException Constructor (SerializationInfo, StreamingContext)" Url="html/M_Zyrenth_Zora_InvalidSecretException__ctor_1.htm" />
-        <HelpTOCNode Title="InvalidSecretException Constructor (String, Exception)" Url="html/M_Zyrenth_Zora_InvalidSecretException__ctor_3.htm" />
+    <HelpTOCNode Id="b5681df0-5e19-4871-b962-56ace0d8713b" Title="InvalidChecksumException Class" Url="html/BF3B720E.htm">
+      <HelpTOCNode Id="adcc2ed3-4262-49be-beae-cbc8cfde39ba" Title="InvalidChecksumException Constructor " Url="html/9725129.htm">
+        <HelpTOCNode Title="InvalidChecksumException Constructor " Url="html/5B600B27.htm" />
+        <HelpTOCNode Title="InvalidChecksumException Constructor (String)" Url="html/3517DDCF.htm" />
+        <HelpTOCNode Title="InvalidChecksumException Constructor (SerializationInfo, StreamingContext)" Url="html/92706934.htm" />
+        <HelpTOCNode Title="InvalidChecksumException Constructor (String, Exception)" Url="html/D7BF526A.htm" />
       </HelpTOCNode>
-      <HelpTOCNode Title="InvalidSecretException Methods" Url="html/Methods_T_Zyrenth_Zora_InvalidSecretException.htm" />
-      <HelpTOCNode Title="InvalidSecretException Properties" Url="html/Properties_T_Zyrenth_Zora_InvalidSecretException.htm" />
-      <HelpTOCNode Title="InvalidSecretException Events" Url="html/Events_T_Zyrenth_Zora_InvalidSecretException.htm" />
+      <HelpTOCNode Title="InvalidChecksumException Properties" Url="html/6B924C61.htm" />
+      <HelpTOCNode Title="InvalidChecksumException Methods" Url="html/A2F55E82.htm" />
+      <HelpTOCNode Title="InvalidChecksumException Events" Url="html/22205891.htm" />
     </HelpTOCNode>
-    <HelpTOCNode Title="Memory Enumeration" Url="html/T_Zyrenth_Zora_Memory.htm" />
-    <HelpTOCNode Id="16abdc72-3ae6-440f-9082-1f55df13ae37" Title="MemorySecret Class" Url="html/T_Zyrenth_Zora_MemorySecret.htm">
-      <HelpTOCNode Id="60fa3f2a-24e0-4433-81ae-78925c908413" Title="MemorySecret Constructor " Url="html/Overload_Zyrenth_Zora_MemorySecret__ctor.htm">
-        <HelpTOCNode Title="MemorySecret Constructor " Url="html/M_Zyrenth_Zora_MemorySecret__ctor.htm" />
-        <HelpTOCNode Title="MemorySecret Constructor (GameInfo, Memory, Boolean)" Url="html/M_Zyrenth_Zora_MemorySecret__ctor_2.htm" />
-        <HelpTOCNode Title="MemorySecret Constructor (Game, Int16, Memory, Boolean)" Url="html/M_Zyrenth_Zora_MemorySecret__ctor_1.htm" />
-      </HelpTOCNode>
-      <HelpTOCNode Id="3fa9f4e1-0060-4122-b380-0f2d63249dd2" Title="MemorySecret Methods" Url="html/Methods_T_Zyrenth_Zora_MemorySecret.htm">
-        <HelpTOCNode Title="Equals Method " Url="html/M_Zyrenth_Zora_MemorySecret_Equals.htm" />
-        <HelpTOCNode Title="GetHashCode Method " Url="html/M_Zyrenth_Zora_MemorySecret_GetHashCode.htm" />
-        <HelpTOCNode Id="f7a60738-218e-46ed-952f-89f994b90e64" Title="Load Method " Url="html/Overload_Zyrenth_Zora_MemorySecret_Load.htm">
-          <HelpTOCNode Title="Load Method (Byte[])" Url="html/M_Zyrenth_Zora_MemorySecret_Load.htm" />
-          <HelpTOCNode Title="Load Method (GameInfo)" Url="html/M_Zyrenth_Zora_MemorySecret_Load_1.htm" />
+    <HelpTOCNode Id="2c0763ba-e89a-40c0-99d6-d05cc0d30cdf" Title="JapaneseEncoding Class" Url="html/C7508892.htm">
+      <HelpTOCNode Title="JapaneseEncoding Constructor " Url="html/16721350.htm" />
+      <HelpTOCNode Title="JapaneseEncoding Properties" Url="html/E876E7C4.htm" />
+      <HelpTOCNode Id="4f2477da-9e6a-448d-9e1b-c8585e64fd51" Title="JapaneseEncoding Methods" Url="html/406D3CE8.htm">
+        <HelpTOCNode Id="aeeb47cf-c33f-436b-a7b6-27eecd6aa8df" Title="GetByteCount Method " Url="html/6916CB64.htm">
+          <HelpTOCNode Title="GetByteCount Method (Char[], Int32, Int32)" Url="html/868BAD0F.htm" />
         </HelpTOCNode>
-        <HelpTOCNode Title="ToBytes Method " Url="html/M_Zyrenth_Zora_MemorySecret_ToBytes.htm" />
-      </HelpTOCNode>
-      <HelpTOCNode Id="ab09d3ea-a531-4466-a670-027dfc742455" Title="MemorySecret Properties" Url="html/Properties_T_Zyrenth_Zora_MemorySecret.htm">
-        <HelpTOCNode Title="IsReturnSecret Property " Url="html/P_Zyrenth_Zora_MemorySecret_IsReturnSecret.htm" />
-        <HelpTOCNode Title="Length Property " Url="html/P_Zyrenth_Zora_MemorySecret_Length.htm" />
-        <HelpTOCNode Title="Memory Property " Url="html/P_Zyrenth_Zora_MemorySecret_Memory.htm" />
-        <HelpTOCNode Title="TargetGame Property " Url="html/P_Zyrenth_Zora_MemorySecret_TargetGame.htm" />
-      </HelpTOCNode>
-      <HelpTOCNode Title="MemorySecret Events" Url="html/Events_T_Zyrenth_Zora_MemorySecret.htm" />
-    </HelpTOCNode>
-    <HelpTOCNode Id="a70c0b04-0d7e-46f4-896e-7a80ad7a6b81" Title="RingInfoAttribute Class" Url="html/T_Zyrenth_Zora_RingInfoAttribute.htm">
-      <HelpTOCNode Title="RingInfoAttribute Constructor " Url="html/M_Zyrenth_Zora_RingInfoAttribute__ctor.htm" />
-      <HelpTOCNode Title="RingInfoAttribute Methods" Url="html/Methods_T_Zyrenth_Zora_RingInfoAttribute.htm" />
-      <HelpTOCNode Id="1e4ac9b3-bd24-4304-89dc-a03508cdf85d" Title="RingInfoAttribute Properties" Url="html/Properties_T_Zyrenth_Zora_RingInfoAttribute.htm">
-        <HelpTOCNode Title="Description Property " Url="html/P_Zyrenth_Zora_RingInfoAttribute_Description.htm" />
-        <HelpTOCNode Title="Name Property " Url="html/P_Zyrenth_Zora_RingInfoAttribute_Name.htm" />
-      </HelpTOCNode>
-    </HelpTOCNode>
-    <HelpTOCNode Title="Rings Enumeration" Url="html/T_Zyrenth_Zora_Rings.htm" />
-    <HelpTOCNode Id="e0a2d986-09fe-4b36-a84b-f00b38d54f7b" Title="RingSecret Class" Url="html/T_Zyrenth_Zora_RingSecret.htm">
-      <HelpTOCNode Id="79636ee6-0e88-49e5-85c3-6b942bcf1ea6" Title="RingSecret Constructor " Url="html/Overload_Zyrenth_Zora_RingSecret__ctor.htm">
-        <HelpTOCNode Title="RingSecret Constructor " Url="html/M_Zyrenth_Zora_RingSecret__ctor.htm" />
-        <HelpTOCNode Title="RingSecret Constructor (GameInfo)" Url="html/M_Zyrenth_Zora_RingSecret__ctor_2.htm" />
-        <HelpTOCNode Title="RingSecret Constructor (Int16, Rings)" Url="html/M_Zyrenth_Zora_RingSecret__ctor_1.htm" />
-      </HelpTOCNode>
-      <HelpTOCNode Id="8862f88d-933e-48b1-9517-566300dd34d1" Title="RingSecret Methods" Url="html/Methods_T_Zyrenth_Zora_RingSecret.htm">
-        <HelpTOCNode Title="Equals Method " Url="html/M_Zyrenth_Zora_RingSecret_Equals.htm" />
-        <HelpTOCNode Title="GetHashCode Method " Url="html/M_Zyrenth_Zora_RingSecret_GetHashCode.htm" />
-        <HelpTOCNode Id="755259ff-a724-42f7-a9d5-b2a53c88634a" Title="Load Method " Url="html/Overload_Zyrenth_Zora_RingSecret_Load.htm">
-          <HelpTOCNode Title="Load Method (Byte[])" Url="html/M_Zyrenth_Zora_RingSecret_Load.htm" />
-          <HelpTOCNode Title="Load Method (GameInfo)" Url="html/M_Zyrenth_Zora_RingSecret_Load_1.htm" />
+        <HelpTOCNode Id="15e99196-a89d-44bb-a1a4-1c9d69d0de33" Title="GetBytes Method " Url="html/D23FEA5D.htm">
+          <HelpTOCNode Title="GetBytes Method (Char[], Int32, Int32, Byte[], Int32)" Url="html/25C1F3B.htm" />
         </HelpTOCNode>
-        <HelpTOCNode Title="ToBytes Method " Url="html/M_Zyrenth_Zora_RingSecret_ToBytes.htm" />
-        <HelpTOCNode Title="UpdateGameInfo Method " Url="html/M_Zyrenth_Zora_RingSecret_UpdateGameInfo.htm" />
-      </HelpTOCNode>
-      <HelpTOCNode Id="9c9273a9-528f-4659-bf6d-27a423e57377" Title="RingSecret Properties" Url="html/Properties_T_Zyrenth_Zora_RingSecret.htm">
-        <HelpTOCNode Title="Length Property " Url="html/P_Zyrenth_Zora_RingSecret_Length.htm" />
-        <HelpTOCNode Title="Rings Property " Url="html/P_Zyrenth_Zora_RingSecret_Rings.htm" />
-      </HelpTOCNode>
-      <HelpTOCNode Title="RingSecret Events" Url="html/Events_T_Zyrenth_Zora_RingSecret.htm" />
-    </HelpTOCNode>
-    <HelpTOCNode Id="b036ba92-77e1-4b84-a9e9-0e2841f5af52" Title="Secret Class" Url="html/T_Zyrenth_Zora_Secret.htm">
-      <HelpTOCNode Title="Secret Constructor " Url="html/M_Zyrenth_Zora_Secret__ctor.htm" />
-      <HelpTOCNode Id="d66e91a8-d317-4e7b-b645-ee0f23d15800" Title="Secret Methods" Url="html/Methods_T_Zyrenth_Zora_Secret.htm">
-        <HelpTOCNode Title="BinaryStringToByteArray Method " Url="html/M_Zyrenth_Zora_Secret_BinaryStringToByteArray.htm" />
-        <HelpTOCNode Title="ByteArrayToBinaryString Method " Url="html/M_Zyrenth_Zora_Secret_ByteArrayToBinaryString.htm" />
-        <HelpTOCNode Title="CalculateChecksum Method " Url="html/M_Zyrenth_Zora_Secret_CalculateChecksum.htm" />
-        <HelpTOCNode Title="DecodeBytes Method " Url="html/M_Zyrenth_Zora_Secret_DecodeBytes.htm" />
-        <HelpTOCNode Title="EncodeBytes Method " Url="html/M_Zyrenth_Zora_Secret_EncodeBytes.htm" />
-        <HelpTOCNode Title="Equals Method " Url="html/M_Zyrenth_Zora_Secret_Equals.htm" />
-        <HelpTOCNode Title="GetHashCode Method " Url="html/M_Zyrenth_Zora_Secret_GetHashCode.htm" />
-        <HelpTOCNode Id="1a8befe3-d9b2-44e1-b20c-a8a6b8bdd9e5" Title="Load Method " Url="html/Overload_Zyrenth_Zora_Secret_Load.htm">
-          <HelpTOCNode Title="Load Method (Byte[])" Url="html/M_Zyrenth_Zora_Secret_Load.htm" />
-          <HelpTOCNode Title="Load Method (String)" Url="html/M_Zyrenth_Zora_Secret_Load_1.htm" />
-          <HelpTOCNode Title="Load Method (GameInfo)" Url="html/M_Zyrenth_Zora_Secret_Load_2.htm" />
+        <HelpTOCNode Id="9a644210-8745-4d92-b59f-4d9dd6a044c0" Title="GetCharCount Method " Url="html/750C2530.htm">
+          <HelpTOCNode Title="GetCharCount Method (Byte[], Int32, Int32)" Url="html/4543AB5F.htm" />
         </HelpTOCNode>
-        <HelpTOCNode Title="NotifyPropertyChanged Method " Url="html/M_Zyrenth_Zora_Secret_NotifyPropertyChanged.htm" />
-        <HelpTOCNode Title="ToBytes Method " Url="html/M_Zyrenth_Zora_Secret_ToBytes.htm" />
-        <HelpTOCNode Title="ToString Method " Url="html/M_Zyrenth_Zora_Secret_ToString.htm" />
-      </HelpTOCNode>
-      <HelpTOCNode Id="231971f1-0722-4238-a2a3-9678ea17cd15" Title="Secret Properties" Url="html/Properties_T_Zyrenth_Zora_Secret.htm">
-        <HelpTOCNode Title="GameID Property " Url="html/P_Zyrenth_Zora_Secret_GameID.htm" />
-        <HelpTOCNode Title="Length Property " Url="html/P_Zyrenth_Zora_Secret_Length.htm" />
-      </HelpTOCNode>
-      <HelpTOCNode Id="172f12d5-69d9-4132-9b0b-f46ac5071759" Title="Secret Events" Url="html/Events_T_Zyrenth_Zora_Secret.htm">
-        <HelpTOCNode Title="PropertyChanged Event" Url="html/E_Zyrenth_Zora_Secret_PropertyChanged.htm" />
+        <HelpTOCNode Id="b7d00d4d-477b-46b6-bf57-6a652699884e" Title="GetChars Method " Url="html/3C3A4D6B.htm">
+          <HelpTOCNode Title="GetChars Method (Byte[], Int32, Int32, Char[], Int32)" Url="html/77621F5.htm" />
+        </HelpTOCNode>
+        <HelpTOCNode Title="GetMaxByteCount Method " Url="html/3EA86D49.htm" />
+        <HelpTOCNode Title="GetMaxCharCount Method " Url="html/22C1C563.htm" />
       </HelpTOCNode>
     </HelpTOCNode>
-    <HelpTOCNode Id="4f43866f-6e9f-4f7d-8267-c34aaa19bf39" Title="SecretParser Class" Url="html/T_Zyrenth_Zora_SecretParser.htm">
-      <HelpTOCNode Id="9931f302-26dc-44bf-bfaf-1d06fc795ba3" Title="SecretParser Methods" Url="html/Methods_T_Zyrenth_Zora_SecretParser.htm">
-        <HelpTOCNode Title="CreateString Method " Url="html/M_Zyrenth_Zora_SecretParser_CreateString.htm" />
-        <HelpTOCNode Title="ParseSecret Method " Url="html/M_Zyrenth_Zora_SecretParser_ParseSecret.htm" />
+    <HelpTOCNode Title="Memory Enumeration" Url="html/E269640.htm" />
+    <HelpTOCNode Id="a7ca1ab4-2cc1-4706-ac77-4fca576c6d45" Title="MemorySecret Class" Url="html/6F8A4167.htm">
+      <HelpTOCNode Id="5a1b454f-1072-495e-ac97-1402a529377a" Title="MemorySecret Constructor " Url="html/539434DF.htm">
+        <HelpTOCNode Title="MemorySecret Constructor " Url="html/123CE805.htm" />
+        <HelpTOCNode Title="MemorySecret Constructor (GameInfo, Memory, Boolean)" Url="html/C08699BD.htm" />
+        <HelpTOCNode Title="MemorySecret Constructor (Game, GameRegion, Int16, Memory, Boolean)" Url="html/1DDF2522.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="15a36330-c64b-4dd0-a39c-d8c74cb75c8f" Title="MemorySecret Properties" Url="html/78794AA7.htm">
+        <HelpTOCNode Title="IsReturnSecret Property " Url="html/21749041.htm" />
+        <HelpTOCNode Title="Length Property " Url="html/477859DD.htm" />
+        <HelpTOCNode Title="Memory Property " Url="html/8AA5B6CB.htm" />
+        <HelpTOCNode Title="TargetGame Property " Url="html/659623E4.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="6c8b3fee-3906-47ba-a43a-339d5789939e" Title="MemorySecret Methods" Url="html/688B1F94.htm">
+        <HelpTOCNode Title="Equals Method " Url="html/6E036964.htm" />
+        <HelpTOCNode Title="GetHashCode Method " Url="html/A0453F58.htm" />
+        <HelpTOCNode Id="85020b9c-08e3-4dbe-8f29-c0633fde58e4" Title="Load Method " Url="html/29BF1B68.htm">
+          <HelpTOCNode Title="Load Method (GameInfo)" Url="html/6CB5E1F4.htm" />
+          <HelpTOCNode Title="Load Method (Byte[], GameRegion)" Url="html/663C13EA.htm" />
+        </HelpTOCNode>
+        <HelpTOCNode Title="ToBytes Method " Url="html/FEB3556D.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Title="MemorySecret Events" Url="html/96EC7288.htm" />
+    </HelpTOCNode>
+    <HelpTOCNode Id="1593595c-0774-4546-b84a-4cf4fe374143" Title="RingInfoAttribute Class" Url="html/3E77D1FD.htm">
+      <HelpTOCNode Title="RingInfoAttribute Constructor " Url="html/4DE08231.htm" />
+      <HelpTOCNode Id="1fd78bb2-7cb0-4427-9f24-56955d374d75" Title="RingInfoAttribute Properties" Url="html/D7144E6A.htm">
+        <HelpTOCNode Title="Description Property " Url="html/359DC89C.htm" />
+        <HelpTOCNode Title="Name Property " Url="html/B5D886DE.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Title="RingInfoAttribute Methods" Url="html/CE8987A.htm" />
+    </HelpTOCNode>
+    <HelpTOCNode Title="Rings Enumeration" Url="html/AD31B02F.htm" />
+    <HelpTOCNode Id="146953aa-5ab0-44ca-95a5-17ce05a291bd" Title="RingSecret Class" Url="html/301F3616.htm">
+      <HelpTOCNode Id="a6999507-2052-4329-a51a-78f2018a9488" Title="RingSecret Constructor " Url="html/9F89CACE.htm">
+        <HelpTOCNode Title="RingSecret Constructor " Url="html/8B8672E8.htm" />
+        <HelpTOCNode Title="RingSecret Constructor (GameInfo)" Url="html/60C5B779.htm" />
+        <HelpTOCNode Title="RingSecret Constructor (Int16, GameRegion, Rings)" Url="html/60C5B77C.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="b4c3f26d-48b5-4339-b0e2-febe24d5ecd2" Title="RingSecret Properties" Url="html/897F55E8.htm">
+        <HelpTOCNode Title="Length Property " Url="html/C37D6C6D.htm" />
+        <HelpTOCNode Title="Rings Property " Url="html/1392424E.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="edb1c333-c4bf-481c-b567-d21b90504de7" Title="RingSecret Methods" Url="html/A66E8D3B.htm">
+        <HelpTOCNode Title="Equals Method " Url="html/70BB54EB.htm" />
+        <HelpTOCNode Title="GetHashCode Method " Url="html/C3D7CB84.htm" />
+        <HelpTOCNode Id="6b2f3aa3-46c1-4ba6-b30f-7efdafcd7e55" Title="Load Method " Url="html/16BA5381.htm">
+          <HelpTOCNode Title="Load Method (GameInfo)" Url="html/B485ABA1.htm" />
+          <HelpTOCNode Title="Load Method (Byte[], GameRegion)" Url="html/357FBEE4.htm" />
+        </HelpTOCNode>
+        <HelpTOCNode Title="ToBytes Method " Url="html/FF6209F7.htm" />
+        <HelpTOCNode Title="UpdateGameInfo Method " Url="html/996F03A.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Title="RingSecret Events" Url="html/AF1F20A7.htm" />
+    </HelpTOCNode>
+    <HelpTOCNode Id="67f81486-45a6-459b-b215-8a2c77a5c2c4" Title="Secret Class" Url="html/CC724F3E.htm">
+      <HelpTOCNode Title="Secret Constructor " Url="html/AD331F07.htm" />
+      <HelpTOCNode Id="87984fce-e5ba-46e9-99b7-211c05ecda9c" Title="Secret Properties" Url="html/B4D52824.htm">
+        <HelpTOCNode Title="GameID Property " Url="html/DC1F1939.htm" />
+        <HelpTOCNode Title="Length Property " Url="html/5E88131C.htm" />
+        <HelpTOCNode Title="Region Property " Url="html/906914F2.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="57ff4df9-1318-403c-8b99-6c4a2ac29b91" Title="Secret Methods" Url="html/6B0A630A.htm">
+        <HelpTOCNode Title="BinaryStringToByteArray Method " Url="html/D3560EA9.htm" />
+        <HelpTOCNode Title="ByteArrayToBinaryString Method " Url="html/F5FA5D6E.htm" />
+        <HelpTOCNode Title="CalculateChecksum Method " Url="html/2468395A.htm" />
+        <HelpTOCNode Title="DecodeBytes Method " Url="html/A3C4351C.htm" />
+        <HelpTOCNode Title="EncodeBytes Method " Url="html/195DD159.htm" />
+        <HelpTOCNode Title="Equals Method " Url="html/71584224.htm" />
+        <HelpTOCNode Title="GetHashCode Method " Url="html/CD0F06BE.htm" />
+        <HelpTOCNode Id="d3c7eab8-6137-4f80-8e08-16805bf2c760" Title="Load Method " Url="html/D3C5C781.htm">
+          <HelpTOCNode Title="Load Method (GameInfo)" Url="html/1EA57ECE.htm" />
+          <HelpTOCNode Title="Load Method (Byte[], GameRegion)" Url="html/66308F1.htm" />
+          <HelpTOCNode Title="Load Method (String, GameRegion)" Url="html/7C767ECE.htm" />
+        </HelpTOCNode>
+        <HelpTOCNode Title="NotifyPropertyChanged Method " Url="html/95602162.htm" />
+        <HelpTOCNode Title="ToBytes Method " Url="html/53886693.htm" />
+        <HelpTOCNode Title="ToString Method " Url="html/977D7F39.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="e97d80eb-f59a-453a-b232-29fcfb4ee30e" Title="Secret Events" Url="html/76BF05A5.htm">
+        <HelpTOCNode Title="PropertyChanged Event" Url="html/1FF142F.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="a9a5a8a4-ae48-48e3-a2a4-3969fe0ebb02" Title="SecretException Class" Url="html/6830FBC0.htm">
+      <HelpTOCNode Id="d8e96922-a6ae-4d03-97ec-54db8e890590" Title="SecretException Constructor " Url="html/6CAA98B7.htm">
+        <HelpTOCNode Title="SecretException Constructor " Url="html/6EB71A62.htm" />
+        <HelpTOCNode Title="SecretException Constructor (String)" Url="html/C0CE8CD6.htm" />
+        <HelpTOCNode Title="SecretException Constructor (SerializationInfo, StreamingContext)" Url="html/C0CB8CD6.htm" />
+        <HelpTOCNode Title="SecretException Constructor (String, Exception)" Url="html/C0CD8CD6.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Title="SecretException Properties" Url="html/2FDE7220.htm" />
+      <HelpTOCNode Title="SecretException Methods" Url="html/38A5A44E.htm" />
+      <HelpTOCNode Title="SecretException Events" Url="html/F4AC5F18.htm" />
+    </HelpTOCNode>
+    <HelpTOCNode Id="c4182539-a7bf-491a-8941-abaf1053f231" Title="SecretParser Class" Url="html/98E26E0A.htm">
+      <HelpTOCNode Id="9ac2cc5a-1b0e-4005-9cb9-a3545cf14947" Title="SecretParser Methods" Url="html/6AA56E70.htm">
+        <HelpTOCNode Title="CreateString Method " Url="html/5ABE0A86.htm" />
+        <HelpTOCNode Title="ParseSecret Method " Url="html/C98E691C.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="8d14b3a4-11fa-41a4-9bf2-04a63a151f60" Title="USEncoding Class" Url="html/C27E9958.htm">
+      <HelpTOCNode Title="USEncoding Constructor " Url="html/2D3F6B60.htm" />
+      <HelpTOCNode Title="USEncoding Properties" Url="html/5E973332.htm" />
+      <HelpTOCNode Id="ae0af0e3-477d-401d-b484-e891dac3277e" Title="USEncoding Methods" Url="html/1C8B4163.htm">
+        <HelpTOCNode Id="231a0c6c-cbb6-44cc-876a-397e07161d48" Title="GetByteCount Method " Url="html/E5952124.htm">
+          <HelpTOCNode Title="GetByteCount Method (Char[], Int32, Int32)" Url="html/17340E8B.htm" />
+        </HelpTOCNode>
+        <HelpTOCNode Id="eeffc4db-1c32-4eff-826e-84aca8728373" Title="GetBytes Method " Url="html/1E4F103A.htm">
+          <HelpTOCNode Title="GetBytes Method (Char[], Int32, Int32, Byte[], Int32)" Url="html/1F60CC74.htm" />
+        </HelpTOCNode>
+        <HelpTOCNode Id="0a0003a2-c983-4be2-97b5-c5320596c6b6" Title="GetCharCount Method " Url="html/55D2C3F0.htm">
+          <HelpTOCNode Title="GetCharCount Method (Byte[], Int32, Int32)" Url="html/3F3B986D.htm" />
+        </HelpTOCNode>
+        <HelpTOCNode Id="9c1ec5f0-e53d-4478-8a60-8478a408992c" Title="GetChars Method " Url="html/BF42B7DC.htm">
+          <HelpTOCNode Title="GetChars Method (Byte[], Int32, Int32, Char[], Int32)" Url="html/55CA0E34.htm" />
+        </HelpTOCNode>
+        <HelpTOCNode Title="GetMaxByteCount Method " Url="html/EE34FB10.htm" />
+        <HelpTOCNode Title="GetMaxCharCount Method " Url="html/F63C80C0.htm" />
       </HelpTOCNode>
     </HelpTOCNode>
   </HelpTOCNode>
