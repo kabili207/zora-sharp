@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <HelpTOC>
 
-  <HelpTOCNode Id="27874b4a-57de-4790-89c2-39ad2e95bca2" Title="Zyrenth.Zora" Url="html/F3BD7206.htm">
+  <HelpTOCNode Id="78e7680d-677a-4c80-bac3-9e8b84ed76c4" Title="Zyrenth.Zora" Url="html/F3BD7206.htm">
     <HelpTOCNode Title="Animal Enumeration" Url="html/BE5CAD54.htm" />
-    <HelpTOCNode Id="dcad5f1c-cd78-49c0-a3e8-15bff0849cc8" Title="AssemblyDetail Class" Url="html/EE200176.htm">
+    <HelpTOCNode Id="34fb8dd5-648b-4053-9e6b-868f46db480e" Title="AssemblyDetail Class" Url="html/EE200176.htm">
       <HelpTOCNode Title="AssemblyDetail Constructor " Url="html/8037D52A.htm" />
-      <HelpTOCNode Id="e53e7f58-a4f2-4a5e-a31b-61d562e914d9" Title="AssemblyDetail Properties" Url="html/3B97A93A.htm">
+      <HelpTOCNode Id="0b26f0ee-4862-48e3-8bae-440ed8e711b7" Title="AssemblyDetail Properties" Url="html/3B97A93A.htm">
         <HelpTOCNode Title="Company Property " Url="html/9CA665DD.htm" />
         <HelpTOCNode Title="Copyright Property " Url="html/8368C860.htm" />
         <HelpTOCNode Title="Description Property " Url="html/5CA6217A.htm" />
@@ -17,33 +17,33 @@
       </HelpTOCNode>
       <HelpTOCNode Title="AssemblyDetail Methods" Url="html/DD727EA6.htm" />
     </HelpTOCNode>
-    <HelpTOCNode Id="de795714-7df0-4d75-b107-434c06de2fe8" Title="BatteryFileLoader Class" Url="html/33B4051C.htm">
+    <HelpTOCNode Id="c899abbc-7158-4a32-af20-f87715fe3b2b" Title="BatteryFileLoader Class" Url="html/33B4051C.htm">
       <HelpTOCNode Title="BatteryFileLoader Constructor " Url="html/34F49651.htm" />
-      <HelpTOCNode Id="c12805a5-4091-4a32-a8b1-a41fdbdff2c1" Title="BatteryFileLoader Methods" Url="html/4076CB83.htm">
-        <HelpTOCNode Id="d59e4334-753e-481d-b252-95e93b9a0b7b" Title="Load Method " Url="html/F0CCDB1A.htm">
+      <HelpTOCNode Id="f4108764-3d09-4ef7-8239-55673c79a422" Title="BatteryFileLoader Methods" Url="html/4076CB83.htm">
+        <HelpTOCNode Id="0beed6d6-3424-4cc8-9f15-d92066fecfc2" Title="Load Method " Url="html/F0CCDB1A.htm">
           <HelpTOCNode Title="Load Method (Stream, GameRegion, Int32)" Url="html/92CD1F16.htm" />
           <HelpTOCNode Title="Load Method (String, GameRegion, Int32)" Url="html/6E2F1EE6.htm" />
         </HelpTOCNode>
-        <HelpTOCNode Id="fc8a104a-7ce9-4079-b1c7-72a3eb57cb80" Title="LoadAll Method " Url="html/20E99A5F.htm">
+        <HelpTOCNode Id="db46a2f4-18be-4ce3-8b10-2b5682079d26" Title="LoadAll Method " Url="html/20E99A5F.htm">
           <HelpTOCNode Title="LoadAll Method (Stream, GameRegion)" Url="html/D25CFE9F.htm" />
           <HelpTOCNode Title="LoadAll Method (String, GameRegion)" Url="html/2E539834.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="c501a2ef-ceb3-4b9b-aac4-ecdd4e16507b" Title="BatteryFileLoader Fields" Url="html/67D77272.htm">
+      <HelpTOCNode Id="8e775cf3-3e59-46bd-a7af-784f22573365" Title="BatteryFileLoader Fields" Url="html/67D77272.htm">
         <HelpTOCNode Title="Slot1Offset Field" Url="html/E4B7AC3A.htm" />
         <HelpTOCNode Title="Slot2Offset Field" Url="html/E41AAC3A.htm" />
         <HelpTOCNode Title="Slot3Offset Field" Url="html/E3F9AC3A.htm" />
       </HelpTOCNode>
     </HelpTOCNode>
-    <HelpTOCNode Id="c65ed7e2-f202-490b-b87f-af934a3b37cd" Title="Extensions Class" Url="html/817AEFCE.htm">
-      <HelpTOCNode Id="67efecca-9c66-4438-8363-2a91158de4aa" Title="Extensions Methods" Url="html/8775D370.htm">
+    <HelpTOCNode Id="d0af284a-6a34-46d8-b943-6ef1c6397a3d" Title="Extensions Class" Url="html/817AEFCE.htm">
+      <HelpTOCNode Id="c436eb60-3a51-4e74-a4f2-c64a7962c1f1" Title="Extensions Methods" Url="html/8775D370.htm">
         <HelpTOCNode Title="ReadValue(T) Method " Url="html/B7B1F4A0.htm" />
       </HelpTOCNode>
     </HelpTOCNode>
     <HelpTOCNode Title="Game Enumeration" Url="html/BDD1C6F1.htm" />
-    <HelpTOCNode Id="45a272b1-a565-4d29-902a-26133704ca06" Title="GameInfo Class" Url="html/C82F346A.htm">
+    <HelpTOCNode Id="f82dad6d-58cb-4130-b81d-873fddb5fa92" Title="GameInfo Class" Url="html/C82F346A.htm">
       <HelpTOCNode Title="GameInfo Constructor " Url="html/6AD327C7.htm" />
-      <HelpTOCNode Id="5e622c2f-5e2e-4855-b37d-4efebf617272" Title="GameInfo Properties" Url="html/D22EAB76.htm">
+      <HelpTOCNode Id="983281fb-1ba4-443a-8c69-70f060ef05e1" Title="GameInfo Properties" Url="html/D22EAB76.htm">
         <HelpTOCNode Title="Animal Property " Url="html/65A826C.htm" />
         <HelpTOCNode Title="Behavior Property " Url="html/8080D865.htm" />
         <HelpTOCNode Title="Child Property " Url="html/915582AF.htm" />
@@ -56,38 +56,38 @@
         <HelpTOCNode Title="Rings Property " Url="html/8FCB22FC.htm" />
         <HelpTOCNode Title="WasGivenFreeRing Property " Url="html/D468A092.htm" />
       </HelpTOCNode>
-      <HelpTOCNode Id="1304868b-4dfd-49e1-a656-bf4a399c381f" Title="GameInfo Methods" Url="html/50FF29A5.htm">
+      <HelpTOCNode Id="480eb7e6-ae1d-446a-8a61-c1ec53ad7a46" Title="GameInfo Methods" Url="html/50FF29A5.htm">
         <HelpTOCNode Title="Equals Method " Url="html/818BA16E.htm" />
         <HelpTOCNode Title="GetHashCode Method " Url="html/E89803BB.htm" />
-        <HelpTOCNode Id="e9a639f2-1c1a-449d-9798-5ba3fcee8e2f" Title="Load Method " Url="html/A533E1B6.htm">
+        <HelpTOCNode Id="e0fa80d8-2590-4ab9-bd01-60cf41e30642" Title="Load Method " Url="html/A533E1B6.htm">
           <HelpTOCNode Title="Load Method (Stream)" Url="html/146A9479.htm" />
           <HelpTOCNode Title="Load Method (String)" Url="html/9095BE94.htm" />
         </HelpTOCNode>
         <HelpTOCNode Title="NotifyPropertyChanged Method " Url="html/FC8187D3.htm" />
         <HelpTOCNode Title="Parse Method " Url="html/7989E9F1.htm" />
-        <HelpTOCNode Id="4e889932-b72b-4787-b367-26048b97d98b" Title="Write Method " Url="html/E1E72B59.htm">
+        <HelpTOCNode Id="044e9bed-3dcd-44ac-a0aa-c5873520f190" Title="Write Method " Url="html/E1E72B59.htm">
           <HelpTOCNode Title="Write Method (Stream)" Url="html/35981A11.htm" />
           <HelpTOCNode Title="Write Method (String)" Url="html/A873D2D9.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="cfba95c2-6797-4175-ba1b-7a138e08c78c" Title="GameInfo Events" Url="html/CA9F3B54.htm">
+      <HelpTOCNode Id="35cf2be1-31aa-4a74-ad5d-db115ab414f7" Title="GameInfo Events" Url="html/CA9F3B54.htm">
         <HelpTOCNode Title="PropertyChanged Event" Url="html/7C951F4F.htm" />
       </HelpTOCNode>
     </HelpTOCNode>
-    <HelpTOCNode Id="fddbbcae-6c11-4220-a690-3953945383e3" Title="GameInfoJsonConverter Class" Url="html/A99807CB.htm">
+    <HelpTOCNode Id="d32ce3a8-ec73-4490-aea4-e3dfc05986cf" Title="GameInfoJsonConverter Class" Url="html/A99807CB.htm">
       <HelpTOCNode Title="GameInfoJsonConverter Constructor " Url="html/8F6F4C13.htm" />
-      <HelpTOCNode Id="6d1e9f29-29ab-48da-a3c1-4e7fa44433a2" Title="GameInfoJsonConverter Methods" Url="html/885D6FF0.htm">
+      <HelpTOCNode Id="aab7bbd5-d6f3-4bb6-a4f2-c8eef03f2cb4" Title="GameInfoJsonConverter Methods" Url="html/885D6FF0.htm">
         <HelpTOCNode Title="Deserialize Method " Url="html/F7C00695.htm" />
         <HelpTOCNode Title="Serialize Method " Url="html/B27944DC.htm" />
       </HelpTOCNode>
     </HelpTOCNode>
     <HelpTOCNode Title="GameRegion Enumeration" Url="html/C297CB44.htm" />
-    <HelpTOCNode Id="ddfd1997-21ae-4f78-8908-29aacc899f68" Title="GameSecret Class" Url="html/BABAFB87.htm">
-      <HelpTOCNode Id="e91c00cc-97b0-4b32-947c-8378291cb269" Title="GameSecret Constructor " Url="html/58192692.htm">
+    <HelpTOCNode Id="12fc99cd-6d9f-4038-95e9-3801beaa85c6" Title="GameSecret Class" Url="html/BABAFB87.htm">
+      <HelpTOCNode Id="b1c07ff3-0b5e-4045-9e9a-2291816cfba3" Title="GameSecret Constructor " Url="html/58192692.htm">
         <HelpTOCNode Title="GameSecret Constructor " Url="html/1675B6D2.htm" />
         <HelpTOCNode Title="GameSecret Constructor (GameInfo)" Url="html/A2995972.htm" />
       </HelpTOCNode>
-      <HelpTOCNode Id="c0b0d847-2f79-46ce-aadd-90ce524d9a9e" Title="GameSecret Properties" Url="html/5C29C0E9.htm">
+      <HelpTOCNode Id="fb67c653-6908-43b9-b59f-c7ed9e75dc62" Title="GameSecret Properties" Url="html/5C29C0E9.htm">
         <HelpTOCNode Title="Animal Property " Url="html/2080B29A.htm" />
         <HelpTOCNode Title="Behavior Property " Url="html/11479BFF.htm" />
         <HelpTOCNode Title="Child Property " Url="html/23BCBC17.htm" />
@@ -98,11 +98,11 @@
         <HelpTOCNode Title="TargetGame Property " Url="html/A1618C91.htm" />
         <HelpTOCNode Title="WasGivenFreeRing Property " Url="html/6FE09157.htm" />
       </HelpTOCNode>
-      <HelpTOCNode Id="f9f50e0d-1215-48f5-835d-8141ec5a42d6" Title="GameSecret Methods" Url="html/53044425.htm">
+      <HelpTOCNode Id="a534c05b-ff39-4490-a471-cf3683f7044d" Title="GameSecret Methods" Url="html/53044425.htm">
         <HelpTOCNode Title="Equals Method " Url="html/8475616B.htm" />
         <HelpTOCNode Title="GetHashCode Method " Url="html/FFD596AD.htm" />
         <HelpTOCNode Title="IsValidForPAL Method " Url="html/758820E7.htm" />
-        <HelpTOCNode Id="a45f59b6-f89d-4b3c-a2d2-53352171ba3a" Title="Load Method " Url="html/DA82F8F5.htm">
+        <HelpTOCNode Id="f7f37dbc-c2d0-4731-8423-f5b45e2f2d4e" Title="Load Method " Url="html/DA82F8F5.htm">
           <HelpTOCNode Title="Load Method (GameInfo)" Url="html/5054B4DF.htm" />
           <HelpTOCNode Title="Load Method (Byte[], GameRegion)" Url="html/F1B6D9C3.htm" />
         </HelpTOCNode>
@@ -111,8 +111,8 @@
       </HelpTOCNode>
       <HelpTOCNode Title="GameSecret Events" Url="html/4AFC97B1.htm" />
     </HelpTOCNode>
-    <HelpTOCNode Id="e566ef99-bd1b-4e3d-9fd2-ff0e5afa6197" Title="InvalidChecksumException Class" Url="html/BF3B720E.htm">
-      <HelpTOCNode Id="0b7c5a79-eede-4d2e-b0c1-6463aabe61e2" Title="InvalidChecksumException Constructor " Url="html/9725129.htm">
+    <HelpTOCNode Id="c25b502d-2151-4dc3-945b-040719e0cbed" Title="InvalidChecksumException Class" Url="html/BF3B720E.htm">
+      <HelpTOCNode Id="da50633d-d558-49c2-9fdb-59d6ecb7fa0b" Title="InvalidChecksumException Constructor " Url="html/9725129.htm">
         <HelpTOCNode Title="InvalidChecksumException Constructor " Url="html/5B600B27.htm" />
         <HelpTOCNode Title="InvalidChecksumException Constructor (String)" Url="html/3517DDCF.htm" />
         <HelpTOCNode Title="InvalidChecksumException Constructor (SerializationInfo, StreamingContext)" Url="html/92706934.htm" />
@@ -122,20 +122,20 @@
       <HelpTOCNode Title="InvalidChecksumException Methods" Url="html/A2F55E82.htm" />
       <HelpTOCNode Title="InvalidChecksumException Events" Url="html/22205891.htm" />
     </HelpTOCNode>
-    <HelpTOCNode Id="e3675875-d76a-4fdf-99fc-0a5bf77908c9" Title="JapaneseEncoding Class" Url="html/C7508892.htm">
+    <HelpTOCNode Id="0908098e-6d1d-4544-a98a-6a0c4b57703f" Title="JapaneseEncoding Class" Url="html/C7508892.htm">
       <HelpTOCNode Title="JapaneseEncoding Constructor " Url="html/16721350.htm" />
       <HelpTOCNode Title="JapaneseEncoding Properties" Url="html/E876E7C4.htm" />
-      <HelpTOCNode Id="cd03fe3e-f8e5-4000-b1c5-4882f9057523" Title="JapaneseEncoding Methods" Url="html/406D3CE8.htm">
-        <HelpTOCNode Id="6190d011-709f-4c76-9858-9af04db13d16" Title="GetByteCount Method " Url="html/6916CB64.htm">
+      <HelpTOCNode Id="18d929d3-a51a-4380-b343-3e889d773d0a" Title="JapaneseEncoding Methods" Url="html/406D3CE8.htm">
+        <HelpTOCNode Id="7a30b472-a0bc-4e6c-9051-4e574e2e9192" Title="GetByteCount Method " Url="html/6916CB64.htm">
           <HelpTOCNode Title="GetByteCount Method (Char[], Int32, Int32)" Url="html/868BAD0F.htm" />
         </HelpTOCNode>
-        <HelpTOCNode Id="83bd4d8b-33aa-43eb-b35f-8860d6d39c76" Title="GetBytes Method " Url="html/D23FEA5D.htm">
+        <HelpTOCNode Id="0d5475c5-9295-4c15-9b5f-ced016b697e0" Title="GetBytes Method " Url="html/D23FEA5D.htm">
           <HelpTOCNode Title="GetBytes Method (Char[], Int32, Int32, Byte[], Int32)" Url="html/25C1F3B.htm" />
         </HelpTOCNode>
-        <HelpTOCNode Id="a47a6269-83fc-4b1d-86d4-04c3aa1ef67a" Title="GetCharCount Method " Url="html/750C2530.htm">
+        <HelpTOCNode Id="940cc9c5-99e7-4e4b-b7dc-a5e21553386b" Title="GetCharCount Method " Url="html/750C2530.htm">
           <HelpTOCNode Title="GetCharCount Method (Byte[], Int32, Int32)" Url="html/4543AB5F.htm" />
         </HelpTOCNode>
-        <HelpTOCNode Id="9f2bb1dc-a5cf-4ee9-88e5-a0176c8806f0" Title="GetChars Method " Url="html/3C3A4D6B.htm">
+        <HelpTOCNode Id="7e3c0021-059f-452b-b84c-8bf360ae2a41" Title="GetChars Method " Url="html/3C3A4D6B.htm">
           <HelpTOCNode Title="GetChars Method (Byte[], Int32, Int32, Char[], Int32)" Url="html/77621F5.htm" />
         </HelpTOCNode>
         <HelpTOCNode Title="GetMaxByteCount Method " Url="html/3EA86D49.htm" />
@@ -143,22 +143,22 @@
       </HelpTOCNode>
     </HelpTOCNode>
     <HelpTOCNode Title="Memory Enumeration" Url="html/E269640.htm" />
-    <HelpTOCNode Id="bc879316-4f77-4790-a20b-d4bf5d1e13da" Title="MemorySecret Class" Url="html/6F8A4167.htm">
-      <HelpTOCNode Id="c1d39f42-517a-4ab3-8197-97172357f0bf" Title="MemorySecret Constructor " Url="html/539434DF.htm">
+    <HelpTOCNode Id="90055269-7b34-49ed-9073-9571b85a8de8" Title="MemorySecret Class" Url="html/6F8A4167.htm">
+      <HelpTOCNode Id="c30e5c99-5166-4908-8073-49dfbce9b691" Title="MemorySecret Constructor " Url="html/539434DF.htm">
         <HelpTOCNode Title="MemorySecret Constructor " Url="html/123CE805.htm" />
         <HelpTOCNode Title="MemorySecret Constructor (GameInfo, Memory, Boolean)" Url="html/C08699BD.htm" />
         <HelpTOCNode Title="MemorySecret Constructor (Game, GameRegion, Int16, Memory, Boolean)" Url="html/1DDF2522.htm" />
       </HelpTOCNode>
-      <HelpTOCNode Id="4346e87c-f463-4d9d-a206-d26ed9a88eac" Title="MemorySecret Properties" Url="html/78794AA7.htm">
+      <HelpTOCNode Id="e188596a-00bf-4250-9208-d1d00cb5cc2d" Title="MemorySecret Properties" Url="html/78794AA7.htm">
         <HelpTOCNode Title="IsReturnSecret Property " Url="html/21749041.htm" />
         <HelpTOCNode Title="Length Property " Url="html/477859DD.htm" />
         <HelpTOCNode Title="Memory Property " Url="html/8AA5B6CB.htm" />
         <HelpTOCNode Title="TargetGame Property " Url="html/659623E4.htm" />
       </HelpTOCNode>
-      <HelpTOCNode Id="4f5f43db-74cb-4adb-be85-9f64957b9f0d" Title="MemorySecret Methods" Url="html/688B1F94.htm">
+      <HelpTOCNode Id="9476df06-bc63-4bfe-ac41-2471eb187ebc" Title="MemorySecret Methods" Url="html/688B1F94.htm">
         <HelpTOCNode Title="Equals Method " Url="html/6E036964.htm" />
         <HelpTOCNode Title="GetHashCode Method " Url="html/A0453F58.htm" />
-        <HelpTOCNode Id="625ec5df-4ac6-4cf0-bef8-853fc268d602" Title="Load Method " Url="html/29BF1B68.htm">
+        <HelpTOCNode Id="68e7a18e-a5ee-48f2-be19-7eb64f10d8b7" Title="Load Method " Url="html/29BF1B68.htm">
           <HelpTOCNode Title="Load Method (GameInfo)" Url="html/6CB5E1F4.htm" />
           <HelpTOCNode Title="Load Method (Byte[], GameRegion)" Url="html/663C13EA.htm" />
         </HelpTOCNode>
@@ -166,29 +166,29 @@
       </HelpTOCNode>
       <HelpTOCNode Title="MemorySecret Events" Url="html/96EC7288.htm" />
     </HelpTOCNode>
-    <HelpTOCNode Id="a97d7e3f-e453-425b-b892-52bb7617bcb2" Title="RingInfoAttribute Class" Url="html/3E77D1FD.htm">
+    <HelpTOCNode Id="8dce284f-744e-4776-9601-ce49a98e79fb" Title="RingInfoAttribute Class" Url="html/3E77D1FD.htm">
       <HelpTOCNode Title="RingInfoAttribute Constructor " Url="html/4DE08231.htm" />
-      <HelpTOCNode Id="7a9654ac-f783-4d81-9c68-eb0f3a738c3a" Title="RingInfoAttribute Properties" Url="html/D7144E6A.htm">
+      <HelpTOCNode Id="ab8e0e10-79cb-4f39-9745-8fac03e87a1c" Title="RingInfoAttribute Properties" Url="html/D7144E6A.htm">
         <HelpTOCNode Title="Description Property " Url="html/359DC89C.htm" />
         <HelpTOCNode Title="Name Property " Url="html/B5D886DE.htm" />
       </HelpTOCNode>
       <HelpTOCNode Title="RingInfoAttribute Methods" Url="html/CE8987A.htm" />
     </HelpTOCNode>
     <HelpTOCNode Title="Rings Enumeration" Url="html/AD31B02F.htm" />
-    <HelpTOCNode Id="3ddff24e-6468-4d5c-95e0-ebff94a82114" Title="RingSecret Class" Url="html/301F3616.htm">
-      <HelpTOCNode Id="c126c8f2-94d8-422a-b30b-18f4bce945cb" Title="RingSecret Constructor " Url="html/9F89CACE.htm">
+    <HelpTOCNode Id="998731fe-65f5-46e5-adb9-f3de50f7ace9" Title="RingSecret Class" Url="html/301F3616.htm">
+      <HelpTOCNode Id="40c9e4cc-8db2-4afb-8af7-1c230fcc9c2e" Title="RingSecret Constructor " Url="html/9F89CACE.htm">
         <HelpTOCNode Title="RingSecret Constructor " Url="html/8B8672E8.htm" />
         <HelpTOCNode Title="RingSecret Constructor (GameInfo)" Url="html/60C5B779.htm" />
         <HelpTOCNode Title="RingSecret Constructor (Int16, GameRegion, Rings)" Url="html/60C5B77C.htm" />
       </HelpTOCNode>
-      <HelpTOCNode Id="708e1caf-553e-4b36-8bb9-1a95a9240dd7" Title="RingSecret Properties" Url="html/897F55E8.htm">
+      <HelpTOCNode Id="fe5430d1-2b16-4eaf-86ff-5e8853881318" Title="RingSecret Properties" Url="html/897F55E8.htm">
         <HelpTOCNode Title="Length Property " Url="html/C37D6C6D.htm" />
         <HelpTOCNode Title="Rings Property " Url="html/1392424E.htm" />
       </HelpTOCNode>
-      <HelpTOCNode Id="43c3a4eb-22e1-4d71-9e93-5802b6af4e08" Title="RingSecret Methods" Url="html/A66E8D3B.htm">
+      <HelpTOCNode Id="7ac2ddf7-e75c-461f-9ad6-cc46405f8c40" Title="RingSecret Methods" Url="html/A66E8D3B.htm">
         <HelpTOCNode Title="Equals Method " Url="html/70BB54EB.htm" />
         <HelpTOCNode Title="GetHashCode Method " Url="html/C3D7CB84.htm" />
-        <HelpTOCNode Id="54f605c8-5e40-444c-9b2d-2a3d0d15e0e9" Title="Load Method " Url="html/16BA5381.htm">
+        <HelpTOCNode Id="c319f915-0b65-450f-8fc1-ac84ef5c6593" Title="Load Method " Url="html/16BA5381.htm">
           <HelpTOCNode Title="Load Method (GameInfo)" Url="html/B485ABA1.htm" />
           <HelpTOCNode Title="Load Method (Byte[], GameRegion)" Url="html/357FBEE4.htm" />
         </HelpTOCNode>
@@ -197,14 +197,14 @@
       </HelpTOCNode>
       <HelpTOCNode Title="RingSecret Events" Url="html/AF1F20A7.htm" />
     </HelpTOCNode>
-    <HelpTOCNode Id="75aef137-63fd-4e43-96c0-6aec6c3e82da" Title="Secret Class" Url="html/CC724F3E.htm">
+    <HelpTOCNode Id="07d6187f-8400-4774-ab15-4042859bb717" Title="Secret Class" Url="html/CC724F3E.htm">
       <HelpTOCNode Title="Secret Constructor " Url="html/AD331F07.htm" />
-      <HelpTOCNode Id="ca80b387-26fa-45eb-977d-2b56fe05dfe9" Title="Secret Properties" Url="html/B4D52824.htm">
+      <HelpTOCNode Id="cd159262-4af2-4584-a99d-844914d56635" Title="Secret Properties" Url="html/B4D52824.htm">
         <HelpTOCNode Title="GameID Property " Url="html/DC1F1939.htm" />
         <HelpTOCNode Title="Length Property " Url="html/5E88131C.htm" />
         <HelpTOCNode Title="Region Property " Url="html/906914F2.htm" />
       </HelpTOCNode>
-      <HelpTOCNode Id="4f84a5f4-4ff9-4fd1-86fd-e9dc6242b90a" Title="Secret Methods" Url="html/6B0A630A.htm">
+      <HelpTOCNode Id="a1435aab-7fa1-4ff4-ab0e-d156408c9e4d" Title="Secret Methods" Url="html/6B0A630A.htm">
         <HelpTOCNode Title="BinaryStringToByteArray Method " Url="html/D3560EA9.htm" />
         <HelpTOCNode Title="ByteArrayToBinaryString Method " Url="html/F5FA5D6E.htm" />
         <HelpTOCNode Title="CalculateChecksum Method " Url="html/2468395A.htm" />
@@ -212,7 +212,7 @@
         <HelpTOCNode Title="EncodeBytes Method " Url="html/195DD159.htm" />
         <HelpTOCNode Title="Equals Method " Url="html/71584224.htm" />
         <HelpTOCNode Title="GetHashCode Method " Url="html/CD0F06BE.htm" />
-        <HelpTOCNode Id="5b738ecc-d86b-4fe7-826e-cdac21c57672" Title="Load Method " Url="html/D3C5C781.htm">
+        <HelpTOCNode Id="131ffd91-5f4a-4a8c-90d8-0f6478299bb6" Title="Load Method " Url="html/D3C5C781.htm">
           <HelpTOCNode Title="Load Method (GameInfo)" Url="html/1EA57ECE.htm" />
           <HelpTOCNode Title="Load Method (Byte[], GameRegion)" Url="html/66308F1.htm" />
           <HelpTOCNode Title="Load Method (String, GameRegion)" Url="html/7C767ECE.htm" />
@@ -221,12 +221,12 @@
         <HelpTOCNode Title="ToBytes Method " Url="html/53886693.htm" />
         <HelpTOCNode Title="ToString Method " Url="html/977D7F39.htm" />
       </HelpTOCNode>
-      <HelpTOCNode Id="3d1988c6-2ad7-4677-9380-07f4018573cc" Title="Secret Events" Url="html/76BF05A5.htm">
+      <HelpTOCNode Id="41d620f3-154a-4377-8f0d-a6b7c241a36e" Title="Secret Events" Url="html/76BF05A5.htm">
         <HelpTOCNode Title="PropertyChanged Event" Url="html/1FF142F.htm" />
       </HelpTOCNode>
     </HelpTOCNode>
-    <HelpTOCNode Id="df434971-859a-486c-8c60-b26c74e2e56d" Title="SecretException Class" Url="html/6830FBC0.htm">
-      <HelpTOCNode Id="b3a7bbc0-50c3-48a8-b9a4-cd7926a342f0" Title="SecretException Constructor " Url="html/6CAA98B7.htm">
+    <HelpTOCNode Id="4f2e7cf7-3bc2-48da-a980-67e06225dccc" Title="SecretException Class" Url="html/6830FBC0.htm">
+      <HelpTOCNode Id="879522ee-cd95-4ac3-8a02-df22064c721b" Title="SecretException Constructor " Url="html/6CAA98B7.htm">
         <HelpTOCNode Title="SecretException Constructor " Url="html/6EB71A62.htm" />
         <HelpTOCNode Title="SecretException Constructor (String)" Url="html/C0CE8CD6.htm" />
         <HelpTOCNode Title="SecretException Constructor (SerializationInfo, StreamingContext)" Url="html/C0CB8CD6.htm" />
@@ -236,26 +236,26 @@
       <HelpTOCNode Title="SecretException Methods" Url="html/38A5A44E.htm" />
       <HelpTOCNode Title="SecretException Events" Url="html/F4AC5F18.htm" />
     </HelpTOCNode>
-    <HelpTOCNode Id="aaf55e8e-fbce-4f57-8ef9-4af62f7cbb9e" Title="SecretParser Class" Url="html/98E26E0A.htm">
-      <HelpTOCNode Id="27c4e543-85ef-4fe3-ab32-a86d84641c09" Title="SecretParser Methods" Url="html/6AA56E70.htm">
+    <HelpTOCNode Id="a3708207-18fc-4ea3-84d8-b60952432d8b" Title="SecretParser Class" Url="html/98E26E0A.htm">
+      <HelpTOCNode Id="c79a2304-70cf-469a-95ba-2bb26f4580e6" Title="SecretParser Methods" Url="html/6AA56E70.htm">
         <HelpTOCNode Title="CreateString Method " Url="html/5ABE0A86.htm" />
         <HelpTOCNode Title="ParseSecret Method " Url="html/C98E691C.htm" />
       </HelpTOCNode>
     </HelpTOCNode>
-    <HelpTOCNode Id="427b0d83-1b66-4848-b38d-a2dbbd4cd301" Title="USEncoding Class" Url="html/C27E9958.htm">
+    <HelpTOCNode Id="58cd7bea-7bbb-4c5c-8c8d-8753e3f8397a" Title="USEncoding Class" Url="html/C27E9958.htm">
       <HelpTOCNode Title="USEncoding Constructor " Url="html/2D3F6B60.htm" />
       <HelpTOCNode Title="USEncoding Properties" Url="html/5E973332.htm" />
-      <HelpTOCNode Id="87e4bce2-4db2-4ab4-8f32-6ce4e98cdef2" Title="USEncoding Methods" Url="html/1C8B4163.htm">
-        <HelpTOCNode Id="1c19779c-9a5e-4b84-838d-29ba5f9e83d1" Title="GetByteCount Method " Url="html/E5952124.htm">
+      <HelpTOCNode Id="78f51cde-0369-4a69-bb3c-e4e026662e41" Title="USEncoding Methods" Url="html/1C8B4163.htm">
+        <HelpTOCNode Id="65f5bd7d-6a97-4db9-8089-1118d3f2aaf2" Title="GetByteCount Method " Url="html/E5952124.htm">
           <HelpTOCNode Title="GetByteCount Method (Char[], Int32, Int32)" Url="html/17340E8B.htm" />
         </HelpTOCNode>
-        <HelpTOCNode Id="f4e23b06-119b-4ae3-9765-8de81aea574e" Title="GetBytes Method " Url="html/1E4F103A.htm">
+        <HelpTOCNode Id="68c2c880-9cce-41d2-80ad-c7df7fe7864f" Title="GetBytes Method " Url="html/1E4F103A.htm">
           <HelpTOCNode Title="GetBytes Method (Char[], Int32, Int32, Byte[], Int32)" Url="html/1F60CC74.htm" />
         </HelpTOCNode>
-        <HelpTOCNode Id="3560d290-3445-46a7-9281-9792994b5c06" Title="GetCharCount Method " Url="html/55D2C3F0.htm">
+        <HelpTOCNode Id="478ab924-8c69-43f9-b2b3-656a0cdf2691" Title="GetCharCount Method " Url="html/55D2C3F0.htm">
           <HelpTOCNode Title="GetCharCount Method (Byte[], Int32, Int32)" Url="html/3F3B986D.htm" />
         </HelpTOCNode>
-        <HelpTOCNode Id="631f5d3a-e052-4984-a33a-cc215c368aea" Title="GetChars Method " Url="html/BF42B7DC.htm">
+        <HelpTOCNode Id="78e6252b-47b8-4471-98ba-be9e4456aca1" Title="GetChars Method " Url="html/BF42B7DC.htm">
           <HelpTOCNode Title="GetChars Method (Byte[], Int32, Int32, Char[], Int32)" Url="html/55CA0E34.htm" />
         </HelpTOCNode>
         <HelpTOCNode Title="GetMaxByteCount Method " Url="html/EE34FB10.htm" />
