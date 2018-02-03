@@ -4,6 +4,10 @@ configuration: Debug
 # environment variables
 environment:
   SandcastleVersion: 2017.12.30.2
+  access_token:
+    secure: UTLYBi+fA9DfITcCNVwGyJw5MGEvXeawqBzd7U6q9agG5u5gTwIc7LxqdxAVWhSC
+  github_email:
+    secure: N1sJz+EugtLJ1e1jR232oYKnskaCKJlQHmL3EruztHE=
 
 before_build:
 - nuget restore ZoraSharp.sln
@@ -20,12 +24,24 @@ test_script:
 - codecov -f "coverage.xml" -X gcov
 
 after_test:
-    - echo Building Sandcastle
-    - SET SHFBROOT=%APPVEYOR_BUILD_FOLDER%\EWSoftware.SHFB.%SandcastleVersion%\Tools\
-    - nuget install EWSoftware.SHFB -Version %SandcastleVersion%
-    - nuget install EWSoftware.SHFB.NETFramework
-    - msbuild ZoraSharp.shfbproj /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll" /p:Configuration=%CONFIGURATION%
-    - 7z a -tzip api_doc.zip %APPVEYOR_BUILD_FOLDER%\doc\*
+  - git config --global credential.helper store
+  - ps: Add-Content "$env:USERPROFILE\.git-credentials" "https://$($env:access_token):x-oauth-basic@github.com`n"
+  - git config --global user.email %github_email%
+  - git config --global user.name "Amy Nagle"
+  - git config --global core.safecrlf false
+  - ps: >-
+      If ($env:APPVEYOR_REPO_BRANCH -eq "master") {
+      echo "Building API documentation";
+      git clone -q -b gh-pages --single-branch https://github.com/kabili207/zora-sharp.git doc;
+      $env:SHFBROOT = "$($env:APPVEYOR_BUILD_FOLDER)\EWSoftware.SHFB.$($env:SandcastleVersion)\Tools\";
+      nuget install EWSoftware.SHFB -Version $env:SandcastleVersion;
+      nuget install EWSoftware.SHFB.NETFramework;
+      msbuild ZoraSharp.shfbproj /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll" /p:Configuration=$env:CONFIGURATION;
+      7z a -tzip api_doc.zip $env:APPVEYOR_BUILD_FOLDER\doc\*;
+      git -C doc add api-doc;
+      git -C doc commit -m "AppVeyor Build $($env:APPVEYOR_BUILD_NUMBER): Update API documentation";
+      git -C doc push -q origin gh-pages;
+      }
 
 artifacts:
 - path: src\bin\$(configuration)\*.dll
