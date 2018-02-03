@@ -73,7 +73,6 @@ namespace Zyrenth.Zora
 		{
 			get
 			{
-				string result = string.Empty;
 				Version version = _asm.GetName().Version;
 				if (version != null)
 					return version.ToString();

@@ -50,6 +50,7 @@ namespace Zyrenth.Zora
 		/// </summary>
 		/// <returns>All of the game information in the save file</returns>
 		/// <param name="filename">The input file path.</param>
+		/// <param name="region">The region of the game</param>
 		public static IEnumerable<GameInfo> LoadAll(string filename, GameRegion region)
 		{
 			using (FileStream inFile = File.OpenRead(filename))
@@ -63,6 +64,7 @@ namespace Zyrenth.Zora
 		/// </summary>
 		/// <returns>All of the game information in the save file</returns>
 		/// <param name="stream">The input stream.</param>
+		/// <param name="region">The region of the game</param>
 		public static IEnumerable<GameInfo> LoadAll(Stream stream, GameRegion region)
 		{
 			List<GameInfo> gameData = new List<GameInfo>();
@@ -93,6 +95,7 @@ namespace Zyrenth.Zora
 		/// Loads a game info from the file at the specified offset
 		/// </summary>
 		/// <param name="filename">File.</param>
+		/// <param name="region">The region of the game</param>
 		/// <param name="offset">Offset.</param>
 		/// <returns>The game information at the specified offset</returns>
 		/// <remarks>This method has only been tested with the US version of the games</remarks>
@@ -108,6 +111,7 @@ namespace Zyrenth.Zora
 		/// Loads a game info from the stream at the specified offset
 		/// </summary>
 		/// <param name="stream">Stream.</param>
+		/// <param name="region">The region of the game</param>
 		/// <param name="offset">Offset.</param>
 		/// <returns>The game information at the specified offset</returns>
 		/// <remarks>This method has only been tested with the US version of the games</remarks>

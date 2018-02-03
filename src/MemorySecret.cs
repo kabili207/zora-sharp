@@ -94,7 +94,7 @@ namespace Zyrenth.Zora
 		/// </summary>
 		/// <param name="info">The game information.</param>
 		/// <param name="memory">The memory.</param>
-		/// <param name="isReturnSecret">if set to <c>true</c> [is return secret].</param>
+		/// <param name="isReturnSecret">if set to <c>true</c> is return secret.</param>
 		public MemorySecret(GameInfo info, Memory memory, bool isReturnSecret)
 			: this(info.Game, info.Region, info.GameID, memory, isReturnSecret) { }
 
@@ -103,7 +103,7 @@ namespace Zyrenth.Zora
 		/// the specified values.
 		/// </summary>
 		/// <param name="game">The game.</param>
-		/// <param name="region">The the region this secret is for</param>
+		/// <param name="region">The region of the game</param>
 		/// <param name="gameId">The game id.</param>
 		/// <param name="memory">The memory.</param>
 		/// <param name="isReturnSecret">if set to <c>true</c> is return secret.</param>
@@ -148,7 +148,7 @@ namespace Zyrenth.Zora
 		/// Loads in data from the raw secret data provided
 		/// </summary>
 		/// <param name="secret">The raw secret data</param>
-		/// <param name="region">The the region this secret is for</param>
+		/// <param name="region">The region of the game</param>
 		/// <example>
 		/// This example demonstrates loading a <see cref="MemorySecret"/> from a
 		/// a byte array containing an encoded secret.
@@ -211,7 +211,7 @@ namespace Zyrenth.Zora
 			}
 
 			if (!found)
-				throw new SecretException("Cound not determine all properties of this secret");
+				throw new UnknownMemoryException("Cound not determine the type of memory secret");
 		}
 
 		/// <summary>

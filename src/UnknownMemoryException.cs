@@ -30,29 +30,29 @@ namespace Zyrenth.Zora
 	/// Represents the exception that is thrown when a secret is invalid.
 	/// </summary>
 	[Serializable]
-	public class InvalidChecksumException : SecretException, ISerializable
+	public class UnknownMemoryException : SecretException, ISerializable
 	{
 		/// <summary>
-		/// Initializes a new instance of the <see cref="InvalidChecksumException"/> class.
+		/// Initializes a new instance of the <see cref="UnknownMemoryException"/> class.
 		/// </summary>
-		public InvalidChecksumException()
+		public UnknownMemoryException()
 		{
 			// Add implementation.
 		}
 
 		/// <summary>
-		/// Initializes a new instance of the <see cref="InvalidChecksumException"/> class
+		/// Initializes a new instance of the <see cref="UnknownMemoryException"/> class
 		/// with a specified error message.
 		/// </summary>
 		/// <param name="message">The message that describes the error.</param>
-		public InvalidChecksumException(string message)
+		public UnknownMemoryException(string message)
 			: base(message)
 		{
 			// Add implementation.
 		}
 
 		/// <summary>
-		/// Initializes a new instance of the <see cref="InvalidChecksumException"/> class
+		/// Initializes a new instance of the <see cref="UnknownMemoryException"/> class
 		/// with a specified error message and a reference to the inner exception that is
 		/// the cause of this exception.
 		/// </summary>
@@ -62,14 +62,14 @@ namespace Zyrenth.Zora
 		/// parameter is not a <b>null</b> reference (<b>Nothing</b> in Visual Basic), the current exception is raised in
 		/// a catch block that handles the inner exception.
 		/// </param>
-		public InvalidChecksumException(string message, Exception innerException)
+		public UnknownMemoryException(string message, Exception innerException)
 			: base(message, innerException)
 		{
 			// Add implementation.
 		}
 
 		/// <summary>
-		/// Initializes a new instance of the <see cref="InvalidChecksumException"/> class
+		/// Initializes a new instance of the <see cref="UnknownMemoryException"/> class
 		/// with serialized data.
 		/// </summary>
 		/// <param name="info">
@@ -80,7 +80,7 @@ namespace Zyrenth.Zora
 		/// The <see cref="T:System.Runtime.Serialization.StreamingContext" /> that contains
 		/// contextual information about the source or destination.
 		/// </param>
-		protected InvalidChecksumException(SerializationInfo info, StreamingContext context)
+		protected UnknownMemoryException(SerializationInfo info, StreamingContext context)
 			: base(info, context)
 		{
 			// Add implementation.

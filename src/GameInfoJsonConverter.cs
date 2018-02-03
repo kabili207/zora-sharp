@@ -40,7 +40,7 @@ namespace Zyrenth.Zora
 		/// </summary>
 		/// <param name="dictionary">An <see cref="T:System.Collections.Generic.IDictionary`2" /> instance of property data stored as name/value pairs.</param>
 		/// <returns>
-		/// The deserialized object.
+		/// The deserialized game data.
 		/// </returns>
 		/// <exception cref="ArgumentNullException">dictionary</exception>
 		public GameInfo Deserialize(IDictionary<string, object> dictionary)
@@ -68,11 +68,11 @@ namespace Zyrenth.Zora
 		/// <summary>
 		/// Builds a dictionary of name/value pairs.
 		/// </summary>
-		/// <param name="obj">The object to serialize.</param>
+		/// <param name="info">The game data to serialize.</param>
 		/// <returns>
 		/// An object that contains key/value pairs that represent the object’s data.
 		/// </returns>
-		/// <exception cref="ArgumentException">Invalid type;obj</exception>
+		/// <exception cref="ArgumentException">Invalid type;info</exception>
 		public IDictionary<string, object> Serialize(GameInfo info)
 		{
 			if (info == null)

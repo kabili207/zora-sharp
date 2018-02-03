@@ -3,7 +3,6 @@ configuration: Debug
 
 # environment variables
 environment:
-  SandcastleVersion: 2017.12.30.2
   access_token:
     secure: UTLYBi+fA9DfITcCNVwGyJw5MGEvXeawqBzd7U6q9agG5u5gTwIc7LxqdxAVWhSC
   github_email:
@@ -30,16 +29,16 @@ after_test:
   - git config --global user.name "Amy Nagle"
   - git config --global core.safecrlf false
   - ps: >-
-      If ($env:APPVEYOR_REPO_BRANCH -eq "master") {
+      If ($env:APPVEYOR_REPO_TAG -eq "true") {
       echo "Building API documentation";
       git clone -q -b gh-pages --single-branch https://github.com/kabili207/zora-sharp.git doc;
-      $env:SHFBROOT = "$($env:APPVEYOR_BUILD_FOLDER)\EWSoftware.SHFB.$($env:SandcastleVersion)\Tools\";
-      nuget install EWSoftware.SHFB -Version $env:SandcastleVersion;
+      $env:SHFBROOT = "$($env:APPVEYOR_BUILD_FOLDER)\EWSoftware.SHFB\Tools\";
+      nuget install EWSoftware.SHFB -ExcludeVersion;
       nuget install EWSoftware.SHFB.NETFramework;
       msbuild ZoraSharp.shfbproj /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll" /p:Configuration=$env:CONFIGURATION;
-      7z a -tzip api_doc.zip $env:APPVEYOR_BUILD_FOLDER\doc\*;
+      7z a -tzip api_doc.zip $env:APPVEYOR_BUILD_FOLDER\doc\api-doc\*;
       git -C doc add api-doc;
-      git -C doc commit -m "AppVeyor Build $($env:APPVEYOR_BUILD_NUMBER): Update API documentation";
+      git -C doc commit -m "Update API documentation for $($env:APPVEYOR_TAG_NAME)";
       git -C doc push -q origin gh-pages;
       }
 

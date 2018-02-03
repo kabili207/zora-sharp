@@ -1,5 +1,6 @@
 ﻿using NUnit.Framework;
 using System;
+using System.Collections.Generic;
 
 namespace Zyrenth.Zora.Tests
 {
@@ -137,6 +138,24 @@ namespace Zyrenth.Zora.Tests
 			Assert.Throws<SecretException>(() => s2.UpdateGameInfo(info, true));
 			Assert.DoesNotThrow(() => s3.UpdateGameInfo(info, true));
 			Assert.AreEqual(GameInfoTest.DesiredInfo, info);
+		}
+		
+		[Test]
+		public void TestHashCode()
+		{
+			RingSecret r1 = new RingSecret(1234, GameRegion.US, Rings.All);
+			RingSecret r2 = new RingSecret(5632, GameRegion.JP, Rings.BlueRing);
+			
+			RingSecret r3 = new RingSecret(9876, GameRegion.US, Rings.All);
+			RingSecret r4 = new RingSecret(1234, GameRegion.US, Rings.All);
+			
+			// Because using mutable objects as a key is an awesome idea...
+			Dictionary<RingSecret, bool> dict = new Dictionary<RingSecret, bool>();
+			dict.Add(r1, true);
+			dict.Add(r2, true);
+			
+			Assert.That(dict, !Contains.Key(r3));
+			Assert.That(dict, Contains.Key(r4));
 		}
 	}
 }

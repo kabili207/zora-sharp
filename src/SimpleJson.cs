@@ -19,6 +19,8 @@
 
 // VERSION:
 
+#pragma warning disable 1591
+
 // NOTE: uncomment the following line to make SimpleJson class internal.
 //#define SIMPLE_JSON_INTERNAL
 
@@ -2122,6 +2124,9 @@ namespace SimpleJson
 		}
 	}
 }
+
+#pragma warning restore 1591
+
 // ReSharper restore LoopCanBeConvertedToQuery
 // ReSharper restore RedundantExplicitArrayCreation
 // ReSharper restore SuggestUseVarKeywordEvident

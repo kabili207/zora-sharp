@@ -78,5 +78,48 @@ namespace Zyrenth.Zora.Tests
 			Assert.Throws<ArgumentNullException>(() => converter.Serialize(null));
 			Assert.Throws<ArgumentNullException>(() => converter.Deserialize(null));
 		}
+		
+		[Test]
+		public void TestEquals()
+		{
+			GameInfo s2 = new GameInfo()
+			{
+				Region = GameRegion.US,
+				Game = Game.Ages,
+				GameID = 14129,
+				Hero = "Link",
+				Child = "Pip",
+				Animal = Animal.Dimitri,
+				Behavior = 4,
+				IsLinkedGame = true,
+				IsHeroQuest = false,
+				WasGivenFreeRing = true,
+				Rings = Rings.PowerRingL1 | Rings.DoubleEdgeRing | Rings.ProtectionRing
+			};
+
+			Assert.AreEqual(DesiredInfo, s2);
+		}
+
+		[Test]
+		public void TestNotEquals()
+		{
+			GameInfo s2 = new GameInfo()
+			{
+				Region = GameRegion.US,
+				Game = Game.Seasons,
+				GameID = 14129,
+				Hero = "",
+				Child = "Pip",
+				Animal = Animal.Dimitri,
+				Behavior = 4,
+				IsLinkedGame = true,
+				IsHeroQuest = false,
+				WasGivenFreeRing = true
+			};
+
+			Assert.AreNotEqual(DesiredInfo, s2);
+			Assert.AreNotEqual(DesiredInfo, null);
+			Assert.AreNotEqual(DesiredInfo, "");
+		}
 	}
 }

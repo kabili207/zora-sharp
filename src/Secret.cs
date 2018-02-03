@@ -106,14 +106,14 @@ namespace Zyrenth.Zora
 		/// Loads in data from the raw secret data provided
 		/// </summary>
 		/// <param name="secret">The raw secret data</param>
-		/// <param name="region">The the region this secret is for</param>
+		/// <param name="region">The region of the game</param>
 		public abstract void Load(byte[] secret, GameRegion region);
 
 		/// <summary>
 		/// Loads in data from the secret string provided
 		/// </summary>
 		/// <param name="secret">The secret</param>
-		/// <param name="region">The the region this secret is for</param>
+		/// <param name="region">The region of the game</param>
 		/// <example>
 		/// This example demonstrates loading a <see cref="GameSecret"/> from a
 		/// secret string.

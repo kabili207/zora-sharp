@@ -233,6 +233,7 @@ namespace Zyrenth.Zora
 		/// Loads in data from the raw secret data provided
 		/// </summary>
 		/// <param name="secret">The raw secret data</param>
+		/// <param name="region">The region of the game</param>
 		/// <example>
 		/// This example demonstrates loading a <see cref="GameSecret"/> from a
 		/// a byte array containing an encoded secret.
@@ -404,6 +405,9 @@ namespace Zyrenth.Zora
 		/// <summary>
 		/// Checks if the secret is valid for PAL, since it has extra sanity checks.
 		/// </summary>
+		/// <returns>
+		/// <c>true</c> if this secret is valid for usage on PAL games; otherwise, <c>false</c>.
+		/// </returns>
 		public bool IsValidForPAL()
 		{
 			if (_animal != 0x0b && _animal != 0x0c && _animal != 0x0d)

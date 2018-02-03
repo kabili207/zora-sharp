@@ -93,8 +93,8 @@ namespace Zyrenth.Zora
 		/// Converts a secret string into a byte array.
 		/// </summary>
 		/// <returns>The secret</returns>
-		/// <param name="secret">Secret.</param>
-		/// <param name="region">Game region.</param>
+		/// <param name="secret">The secret to decode.</param>
+		/// <param name="region">The region of the game</param>
 		/// <exception cref="SecretException">
 		/// The <paramref name="secret"/> contains invalid symbols.
 		/// </exception>
@@ -143,7 +143,7 @@ namespace Zyrenth.Zora
 		/// Creates a string representation of a secret byte array.
 		/// </summary>
 		/// <param name="data">The secret data</param>
-		/// <param name="region">Game region.</param>
+		/// <param name="region">The region of the game</param>
 		/// <returns>A representation of the secret data</returns>
 		/// <remarks>This method always returns the secret formatted as <c>→N♥Nh</c></remarks>
 		/// <exception cref="SecretException">

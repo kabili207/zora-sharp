@@ -63,6 +63,7 @@ namespace Zyrenth.Zora
 		/// specified <paramref name="gameId"/> and <paramref name="rings"/>.
 		/// </summary>
 		/// <param name="gameId">The game identifier.</param>
+		/// <param name="region">The region of the game</param>
 		/// <param name="rings">The rings.</param>
 		public RingSecret(short gameId, GameRegion region, Rings rings)
 		{
@@ -107,7 +108,7 @@ namespace Zyrenth.Zora
 		/// Loads in data from the raw secret data provided
 		/// </summary>
 		/// <param name="secret">The raw secret data</param>
-		/// <param name="region">The the region this secret is for</param>
+		/// <param name="region">The region of the game</param>
 		/// <example>
 		/// This example demonstrates loading a <see cref="RingSecret"/> from a
 		/// a byte array containing an encoded secret.
