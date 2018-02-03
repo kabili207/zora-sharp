@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<shfbBuild product="Sandcastle Help File Builder and Tools" version="2017.12.30.2" projectFile="C:\projects\zora-sharp\ZoraSharp.shfbproj" started="2/3/2018 12:59:24 AM">
+<shfbBuild product="Sandcastle Help File Builder and Tools" version="2017.12.30.2" projectFile="C:\projects\zora-sharp\ZoraSharp.shfbproj" started="2/3/2018 1:05:06 AM">
 <buildStep step="Initializing">
 Finding tools...
 The Sandcastle tools are located in &#39;C:\projects\zora-sharp\EWSoftware.SHFB.2017.12.30.2\Tools\&#39;
@@ -33,16 +33,16 @@ Copying XML comments files
 <buildStep step="GenerateSharedContent">
 Generating shared content files (en-US, English (United States))...
 <plugIn name="Lightweight Website Style" behavior="After" priority="1000">
-</plugIn>    Last step completed in 00:00:00.0312
+</plugIn>    Last step completed in 00:00:00.0468
 </buildStep>
 <buildStep step="GenerateApiFilter">
 Generating API filter for MRefBuilder...
-    Last step completed in 00:00:00.0156
+    Last step completed in 00:00:00.0158
 </buildStep>
 <buildStep step="GenerateReflectionInfo">
 Generating reflection information...
 [C:\Program Files (x86)\MSBuild\14.0\bin\MSBuild.exe - GenerateRefInfo.proj]
-Build started 2/3/2018 12:59:28 AM.
+Build started 2/3/2018 1:05:12 AM.
 Project &quot;C:\projects\zora-sharp\doc\api-doc\Working\GenerateRefInfo.proj&quot; on node 1 (default targets).
 PrepareForBuild:
   Creating directory &quot;obj\Debug\&quot;.
@@ -62,13 +62,13 @@ Done Building Project &quot;C:\projects\zora-sharp\doc\api-doc\Working\GenerateR
 
 Build succeeded.
 
-Time Elapsed 00:00:02.20
-    Last step completed in 00:00:02.9375
+Time Elapsed 00:00:02.54
+    Last step completed in 00:00:03.4087
 </buildStep>
 <buildStep step="TransformReflectionInfo">
 Transforming reflection output...
 [C:\Program Files (x86)\MSBuild\14.0\bin\MSBuild.exe - TransformManifest.proj]
-Build started 2/3/2018 12:59:31 AM.
+Build started 2/3/2018 1:05:15 AM.
 Project &quot;C:\projects\zora-sharp\doc\api-doc\Working\TransformManifest.proj&quot; on node 1 (default targets).
 TransformManifest:
   XslTransform (v2017.12.30.2)
@@ -108,8 +108,8 @@ Done Building Project &quot;C:\projects\zora-sharp\doc\api-doc\Working\Transform
 
 Build succeeded.
 
-Time Elapsed 00:00:01.87
-    Last step completed in 00:00:02.5625
+Time Elapsed 00:00:02.23
+    Last step completed in 00:00:02.9075
 </buildStep>
 <buildStep step="GenerateNamespaceSummaries">
 Generating namespace summary information...
@@ -127,7 +127,7 @@ Merging conceptual and additional tables of contents...
 <buildStep step="GenerateIntermediateTableOfContents">
 Generating intermediate table of contents file...
 [C:\Program Files (x86)\MSBuild\14.0\bin\MSBuild.exe - GenerateIntermediateTOC.proj]
-Build started 2/3/2018 12:59:33 AM.
+Build started 2/3/2018 1:05:18 AM.
 Project &quot;C:\projects\zora-sharp\doc\api-doc\Working\GenerateIntermediateTOC.proj&quot; on node 1 (default targets).
 GenerateIntermediateTOC:
   XslTransform (v2017.12.30.2)
@@ -138,26 +138,26 @@ Done Building Project &quot;C:\projects\zora-sharp\doc\api-doc\Working\GenerateI
 
 Build succeeded.
 
-Time Elapsed 00:00:01.37
+Time Elapsed 00:00:01.32
 Generating conceptual content intermediate TOC file...
-    Last step completed in 00:00:02.0782
+    Last step completed in 00:00:02.0469
 </buildStep>
 <buildStep step="CreateBuildAssemblerConfigs">
 Creating Sandcastle configuration files...
     sandcastle.config
-    Last step completed in 00:00:00.1719
+    Last step completed in 00:00:00.1875
 </buildStep>
 <buildStep step="MergeCustomConfigs">
 Merging custom build component configurations
 C:\projects\zora-sharp\doc\api-doc\Working\sandcastle.config
   Updating reference topic configurations.
   No conceptual content.  Removing conceptual content components.
-    Last step completed in 00:00:00.0156
+    Last step completed in 00:00:00.0000
 </buildStep>
 <buildStep step="BuildTopics">
 Building help topics...
 [C:\Program Files (x86)\MSBuild\14.0\bin\MSBuild.exe - BuildTopics.proj]
-Build started 2/3/2018 12:59:36 AM.
+Build started 2/3/2018 1:05:20 AM.
 Project &quot;C:\projects\zora-sharp\doc\api-doc\Working\BuildTopics.proj&quot; on node 1 (default targets).
 BuildTopics:
   BuildAssembler (v2017.12.30.2)
@@ -239,8 +239,8 @@ Done Building Project &quot;C:\projects\zora-sharp\doc\api-doc\Working\BuildTopi
 
 Build succeeded.
 
-Time Elapsed 00:00:29.12
-    Last step completed in 00:00:31.7565
+Time Elapsed 00:00:30.29
+    Last step completed in 00:00:33.5413
 </buildStep>
 <buildStep step="CombiningIntermediateTocFiles">
 Combining conceptual and API intermediate TOC files...
@@ -260,7 +260,7 @@ Processed 204 HTML files
 Sorting keywords and generating See Also indices
 Saving website keyword index to C:\projects\zora-sharp\doc\api-doc\Working\WebKI.xml
 Saving website table of contents to C:\projects\zora-sharp\doc\api-doc\Working\WebTOC.xml
-    Last step completed in 00:00:01.5521
+    Last step completed in 00:00:01.5958
 </buildStep>
 <buildStep step="CopyStandardHelpContent">
 Copying standard help content...
@@ -342,7 +342,7 @@ C:\projects\zora-sharp\EWSoftware.SHFB.2017.12.30.2\tools\PresentationStyles\VS2
 C:\projects\zora-sharp\EWSoftware.SHFB.2017.12.30.2\tools\PresentationStyles\VS2013\Web\scripts\branding-Website.js -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\scripts\branding-Website.js
 C:\projects\zora-sharp\EWSoftware.SHFB.2017.12.30.2\tools\PresentationStyles\VS2013\Web\scripts\clipboard.min.js -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\scripts\clipboard.min.js
 C:\projects\zora-sharp\EWSoftware.SHFB.2017.12.30.2\tools\PresentationStyles\VS2013\Web\scripts\jquery-1.11.0.min.js -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\scripts\jquery-1.11.0.min.js
-    Last step completed in 00:00:00.2656
+    Last step completed in 00:00:00.2969
 </buildStep>
 <buildStep step="GenerateHelpFormatTableOfContents">
 Generating website table of contents file...
@@ -353,21 +353,21 @@ Generating full-text index for the website...
 
 <plugIn name="Lightweight Website Style" behavior="After" priority="1000">
 Adding lightweight search and TOC elements to each topic...
-</plugIn>    Last step completed in 00:00:00.3438
+</plugIn>    Last step completed in 00:00:00.5639
 </buildStep>
 <buildStep step="CopyingWebsiteFiles">
 Copying website files to output folder...
 
 Copied 369 files for the website content
-    Last step completed in 00:00:00.1719
+    Last step completed in 00:00:00.2344
 </buildStep>
 <buildStep step="CleanIntermediates">
 Removing intermediate files...
-    Last step completed in 00:00:00.0313
+    Last step completed in 00:00:00.0472
 </buildStep>
 <buildStep step="Completed">
 
-Build completed successfully at 2/3/2018 1:00:09 AM.  Total time: 00:00:45.5592
+Build completed successfully at 2/3/2018 1:05:56 AM.  Total time: 00:00:49.4849
 
 </buildStep>
 </shfbBuild>
