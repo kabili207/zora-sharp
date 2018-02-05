@@ -2,6 +2,7 @@
 using System;
 using System.IO;
 using System.Web.Script.Serialization;
+using System.Collections.Generic;
 
 namespace Zyrenth.Zora.Tests
 {
@@ -150,6 +151,23 @@ namespace Zyrenth.Zora.Tests
 			Assert.AreNotEqual(DesiredInfo, s2);
 			Assert.AreNotEqual(DesiredInfo, null);
 			Assert.AreNotEqual(DesiredInfo, "");
+		}
+
+		[Test]
+		public void TestHashCode()
+		{
+			GameInfo s1 = new GameInfo() { Hero = "Link", Child = "Pip", Animal = Animal.Ricky };
+			GameInfo s2 = new GameInfo() { Hero = "Link", Child = "Pip~", Animal = Animal.Ricky };
+			GameInfo s3 = new GameInfo() { Hero = "Link", Child = "Pip", Animal = Animal.None };
+			GameInfo s4 = new GameInfo() { Hero = "Link", Child = "Pip", Animal = Animal.Ricky };
+
+			// Because using mutable objects as a key is an awesome idea...
+			Dictionary<GameInfo, bool> dict = new Dictionary<GameInfo, bool>();
+			dict.Add(s1, true);
+			dict.Add(s2, true);
+
+			Assert.That(dict, !Contains.Key(s3));
+			Assert.That(dict, Contains.Key(s4));
 		}
 		
 		[Test]
