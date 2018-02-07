@@ -3,28 +3,34 @@ configuration: Debug
 
 # environment variables
 environment:
-  access_token:
+  github_token:
     secure: UTLYBi+fA9DfITcCNVwGyJw5MGEvXeawqBzd7U6q9agG5u5gTwIc7LxqdxAVWhSC
+  sonar_token:
+    secure: R2xWzuls+9uh3PX2qSmLRwKjmK6uFjygEAmBRDSkIaDn0mRmXuMJ3fWedlIvgjC3
   github_email:
     secure: N1sJz+EugtLJ1e1jR232oYKnskaCKJlQHmL3EruztHE=
 
 before_build:
-- nuget restore ZoraSharp.sln
+  - nuget restore ZoraSharp.sln
+  - choco install "msbuild-sonarqube-runner" -y
+  - ps: if ($env:APPVEYOR_PULL_REQUEST_NUMBER) { MSBuild.SonarQube.Runner.exe begin /k:"zora-sharp" /o:kabili207-github /d:"sonar.host.url=https://sonarqube.com" /d:"sonar.login=$env:sonar_token"  /d:"sonar.analysis.mode=preview" /d:"sonar.github.pullRequest=$env:APPVEYOR_PULL_REQUEST_NUMBER" /d:"sonar.github.repository=kabili207/zora-sharp" /d:"sonar.github.oauth=$env:github_token" }
+  - ps: if (-Not $env:APPVEYOR_PULL_REQUEST_NUMBER) { MSBuild.SonarQube.Runner.exe begin /k:"zora-sharp" /o:kabili207-github /d:"sonar.host.url=https://sonarqube.com" /d:"sonar.login=$env:sonar_token"  /d:sonar.cs.nunit.reportsPaths="$env:APPVEYOR_BUILD_FOLDER\nunit-results.xml" }
 
 build:
   project: ZoraSharp.sln
   verbosity: minimal
 
 test_script:
-- nuget.exe install OpenCover -ExcludeVersion
-- OpenCover\tools\OpenCover.Console.exe -register:user -target:nunit3-console.exe -targetargs:"test\bin\%CONFIGURATION%\ZoraSharp.Tests.dll --result=myresults.xml;format=AppVeyor" -returntargetcode -filter:"+[*]* -[ZoraSharp.Tests]* -[ZoraSharp]*Exception -[ZoraSharp]SimpleJson.* -[ZoraSharp]*.AssemblyDetail -[ZoraSharp]*.Attributes" -excludebyattribute:"*.ExcludeFromCodeCoverage*" -hideskipped:All -output:coverage.xml
-- "SET PATH=C:\\Python34;C:\\Python34\\Scripts;%PATH%"
-- pip install codecov
-- codecov -f "coverage.xml" -X gcov
+  - nuget.exe install OpenCover -ExcludeVersion
+  - OpenCover\tools\OpenCover.Console.exe -register:user -target:nunit3-console.exe -targetargs:"test\bin\%CONFIGURATION%\ZoraSharp.Tests.dll --result=myresults.xml;format=AppVeyor --result=nunit-results.xml;format=nunit3" -returntargetcode -filter:"+[*]* -[ZoraSharp.Tests]* -[ZoraSharp]*Exception -[ZoraSharp]SimpleJson.* -[ZoraSharp]*.AssemblyDetail -[ZoraSharp]*.Attributes" -excludebyattribute:"*.ExcludeFromCodeCoverage*" -hideskipped:All -output:coverage.xml
+  - "SET PATH=C:\\Python34;C:\\Python34\\Scripts;%PATH%"
+  - pip install codecov
+  - codecov -f "coverage.xml" -X gcov
+  - MSBuild.SonarQube.Runner.exe end /d:"sonar.login=%sonar_token%"
 
 after_test:
   - git config --global credential.helper store
-  - ps: Add-Content "$env:USERPROFILE\.git-credentials" "https://$($env:access_token):x-oauth-basic@github.com`n"
+  - ps: Add-Content "$env:USERPROFILE\.git-credentials" "https://$($env:github_token):x-oauth-basic@github.com`n"
   - git config --global user.email %github_email%
   - git config --global user.name "Amy Nagle"
   - git config --global core.safecrlf false
