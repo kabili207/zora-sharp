@@ -1,4 +1,4 @@
-﻿/*
+/*
  *  Copyright © 2013-2018, Amy Nagle.
  *  All rights reserved.
  *
@@ -29,7 +29,7 @@ namespace Zyrenth.Zora
 	/// </summary>
 	public class JapaneseEncoding : Encoding
 	{
-		char[] characters =
+        private char[] characters =
 		{
 			'\0','\0','\0','\0','♥','↑','↓','←','→','\0','\0','「','」','\0','\0','。',
 			' ','!','"','#','$','%','&','\'','(',')','*','+',',','-','.','/',

@@ -1,4 +1,4 @@
-﻿using NUnit.Framework;
+using NUnit.Framework;
 using System;
 using System.Collections.Generic;
 
@@ -7,8 +7,8 @@ namespace Zyrenth.Zora.Tests
 	[TestFixture]
 	public class GameSecretTest
 	{
-		const string DesiredSecretString = "H~2:@ ←2♦yq GB3●( 6♥?↑6";
-		const string DesiredSecretString_JP = "かね6ごわ 4さをれか さ7ちわも るこぴりふ";
+        private const string DesiredSecretString = "H~2:@ ←2♦yq GB3●( 6♥?↑6";
+        private const string DesiredSecretString_JP = "かね6ごわ 4さをれか さ7ちわも るこぴりふ";
 
 		public static readonly GameSecret DesiredSecret = new GameSecret()
 		{
@@ -37,8 +37,7 @@ namespace Zyrenth.Zora.Tests
 			IsHeroQuest = true,
 			WasGivenFreeRing = false
 		};
-		
-		static readonly byte[] DesiredSecretBytes = new byte[] {
+        private static readonly byte[] DesiredSecretBytes = new byte[] {
 			 4, 37, 51, 36, 63,
 			61, 51, 10, 44, 39,
 			 3,  0, 52, 21, 48,

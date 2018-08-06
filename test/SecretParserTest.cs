@@ -1,4 +1,4 @@
-﻿using NUnit.Framework;
+using NUnit.Framework;
 using System;
 
 namespace Zyrenth.Zora.Tests
@@ -6,8 +6,8 @@ namespace Zyrenth.Zora.Tests
 	[TestFixture]
 	public class SecretParserTest
 	{
-		const string DesiredSecretString = "H~2:@ ←2♦yq GB3●) 6♥?↑4";
-		static readonly byte[] DesiredSecretBytes = new byte[] {
+        private const string DesiredSecretString = "H~2:@ ←2♦yq GB3●) 6♥?↑4";
+        private static readonly byte[] DesiredSecretBytes = new byte[] {
 			4, 37, 51, 36, 63,
 			61, 51, 10, 44, 39,
 			3,  0, 52, 21, 50,

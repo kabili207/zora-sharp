@@ -1,4 +1,4 @@
-﻿/*
+/*
  *  Copyright © 2013-2018, Amy Nagle.
  *  All rights reserved.
  *
@@ -35,19 +35,19 @@ namespace Zyrenth.Zora
 	public class GameInfo : INotifyPropertyChanged
 	{
 
-		#region Fields
+        #region Fields
 
-		GameRegion _region = GameRegion.US;
-		string _hero = "\0\0\0\0\0";
-		string _child = "\0\0\0\0\0";
-		short _gameId = 0;
-		byte _behavior = 0;
-		byte _animal = 0;
-		byte _agesSeasons = 0;
-		bool _isHeroQuest = false;
-		bool _isLinkedGame = false;
-		long _rings = 0L;
-		bool _wasGivenFreeRing = false;
+        private GameRegion _region = GameRegion.US;
+        private string _hero = "\0\0\0\0\0";
+        private string _child = "\0\0\0\0\0";
+        private short _gameId = 0;
+        private byte _behavior = 0;
+        private byte _animal = 0;
+        private byte _agesSeasons = 0;
+        private bool _isHeroQuest = false;
+        private bool _isLinkedGame = false;
+        private long _rings = 0L;
+        private bool _wasGivenFreeRing = false;
 
 		#endregion // Fields
 

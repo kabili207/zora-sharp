@@ -1,4 +1,4 @@
-﻿/*
+/*
  *  Copyright © 2013-2018, Amy Nagle.
  *  All rights reserved.
  *
@@ -50,15 +50,14 @@ namespace Zyrenth.Zora
 			0x3a, 0x3b, 0x3d, 0x11, 0x12, 0xbd, 0x13, 0x28,
 			0x29, 0x00
 		};
-
-		string _hero = "\0\0\0\0\0";
-		string _child = "\0\0\0\0\0";
-		byte _behavior = 0;
-		byte _animal = 0;
-		Game _targetGame = 0;
-		bool _isHeroQuest = false;
-		bool _isLinkedGame = false;
-		bool _wasGivenFreeRing = false;
+        private string _hero = "\0\0\0\0\0";
+        private string _child = "\0\0\0\0\0";
+        private byte _behavior = 0;
+        private byte _animal = 0;
+        private Game _targetGame = 0;
+        private bool _isHeroQuest = false;
+        private bool _isLinkedGame = false;
+        private bool _wasGivenFreeRing = false;
 
 		/// <summary>
 		/// Gets the required length of the secret

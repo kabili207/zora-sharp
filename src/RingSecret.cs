@@ -1,4 +1,4 @@
-﻿/*
+/*
  *  Copyright © 2013-2018, Amy Nagle.
  *  All rights reserved.
  *
@@ -30,7 +30,7 @@ namespace Zyrenth.Zora
 	/// </summary>
 	public class RingSecret : Secret
 	{
-		long _rings = 0L;
+        private long _rings = 0L;
 
 		/// <summary>
 		/// Gets the required length of the secret

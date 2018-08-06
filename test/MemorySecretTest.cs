@@ -1,4 +1,4 @@
-﻿using NUnit.Framework;
+using NUnit.Framework;
 using System;
 using System.Collections.Generic;
 
@@ -7,10 +7,9 @@ namespace Zyrenth.Zora.Tests
 	[TestFixture]
 	public class MemorySecretTest
 	{
-		const string DesiredSecretString = "6●sW↑";
-		const string DesiredSecretString_JP = "ぼつき3し";
-
-		static readonly MemorySecret DesiredSecret = new MemorySecret()
+        private const string DesiredSecretString = "6●sW↑";
+        private const string DesiredSecretString_JP = "ぼつき3し";
+        private static readonly MemorySecret DesiredSecret = new MemorySecret()
 		{
 			Region = GameRegion.US,
 			TargetGame = Game.Ages,
@@ -18,8 +17,7 @@ namespace Zyrenth.Zora.Tests
 			Memory = Memory.ClockShopKingZora,
 			IsReturnSecret = true
 		};
-
-		static readonly MemorySecret DesiredSecret_JP = new MemorySecret()
+        private static readonly MemorySecret DesiredSecret_JP = new MemorySecret()
 		{
 			Region = GameRegion.JP,
 			TargetGame = Game.Seasons,
@@ -27,16 +25,13 @@ namespace Zyrenth.Zora.Tests
 			Memory = Memory.DiverPlen,
 			IsReturnSecret = false
 		};
-
-		static readonly byte[] DesiredSecretBytes = new byte[] {
+        private static readonly byte[] DesiredSecretBytes = new byte[] {
 			55, 21, 41, 18, 59
 		};
-		
-		static readonly byte[] DesiredSecretBytes_JP = new byte[] {
+        private static readonly byte[] DesiredSecretBytes_JP = new byte[] {
 			61,  5, 28, 24, 7
 		};
-		
-		static readonly byte[] DesiredSecretBytes_JP_Weird = new byte[] {
+        private static readonly byte[] DesiredSecretBytes_JP_Weird = new byte[] {
 			31, 12, 34, 9, 15
 		};
 

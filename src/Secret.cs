@@ -1,4 +1,4 @@
-﻿/*
+/*
  *  Copyright © 2013-2018, Amy Nagle.
  *  All rights reserved.
  *
@@ -54,9 +54,8 @@ namespace Zyrenth.Zora
 				25, 42,  6, 57, 60, 23, 51, 24
 			},
 		};
-
-		short _gameId = 0;
-		GameRegion _region = GameRegion.US;
+        private short _gameId = 0;
+        private GameRegion _region = GameRegion.US;
 
 		/// <summary>
 		/// Occurs when a property has changed

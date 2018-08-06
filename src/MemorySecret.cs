@@ -1,4 +1,4 @@
-﻿/*
+/*
  *  Copyright © 2013-2018, Amy Nagle.
  *  All rights reserved.
  *
@@ -30,9 +30,9 @@ namespace Zyrenth.Zora
 	/// </summary>
 	public class MemorySecret : Secret
 	{
-		byte _memory = 0;
-		bool _isReturnSecret = true;
-		byte _targetGame = 0;
+        private byte _memory = 0;
+        private bool _isReturnSecret = true;
+        private byte _targetGame = 0;
 
 		/// <summary>
 		/// Gets the required length of the secret

@@ -1,4 +1,4 @@
-﻿/*
+/*
  *  Copyright © 2013-2018, Amy Nagle.
  *  All rights reserved.
  *
@@ -31,7 +31,7 @@ namespace Zyrenth.Zora
 	/// </summary>
 	public class AssemblyDetail
 	{
-		Assembly _asm;
+        private Assembly _asm;
 
 		/// <summary>
 		/// Gets the assembly company

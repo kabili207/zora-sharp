@@ -1,4 +1,4 @@
-﻿using NUnit.Framework;
+using NUnit.Framework;
 using System;
 using System.Collections.Generic;
 
@@ -7,7 +7,7 @@ namespace Zyrenth.Zora.Tests
 	[TestFixture]
 	public class RingSecretTest
 	{
-		const string DesiredSecretString = "L~2:N @bB↑& hmRh=";
+        private const string DesiredSecretString = "L~2:N @bB↑& hmRh=";
 
 		public static readonly RingSecret DesiredSecret = new RingSecret()
 		{
@@ -15,8 +15,7 @@ namespace Zyrenth.Zora.Tests
 			GameID = 14129,
 			Rings = Rings.PowerRingL1 | Rings.DoubleEdgeRing | Rings.ProtectionRing
 		};
-
-		static readonly byte[] DesiredSecretBytes = new byte[] {
+        private static readonly byte[] DesiredSecretBytes = new byte[] {
 			6, 37, 51, 36, 13,
 			63, 26,  0, 59, 47,
 			30, 32, 15, 30, 49
