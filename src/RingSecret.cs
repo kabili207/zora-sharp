@@ -48,9 +48,8 @@ namespace Zyrenth.Zora
 			get { return (Rings)_rings; }
 			set
 			{
-				_rings = (long)value;
-				NotifyPropertyChanged("Rings");
-			}
+                SetProperty(ref _rings, (long)value, "Rings");
+            }
 		}
 
 		/// <summary>

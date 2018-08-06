@@ -50,9 +50,8 @@ namespace Zyrenth.Zora
 			get { return (Memory)_memory; }
 			set
 			{
-				_memory = (byte)value;
-				NotifyPropertyChanged("Memory");
-			}
+                SetProperty(ref _memory, (byte)value, "Memory");
+            }
 		}
 
 		/// <summary>
@@ -63,9 +62,8 @@ namespace Zyrenth.Zora
 			get { return (Game)_targetGame; }
 			set
 			{
-				_targetGame = (byte)value;
-				NotifyPropertyChanged("Game");
-			}
+                SetProperty(ref _targetGame, (byte)value, "Game");
+            }
 		}
 
 		/// <summary>
@@ -79,8 +77,7 @@ namespace Zyrenth.Zora
 			get { return _isReturnSecret; }
 			set
 			{
-				_isReturnSecret = value;
-				NotifyPropertyChanged("IsReturnSecret");
+                SetProperty(ref _isReturnSecret, value, "IsReturnSecret");
 			}
 		}
 

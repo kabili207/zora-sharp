@@ -67,10 +67,9 @@ namespace Zyrenth.Zora
 			get { return _region; }
 			set
 			{
-				_region = value;
-				NotifyPropertyChanged("Region");
-			}
-		}
+                SetProperty(ref _region, value, "Region");
+            }
+        }
 
 		/// <summary>
 		/// Gets or sets the Game used for this user data
@@ -80,10 +79,11 @@ namespace Zyrenth.Zora
 			get { return (Game)_agesSeasons; }
 			set
 			{
-				_agesSeasons = (byte)value;
-				NotifyPropertyChanged("Game");
-			}
-		}
+                if (( value < 0 ) || ( (int)value > byte.MaxValue ))
+                    throw new ArgumentOutOfRangeException(nameof(value));
+                SetProperty(ref _agesSeasons, (byte)value, "Game");
+            }
+        }
 
 		/// <summary>
 		/// Gets or sets the Quest type used for this user data
@@ -93,10 +93,9 @@ namespace Zyrenth.Zora
 			get { return _isHeroQuest; }
 			set
 			{
-				_isHeroQuest = value;
-				NotifyPropertyChanged("IsHeroQuest");
-			}
-		}
+                SetProperty(ref _isHeroQuest, value, "IsHeroQuest");
+            }
+        }
 
 		/// <summary>
 		/// Gets or sets the Quest type used for this user data
@@ -106,10 +105,9 @@ namespace Zyrenth.Zora
 			get { return _isLinkedGame; }
 			set
 			{
-				_isLinkedGame = value;
-				NotifyPropertyChanged("IsLinkedGame");
-			}
-		}
+                SetProperty(ref _isLinkedGame, value, "IsLinkedGame");
+            }
+        }
 
 		/// <summary>
 		/// Gets or sets the unique game ID 
@@ -119,10 +117,9 @@ namespace Zyrenth.Zora
 			get { return _gameId; }
 			set
 			{
-				_gameId = value;
-				NotifyPropertyChanged("GameID");
-			}
-		}
+                SetProperty(ref _gameId, value, "GameID");
+            }
+        }
 
 		/// <summary>
 		/// Gets or sets the hero's name
@@ -133,12 +130,12 @@ namespace Zyrenth.Zora
 			set
 			{
 				if (string.IsNullOrWhiteSpace(value))
-					_hero = "\0\0\0\0\0";
+					value = "\0\0\0\0\0";
 				else
-					_hero = value.TrimEnd().PadRight(5, '\0');
-				NotifyPropertyChanged("Hero");
-			}
-		}
+					value = value.TrimEnd().PadRight(5, '\0');
+                SetProperty(ref _hero, value, "Hero");
+            }
+        }
 
 		/// <summary>
 		/// Gets or sets the child's name
@@ -149,12 +146,12 @@ namespace Zyrenth.Zora
 			set
 			{
 				if (string.IsNullOrWhiteSpace(value))
-					_child = "\0\0\0\0\0";
+					value = "\0\0\0\0\0";
 				else
-					_child = value.TrimEnd().PadRight(5, '\0');
-				NotifyPropertyChanged("Child");
-			}
-		}
+					value = value.TrimEnd().PadRight(5, '\0');
+                SetProperty(ref _child, value, "Child");
+            }
+        }
 
 		/// <summary>
 		/// Gets or sets the animal friend
@@ -164,10 +161,11 @@ namespace Zyrenth.Zora
 			get { return (Animal)_animal; }
 			set
 			{
-				_animal = (byte)value;
-				NotifyPropertyChanged("Animal");
-			}
-		}
+                if ((value < 0) || ((long)value > byte.MaxValue))
+                    throw new ArgumentOutOfRangeException(nameof(value));
+                SetProperty(ref _animal, (byte)value, "Animal");
+            }
+        }
 
 		/// <summary>
 		/// Gets or set the behavior of the child
@@ -177,10 +175,9 @@ namespace Zyrenth.Zora
 			get { return (byte)_behavior; }
 			set
 			{
-				_behavior = (byte)value;
-				NotifyPropertyChanged("Behavior");
-			}
-		}
+                SetProperty(ref _behavior, value, "Behavior");
+            }
+        }
 
 		/// <summary>
 		/// Gets or sets the value indicating if Vasu has given the player a free ring
@@ -190,10 +187,9 @@ namespace Zyrenth.Zora
 			get { return _wasGivenFreeRing; }
 			set
 			{
-				_wasGivenFreeRing = value;
-				NotifyPropertyChanged("WasGivenFreeRing");
-			}
-		}
+                SetProperty(ref _wasGivenFreeRing, value, "WasGivenFreeRing");
+            }
+        }
 
 		/// <summary>
 		/// Gets or sets the user's ring collection
@@ -203,34 +199,40 @@ namespace Zyrenth.Zora
 			get { return (Rings)_rings; }
 			set
 			{
-				_rings = (long)value;
-				NotifyPropertyChanged("Rings");
-			}
-		}
+                SetProperty(ref _rings, (long)value, "Rings");
+            }
+        }
 
-		#endregion // Properties
+        #endregion // Properties
 
-		/// <summary>
-		/// Sends a notification that a property has changed.
-		/// </summary>
-		/// <param name="propertyName">Name of the property.</param>
-		/// <example>
-		/// <code language="C#">
-		/// private short _gameID = 0;
-		/// public short GameID
-		/// {
-		///     get { return _gameId; }
-		///     set
-		///     {
-		///         _gameId = value;
-		///         NotifyPropertyChanged("GameID");
-		///     }
-		/// }
-		/// </code>
-		/// </example>
-		protected void NotifyPropertyChanged(string propertyName)
-		{
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        /// <summary>
+        /// Compares a field's current value against a new value.
+        /// If they are different, sets the field to the new value and
+        /// sends a notification that the property has changed.
+        /// </summary>
+        /// <param name="field">Reference to the field storing current value</param>
+        /// <param name="value">New value to ensure the field has</param>
+        /// <param name="name">Name of the property being changed</param>
+        /// <example>
+        /// <code language="C#">
+        /// private short _gameID = 0;
+        /// public short GameID
+        /// {
+        ///     get { return _gameID; }
+        ///     set
+        ///     {
+        ///         SetProperty(ref _gameID, value, "GameID");
+        ///     }
+        /// }
+        /// </code>
+        /// </example>
+        private void SetProperty<T>(ref T field, T value, string name)
+        {
+            if (!EqualityComparer<T>.Default.Equals(field, value))
+            {
+                field = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+            }
         }
 
 		#region File Saving/Loading methods

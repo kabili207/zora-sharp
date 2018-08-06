@@ -77,9 +77,8 @@ namespace Zyrenth.Zora
 			get { return _gameId; }
 			set
 			{
-				_gameId = value;
-				NotifyPropertyChanged("GameID");
-			}
+                SetProperty(ref _gameId, value, "GameID");
+            }
 		}
 
 		/// <summary>
@@ -90,9 +89,8 @@ namespace Zyrenth.Zora
 			get { return _region; }
 			set
 			{
-				_region = value;
-				NotifyPropertyChanged("Region");
-			}
+                SetProperty(ref _region, value, "Region");
+            }
 		}
 
 		/// <summary>
@@ -255,27 +253,34 @@ namespace Zyrenth.Zora
 			return secret;
 		}
 
-		/// <summary>
-		/// Sends a notification that a property has changed.
-		/// </summary>
-		/// <param name="propertyName">Name of the property.</param>
-		/// <example>
-		/// <code language="C#">
-		/// private short _gameID = 0;
-		/// public short GameID
-		/// {
-		///     get { return _gameId; }
-		///     set
-		///     {
-		///         _gameId = value;
-		///         NotifyPropertyChanged("GameID");
-		///     }
-		/// }
-		/// </code>
-		/// </example>
-		internal protected void NotifyPropertyChanged(string propertyName)
-		{
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        /// <summary>
+        /// Compares a field's current value against a new value.
+        /// If they are different, sets the field to the new value and
+        /// sends a notification that the property has changed.
+        /// </summary>
+        /// <param name="field">Reference to the field storing current value</param>
+        /// <param name="value">New value to ensure the field has</param>
+        /// <param name="name">Name of the property being changed</param>
+        /// <example>
+        /// <code language="C#">
+        /// private short _gameID = 0;
+        /// public short GameID
+        /// {
+        ///     get { return _gameID; }
+        ///     set
+        ///     {
+        ///         SetProperty(ref _gameID, value, "GameID");
+        ///     }
+        /// }
+        /// </code>
+        /// </example>
+        internal protected void SetProperty<T>(ref T field, T value, string name)
+        {
+            if (!EqualityComparer<T>.Default.Equals(field, value))
+            {
+                field = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+            }
         }
 
 		/// <summary>

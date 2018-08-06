@@ -75,9 +75,8 @@ namespace Zyrenth.Zora
 			get { return _targetGame; }
 			set
 			{
-				_targetGame = value;
-				NotifyPropertyChanged("Game");
-			}
+                SetProperty(ref _targetGame, value, "Game");
+            }
 		}
 
 		/// <summary>
@@ -88,9 +87,8 @@ namespace Zyrenth.Zora
 			get { return _isHeroQuest; }
 			set
 			{
-				_isHeroQuest = value;
-				NotifyPropertyChanged("IsHeroQuest");
-			}
+                SetProperty(ref _isHeroQuest, value, "IsHeroQuest");
+            }
 		}
 
 		/// <summary>
@@ -101,9 +99,8 @@ namespace Zyrenth.Zora
 			get { return _isLinkedGame; }
 			set
 			{
-				_isLinkedGame = value;
-				NotifyPropertyChanged("IsLinkedGame");
-			}
+                SetProperty(ref _isLinkedGame, value, "IsLinkedGame");
+            }
 		}
 
 		/// <summary>
@@ -115,10 +112,10 @@ namespace Zyrenth.Zora
 			set
 			{
 				if (string.IsNullOrWhiteSpace(value))
-					_hero = "\0\0\0\0\0";
+					value = "\0\0\0\0\0";
 				else
-					_hero = value.TrimEnd().PadRight(5, '\0');
-				NotifyPropertyChanged("Hero");
+					value = value.TrimEnd().PadRight(5, '\0');
+                SetProperty(ref _hero, value, "Hero");
 			}
 		}
 
@@ -131,10 +128,10 @@ namespace Zyrenth.Zora
 			set
 			{
 				if (string.IsNullOrWhiteSpace(value))
-					_child = "\0\0\0\0\0";
+					value = "\0\0\0\0\0";
 				else
-					_child = value.TrimEnd().PadRight(5, '\0');
-				NotifyPropertyChanged("Child");
+					value = value.TrimEnd().PadRight(5, '\0');
+                SetProperty(ref _child, value, "Child");
 			}
 		}
 
@@ -146,9 +143,8 @@ namespace Zyrenth.Zora
 			get { return (Animal)_animal; }
 			set
 			{
-				_animal = (byte)value;
-				NotifyPropertyChanged("Animal");
-			}
+                SetProperty(ref _animal, (byte)value, "Animal");
+            }
 		}
 
 		/// <summary>
@@ -159,9 +155,8 @@ namespace Zyrenth.Zora
 			get { return (byte)_behavior; }
 			set
 			{
-				_behavior = (byte)value;
-				NotifyPropertyChanged("Behavior");
-			}
+                SetProperty(ref _behavior, value, "Behavior");
+            }
 		}
 
 		/// <summary>
@@ -173,7 +168,7 @@ namespace Zyrenth.Zora
 			set
 			{
 				_wasGivenFreeRing = value;
-				NotifyPropertyChanged("WasGivenFreeRing");
+                SetProperty(ref _wasGivenFreeRing, value, "WasGivenFreeRing");
 			}
 		}
 
