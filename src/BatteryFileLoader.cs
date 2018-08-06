@@ -67,17 +67,18 @@ namespace Zyrenth.Zora
 		/// <param name="region">The region of the game</param>
 		public static IEnumerable<GameInfo> LoadAll(Stream stream, GameRegion region)
 		{
-			List<GameInfo> gameData = new List<GameInfo>();
-			GameInfo tmp;
+            GameInfo tmp;
 
-			// These offsets seem to be static for both versions, but I can't be certain.
+            // These offsets seem to be static for both versions, but I can't be certain.
 
-			// Slot 1
-			tmp = Load(stream, region, Slot1Offset);
-			if (!(tmp is null)) gameData.Add(tmp);
+            // Slot 1
+            tmp = Load(stream, region, Slot1Offset);
+            var gameData = new List<GameInfo>();
+            if (!( tmp is null ))
+                gameData.Add(tmp);
 
-			// Slot 2
-			tmp = Load(stream, region, Slot2Offset);
+            // Slot 2
+            tmp = Load(stream, region, Slot2Offset);
 			if (!(tmp is null)) gameData.Add(tmp);
 
 			// Slot 3
@@ -113,7 +114,7 @@ namespace Zyrenth.Zora
 		/// <remarks>This method has only been tested with the US version of the games</remarks>
 		public static GameInfo Load(Stream stream, GameRegion region, int offset)
 		{
-            GameInfo info = new GameInfo { Region = region };
+            var info = new GameInfo { Region = region };
 
             byte[] versionBytes = new byte[1];
 			byte[] gameIdBytes = new byte[2];

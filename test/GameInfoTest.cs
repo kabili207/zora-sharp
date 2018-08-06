@@ -42,7 +42,7 @@ namespace Zyrenth.Zora.Tests
 				""Rings"": -9222246136947933182
 			 }";
 			
-			GameInfo parsed = GameInfo.Parse(json);
+			var parsed = GameInfo.Parse(json);
 
 			Assert.AreEqual(DesiredInfo, parsed);
 		}
@@ -61,7 +61,7 @@ namespace Zyrenth.Zora.Tests
 				""WasGivenFreeRing"": true
 			 }";
 
-			GameInfo partialInfo = new GameInfo()
+			var partialInfo = new GameInfo()
 			{
 				Region = GameRegion.US,
 				Game = Game.Ages,
@@ -72,7 +72,7 @@ namespace Zyrenth.Zora.Tests
 				WasGivenFreeRing = true
 			};
 
-			GameInfo parsed = GameInfo.Parse(json);
+			var parsed = GameInfo.Parse(json);
 
 			Assert.AreEqual(partialInfo, parsed);
 		}
@@ -84,7 +84,7 @@ namespace Zyrenth.Zora.Tests
 			try
 			{
 				DesiredInfo.Write(outFile);
-				GameInfo read = GameInfo.Load(outFile);
+				var read = GameInfo.Load(outFile);
 				Assert.AreEqual(DesiredInfo, read);
 			}
 			finally
@@ -96,7 +96,7 @@ namespace Zyrenth.Zora.Tests
 		[Test]
 		public void UpdateGameInfo()
 		{
-			GameInfo info = new GameInfo();
+			var info = new GameInfo();
 			GameSecretTest.DesiredSecret.UpdateGameInfo(info);
 			RingSecretTest.DesiredSecret.UpdateGameInfo(info, false);
 			Assert.AreEqual(GameInfoTest.DesiredInfo, info);
@@ -113,7 +113,7 @@ namespace Zyrenth.Zora.Tests
 		[Test]
 		public void TestEquals()
 		{
-			GameInfo s2 = new GameInfo()
+			var s2 = new GameInfo()
 			{
 				Region = GameRegion.US,
 				Game = Game.Ages,
@@ -134,7 +134,7 @@ namespace Zyrenth.Zora.Tests
 		[Test]
 		public void TestNotEquals()
 		{
-			GameInfo s2 = new GameInfo()
+			var s2 = new GameInfo()
 			{
 				Region = GameRegion.US,
 				Game = Game.Seasons,
@@ -156,13 +156,13 @@ namespace Zyrenth.Zora.Tests
 		[Test]
 		public void TestHashCode()
 		{
-			GameInfo s1 = new GameInfo() { Hero = "Link", Child = "Pip", Animal = Animal.Ricky };
-			GameInfo s2 = new GameInfo() { Hero = "Link", Child = "Pip~", Animal = Animal.Ricky };
-			GameInfo s3 = new GameInfo() { Hero = "Link", Child = "Pip", Animal = Animal.None };
-			GameInfo s4 = new GameInfo() { Hero = "Link", Child = "Pip", Animal = Animal.Ricky };
+			var s1 = new GameInfo() { Hero = "Link", Child = "Pip", Animal = Animal.Ricky };
+			var s2 = new GameInfo() { Hero = "Link", Child = "Pip~", Animal = Animal.Ricky };
+			var s3 = new GameInfo() { Hero = "Link", Child = "Pip", Animal = Animal.None };
+			var s4 = new GameInfo() { Hero = "Link", Child = "Pip", Animal = Animal.Ricky };
 
             // Because using mutable objects as a key is an awesome idea...
-            Dictionary<GameInfo, bool> dict = new Dictionary<GameInfo, bool>
+            var dict = new Dictionary<GameInfo, bool>
             {
                 { s1, true },
                 { s2, true }
@@ -176,7 +176,7 @@ namespace Zyrenth.Zora.Tests
 		public void TestNotifyPropChanged()
 		{
 			bool hit = false;
-			GameInfo g = new GameInfo();
+			var g = new GameInfo();
 			g.PropertyChanged += (s, e) => { hit = true; };
 			g.GameID = 42;
 			Assert.IsTrue(hit);

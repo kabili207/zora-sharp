@@ -48,7 +48,7 @@ namespace Zyrenth.Zora
 			if (dictionary is null)
 				throw new ArgumentNullException(nameof(dictionary));
 
-            GameInfo info = new GameInfo
+            var info = new GameInfo
             {
                 Region = dictionary.ReadValue<GameRegion>("Region"),
                 Game = dictionary.ReadValue<Game>("Game"),

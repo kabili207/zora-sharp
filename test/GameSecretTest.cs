@@ -47,7 +47,7 @@ namespace Zyrenth.Zora.Tests
 		[Test]
 		public void LoadSecretFromBytes()
 		{
-			GameSecret secret = new GameSecret();
+			var secret = new GameSecret();
 			secret.Load(desiredSecretBytes, GameRegion.US);
 			Assert.AreEqual(DesiredSecret, secret);
 		}
@@ -55,7 +55,7 @@ namespace Zyrenth.Zora.Tests
 		[Test]
 		public void LoadSecretFromString()
 		{
-			GameSecret secret = new GameSecret();
+			var secret = new GameSecret();
 			secret.Load(desiredSecretString, GameRegion.US);
 
 			Assert.AreEqual(DesiredSecret, secret);
@@ -64,7 +64,7 @@ namespace Zyrenth.Zora.Tests
 		[Test]
 		public void LoadSecretFromString_JP()
 		{
-			GameSecret secret = new GameSecret();
+			var secret = new GameSecret();
 			secret.Load(desiredSecretString_JP, GameRegion.JP);
 
 			Assert.AreEqual(DesiredSecret_JP, secret);
@@ -73,7 +73,7 @@ namespace Zyrenth.Zora.Tests
 		[Test]
 		public void LoadFromGameInfo()
 		{
-			GameSecret secret = new GameSecret(GameInfoTest.DesiredInfo);
+			var secret = new GameSecret(GameInfoTest.DesiredInfo);
 			Assert.AreEqual(DesiredSecret, secret);
 		}
 
@@ -101,7 +101,7 @@ namespace Zyrenth.Zora.Tests
 		[Test]
 		public void TestEquals()
 		{
-			GameSecret s2 = new GameSecret()
+			var s2 = new GameSecret()
 			{
 				Region = GameRegion.US,
 				TargetGame = Game.Ages,
@@ -121,7 +121,7 @@ namespace Zyrenth.Zora.Tests
 		[Test]
 		public void TestNotEquals()
 		{
-			GameSecret s2 = new GameSecret()
+			var s2 = new GameSecret()
 			{
 				Region = GameRegion.US,
 				TargetGame = Game.Seasons,
@@ -143,7 +143,7 @@ namespace Zyrenth.Zora.Tests
 		[Test]
 		public void TestInvalidByteLoad()
 		{
-			GameSecret secret = new GameSecret();
+			var secret = new GameSecret();
 			Assert.Throws<SecretException>(() => secret.Load((byte[])null, GameRegion.US));
 			Assert.Throws<SecretException>(() => secret.Load(new byte[] { 0 }, GameRegion.US));
 			Assert.Throws<InvalidChecksumException>(() => secret.Load("H~2:@ ←2♦yq GB3●( 6♥?↑b", GameRegion.US));
@@ -155,10 +155,10 @@ namespace Zyrenth.Zora.Tests
 		[Test]
 		public void TestPalValidity()
 		{
-			GameSecret g1 = new GameSecret() { Hero = "Link~", Child = "    ", Animal = Animal.Ricky };
-			GameSecret g2 = new GameSecret() { Hero = "     ", Child = "Pip~", Animal = Animal.Ricky };
-			GameSecret g3 = new GameSecret() { Hero = "Link", Child = "Pip", Animal = Animal.None };
-			GameSecret g4 = new GameSecret() { Hero = "Link", Child = "Pip", Animal = Animal.Ricky };
+			var g1 = new GameSecret() { Hero = "Link~", Child = "    ", Animal = Animal.Ricky };
+			var g2 = new GameSecret() { Hero = "     ", Child = "Pip~", Animal = Animal.Ricky };
+			var g3 = new GameSecret() { Hero = "Link", Child = "Pip", Animal = Animal.None };
+			var g4 = new GameSecret() { Hero = "Link", Child = "Pip", Animal = Animal.Ricky };
 			
 			Assert.IsFalse(g1.IsValidForPAL(), "Hero check failed");
 			Assert.IsFalse(g2.IsValidForPAL(), "Child check failed");
@@ -169,13 +169,13 @@ namespace Zyrenth.Zora.Tests
 		[Test]
 		public void TestHashCode()
 		{
-			GameSecret s1 = new GameSecret() { Hero = "Link", Child = "Pip", Animal = Animal.Ricky };
-			GameSecret s2 = new GameSecret() { Hero = "Link", Child = "Pip~", Animal = Animal.Ricky };
-			GameSecret s3 = new GameSecret() { Hero = "Link", Child = "Pip", Animal = Animal.None };
-			GameSecret s4 = new GameSecret() { Hero = "Link", Child = "Pip", Animal = Animal.Ricky };
+			var s1 = new GameSecret() { Hero = "Link", Child = "Pip", Animal = Animal.Ricky };
+			var s2 = new GameSecret() { Hero = "Link", Child = "Pip~", Animal = Animal.Ricky };
+			var s3 = new GameSecret() { Hero = "Link", Child = "Pip", Animal = Animal.None };
+			var s4 = new GameSecret() { Hero = "Link", Child = "Pip", Animal = Animal.Ricky };
 
             // Because using mutable objects as a key is an awesome idea...
-            Dictionary<GameSecret, bool> dict = new Dictionary<GameSecret, bool>
+            var dict = new Dictionary<GameSecret, bool>
             {
                 { s1, true },
                 { s2, true }
@@ -189,7 +189,7 @@ namespace Zyrenth.Zora.Tests
 		public void TestNotifyPropChanged()
 		{
 			bool hit = false;
-			GameSecret g = new GameSecret();
+			var g = new GameSecret();
 			g.PropertyChanged += (s, e) => { hit = true; };
 			g.GameID = 42;
 			Assert.IsTrue(hit);

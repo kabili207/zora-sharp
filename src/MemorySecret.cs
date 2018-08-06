@@ -276,7 +276,7 @@ namespace Zyrenth.Zora
 			if (GetType() != obj?.GetType())
 				return false;
 
-			MemorySecret g = (MemorySecret)obj;
+			var g = (MemorySecret)obj;
 
 			return
 				(base.Equals(g)) &&

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.CodeDom.Compiler;
 using System.Collections.Generic;
 using System.IO;
@@ -14,7 +14,7 @@ namespace Zyrenth.Zora.Tests
 		[Test]
 		public void TestLoadAll()
 		{
-			Assembly asm = Assembly.GetExecutingAssembly();
+			var asm = Assembly.GetExecutingAssembly();
 			Stream s = asm.GetManifestResourceStream("Zyrenth.Zora.Tests.TestSaves.Ages_US.srm");
 			IEnumerable<GameInfo> infos = BatteryFileLoader.LoadAll(s, GameRegion.US);
 			Assert.AreEqual(1, infos.Count());
@@ -25,7 +25,7 @@ namespace Zyrenth.Zora.Tests
 		public void TestLoadAllFile()
 		{
 			string tempFile = Path.GetTempFileName();
-			Assembly asm = Assembly.GetExecutingAssembly();
+			var asm = Assembly.GetExecutingAssembly();
 
 			using(Stream s = asm.GetManifestResourceStream("Zyrenth.Zora.Tests.TestSaves.Seasons_US.srm"))
 			using(FileStream fs = File.OpenWrite(tempFile))
@@ -42,7 +42,7 @@ namespace Zyrenth.Zora.Tests
 		public void TestLoadSlot3()
 		{
 			string tempFile = Path.GetTempFileName();
-			Assembly asm = Assembly.GetExecutingAssembly();
+			var asm = Assembly.GetExecutingAssembly();
 			
 			using(Stream s = asm.GetManifestResourceStream("Zyrenth.Zora.Tests.TestSaves.Ages_JP.srm"))
 			using(FileStream fs = File.OpenWrite(tempFile))
@@ -52,8 +52,8 @@ namespace Zyrenth.Zora.Tests
 			GameInfo info = BatteryFileLoader.Load(tempFile, GameRegion.JP, BatteryFileLoader.Slot3Offset);
 			Assert.IsNotNull(info);
 			
-			GameSecret gs = new GameSecret();
-			GameInfo test = new GameInfo();
+			var gs = new GameSecret();
+			var test = new GameInfo();
 			gs.Load("かね69わ 4さをれか さ7ちわも るこぴりお", GameRegion.JP);
 			gs.UpdateGameInfo(test);
 			//Assert.AreEqual(1, infos.Count());

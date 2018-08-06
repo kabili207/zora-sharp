@@ -275,7 +275,7 @@ namespace Zyrenth.Zora
 		{
 			using (var swriter = new StreamWriter(stream))
 			{
-				GameInfoJsonConverter converter = new GameInfoJsonConverter();
+				var converter = new GameInfoJsonConverter();
 				IDictionary<string, object> dict = converter.Serialize(this);
 				string json = SimpleJson.SimpleJson.SerializeObject(dict);
 				swriter.WriteLine(json);
@@ -371,7 +371,7 @@ namespace Zyrenth.Zora
 			if (GetType() != obj?.GetType())
 				return false;
 
-			GameInfo g = (GameInfo)obj;
+			var g = (GameInfo)obj;
 
 			return
 				(_region == g._region) &&

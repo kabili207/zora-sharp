@@ -252,7 +252,7 @@ namespace Zyrenth.Zora
 			if (GetType() != obj?.GetType())
 				return false;
 
-			RingSecret g = (RingSecret)obj;
+			var g = (RingSecret)obj;
 
 			return base.Equals(g) && (_rings == g._rings);
 

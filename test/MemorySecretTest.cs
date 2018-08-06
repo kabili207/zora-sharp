@@ -38,7 +38,7 @@ namespace Zyrenth.Zora.Tests
 		[Test]
 		public void LoadSecretFromBytes()
 		{
-			MemorySecret secret = new MemorySecret();
+			var secret = new MemorySecret();
 			secret.Load(desiredSecretBytes, GameRegion.US);
 			Assert.AreEqual(desiredSecret, secret);
 		}
@@ -46,7 +46,7 @@ namespace Zyrenth.Zora.Tests
 		[Test]
 		public void LoadSecretFromBytes_JP()
 		{
-			MemorySecret secret = new MemorySecret();
+			var secret = new MemorySecret();
 			secret.Load(desiredSecretBytes_JP, GameRegion.JP);
 			Assert.AreEqual(desiredSecret_JP, secret);
 		}
@@ -54,7 +54,7 @@ namespace Zyrenth.Zora.Tests
 		[Test]
 		public void LoadSecretFromString()
 		{
-			MemorySecret secret = new MemorySecret();
+			var secret = new MemorySecret();
 			secret.Load(desiredSecretString, GameRegion.US);
 			Assert.AreEqual(desiredSecret, secret);
 		}
@@ -62,7 +62,7 @@ namespace Zyrenth.Zora.Tests
 		[Test]
 		public void LoadFromGameInfo()
 		{
-			MemorySecret secret = new MemorySecret()
+			var secret = new MemorySecret()
 			{
 				Region = GameRegion.US,
 				Memory = Memory.ClockShopKingZora,
@@ -75,7 +75,7 @@ namespace Zyrenth.Zora.Tests
 		[Test]
 		public void LoadFromGameInfoConstuct()
 		{
-			MemorySecret secret = new MemorySecret(GameInfoTest.DesiredInfo, Memory.ClockShopKingZora, true);
+			var secret = new MemorySecret(GameInfoTest.DesiredInfo, Memory.ClockShopKingZora, true);
 			Assert.AreEqual(desiredSecret, secret);
 		}
 
@@ -89,7 +89,7 @@ namespace Zyrenth.Zora.Tests
 		[Test]
 		public void TestWeirdBytes()
 		{
-			MemorySecret secret = new MemorySecret();
+			var secret = new MemorySecret();
 			Assert.Throws<UnknownMemoryException>(() =>
 			{
 				secret.Load(desiredSecretBytes_JP_Weird, GameRegion.JP);
@@ -106,7 +106,7 @@ namespace Zyrenth.Zora.Tests
 		[Test]
 		public void TestEquals()
 		{
-			MemorySecret s2 = new MemorySecret()
+			var s2 = new MemorySecret()
 			{
 				Region = GameRegion.US,
 				TargetGame = Game.Ages,
@@ -121,7 +121,7 @@ namespace Zyrenth.Zora.Tests
 		[Test]
 		public void TestNotEquals()
 		{
-			MemorySecret s2 = new MemorySecret()
+			var s2 = new MemorySecret()
 			{
 				Region = GameRegion.US,
 				TargetGame = Game.Ages,
@@ -138,7 +138,7 @@ namespace Zyrenth.Zora.Tests
 		[Test]
 		public void TestInvalidByteLoad()
 		{
-			MemorySecret secret = new MemorySecret();
+			var secret = new MemorySecret();
 			Assert.Throws<SecretException>(() => secret.Load((byte[])null, GameRegion.US));
 			Assert.Throws<SecretException>(() => secret.Load(new byte[] { 0 }, GameRegion.US));
 			Assert.Throws<InvalidChecksumException>(() => secret.Load("6●sWh", GameRegion.US));
@@ -151,14 +151,14 @@ namespace Zyrenth.Zora.Tests
 		[Test]
 		public void TestHashCode()
 		{
-			MemorySecret r1 = new MemorySecret(Game.Ages, GameRegion.US, 1234, Memory.DiverPlen, true);
-			MemorySecret r2 = new MemorySecret(Game.Ages, GameRegion.JP, 1596, Memory.DiverPlen, true);
+			var r1 = new MemorySecret(Game.Ages, GameRegion.US, 1234, Memory.DiverPlen, true);
+			var r2 = new MemorySecret(Game.Ages, GameRegion.JP, 1596, Memory.DiverPlen, true);
 
-			MemorySecret r3 = new MemorySecret(Game.Ages, GameRegion.US, 1234, Memory.DiverPlen, false);
-			MemorySecret r4 = new MemorySecret(Game.Ages, GameRegion.US, 1234, Memory.DiverPlen, true);
+			var r3 = new MemorySecret(Game.Ages, GameRegion.US, 1234, Memory.DiverPlen, false);
+			var r4 = new MemorySecret(Game.Ages, GameRegion.US, 1234, Memory.DiverPlen, true);
 
             // Because using mutable objects as a key is an awesome idea...
-            Dictionary<MemorySecret, bool> dict = new Dictionary<MemorySecret, bool>
+            var dict = new Dictionary<MemorySecret, bool>
             {
                 { r1, true },
                 { r2, true }
@@ -172,7 +172,7 @@ namespace Zyrenth.Zora.Tests
 		public void TestNotifyPropChanged()
 		{
 			bool hit = false;
-			MemorySecret g = new MemorySecret();
+			var g = new MemorySecret();
 			g.PropertyChanged += (s, e) => { hit = true; };
 			g.GameID = 42;
 			Assert.IsTrue(hit);

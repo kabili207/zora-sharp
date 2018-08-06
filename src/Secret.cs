@@ -290,7 +290,7 @@ namespace Zyrenth.Zora
 			if (GetType() != obj?.GetType())
 				return false;
 
-			Secret g = (Secret)obj;
+			var g = (Secret)obj;
 
 			return _gameId == g._gameId && _region == g._region;
 

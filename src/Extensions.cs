@@ -1,4 +1,4 @@
-﻿/*
+/*
  *  Copyright © 2011-2018, Amy Nagle.
  *  All rights reserved.
  *
@@ -54,7 +54,7 @@ namespace Zyrenth.Zora
 		public static T ReadValue<T>(this IDictionary<string, object> dictionary, string key) where T : IConvertible
 		{
 			Type type = typeof(T);
-			T val = default(T);
+			var val = default(T);
 
 			if (dictionary.ContainsKey(key))
 			{

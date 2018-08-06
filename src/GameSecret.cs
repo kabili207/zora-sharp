@@ -452,7 +452,8 @@ namespace Zyrenth.Zora
 			if (GetType() != obj?.GetType())
 				return false;
 
-			GameSecret g = (GameSecret)obj;
+
+            var g = (GameSecret)obj;
 
 			return
 				(base.Equals(g)) &&

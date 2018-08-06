@@ -24,7 +24,7 @@ namespace Zyrenth.Zora.Tests
 		[Test]
 		public void LoadSecretFromBytes()
 		{
-			RingSecret secret = new RingSecret();
+			var secret = new RingSecret();
 			secret.Load(desiredSecretBytes, GameRegion.US);
 			Assert.AreEqual(DesiredSecret, secret);
 		}
@@ -32,7 +32,7 @@ namespace Zyrenth.Zora.Tests
 		[Test]
 		public void LoadSecretFromString()
 		{
-			RingSecret secret = new RingSecret();
+			var secret = new RingSecret();
 			secret.Load(desiredSecretString, GameRegion.US);
 			Assert.AreEqual(DesiredSecret, secret);
 		}
@@ -40,7 +40,7 @@ namespace Zyrenth.Zora.Tests
 		[Test]
 		public void LoadFromGameInfo()
 		{
-			RingSecret secret = new RingSecret(GameInfoTest.DesiredInfo);
+			var secret = new RingSecret(GameInfoTest.DesiredInfo);
 			Assert.AreEqual(DesiredSecret, secret);
 		}
 
@@ -61,7 +61,7 @@ namespace Zyrenth.Zora.Tests
 		[Test]
 		public void TestEquals()
 		{
-			RingSecret s2 = new RingSecret()
+			var s2 = new RingSecret()
 			{
 				Region = GameRegion.US,
 				GameID = 14129,
@@ -74,7 +74,7 @@ namespace Zyrenth.Zora.Tests
 		[Test]
 		public void TestNotEquals()
 		{
-			RingSecret s2 = new RingSecret()
+			var s2 = new RingSecret()
 			{
 				Region = GameRegion.US,
 				GameID = 14129,
@@ -89,7 +89,7 @@ namespace Zyrenth.Zora.Tests
 		[Test]
 		public void TestInvalidByteLoad()
 		{
-			RingSecret secret = new RingSecret();
+			var secret = new RingSecret();
 			Assert.Throws<SecretException>(() => secret.Load((byte[])null, GameRegion.US));
 			Assert.Throws<SecretException>(() => secret.Load(new byte[] { 0 }, GameRegion.US));
 			Assert.Throws<InvalidChecksumException>(() => secret.Load("L~2:N @bB↑& hmRhh", GameRegion.US));
@@ -101,7 +101,7 @@ namespace Zyrenth.Zora.Tests
 		[Test]
 		public void UpdateGameInfo()
 		{
-			GameInfo info = new GameInfo()
+			var info = new GameInfo()
 			{
 				Region = GameRegion.US,
 				GameID = 14129,
@@ -109,7 +109,7 @@ namespace Zyrenth.Zora.Tests
 			};
 
 			// Mismatched region
-			RingSecret s1 = new RingSecret()
+			var s1 = new RingSecret()
 			{
 				Region = GameRegion.JP,
 				GameID = 14129,
@@ -117,14 +117,14 @@ namespace Zyrenth.Zora.Tests
 			};
 
 			// Mismatched game ID
-			RingSecret s2 = new RingSecret()
+			var s2 = new RingSecret()
 			{
 				Region = GameRegion.US,
 				GameID = 1,
 				Rings = Rings.DoubleEdgeRing | Rings.ProtectionRing
 			};
 
-			RingSecret s3 = new RingSecret()
+			var s3 = new RingSecret()
 			{
 				Region = GameRegion.US,
 				GameID = 14129,
@@ -142,14 +142,14 @@ namespace Zyrenth.Zora.Tests
 		[Test]
 		public void TestHashCode()
 		{
-			RingSecret r1 = new RingSecret(1234, GameRegion.US, Rings.All);
-			RingSecret r2 = new RingSecret(5632, GameRegion.JP, Rings.BlueRing);
+			var r1 = new RingSecret(1234, GameRegion.US, Rings.All);
+			var r2 = new RingSecret(5632, GameRegion.JP, Rings.BlueRing);
 			
-			RingSecret r3 = new RingSecret(9876, GameRegion.US, Rings.All);
-			RingSecret r4 = new RingSecret(1234, GameRegion.US, Rings.All);
+			var r3 = new RingSecret(9876, GameRegion.US, Rings.All);
+			var r4 = new RingSecret(1234, GameRegion.US, Rings.All);
 
             // Because using mutable objects as a key is an awesome idea...
-            Dictionary<RingSecret, bool> dict = new Dictionary<RingSecret, bool>
+            var dict = new Dictionary<RingSecret, bool>
             {
                 { r1, true },
                 { r2, true }
@@ -163,7 +163,7 @@ namespace Zyrenth.Zora.Tests
 		public void TestNotifyPropChanged()
 		{
 			bool hit = false;
-			RingSecret g = new RingSecret();
+			var g = new RingSecret();
 			g.PropertyChanged += (s, e) => { hit = true; };
 			g.GameID = 42;
 			Assert.IsTrue(hit);

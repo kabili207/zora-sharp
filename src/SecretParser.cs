@@ -164,7 +164,7 @@ namespace Zyrenth.Zora
 		/// </example>
 		public static string CreateString(byte[] data, GameRegion region)
 		{
-			StringBuilder sBuilder = new StringBuilder();
+			var sBuilder = new StringBuilder();
 			for (int i = 0; i < data.Length; ++i)
 			{
 				if (data[i] < 0 || data[i] > 63)
