@@ -5,7 +5,7 @@ image: Visual Studio 2017
 
 # environment variables
 environment:
-  access_token:
+  github_token:
     secure: UTLYBi+fA9DfITcCNVwGyJw5MGEvXeawqBzd7U6q9agG5u5gTwIc7LxqdxAVWhSC
   github_email:
     secure: N1sJz+EugtLJ1e1jR232oYKnskaCKJlQHmL3EruztHE=
@@ -29,8 +29,8 @@ after_test:
       If ($env:APPVEYOR_REPO_TAG -eq "true") {
       echo "Building API documentation";
       git config --global credential.helper store
-      Add-Content "$env:USERPROFILE\.git-credentials" "https://$($env:access_token):x-oauth-basic@github.com`n"
-      git config --global user.email "$($env:github_email%)"
+      Add-Content "$env:USERPROFILE\.git-credentials" "https://$($env:github_token):x-oauth-basic@github.com`n"
+      git config --global user.email "$($env:github_email)"
       git config --global user.name "Amy Nagle"
       git config --global core.safecrlf false
       git clone -q -b gh-pages --single-branch https://github.com/kabili207/zora-sharp.git doc;
