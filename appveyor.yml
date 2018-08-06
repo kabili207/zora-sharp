@@ -25,14 +25,14 @@ test_script:
 - codecov -f "coverage.xml" -X gcov
 
 after_test:
-  - git config --global credential.helper store
-  - ps: Add-Content "$env:USERPROFILE\.git-credentials" "https://$($env:access_token):x-oauth-basic@github.com`n"
-  - git config --global user.email %github_email%
-  - git config --global user.name "Amy Nagle"
-  - git config --global core.safecrlf false
   - ps: >-
       If ($env:APPVEYOR_REPO_TAG -eq "true") {
       echo "Building API documentation";
+      git config --global credential.helper store
+      Add-Content "$env:USERPROFILE\.git-credentials" "https://$($env:access_token):x-oauth-basic@github.com`n"
+      git config --global user.email "$($env:github_email%)"
+      git config --global user.name "Amy Nagle"
+      git config --global core.safecrlf false
       git clone -q -b gh-pages --single-branch https://github.com/kabili207/zora-sharp.git doc;
       $env:SHFBROOT = "$($env:APPVEYOR_BUILD_FOLDER)\EWSoftware.SHFB\Tools\";
       nuget install EWSoftware.SHFB -ExcludeVersion;
