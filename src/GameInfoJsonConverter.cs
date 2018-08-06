@@ -48,21 +48,22 @@ namespace Zyrenth.Zora
 			if (dictionary == null)
 				throw new ArgumentNullException("dictionary");
 
-			GameInfo info = new GameInfo();
+            GameInfo info = new GameInfo
+            {
+                Region = dictionary.ReadValue<GameRegion>("Region"),
+                Game = dictionary.ReadValue<Game>("Game"),
+                GameID = dictionary.ReadValue<short>("GameID"),
+                Hero = dictionary.ReadValue<string>("Hero"),
+                Child = dictionary.ReadValue<string>("Child"),
+                Animal = dictionary.ReadValue<Animal>("Animal"),
+                Behavior = dictionary.ReadValue<byte>("Behavior"),
+                IsHeroQuest = dictionary.ReadValue<bool>("IsHeroQuest"),
+                IsLinkedGame = dictionary.ReadValue<bool>("IsLinkedGame"),
+                WasGivenFreeRing = dictionary.ReadValue<bool>("WasGivenFreeRing"),
+                Rings = (Rings)dictionary.ReadValue<long>("Rings")
+            };
 
-			info.Region = dictionary.ReadValue<GameRegion>("Region");
-			info.Game = dictionary.ReadValue<Game>("Game");
-			info.GameID = dictionary.ReadValue<short>("GameID");
-			info.Hero = dictionary.ReadValue<string>("Hero");
-			info.Child = dictionary.ReadValue<string>("Child");
-			info.Animal = dictionary.ReadValue<Animal>("Animal");
-			info.Behavior = dictionary.ReadValue<byte>("Behavior");
-			info.IsHeroQuest = dictionary.ReadValue<bool>("IsHeroQuest");
-			info.IsLinkedGame = dictionary.ReadValue<bool>("IsLinkedGame");
-			info.WasGivenFreeRing = dictionary.ReadValue<bool>("WasGivenFreeRing");
-			info.Rings = (Rings)dictionary.ReadValue<long>("Rings");
-
-			return info;
+            return info;
 		}
 
 		/// <summary>

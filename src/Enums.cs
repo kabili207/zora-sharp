@@ -1,4 +1,4 @@
-﻿/*
+/*
  *  Copyright © 2013-2018, Amy Nagle.
  *  All rights reserved.
  *
@@ -87,7 +87,7 @@ namespace Zyrenth.Zora
 	public enum Rings : long
 	{
 		None = 0,
-		All = unchecked((long)UInt64.MaxValue),
+		All = unchecked((long)ulong.MaxValue),
 		[RingInfo("Friendship Ring", "Symbol of a meeting")]
 		FriendshipRing = 0x1L,
 		[RingInfo("Power Ring L-1", "Sword damage ▲\nDamage taken ▲")]

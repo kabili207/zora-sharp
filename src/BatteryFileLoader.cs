@@ -1,4 +1,4 @@
-﻿/*
+/*
  *  Copyright © 2013-2018, Amy Nagle.
  *  All rights reserved.
  *
@@ -117,10 +117,9 @@ namespace Zyrenth.Zora
 		/// <remarks>This method has only been tested with the US version of the games</remarks>
 		public static GameInfo Load(Stream stream, GameRegion region, int offset)
 		{
-			GameInfo info = new GameInfo();
-			info.Region = region;
+            GameInfo info = new GameInfo { Region = region };
 
-			byte[] versionBytes = new byte[1];
+            byte[] versionBytes = new byte[1];
 			byte[] gameIdBytes = new byte[2];
 			byte[] heroBytes = new byte[5];
 			byte[] kidBytes = new byte[5];
