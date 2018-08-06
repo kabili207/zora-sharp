@@ -182,7 +182,7 @@ namespace Zyrenth.Zora
 				throw new InvalidChecksumException("Checksum does not match expected value");
 
 			if (decodedSecret[3] != '1' || decodedSecret[4] != '1')
-				throw new ArgumentException("The specified data is not a memory code", "secret");
+				throw new ArgumentException("The specified data is not a memory code", nameof(secret));
 			
 			GameID = Convert.ToInt16(decodedSecret.ReversedSubstring(5, 15), 2);
 			Memory = (Memory)Convert.ToByte(decodedSecret.ReversedSubstring(20, 4), 2);

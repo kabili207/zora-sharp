@@ -282,7 +282,7 @@ namespace Zyrenth.Zora
 			GameID = Convert.ToInt16(decodedSecret.ReversedSubstring(5, 15), 2);
 
 			if (decodedSecret[3] != '0' || decodedSecret[4] != '0')
-				throw new ArgumentException("The specified data is not a game code", "secret");
+				throw new ArgumentException("The specified data is not a game code", nameof(secret));
 
 			TargetGame = decodedSecret[21] == '1' ? Game.Seasons : Game.Ages;
 			IsHeroQuest = decodedSecret[20] == '1';

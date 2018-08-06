@@ -132,7 +132,7 @@ namespace Zyrenth.Zora
 		public AssemblyDetail(Assembly asm)
 		{
 			if (asm is null)
-				throw new ArgumentNullException("asm");
+				throw new ArgumentNullException(nameof(asm));
 			_asm = asm;
 		}
 

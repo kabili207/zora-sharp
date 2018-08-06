@@ -142,7 +142,7 @@ namespace Zyrenth.Zora
 				throw new InvalidChecksumException("Checksum does not match expected value");
 
 			if (decodedSecret[3] != '0' || decodedSecret[4] != '1')
-				throw new ArgumentException("The specified data is not a ring code", "secret");
+				throw new ArgumentException("The specified data is not a ring code", nameof(secret));
 
 			GameID = Convert.ToInt16(decodedSecret.ReversedSubstring(5, 15), 2);
 

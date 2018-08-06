@@ -160,9 +160,9 @@ namespace SimpleJson
 		internal static object GetAtIndex(IDictionary<string, object> obj, int index)
 		{
 			if (obj is null)
-				throw new ArgumentNullException("obj");
+				throw new ArgumentNullException(nameof(obj));
 			if (index >= obj.Count)
-				throw new ArgumentOutOfRangeException("index");
+				throw new ArgumentOutOfRangeException(nameof(index));
 			int i = 0;
 			foreach (KeyValuePair<string, object> o in obj)
 				if (i++ == index) return o.Value;
@@ -885,9 +885,9 @@ namespace SimpleJson
 		{
 			// http://www.java2s.com/Open-Source/CSharp/2.6.4-mono-.net-core/System/System/Char.cs.htm
 			if (utf32 < 0 || utf32 > 0x10FFFF)
-				throw new ArgumentOutOfRangeException("utf32", "The argument must be from 0 to 0x10FFFF.");
+				throw new ArgumentOutOfRangeException(nameof(utf32), "The argument must be from 0 to 0x10FFFF.");
 			if (0xD800 <= utf32 && utf32 <= 0xDFFF)
-				throw new ArgumentOutOfRangeException("utf32", "The argument must not be in surrogate pair range.");
+				throw new ArgumentOutOfRangeException(nameof(utf32), "The argument must not be in surrogate pair range.");
 			if (utf32 < 0x10000)
 				return new string((char)utf32, 1);
 			utf32 -= 0x10000;
@@ -1329,7 +1329,7 @@ namespace SimpleJson
 		[SuppressMessage("Microsoft.Maintainability", "CA1502:AvoidExcessiveComplexity")]
 		public virtual object DeserializeObject(object value, Type type)
 		{
-			if (type is null) throw new ArgumentNullException("type");
+			if (type is null) throw new ArgumentNullException(nameof(type));
 			string str = value as string;
 
 			if (type == typeof(Guid) && string.IsNullOrEmpty(str))

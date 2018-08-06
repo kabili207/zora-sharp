@@ -74,19 +74,15 @@ namespace Zyrenth.Zora
 
 			// Slot 1
 			tmp = Load(stream, region, Slot1Offset);
-			if (tmp is null)
-				gameData.Add(tmp);
+			if (!(tmp is null)) gameData.Add(tmp);
 
 			// Slot 2
 			tmp = Load(stream, region, Slot2Offset);
-			if (tmp is null)
-				gameData.Add(tmp);
+			if (!(tmp is null)) gameData.Add(tmp);
 
 			// Slot 3
 			tmp = Load(stream, region, Slot3Offset);
-			if (tmp is null)
-				gameData.Add(tmp);
-
+			if (!(tmp is null)) gameData.Add(tmp);
 
 			return gameData;
 		}
