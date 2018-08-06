@@ -1,4 +1,4 @@
-﻿/*
+/*
  *  Copyright © 2013-2018, Amy Nagle.
  *  All rights reserved.
  *
@@ -48,8 +48,8 @@ namespace Zyrenth.Zora
 		/// <param name="description">The ring description.</param>
 		public RingInfoAttribute(string name, string description)
 		{
-			this.Name = name;
-			this.Description = description;
+			Name = name;
+			Description = description;
 		}
 	}
 }
