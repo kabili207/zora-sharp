@@ -1,6 +1,8 @@
 version: 2.1.{build}
 configuration: Debug
 
+image: Visual Studio 2017
+
 # environment variables
 environment:
   access_token:
