@@ -77,7 +77,7 @@ namespace Zyrenth.Zora
 		public IDictionary<string, object> Serialize(GameInfo info)
 		{
 			if (info is null)
-				throw new ArgumentNullException(nameof(info);
+				throw new ArgumentNullException(nameof(info));
 
             var dict = new Dictionary<string, object>
             {
