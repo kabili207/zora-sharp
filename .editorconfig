@@ -16,9 +16,14 @@ indent_size = 4
 insert_final_newline = false
 trim_trailing_whitespace = true
 
+
 #########################
 # File Extension Settings
 #########################
+
+# Zora-Sharp uses tabs.  That's less common, but fine.
+[*.cs]
+indent_style = tab
 
 # Visual Studio Solution Files
 [*.sln]

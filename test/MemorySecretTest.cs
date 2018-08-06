@@ -139,7 +139,7 @@ namespace Zyrenth.Zora.Tests
 		public void TestInvalidByteLoad()
 		{
 			var secret = new MemorySecret();
-			Assert.Throws<SecretException>(() => secret.Load((byte[])null, GameRegion.US));
+			Assert.Throws<ArgumentNullException>(() => secret.Load((byte[])null, GameRegion.US));
 			Assert.Throws<SecretException>(() => secret.Load(new byte[] { 0 }, GameRegion.US));
 			Assert.Throws<InvalidChecksumException>(() => secret.Load("6●sWh", GameRegion.US));
 			Assert.Throws<ArgumentException>(() =>

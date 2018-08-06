@@ -568,7 +568,7 @@ namespace SimpleJson
             }
             char[] charArray = json.ToCharArray();
             int index = 0;
-            bool success = false;
+            bool success = true;
             obj = ParseValue(charArray, ref index, ref success);
 			return success;
 		}
@@ -673,7 +673,7 @@ namespace SimpleJson
 			return sb.ToString();
 		}
 
-		static IDictionary<string, object> ParseObject(char[] json, ref int index, ref bool success)
+		static IDictionary<string, object> ParseObject(char[] json, ref int index, ref bool setToFalseOnFailure)
 		{
 			IDictionary<string, object> table = new JsonObject();
 			int token;
@@ -687,7 +687,7 @@ namespace SimpleJson
 				token = LookAhead(json, index);
 				if (token == TOKEN_NONE)
 				{
-					success = false;
+					setToFalseOnFailure = false;
 					return null;
 				}
 				else if (token == TOKEN_COMMA)
@@ -700,24 +700,24 @@ namespace SimpleJson
 				else
 				{
 					// name
-					string name = ParseString(json, ref index, ref success);
-					if (!success)
+					string name = ParseString(json, ref index, ref setToFalseOnFailure);
+					if (!setToFalseOnFailure)
 					{
-						success = false;
+						setToFalseOnFailure = false;
 						return null;
 					}
 					// :
 					token = NextToken(json, ref index);
 					if (token != TOKEN_COLON)
 					{
-						success = false;
+						setToFalseOnFailure = false;
 						return null;
 					}
 					// value
-					object value = ParseValue(json, ref index, ref success);
-					if (!success)
+					object value = ParseValue(json, ref index, ref setToFalseOnFailure);
+					if (!setToFalseOnFailure)
 					{
-						success = false;
+						setToFalseOnFailure = false;
 						return null;
 					}
 					table[name] = value;
@@ -726,7 +726,7 @@ namespace SimpleJson
 			return table;
 		}
 
-		static JsonArray ParseArray(char[] json, ref int index, ref bool success)
+		static JsonArray ParseArray(char[] json, ref int index, ref bool setToFalseOnFailure)
 		{
 			JsonArray array = new JsonArray();
 
@@ -739,7 +739,7 @@ namespace SimpleJson
 				int token = LookAhead(json, index);
 				if (token == TOKEN_NONE)
 				{
-					success = false;
+					setToFalseOnFailure = false;
 					return null;
 				}
 				else if (token == TOKEN_COMMA)
@@ -751,8 +751,8 @@ namespace SimpleJson
 				}
 				else
 				{
-					object value = ParseValue(json, ref index, ref success);
-					if (!success)
+					object value = ParseValue(json, ref index, ref setToFalseOnFailure);
+					if (!setToFalseOnFailure)
 						return null;
 					array.Add(value);
 				}
@@ -760,18 +760,18 @@ namespace SimpleJson
 			return array;
 		}
 
-		static object ParseValue(char[] json, ref int index, ref bool success)
+		static object ParseValue(char[] json, ref int index, ref bool setToFalseOnFailure)
 		{
 			switch (LookAhead(json, index))
 			{
 				case TOKEN_STRING:
-					return ParseString(json, ref index, ref success);
+					return ParseString(json, ref index, ref setToFalseOnFailure);
 				case TOKEN_NUMBER:
-					return ParseNumber(json, ref index, ref success);
+					return ParseNumber(json, ref index, ref setToFalseOnFailure);
 				case TOKEN_CURLY_OPEN:
-					return ParseObject(json, ref index, ref success);
+					return ParseObject(json, ref index, ref setToFalseOnFailure);
 				case TOKEN_SQUARED_OPEN:
-					return ParseArray(json, ref index, ref success);
+					return ParseArray(json, ref index, ref setToFalseOnFailure);
 				case TOKEN_TRUE:
 					NextToken(json, ref index);
 					return true;
@@ -784,11 +784,11 @@ namespace SimpleJson
 				case TOKEN_NONE:
 					break;
 			}
-			success = false;
+			setToFalseOnFailure = false;
 			return null;
 		}
 
-		static string ParseString(char[] json, ref int index, ref bool success)
+		static string ParseString(char[] json, ref int index, ref bool setToFalseOnFailure)
 		{
 			StringBuilder s = new StringBuilder(BUILDER_CAPACITY);
 			char c;
@@ -837,7 +837,7 @@ namespace SimpleJson
 						{
 							// parse the 32 bit hex into an integer codepoint
 							uint codePoint;
-							if (!(success = UInt32.TryParse(new string(json, index, 4), NumberStyles.HexNumber, CultureInfo.InvariantCulture, out codePoint)))
+							if (!(setToFalseOnFailure = UInt32.TryParse(new string(json, index, 4), NumberStyles.HexNumber, CultureInfo.InvariantCulture, out codePoint)))
 								return "";
 
 							// convert the integer codepoint to a unicode char and add to string
@@ -859,7 +859,7 @@ namespace SimpleJson
 										}
 									}
 								}
-								success = false;    // invalid surrogate pair
+								setToFalseOnFailure = false;    // invalid surrogate pair
 								return "";
 							}
 							s.Append(ConvertFromUtf32((int)codePoint));
@@ -875,7 +875,7 @@ namespace SimpleJson
 			}
 			if (!complete)
 			{
-				success = false;
+				setToFalseOnFailure = false;
 				return null;
 			}
 			return s.ToString();
@@ -894,7 +894,7 @@ namespace SimpleJson
 			return new string(new char[] { (char)((utf32 >> 10) + 0xD800), (char)(utf32 % 0x0400 + 0xDC00) });
 		}
 
-		static object ParseNumber(char[] json, ref int index, ref bool success)
+		static object ParseNumber(char[] json, ref int index, ref bool setToFalseOnFailure)
 		{
 			EatWhitespace(json, ref index);
 			int lastIndex = GetLastIndexOfNumber(json, index);
@@ -904,13 +904,13 @@ namespace SimpleJson
 			if (str.IndexOf(".", StringComparison.OrdinalIgnoreCase) != -1 || str.IndexOf("e", StringComparison.OrdinalIgnoreCase) != -1)
 			{
 				double number;
-				success = double.TryParse(new string(json, index, charLength), NumberStyles.Any, CultureInfo.InvariantCulture, out number);
+				setToFalseOnFailure = double.TryParse(new string(json, index, charLength), NumberStyles.Any, CultureInfo.InvariantCulture, out number);
 				returnNumber = number;
 			}
 			else
 			{
 				long number;
-				success = long.TryParse(new string(json, index, charLength), NumberStyles.Any, CultureInfo.InvariantCulture, out number);
+				setToFalseOnFailure = long.TryParse(new string(json, index, charLength), NumberStyles.Any, CultureInfo.InvariantCulture, out number);
 				returnNumber = number;
 			}
 			index = lastIndex + 1;
