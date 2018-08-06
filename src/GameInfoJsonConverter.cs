@@ -48,22 +48,22 @@ namespace Zyrenth.Zora
 			if (dictionary is null)
 				throw new ArgumentNullException(nameof(dictionary));
 
-            var info = new GameInfo
-            {
-                Region = dictionary.ReadValue<GameRegion>("Region"),
-                Game = dictionary.ReadValue<Game>("Game"),
-                GameID = dictionary.ReadValue<short>("GameID"),
-                Hero = dictionary.ReadValue<string>("Hero"),
-                Child = dictionary.ReadValue<string>("Child"),
-                Animal = dictionary.ReadValue<Animal>("Animal"),
-                Behavior = dictionary.ReadValue<byte>("Behavior"),
-                IsHeroQuest = dictionary.ReadValue<bool>("IsHeroQuest"),
-                IsLinkedGame = dictionary.ReadValue<bool>("IsLinkedGame"),
-                WasGivenFreeRing = dictionary.ReadValue<bool>("WasGivenFreeRing"),
-                Rings = (Rings)dictionary.ReadValue<long>("Rings")
-            };
+			var info = new GameInfo
+			{
+				Region = dictionary.ReadValue<GameRegion>("Region"),
+				Game = dictionary.ReadValue<Game>("Game"),
+				GameID = dictionary.ReadValue<short>("GameID"),
+				Hero = dictionary.ReadValue<string>("Hero"),
+				Child = dictionary.ReadValue<string>("Child"),
+				Animal = dictionary.ReadValue<Animal>("Animal"),
+				Behavior = dictionary.ReadValue<byte>("Behavior"),
+				IsHeroQuest = dictionary.ReadValue<bool>("IsHeroQuest"),
+				IsLinkedGame = dictionary.ReadValue<bool>("IsLinkedGame"),
+				WasGivenFreeRing = dictionary.ReadValue<bool>("WasGivenFreeRing"),
+				Rings = (Rings)dictionary.ReadValue<long>("Rings")
+			};
 
-            return info;
+			return info;
 		}
 
 		/// <summary>
@@ -79,22 +79,22 @@ namespace Zyrenth.Zora
 			if (info is null)
 				throw new ArgumentNullException(nameof(info));
 
-            var dict = new Dictionary<string, object>
-            {
-                ["Region"] = info.Region,
-                ["Game"] = info.Game.ToString(),
-                ["GameID"] = info.GameID,
-                ["Hero"] = info.Hero,
-                ["Child"] = info.Child,
-                ["Animal"] = info.Animal.ToString(),
-                ["Behavior"] = info.Behavior.ToString(),
-                ["IsHeroQuest"] = info.IsHeroQuest,
-                ["IsLinkedGame"] = info.IsLinkedGame,
-                ["WasGivenFreeRing"] = info.WasGivenFreeRing,
-                ["Rings"] = (long)info.Rings
-            };
+			var dict = new Dictionary<string, object>
+			{
+				["Region"] = info.Region,
+				["Game"] = info.Game.ToString(),
+				["GameID"] = info.GameID,
+				["Hero"] = info.Hero,
+				["Child"] = info.Child,
+				["Animal"] = info.Animal.ToString(),
+				["Behavior"] = info.Behavior.ToString(),
+				["IsHeroQuest"] = info.IsHeroQuest,
+				["IsLinkedGame"] = info.IsLinkedGame,
+				["WasGivenFreeRing"] = info.WasGivenFreeRing,
+				["Rings"] = (long)info.Rings
+			};
 
-            return dict;
+			return dict;
 		}
 
 	}

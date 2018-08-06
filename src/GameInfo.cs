@@ -35,19 +35,19 @@ namespace Zyrenth.Zora
 	public class GameInfo : INotifyPropertyChanged
 	{
 
-        #region Fields
+		#region Fields
 
-        private GameRegion _region = GameRegion.US;
-        private string _hero = "\0\0\0\0\0";
-        private string _child = "\0\0\0\0\0";
-        private short _gameId = 0;
-        private byte _behavior = 0;
-        private byte _animal = 0;
-        private byte _agesSeasons = 0;
-        private bool _isHeroQuest = false;
-        private bool _isLinkedGame = false;
-        private long _rings = 0L;
-        private bool _wasGivenFreeRing = false;
+		private GameRegion _region = GameRegion.US;
+		private string _hero = "\0\0\0\0\0";
+		private string _child = "\0\0\0\0\0";
+		private short _gameId = 0;
+		private byte _behavior = 0;
+		private byte _animal = 0;
+		private byte _agesSeasons = 0;
+		private bool _isHeroQuest = false;
+		private bool _isLinkedGame = false;
+		private long _rings = 0L;
+		private bool _wasGivenFreeRing = false;
 
 		#endregion // Fields
 
@@ -67,9 +67,9 @@ namespace Zyrenth.Zora
 			get { return _region; }
 			set
 			{
-                SetProperty(ref _region, value, "Region");
-            }
-        }
+				SetProperty(ref _region, value, "Region");
+			}
+		}
 
 		/// <summary>
 		/// Gets or sets the Game used for this user data
@@ -79,11 +79,11 @@ namespace Zyrenth.Zora
 			get { return (Game)_agesSeasons; }
 			set
 			{
-                if (( value < 0 ) || ( (int)value > byte.MaxValue ))
-                    throw new ArgumentOutOfRangeException(nameof(value));
-                SetProperty(ref _agesSeasons, (byte)value, "Game");
-            }
-        }
+				if (( value < 0 ) || ( (int)value > byte.MaxValue ))
+					throw new ArgumentOutOfRangeException(nameof(value));
+				SetProperty(ref _agesSeasons, (byte)value, "Game");
+			}
+		}
 
 		/// <summary>
 		/// Gets or sets the Quest type used for this user data
@@ -93,9 +93,9 @@ namespace Zyrenth.Zora
 			get { return _isHeroQuest; }
 			set
 			{
-                SetProperty(ref _isHeroQuest, value, "IsHeroQuest");
-            }
-        }
+				SetProperty(ref _isHeroQuest, value, "IsHeroQuest");
+			}
+		}
 
 		/// <summary>
 		/// Gets or sets the Quest type used for this user data
@@ -105,21 +105,21 @@ namespace Zyrenth.Zora
 			get { return _isLinkedGame; }
 			set
 			{
-                SetProperty(ref _isLinkedGame, value, "IsLinkedGame");
-            }
-        }
+				SetProperty(ref _isLinkedGame, value, "IsLinkedGame");
+			}
+		}
 
 		/// <summary>
-		/// Gets or sets the unique game ID 
+		/// Gets or sets the unique game ID
 		/// </summary>
 		public short GameID
 		{
 			get { return _gameId; }
 			set
 			{
-                SetProperty(ref _gameId, value, "GameID");
-            }
-        }
+				SetProperty(ref _gameId, value, "GameID");
+			}
+		}
 
 		/// <summary>
 		/// Gets or sets the hero's name
@@ -133,9 +133,9 @@ namespace Zyrenth.Zora
 					value = "\0\0\0\0\0";
 				else
 					value = value.TrimEnd().PadRight(5, '\0');
-                SetProperty(ref _hero, value, "Hero");
-            }
-        }
+				SetProperty(ref _hero, value, "Hero");
+			}
+		}
 
 		/// <summary>
 		/// Gets or sets the child's name
@@ -149,9 +149,9 @@ namespace Zyrenth.Zora
 					value = "\0\0\0\0\0";
 				else
 					value = value.TrimEnd().PadRight(5, '\0');
-                SetProperty(ref _child, value, "Child");
-            }
-        }
+				SetProperty(ref _child, value, "Child");
+			}
+		}
 
 		/// <summary>
 		/// Gets or sets the animal friend
@@ -161,11 +161,11 @@ namespace Zyrenth.Zora
 			get { return (Animal)_animal; }
 			set
 			{
-                if ((value < 0) || ((long)value > byte.MaxValue))
-                    throw new ArgumentOutOfRangeException(nameof(value));
-                SetProperty(ref _animal, (byte)value, "Animal");
-            }
-        }
+				if (( value < 0 ) || ( (long)value > byte.MaxValue ))
+					throw new ArgumentOutOfRangeException(nameof(value));
+				SetProperty(ref _animal, (byte)value, "Animal");
+			}
+		}
 
 		/// <summary>
 		/// Gets or set the behavior of the child
@@ -175,9 +175,9 @@ namespace Zyrenth.Zora
 			get { return (byte)_behavior; }
 			set
 			{
-                SetProperty(ref _behavior, value, "Behavior");
-            }
-        }
+				SetProperty(ref _behavior, value, "Behavior");
+			}
+		}
 
 		/// <summary>
 		/// Gets or sets the value indicating if Vasu has given the player a free ring
@@ -187,9 +187,9 @@ namespace Zyrenth.Zora
 			get { return _wasGivenFreeRing; }
 			set
 			{
-                SetProperty(ref _wasGivenFreeRing, value, "WasGivenFreeRing");
-            }
-        }
+				SetProperty(ref _wasGivenFreeRing, value, "WasGivenFreeRing");
+			}
+		}
 
 		/// <summary>
 		/// Gets or sets the user's ring collection
@@ -199,41 +199,41 @@ namespace Zyrenth.Zora
 			get { return (Rings)_rings; }
 			set
 			{
-                SetProperty(ref _rings, (long)value, "Rings");
-            }
-        }
+				SetProperty(ref _rings, (long)value, "Rings");
+			}
+		}
 
-        #endregion // Properties
+		#endregion // Properties
 
-        /// <summary>
-        /// Compares a field's current value against a new value.
-        /// If they are different, sets the field to the new value and
-        /// sends a notification that the property has changed.
-        /// </summary>
-        /// <param name="field">Reference to the field storing current value</param>
-        /// <param name="value">New value to ensure the field has</param>
-        /// <param name="name">Name of the property being changed</param>
-        /// <example>
-        /// <code language="C#">
-        /// private short _gameID = 0;
-        /// public short GameID
-        /// {
-        ///     get { return _gameID; }
-        ///     set
-        ///     {
-        ///         SetProperty(ref _gameID, value, "GameID");
-        ///     }
-        /// }
-        /// </code>
-        /// </example>
-        private void SetProperty<T>(ref T field, T value, string name)
-        {
-            if (!EqualityComparer<T>.Default.Equals(field, value))
-            {
-                field = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
-            }
-        }
+		/// <summary>
+		/// Compares a field's current value against a new value.
+		/// If they are different, sets the field to the new value and
+		/// sends a notification that the property has changed.
+		/// </summary>
+		/// <param name="field">Reference to the field storing current value</param>
+		/// <param name="value">New value to ensure the field has</param>
+		/// <param name="name">Name of the property being changed</param>
+		/// <example>
+		/// <code language="C#">
+		/// private short _gameID = 0;
+		/// public short GameID
+		/// {
+		///     get { return _gameID; }
+		///     set
+		///     {
+		///         SetProperty(ref _gameID, value, "GameID");
+		///     }
+		/// }
+		/// </code>
+		/// </example>
+		private void SetProperty<T>(ref T field, T value, string name)
+		{
+			if (!EqualityComparer<T>.Default.Equals(field, value))
+			{
+				field = value;
+				PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+			}
+		}
 
 		#region File Saving/Loading methods
 
@@ -359,7 +359,7 @@ namespace Zyrenth.Zora
 			return converter.Deserialize(dict);
 		}
 
-        #endregion // File Saving/Loading methods
+		#endregion // File Saving/Loading methods
 
 		/// <summary>
 		/// Determines whether the specified <see cref="System.Object" />, is equal to this instance.
@@ -376,17 +376,17 @@ namespace Zyrenth.Zora
 			var g = (GameInfo)obj;
 
 			return
-				(_region == g._region) &&
-				(_gameId == g._gameId) &&
-				(_agesSeasons == g._agesSeasons) &&
-				(_hero == g._hero) &&
-				(_child == g._child) &&
-				(_behavior == g._behavior) &&
-				(_animal == g._animal) &&
-				(_isHeroQuest == g._isHeroQuest) &&
-				(_isLinkedGame == g._isLinkedGame) &&
-				(_rings == g._rings) &&
-				(_wasGivenFreeRing == g._wasGivenFreeRing);
+				( _region == g._region ) &&
+				( _gameId == g._gameId ) &&
+				( _agesSeasons == g._agesSeasons ) &&
+				( _hero == g._hero ) &&
+				( _child == g._child ) &&
+				( _behavior == g._behavior ) &&
+				( _animal == g._animal ) &&
+				( _isHeroQuest == g._isHeroQuest ) &&
+				( _isLinkedGame == g._isLinkedGame ) &&
+				( _rings == g._rings ) &&
+				( _wasGivenFreeRing == g._wasGivenFreeRing );
 
 		}
 
@@ -394,7 +394,7 @@ namespace Zyrenth.Zora
 		/// Returns a hash code for this instance.
 		/// </summary>
 		/// <returns>
-		/// A hash code for this instance, suitable for use in hashing algorithms and data structures like a hash table. 
+		/// A hash code for this instance, suitable for use in hashing algorithms and data structures like a hash table.
 		/// </returns>
 		public override int GetHashCode()
 		{

@@ -29,7 +29,7 @@ namespace Zyrenth.Zora
 	/// </summary>
 	public class JapaneseEncoding : Encoding
 	{
-        private char[] characters =
+		private char[] characters =
 		{
 			'\0','\0','\0','\0','♥','↑','↓','←','→','\0','\0','「','」','\0','\0','。',
 			' ','!','"','#','$','%','&','\'','(',')','*','+',',','-','.','/',
@@ -51,10 +51,10 @@ namespace Zyrenth.Zora
 		/// <summary>
 		/// Initializes a new instance of the <see cref="T:Zyrenth.Zora.JapaneseEncoding"/> class.
 		/// </summary>
-		public JapaneseEncoding ()
+		public JapaneseEncoding()
 		{
 		}
-		
+
 		/// <summary>
 		/// Calculates the number of bytes produced by encoding a set of characters from the specified character array.
 		/// </summary>
@@ -66,7 +66,7 @@ namespace Zyrenth.Zora
 		{
 			return count;
 		}
-		
+
 		/// <summary>
 		/// Encodes a set of characters from the specified character array into the specified byte array.
 		/// </summary>
@@ -82,18 +82,21 @@ namespace Zyrenth.Zora
 			{
 				byte b = 0;
 				char c = chars[i];
-				if (c >= 'a' && c <= 'z') {
+				if (c >= 'a' && c <= 'z')
+				{
 					c -= 'a';
 					c += 'A';
 				}
 
 				if (c == 0)
 					b = 0;
-				else {
-					for (int j=0; j<characters.Length; j++)
+				else
+				{
+					for (int j = 0; j < characters.Length; j++)
 					{
-						if (characters[j] == c) {
-							b = (byte)(j + 0x10);
+						if (characters[j] == c)
+						{
+							b = (byte)( j + 0x10 );
 							break;
 						}
 					}
@@ -104,7 +107,7 @@ namespace Zyrenth.Zora
 
 			return charCount;
 		}
-		
+
 		/// <summary>
 		/// Calculates the number of characters produced by decoding a sequence of bytes from the specified byte array.
 		/// </summary>
@@ -116,7 +119,7 @@ namespace Zyrenth.Zora
 		{
 			return count;
 		}
-		
+
 		/// <summary>
 		/// Decodes a sequence of bytes from the specified byte array into the specified character array.
 		/// </summary>
@@ -130,7 +133,7 @@ namespace Zyrenth.Zora
 		{
 			for (int i = byteIndex; i < byteCount; i++)
 			{
-				int b = bytes[i]-0x10;
+				int b = bytes[i] - 0x10;
 				if (b < 0 || b >= characters.Length)
 					chars[i] = '\0';
 				else
@@ -139,7 +142,7 @@ namespace Zyrenth.Zora
 
 			return byteCount;
 		}
-		
+
 		/// <summary>
 		/// Calculates the maximum number of bytes produced by encoding the
 		/// specified number of characters.
@@ -150,7 +153,7 @@ namespace Zyrenth.Zora
 		{
 			return charCount;
 		}
-		
+
 		/// <summary>
 		/// Calculates the maximum number of characters produced by decoding the specified number of bytes.
 		/// </summary>

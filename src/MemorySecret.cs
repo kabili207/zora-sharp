@@ -30,9 +30,9 @@ namespace Zyrenth.Zora
 	/// </summary>
 	public class MemorySecret : Secret
 	{
-        private byte _memory = 0;
-        private bool _isReturnSecret = true;
-        private byte _targetGame = 0;
+		private byte _memory = 0;
+		private bool _isReturnSecret = true;
+		private byte _targetGame = 0;
 
 		/// <summary>
 		/// Gets the required length of the secret
@@ -50,8 +50,8 @@ namespace Zyrenth.Zora
 			get { return (Memory)_memory; }
 			set
 			{
-                SetProperty(ref _memory, (byte)value, "Memory");
-            }
+				SetProperty(ref _memory, (byte)value, "Memory");
+			}
 		}
 
 		/// <summary>
@@ -62,8 +62,8 @@ namespace Zyrenth.Zora
 			get { return (Game)_targetGame; }
 			set
 			{
-                SetProperty(ref _targetGame, (byte)value, "Game");
-            }
+				SetProperty(ref _targetGame, (byte)value, "Game");
+			}
 		}
 
 		/// <summary>
@@ -77,7 +77,7 @@ namespace Zyrenth.Zora
 			get { return _isReturnSecret; }
 			set
 			{
-                SetProperty(ref _isReturnSecret, value, "IsReturnSecret");
+				SetProperty(ref _isReturnSecret, value, "IsReturnSecret");
 			}
 		}
 
@@ -161,13 +161,13 @@ namespace Zyrenth.Zora
 		/// </example>
 		public override void Load(byte[] secret, GameRegion region)
 		{
-            if (secret is null)
-                throw new ArgumentNullException(nameof(secret));
+			if (secret is null)
+				throw new ArgumentNullException(nameof(secret));
 			if (secret.Length != Length)
 				throw new SecretException("Secret must contatin exactly 5 bytes");
-			
+
 			Region = region;
-			
+
 			byte[] decodedBytes = DecodeBytes(secret);
 			string decodedSecret = ByteArrayToBinaryString(decodedBytes);
 
@@ -175,12 +175,12 @@ namespace Zyrenth.Zora
 			clonedBytes[4] = 0;
 			var checksum = CalculateChecksum(clonedBytes);
 
-			if ((decodedBytes[4] & 7) != (checksum & 7))
+			if (( decodedBytes[4] & 7 ) != ( checksum & 7 ))
 				throw new InvalidChecksumException("Checksum does not match expected value");
 
 			if (decodedSecret[3] != '1' || decodedSecret[4] != '1')
 				throw new ArgumentException("The specified data is not a memory code", nameof(secret));
-			
+
 			GameID = Convert.ToInt16(decodedSecret.ReversedSubstring(5, 15), 2);
 			Memory = (Memory)Convert.ToByte(decodedSecret.ReversedSubstring(20, 4), 2);
 
@@ -237,8 +237,8 @@ namespace Zyrenth.Zora
 			else
 				cipher = _isReturnSecret ? 1 : 2;
 
-			cipher |= (((byte)_memory & 1) << 2);
-			cipher = ((GameID >> 8) + (GameID & 255) + cipher) & 7;
+			cipher |= ( ( (byte)_memory & 1 ) << 2 );
+			cipher = ( ( GameID >> 8 ) + ( GameID & 255 ) + cipher ) & 7;
 			cipher = Convert.ToInt32(Convert.ToString(cipher, 2).PadLeft(3, '0').Reverse(), 2);
 
 			string unencodedSecret = Convert.ToString(cipher, 2).PadLeft(3, '0');
@@ -255,7 +255,7 @@ namespace Zyrenth.Zora
 			else
 				mask = _isReturnSecret ? 2 : 1;
 			byte[] unencodedBytes = BinaryStringToByteArray(unencodedSecret);
-			unencodedBytes[4] = (byte)(CalculateChecksum(unencodedBytes) | (mask << 4));
+			unencodedBytes[4] = (byte)( CalculateChecksum(unencodedBytes) | ( mask << 4 ) );
 			byte[] secret = EncodeBytes(unencodedBytes);
 
 			return secret;
@@ -276,10 +276,10 @@ namespace Zyrenth.Zora
 			var g = (MemorySecret)obj;
 
 			return
-				(base.Equals(g)) &&
-				(_targetGame == g._targetGame) &&
-				(_memory == g._memory) &&
-				(_isReturnSecret == g._isReturnSecret);
+				( base.Equals(g) ) &&
+				( _targetGame == g._targetGame ) &&
+				( _memory == g._memory ) &&
+				( _isReturnSecret == g._isReturnSecret );
 
 		}
 
@@ -287,7 +287,7 @@ namespace Zyrenth.Zora
 		/// Returns a hash code for this instance.
 		/// </summary>
 		/// <returns>
-		/// A hash code for this instance, suitable for use in hashing algorithms and data structures like a hash table. 
+		/// A hash code for this instance, suitable for use in hashing algorithms and data structures like a hash table.
 		/// </returns>
 		public override int GetHashCode()
 		{

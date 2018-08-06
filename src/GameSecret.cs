@@ -50,14 +50,14 @@ namespace Zyrenth.Zora
 			0x3a, 0x3b, 0x3d, 0x11, 0x12, 0xbd, 0x13, 0x28,
 			0x29, 0x00
 		};
-        private string _hero = "\0\0\0\0\0";
-        private string _child = "\0\0\0\0\0";
-        private byte _behavior = 0;
-        private byte _animal = 0;
-        private Game _targetGame = 0;
-        private bool _isHeroQuest = false;
-        private bool _isLinkedGame = false;
-        private bool _wasGivenFreeRing = false;
+		private string _hero = "\0\0\0\0\0";
+		private string _child = "\0\0\0\0\0";
+		private byte _behavior = 0;
+		private byte _animal = 0;
+		private Game _targetGame = 0;
+		private bool _isHeroQuest = false;
+		private bool _isLinkedGame = false;
+		private bool _wasGivenFreeRing = false;
 
 		/// <summary>
 		/// Gets the required length of the secret
@@ -75,8 +75,8 @@ namespace Zyrenth.Zora
 			get { return _targetGame; }
 			set
 			{
-                SetProperty(ref _targetGame, value, "Game");
-            }
+				SetProperty(ref _targetGame, value, "Game");
+			}
 		}
 
 		/// <summary>
@@ -87,8 +87,8 @@ namespace Zyrenth.Zora
 			get { return _isHeroQuest; }
 			set
 			{
-                SetProperty(ref _isHeroQuest, value, "IsHeroQuest");
-            }
+				SetProperty(ref _isHeroQuest, value, "IsHeroQuest");
+			}
 		}
 
 		/// <summary>
@@ -99,8 +99,8 @@ namespace Zyrenth.Zora
 			get { return _isLinkedGame; }
 			set
 			{
-                SetProperty(ref _isLinkedGame, value, "IsLinkedGame");
-            }
+				SetProperty(ref _isLinkedGame, value, "IsLinkedGame");
+			}
 		}
 
 		/// <summary>
@@ -115,7 +115,7 @@ namespace Zyrenth.Zora
 					value = "\0\0\0\0\0";
 				else
 					value = value.TrimEnd().PadRight(5, '\0');
-                SetProperty(ref _hero, value, "Hero");
+				SetProperty(ref _hero, value, "Hero");
 			}
 		}
 
@@ -131,7 +131,7 @@ namespace Zyrenth.Zora
 					value = "\0\0\0\0\0";
 				else
 					value = value.TrimEnd().PadRight(5, '\0');
-                SetProperty(ref _child, value, "Child");
+				SetProperty(ref _child, value, "Child");
 			}
 		}
 
@@ -143,8 +143,8 @@ namespace Zyrenth.Zora
 			get { return (Animal)_animal; }
 			set
 			{
-                SetProperty(ref _animal, (byte)value, "Animal");
-            }
+				SetProperty(ref _animal, (byte)value, "Animal");
+			}
 		}
 
 		/// <summary>
@@ -155,8 +155,8 @@ namespace Zyrenth.Zora
 			get { return (byte)_behavior; }
 			set
 			{
-                SetProperty(ref _behavior, value, "Behavior");
-            }
+				SetProperty(ref _behavior, value, "Behavior");
+			}
 		}
 
 		/// <summary>
@@ -168,7 +168,7 @@ namespace Zyrenth.Zora
 			set
 			{
 				_wasGivenFreeRing = value;
-                SetProperty(ref _wasGivenFreeRing, value, "WasGivenFreeRing");
+				SetProperty(ref _wasGivenFreeRing, value, "WasGivenFreeRing");
 			}
 		}
 
@@ -177,26 +177,26 @@ namespace Zyrenth.Zora
 		/// </summary>
 		public GameSecret() { }
 
-        private GameSecret(GameRegion region, short gameID, Game game, string hero, string child, Animal animal, byte behavior, bool isLinkedGame, bool isHeroQuest, bool wasGivenFreeRing)
-        {
-            Region = region;
-            GameID = gameID;
-            TargetGame = game;
-            Hero = hero;
-            Child = child;
-            Animal = animal;
-            Behavior = behavior;
-            IsLinkedGame = isLinkedGame;
-            IsHeroQuest = isHeroQuest;
-            WasGivenFreeRing = wasGivenFreeRing;
-        }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="GameSecret"/> class from the
-        /// specified game <paramref name="info"/>.
-        /// </summary>
-        /// <param name="info">The game information.</param>
-        public GameSecret(GameInfo info) :
-            this(info.Region, info.GameID, info.Game, info.Hero, info.Child, info.Animal, info.Behavior, info.IsLinkedGame, info.IsHeroQuest, info.WasGivenFreeRing)
+		private GameSecret(GameRegion region, short gameID, Game game, string hero, string child, Animal animal, byte behavior, bool isLinkedGame, bool isHeroQuest, bool wasGivenFreeRing)
+		{
+			Region = region;
+			GameID = gameID;
+			TargetGame = game;
+			Hero = hero;
+			Child = child;
+			Animal = animal;
+			Behavior = behavior;
+			IsLinkedGame = isLinkedGame;
+			IsHeroQuest = isHeroQuest;
+			WasGivenFreeRing = wasGivenFreeRing;
+		}
+		/// <summary>
+		/// Initializes a new instance of the <see cref="GameSecret"/> class from the
+		/// specified game <paramref name="info"/>.
+		/// </summary>
+		/// <param name="info">The game information.</param>
+		public GameSecret(GameInfo info) :
+			this(info.Region, info.GameID, info.Game, info.Hero, info.Child, info.Animal, info.Behavior, info.IsLinkedGame, info.IsHeroQuest, info.WasGivenFreeRing)
 		{
 		}
 
@@ -261,17 +261,17 @@ namespace Zyrenth.Zora
 		{
 			if (secret is null || secret.Length != Length)
 				throw new SecretException("Secret must contatin exactly 20 bytes");
-			
+
 			Region = region;
-			
+
 			byte[] decodedBytes = DecodeBytes(secret);
 			string decodedSecret = ByteArrayToBinaryString(decodedBytes);
 
 			byte[] clonedBytes = (byte[])decodedBytes.Clone();
 			clonedBytes[19] = 0;
 			var checksum = CalculateChecksum(clonedBytes);
-			
-			if ((decodedBytes[19] & 7) != (checksum & 7))
+
+			if (( decodedBytes[19] & 7 ) != ( checksum & 7 ))
 				throw new InvalidChecksumException("Checksum does not match expected value");
 
 			GameID = Convert.ToInt16(decodedSecret.ReversedSubstring(5, 15), 2);
@@ -342,7 +342,7 @@ namespace Zyrenth.Zora
 			byte[] heroBytes = encoding.GetBytes(_hero);
 			byte[] childBytes = encoding.GetBytes(_child);
 
-			int cipherKey = ((GameID >> 8) + (GameID & 255)) & 7;
+			int cipherKey = ( ( GameID >> 8 ) + ( GameID & 255 ) ) & 7;
 			string unencodedSecret = Convert.ToString(cipherKey, 2).PadLeft(3, '0').Reverse();
 
 			unencodedSecret += "00"; // game = 0
@@ -448,18 +448,18 @@ namespace Zyrenth.Zora
 				return false;
 
 
-            var g = (GameSecret)obj;
+			var g = (GameSecret)obj;
 
 			return
-				(base.Equals(g)) &&
-				(_targetGame == g._targetGame) &&
-				(_hero == g._hero) &&
-				(_child == g._child) &&
-				(_behavior == g._behavior) &&
-				(_animal == g._animal) &&
-				(_isHeroQuest == g._isHeroQuest) &&
-				(_isLinkedGame == g._isLinkedGame) &&
-				(_wasGivenFreeRing == g._wasGivenFreeRing);
+				( base.Equals(g) ) &&
+				( _targetGame == g._targetGame ) &&
+				( _hero == g._hero ) &&
+				( _child == g._child ) &&
+				( _behavior == g._behavior ) &&
+				( _animal == g._animal ) &&
+				( _isHeroQuest == g._isHeroQuest ) &&
+				( _isLinkedGame == g._isLinkedGame ) &&
+				( _wasGivenFreeRing == g._wasGivenFreeRing );
 
 		}
 
@@ -467,7 +467,7 @@ namespace Zyrenth.Zora
 		/// Returns a hash code for this instance.
 		/// </summary>
 		/// <returns>
-		/// A hash code for this instance, suitable for use in hashing algorithms and data structures like a hash table. 
+		/// A hash code for this instance, suitable for use in hashing algorithms and data structures like a hash table.
 		/// </returns>
 		public override int GetHashCode()
 		{

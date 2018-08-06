@@ -67,23 +67,25 @@ namespace Zyrenth.Zora
 		/// <param name="region">The region of the game</param>
 		public static IEnumerable<GameInfo> LoadAll(Stream stream, GameRegion region)
 		{
-            GameInfo tmp;
+			GameInfo tmp;
 
-            // These offsets seem to be static for both versions, but I can't be certain.
+			// These offsets seem to be static for both versions, but I can't be certain.
 
-            // Slot 1
-            tmp = Load(stream, region, Slot1Offset);
-            var gameData = new List<GameInfo>();
-            if (!( tmp is null ))
-                gameData.Add(tmp);
+			// Slot 1
+			tmp = Load(stream, region, Slot1Offset);
+			var gameData = new List<GameInfo>();
+			if (!( tmp is null ))
+				gameData.Add(tmp);
 
-            // Slot 2
-            tmp = Load(stream, region, Slot2Offset);
-			if (!(tmp is null)) gameData.Add(tmp);
+			// Slot 2
+			tmp = Load(stream, region, Slot2Offset);
+			if (!( tmp is null ))
+				gameData.Add(tmp);
 
 			// Slot 3
 			tmp = Load(stream, region, Slot3Offset);
-			if (!(tmp is null)) gameData.Add(tmp);
+			if (!( tmp is null ))
+				gameData.Add(tmp);
 
 			return gameData;
 		}
@@ -114,9 +116,9 @@ namespace Zyrenth.Zora
 		/// <remarks>This method has only been tested with the US version of the games</remarks>
 		public static GameInfo Load(Stream stream, GameRegion region, int offset)
 		{
-            var info = new GameInfo { Region = region };
+			var info = new GameInfo { Region = region };
 
-            byte[] versionBytes = new byte[1];
+			byte[] versionBytes = new byte[1];
 			byte[] gameIdBytes = new byte[2];
 			byte[] heroBytes = new byte[5];
 			byte[] kidBytes = new byte[5];
@@ -156,17 +158,17 @@ namespace Zyrenth.Zora
 			stream.Read(ringBytes, 0, 8);
 
 			System.Text.Encoding enc = null;
-			if(region == GameRegion.US)
+			if (region == GameRegion.US)
 				enc = new USEncoding();
 			else
 				enc = new JapaneseEncoding();
-			
+
 			info.Game = versionBytes[0] == 49 ? Game.Seasons : Game.Ages;
 			info.GameID = BitConverter.ToInt16(gameIdBytes, 0);
 			info.Hero = enc.GetString(heroBytes);
 			info.Child = enc.GetString(kidBytes);
-			info.Behavior = (byte)(behaviorBytes[0] & 63);
-			info.Animal = (Animal)(animalBytes[0] & 15);
+			info.Behavior = (byte)( behaviorBytes[0] & 63 );
+			info.Animal = (Animal)( animalBytes[0] & 15 );
 			info.IsLinkedGame = linkedBytes[0] == 1;
 			info.IsHeroQuest = heroQuestBytes[0] == 1;
 			info.Rings = (Rings)BitConverter.ToUInt64(ringBytes, 0);

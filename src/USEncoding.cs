@@ -29,7 +29,7 @@ namespace Zyrenth.Zora
 	/// </summary>
 	public class USEncoding : Encoding
 	{
-        private char[] characters =
+		private char[] characters =
 		{
 			'●','♣','♦','♠','\0','↑','↓','←','→','\0','\0','「','」','·','\0','。',
 			' ','!','"','#','$','%','&','\'','(',')','*','+',',','-','.','/',
@@ -81,12 +81,13 @@ namespace Zyrenth.Zora
 
 				if (c == 0)
 					b = 0;
-				else {
+				else
+				{
 					for (int j = 0; j < characters.Length; j++)
 					{
 						if (characters[j] == c)
 						{
-							b = (byte)(j + 0x10);
+							b = (byte)( j + 0x10 );
 							break;
 						}
 					}
@@ -109,7 +110,7 @@ namespace Zyrenth.Zora
 		{
 			return count;
 		}
-		
+
 		/// <summary>
 		/// Decodes a sequence of bytes from the specified byte array into the specified character array.
 		/// </summary>

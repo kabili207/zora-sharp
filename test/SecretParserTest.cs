@@ -6,8 +6,8 @@ namespace Zyrenth.Zora.Tests
 	[TestFixture]
 	public class SecretParserTest
 	{
-        private const string desiredSecretString = "H~2:@ ←2♦yq GB3●) 6♥?↑4";
-        private static readonly byte[] desiredSecretBytes = new byte[] {
+		private const string desiredSecretString = "H~2:@ ←2♦yq GB3●) 6♥?↑4";
+		private static readonly byte[] desiredSecretBytes = new byte[] {
 			4, 37, 51, 36, 63,
 			61, 51, 10, 44, 39,
 			3,  0, 52, 21, 50,

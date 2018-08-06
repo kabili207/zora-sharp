@@ -30,7 +30,7 @@ namespace Zyrenth.Zora
 	/// </summary>
 	public class RingSecret : Secret
 	{
-        private long _rings = 0L;
+		private long _rings = 0L;
 
 		/// <summary>
 		/// Gets the required length of the secret
@@ -48,8 +48,8 @@ namespace Zyrenth.Zora
 			get { return (Rings)_rings; }
 			set
 			{
-                SetProperty(ref _rings, (long)value, "Rings");
-            }
+				SetProperty(ref _rings, (long)value, "Rings");
+			}
 		}
 
 		/// <summary>
@@ -77,7 +77,7 @@ namespace Zyrenth.Zora
 		/// </summary>
 		/// <param name="info">The game information.</param>
 		public RingSecret(GameInfo info) :
-            this(info.GameID, info.Region, info.Rings)
+			this(info.GameID, info.Region, info.Rings)
 		{
 		}
 
@@ -127,9 +127,9 @@ namespace Zyrenth.Zora
 		{
 			if (secret is null || secret.Length != Length)
 				throw new SecretException("Secret must contatin exactly 15 bytes");
-			
+
 			Region = region;
-			
+
 			byte[] decodedBytes = DecodeBytes(secret);
 			string decodedSecret = ByteArrayToBinaryString(decodedBytes);
 
@@ -137,7 +137,7 @@ namespace Zyrenth.Zora
 			clonedBytes[14] = 0;
 			var checksum = CalculateChecksum(clonedBytes);
 
-			if ((decodedBytes[14] & 7) != (checksum & 7))
+			if (( decodedBytes[14] & 7 ) != ( checksum & 7 ))
 				throw new InvalidChecksumException("Checksum does not match expected value");
 
 			if (decodedSecret[3] != '0' || decodedSecret[4] != '1')
@@ -175,15 +175,15 @@ namespace Zyrenth.Zora
 		public override byte[] ToBytes()
 		{
 			byte ring1 = (byte)_rings;
-			byte ring2 = (byte)(_rings >> 8);
-			byte ring3 = (byte)(_rings >> 16);
-			byte ring4 = (byte)(_rings >> 24);
-			byte ring5 = (byte)(_rings >> 32);
-			byte ring6 = (byte)(_rings >> 40);
-			byte ring7 = (byte)(_rings >> 48);
-			byte ring8 = (byte)(_rings >> 56);
+			byte ring2 = (byte)( _rings >> 8 );
+			byte ring3 = (byte)( _rings >> 16 );
+			byte ring4 = (byte)( _rings >> 24 );
+			byte ring5 = (byte)( _rings >> 32 );
+			byte ring6 = (byte)( _rings >> 40 );
+			byte ring7 = (byte)( _rings >> 48 );
+			byte ring8 = (byte)( _rings >> 56 );
 
-			int cipherKey = ((GameID >> 8) + (GameID & 255)) & 7;
+			int cipherKey = ( ( GameID >> 8 ) + ( GameID & 255 ) ) & 7;
 			string unencodedSecret = Convert.ToString(cipherKey, 2).PadLeft(3, '0').Reverse();
 
 			unencodedSecret += "01"; // ring secret
@@ -236,7 +236,7 @@ namespace Zyrenth.Zora
 			if (info.GameID != GameID)
 				throw new SecretException("The Game IDs of the secret and game info do not match. (Secret's Game ID is " + GameID + ".)");
 
-			info.Rings = Rings | (appendRings ? info.Rings : Rings.None);
+			info.Rings = Rings | ( appendRings ? info.Rings : Rings.None );
 		}
 
 		/// <summary>
@@ -253,7 +253,7 @@ namespace Zyrenth.Zora
 
 			var g = (RingSecret)obj;
 
-			return base.Equals(g) && (_rings == g._rings);
+			return base.Equals(g) && ( _rings == g._rings );
 
 		}
 
@@ -261,7 +261,7 @@ namespace Zyrenth.Zora
 		/// Returns a hash code for this instance.
 		/// </summary>
 		/// <returns>
-		/// A hash code for this instance, suitable for use in hashing algorithms and data structures like a hash table. 
+		/// A hash code for this instance, suitable for use in hashing algorithms and data structures like a hash table.
 		/// </returns>
 		public override int GetHashCode()
 		{

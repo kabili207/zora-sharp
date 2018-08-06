@@ -7,9 +7,9 @@ namespace Zyrenth.Zora.Tests
 	[TestFixture]
 	public class MemorySecretTest
 	{
-        private const string desiredSecretString = "6●sW↑";
-        private const string desiredSecretString_JP = "ぼつき3し";
-        private static readonly MemorySecret desiredSecret = new MemorySecret()
+		private const string desiredSecretString = "6●sW↑";
+		private const string desiredSecretString_JP = "ぼつき3し";
+		private static readonly MemorySecret desiredSecret = new MemorySecret()
 		{
 			Region = GameRegion.US,
 			TargetGame = Game.Ages,
@@ -17,7 +17,7 @@ namespace Zyrenth.Zora.Tests
 			Memory = Memory.ClockShopKingZora,
 			IsReturnSecret = true
 		};
-        private static readonly MemorySecret desiredSecret_JP = new MemorySecret()
+		private static readonly MemorySecret desiredSecret_JP = new MemorySecret()
 		{
 			Region = GameRegion.JP,
 			TargetGame = Game.Seasons,
@@ -25,13 +25,13 @@ namespace Zyrenth.Zora.Tests
 			Memory = Memory.DiverPlen,
 			IsReturnSecret = false
 		};
-        private static readonly byte[] desiredSecretBytes = new byte[] {
+		private static readonly byte[] desiredSecretBytes = new byte[] {
 			55, 21, 41, 18, 59
 		};
-        private static readonly byte[] desiredSecretBytes_JP = new byte[] {
+		private static readonly byte[] desiredSecretBytes_JP = new byte[] {
 			61,  5, 28, 24, 7
 		};
-        private static readonly byte[] desiredSecretBytes_JP_Weird = new byte[] {
+		private static readonly byte[] desiredSecretBytes_JP_Weird = new byte[] {
 			31, 12, 34, 9, 15
 		};
 
@@ -134,7 +134,7 @@ namespace Zyrenth.Zora.Tests
 			Assert.AreNotEqual(desiredSecret, null);
 			Assert.AreNotEqual(desiredSecret, "");
 		}
-		
+
 		[Test]
 		public void TestInvalidByteLoad()
 		{
@@ -157,17 +157,17 @@ namespace Zyrenth.Zora.Tests
 			var r3 = new MemorySecret(Game.Ages, GameRegion.US, 1234, Memory.DiverPlen, false);
 			var r4 = new MemorySecret(Game.Ages, GameRegion.US, 1234, Memory.DiverPlen, true);
 
-            // Because using mutable objects as a key is an awesome idea...
-            var dict = new Dictionary<MemorySecret, bool>
-            {
-                { r1, true },
-                { r2, true }
-            };
+			// Because using mutable objects as a key is an awesome idea...
+			var dict = new Dictionary<MemorySecret, bool>
+			{
+				{ r1, true },
+				{ r2, true }
+			};
 
-            Assert.That(dict, !Contains.Key(r3));
+			Assert.That(dict, !Contains.Key(r3));
 			Assert.That(dict, Contains.Key(r4));
 		}
-		
+
 		[Test]
 		public void TestNotifyPropChanged()
 		{

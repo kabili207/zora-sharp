@@ -32,7 +32,7 @@ namespace Zyrenth.Zora
 	public abstract class Secret : INotifyPropertyChanged
 	{
 		private static readonly byte[][] ciphers =
-		{ 
+		{
 			// JP
 			new byte[]
 			{
@@ -54,8 +54,8 @@ namespace Zyrenth.Zora
 				25, 42,  6, 57, 60, 23, 51, 24
 			},
 		};
-        private short _gameId = 0;
-        private GameRegion _region = GameRegion.US;
+		private short _gameId = 0;
+		private GameRegion _region = GameRegion.US;
 
 		/// <summary>
 		/// Occurs when a property has changed
@@ -70,15 +70,15 @@ namespace Zyrenth.Zora
 		public abstract int Length { get; }
 
 		/// <summary>
-		/// Gets or sets the unique game ID 
+		/// Gets or sets the unique game ID
 		/// </summary>
 		public short GameID
 		{
 			get { return _gameId; }
 			set
 			{
-                SetProperty(ref _gameId, value, "GameID");
-            }
+				SetProperty(ref _gameId, value, "GameID");
+			}
 		}
 
 		/// <summary>
@@ -89,8 +89,8 @@ namespace Zyrenth.Zora
 			get { return _region; }
 			set
 			{
-                SetProperty(ref _region, value, "Region");
-            }
+				SetProperty(ref _region, value, "Region");
+			}
 		}
 
 		/// <summary>
@@ -188,16 +188,16 @@ namespace Zyrenth.Zora
 		/// <returns>An encoded secret.</returns>
 		internal protected byte[] EncodeBytes(byte[] data)
 		{
-			int cipherKey = (data[0] >> 3);
+			int cipherKey = ( data[0] >> 3 );
 			int cipherPosition = cipherKey * 4;
 
 			byte[] secret = new byte[data.Length];
 			for (int i = 0; i < data.Length; ++i)
 			{
-				secret[i] = (byte)(data[i] ^ ciphers[(int)_region][cipherPosition++]);
+				secret[i] = (byte)( data[i] ^ ciphers[(int)_region][cipherPosition++] );
 			}
 
-			secret[0] = (byte)(secret[0] & 7 | (cipherKey << 3));
+			secret[0] = (byte)( secret[0] & 7 | ( cipherKey << 3 ) );
 			return secret;
 		}
 
@@ -208,17 +208,17 @@ namespace Zyrenth.Zora
 		/// <returns>A decoded secret.</returns>
 		internal protected byte[] DecodeBytes(byte[] secret)
 		{
-			int cipherKey = (secret[0] >> 3);
+			int cipherKey = ( secret[0] >> 3 );
 			int cipherPosition = cipherKey * 4;
 
 			byte[] decodedBytes = new byte[secret.Length];
 
 			for (int i = 0; i < secret.Length; ++i)
 			{
-				decodedBytes[i] = (byte)(secret[i] ^ ciphers[(int)_region][cipherPosition++]);
+				decodedBytes[i] = (byte)( secret[i] ^ ciphers[(int)_region][cipherPosition++] );
 			}
 
-			decodedBytes[0] = (byte)(decodedBytes[0] & 7 | (cipherKey << 3));
+			decodedBytes[0] = (byte)( decodedBytes[0] & 7 | ( cipherKey << 3 ) );
 
 			return decodedBytes;
 		}
@@ -248,40 +248,40 @@ namespace Zyrenth.Zora
 			byte[] secret = new byte[data.Length / 6 + 1];
 			for (int i = 0; i < secret.Length - 1; ++i)
 			{
-				secret[i] = (byte)(Convert.ToByte(data.Substring(i * 6, 6), 2));
+				secret[i] = (byte)( Convert.ToByte(data.Substring(i * 6, 6), 2) );
 			}
 			return secret;
 		}
 
-        /// <summary>
-        /// Compares a field's current value against a new value.
-        /// If they are different, sets the field to the new value and
-        /// sends a notification that the property has changed.
-        /// </summary>
-        /// <param name="field">Reference to the field storing current value</param>
-        /// <param name="value">New value to ensure the field has</param>
-        /// <param name="name">Name of the property being changed</param>
-        /// <example>
-        /// <code language="C#">
-        /// private short _gameID = 0;
-        /// public short GameID
-        /// {
-        ///     get { return _gameID; }
-        ///     set
-        ///     {
-        ///         SetProperty(ref _gameID, value, "GameID");
-        ///     }
-        /// }
-        /// </code>
-        /// </example>
-        internal protected void SetProperty<T>(ref T field, T value, string name)
-        {
-            if (!EqualityComparer<T>.Default.Equals(field, value))
-            {
-                field = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
-            }
-        }
+		/// <summary>
+		/// Compares a field's current value against a new value.
+		/// If they are different, sets the field to the new value and
+		/// sends a notification that the property has changed.
+		/// </summary>
+		/// <param name="field">Reference to the field storing current value</param>
+		/// <param name="value">New value to ensure the field has</param>
+		/// <param name="name">Name of the property being changed</param>
+		/// <example>
+		/// <code language="C#">
+		/// private short _gameID = 0;
+		/// public short GameID
+		/// {
+		///     get { return _gameID; }
+		///     set
+		///     {
+		///         SetProperty(ref _gameID, value, "GameID");
+		///     }
+		/// }
+		/// </code>
+		/// </example>
+		internal protected void SetProperty<T>(ref T field, T value, string name)
+		{
+			if (!EqualityComparer<T>.Default.Equals(field, value))
+			{
+				field = value;
+				PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+			}
+		}
 
 		/// <summary>
 		/// Determines whether the specified <see cref="System.Object" />, is equal to this instance.
@@ -305,7 +305,7 @@ namespace Zyrenth.Zora
 		/// Returns a hash code for this instance.
 		/// </summary>
 		/// <returns>
-		/// A hash code for this instance, suitable for use in hashing algorithms and data structures like a hash table. 
+		/// A hash code for this instance, suitable for use in hashing algorithms and data structures like a hash table.
 		/// </returns>
 		public override int GetHashCode()
 		{

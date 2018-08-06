@@ -41,7 +41,7 @@ namespace Zyrenth.Zora.Tests
 				""WasGivenFreeRing"": true,
 				""Rings"": -9222246136947933182
 			 }";
-			
+
 			var parsed = GameInfo.Parse(json);
 
 			Assert.AreEqual(DesiredInfo, parsed);
@@ -101,7 +101,7 @@ namespace Zyrenth.Zora.Tests
 			RingSecretTest.DesiredSecret.UpdateGameInfo(info, false);
 			Assert.AreEqual(GameInfoTest.DesiredInfo, info);
 		}
-		
+
 		[Test]
 		public void NullJsonConvert()
 		{
@@ -109,7 +109,7 @@ namespace Zyrenth.Zora.Tests
 			Assert.Throws<ArgumentNullException>(() => converter.Serialize(null));
 			Assert.Throws<ArgumentNullException>(() => converter.Deserialize(null));
 		}
-		
+
 		[Test]
 		public void TestEquals()
 		{
@@ -161,17 +161,17 @@ namespace Zyrenth.Zora.Tests
 			var s3 = new GameInfo() { Hero = "Link", Child = "Pip", Animal = Animal.None };
 			var s4 = new GameInfo() { Hero = "Link", Child = "Pip", Animal = Animal.Ricky };
 
-            // Because using mutable objects as a key is an awesome idea...
-            var dict = new Dictionary<GameInfo, bool>
-            {
-                { s1, true },
-                { s2, true }
-            };
+			// Because using mutable objects as a key is an awesome idea...
+			var dict = new Dictionary<GameInfo, bool>
+			{
+				{ s1, true },
+				{ s2, true }
+			};
 
-            Assert.That(dict, !Contains.Key(s3));
+			Assert.That(dict, !Contains.Key(s3));
 			Assert.That(dict, Contains.Key(s4));
 		}
-		
+
 		[Test]
 		public void TestNotifyPropChanged()
 		{
