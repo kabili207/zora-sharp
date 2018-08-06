@@ -77,9 +77,9 @@ namespace Zyrenth.Zora
 		/// specified game <paramref name="info"/>.
 		/// </summary>
 		/// <param name="info">The game information.</param>
-		public RingSecret(GameInfo info)
+		public RingSecret(GameInfo info) :
+            this(info.GameID, info.Region, info.Rings)
 		{
-			Load(info);
 		}
 
 		/// <summary>

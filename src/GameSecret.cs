@@ -182,14 +182,27 @@ namespace Zyrenth.Zora
 		/// </summary>
 		public GameSecret() { }
 
-		/// <summary>
-		/// Initializes a new instance of the <see cref="GameSecret"/> class from the
-		/// specified game <paramref name="info"/>.
-		/// </summary>
-		/// <param name="info">The game information.</param>
-		public GameSecret(GameInfo info) : base()
+        private GameSecret(GameRegion region, short gameID, Game game, string hero, string child, Animal animal, byte behavior, bool isLinkedGame, bool isHeroQuest, bool wasGivenFreeRing)
+        {
+            Region = region;
+            GameID = gameID;
+            TargetGame = game;
+            Hero = hero;
+            Child = child;
+            Animal = animal;
+            Behavior = behavior;
+            IsLinkedGame = isLinkedGame;
+            IsHeroQuest = isHeroQuest;
+            WasGivenFreeRing = wasGivenFreeRing;
+        }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="GameSecret"/> class from the
+        /// specified game <paramref name="info"/>.
+        /// </summary>
+        /// <param name="info">The game information.</param>
+        public GameSecret(GameInfo info) :
+            this(info.Region, info.GameID, info.Game, info.Hero, info.Child, info.Animal, info.Behavior, info.IsLinkedGame, info.IsHeroQuest, info.WasGivenFreeRing)
 		{
-			Load(info);
 		}
 
 		/// <summary>
