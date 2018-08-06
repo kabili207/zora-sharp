@@ -93,9 +93,9 @@ dotnet_style_prefer_conditional_expression_over_assignment = false
 [*.{cs,csx,cake}]
 # Implicit and explicit types
 # https://docs.microsoft.com/en-us/visualstudio/ide/editorconfig-code-style-settings-reference#implicit-and-explicit-types
-csharp_style_var_for_built_in_types = false:warning # type confusion and signed/unsigned confusion risks
+csharp_style_var_for_built_in_types = false:suggestion # type confusion and signed/unsigned confusion risks
 csharp_style_var_when_type_is_apparent = true:warning
-csharp_style_var_elsewhere = false:warning # type confusion and signed/unsigned confusion risks
+csharp_style_var_elsewhere = false:suggestion # type confusion and signed/unsigned confusion risks
 # Expression-bodied members
 # https://docs.microsoft.com/en-us/visualstudio/ide/editorconfig-code-style-settings-reference#expression_bodied_members
 csharp_style_expression_bodied_methods = when_on_single_line:warning
