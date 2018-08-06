@@ -157,12 +157,14 @@ namespace Zyrenth.Zora.Tests
 			MemorySecret r3 = new MemorySecret(Game.Ages, GameRegion.US, 1234, Memory.DiverPlen, false);
 			MemorySecret r4 = new MemorySecret(Game.Ages, GameRegion.US, 1234, Memory.DiverPlen, true);
 
-			// Because using mutable objects as a key is an awesome idea...
-			Dictionary<MemorySecret, bool> dict = new Dictionary<MemorySecret, bool>();
-			dict.Add(r1, true);
-			dict.Add(r2, true);
+            // Because using mutable objects as a key is an awesome idea...
+            Dictionary<MemorySecret, bool> dict = new Dictionary<MemorySecret, bool>
+            {
+                { r1, true },
+                { r2, true }
+            };
 
-			Assert.That(dict, !Contains.Key(r3));
+            Assert.That(dict, !Contains.Key(r3));
 			Assert.That(dict, Contains.Key(r4));
 		}
 		

@@ -1,4 +1,4 @@
-﻿/*
+/*
  *  Copyright © 2013-2018, Amy Nagle.
  *  All rights reserved.
  *
@@ -78,21 +78,22 @@ namespace Zyrenth.Zora
 			if (info == null)
 				throw new ArgumentNullException("info cannot be null");
 
-			var dict = new Dictionary<string, object>();
+            var dict = new Dictionary<string, object>
+            {
+                ["Region"] = info.Region,
+                ["Game"] = info.Game.ToString(),
+                ["GameID"] = info.GameID,
+                ["Hero"] = info.Hero,
+                ["Child"] = info.Child,
+                ["Animal"] = info.Animal.ToString(),
+                ["Behavior"] = info.Behavior.ToString(),
+                ["IsHeroQuest"] = info.IsHeroQuest,
+                ["IsLinkedGame"] = info.IsLinkedGame,
+                ["WasGivenFreeRing"] = info.WasGivenFreeRing,
+                ["Rings"] = (long)info.Rings
+            };
 
-			dict["Region"] = info.Region;
-			dict["Game"] = info.Game.ToString();
-			dict["GameID"] = info.GameID;
-			dict["Hero"] = info.Hero;
-			dict["Child"] = info.Child;
-			dict["Animal"] = info.Animal.ToString();
-			dict["Behavior"] = info.Behavior.ToString();
-			dict["IsHeroQuest"] = info.IsHeroQuest;
-			dict["IsLinkedGame"] = info.IsLinkedGame;
-			dict["WasGivenFreeRing"] = info.WasGivenFreeRing;
-			dict["Rings"] = (long)info.Rings;
-
-			return dict;
+            return dict;
 		}
 
 	}

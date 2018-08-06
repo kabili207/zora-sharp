@@ -174,12 +174,14 @@ namespace Zyrenth.Zora.Tests
 			GameSecret s3 = new GameSecret() { Hero = "Link", Child = "Pip", Animal = Animal.None };
 			GameSecret s4 = new GameSecret() { Hero = "Link", Child = "Pip", Animal = Animal.Ricky };
 
-			// Because using mutable objects as a key is an awesome idea...
-			Dictionary<GameSecret, bool> dict = new Dictionary<GameSecret, bool>();
-			dict.Add(s1, true);
-			dict.Add(s2, true);
+            // Because using mutable objects as a key is an awesome idea...
+            Dictionary<GameSecret, bool> dict = new Dictionary<GameSecret, bool>
+            {
+                { s1, true },
+                { s2, true }
+            };
 
-			Assert.That(dict, !Contains.Key(s3));
+            Assert.That(dict, !Contains.Key(s3));
 			Assert.That(dict, Contains.Key(s4));
 		}
 		

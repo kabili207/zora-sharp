@@ -147,13 +147,15 @@ namespace Zyrenth.Zora.Tests
 			
 			RingSecret r3 = new RingSecret(9876, GameRegion.US, Rings.All);
 			RingSecret r4 = new RingSecret(1234, GameRegion.US, Rings.All);
-			
-			// Because using mutable objects as a key is an awesome idea...
-			Dictionary<RingSecret, bool> dict = new Dictionary<RingSecret, bool>();
-			dict.Add(r1, true);
-			dict.Add(r2, true);
-			
-			Assert.That(dict, !Contains.Key(r3));
+
+            // Because using mutable objects as a key is an awesome idea...
+            Dictionary<RingSecret, bool> dict = new Dictionary<RingSecret, bool>
+            {
+                { r1, true },
+                { r2, true }
+            };
+
+            Assert.That(dict, !Contains.Key(r3));
 			Assert.That(dict, Contains.Key(r4));
 		}
 

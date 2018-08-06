@@ -1,4 +1,4 @@
-﻿using NUnit.Framework;
+using NUnit.Framework;
 using System;
 using System.IO;
 using System.Web.Script.Serialization;
@@ -161,12 +161,14 @@ namespace Zyrenth.Zora.Tests
 			GameInfo s3 = new GameInfo() { Hero = "Link", Child = "Pip", Animal = Animal.None };
 			GameInfo s4 = new GameInfo() { Hero = "Link", Child = "Pip", Animal = Animal.Ricky };
 
-			// Because using mutable objects as a key is an awesome idea...
-			Dictionary<GameInfo, bool> dict = new Dictionary<GameInfo, bool>();
-			dict.Add(s1, true);
-			dict.Add(s2, true);
+            // Because using mutable objects as a key is an awesome idea...
+            Dictionary<GameInfo, bool> dict = new Dictionary<GameInfo, bool>
+            {
+                { s1, true },
+                { s2, true }
+            };
 
-			Assert.That(dict, !Contains.Key(s3));
+            Assert.That(dict, !Contains.Key(s3));
 			Assert.That(dict, Contains.Key(s4));
 		}
 		
