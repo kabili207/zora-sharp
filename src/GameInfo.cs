@@ -357,7 +357,7 @@ namespace Zyrenth.Zora
 			return converter.Deserialize(dict);
 		}
 
-		#endregion // File Saving/Loading methods
+        #endregion // File Saving/Loading methods
 
 		/// <summary>
 		/// Determines whether the specified <see cref="System.Object" />, is equal to this instance.
@@ -368,7 +368,7 @@ namespace Zyrenth.Zora
 		/// </returns>
 		public override bool Equals(object obj)
 		{
-			if (obj == null || GetType() != obj.GetType())
+			if (GetType() != obj?.GetType())
 				return false;
 
 			GameInfo g = (GameInfo)obj;

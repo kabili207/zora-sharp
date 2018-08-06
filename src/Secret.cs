@@ -287,7 +287,7 @@ namespace Zyrenth.Zora
 		/// </returns>
 		public override bool Equals(object obj)
 		{
-			if (obj == null || GetType() != obj.GetType())
+			if (GetType() != obj?.GetType())
 				return false;
 
 			Secret g = (Secret)obj;

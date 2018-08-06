@@ -45,7 +45,7 @@ namespace Zyrenth.Zora
 		/// <exception cref="ArgumentNullException">dictionary</exception>
 		public GameInfo Deserialize(IDictionary<string, object> dictionary)
 		{
-			if (dictionary == null)
+			if (dictionary is null)
 				throw new ArgumentNullException("dictionary");
 
             GameInfo info = new GameInfo
@@ -76,7 +76,7 @@ namespace Zyrenth.Zora
 		/// <exception cref="ArgumentException">Invalid type;info</exception>
 		public IDictionary<string, object> Serialize(GameInfo info)
 		{
-			if (info == null)
+			if (info is null)
 				throw new ArgumentNullException("info cannot be null");
 
             var dict = new Dictionary<string, object>

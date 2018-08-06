@@ -74,7 +74,7 @@ namespace Zyrenth.Zora
 			get
 			{
 				Version version = _asm.GetName().Version;
-				if (version != null)
+				if (version is null)
 					return version.ToString();
 				else
 					return "0.0.0.0";
@@ -131,7 +131,7 @@ namespace Zyrenth.Zora
 		/// <param name="asm">The assembly</param>
 		public AssemblyDetail(Assembly asm)
 		{
-			if (asm == null)
+			if (asm is null)
 				throw new ArgumentNullException("asm");
 			_asm = asm;
 		}

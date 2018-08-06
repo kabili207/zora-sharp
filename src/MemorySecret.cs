@@ -164,7 +164,9 @@ namespace Zyrenth.Zora
 		/// </example>
 		public override void Load(byte[] secret, GameRegion region)
 		{
-			if (secret == null || secret.Length != Length)
+            if (secret is null)
+                throw new ArgumentNullException(nameof(secret));
+			if (secret.Length != Length)
 				throw new SecretException("Secret must contatin exactly 5 bytes");
 			
 			Region = region;
@@ -271,7 +273,7 @@ namespace Zyrenth.Zora
 		/// </returns>
 		public override bool Equals(object obj)
 		{
-			if (obj == null || GetType() != obj.GetType())
+			if (GetType() != obj?.GetType())
 				return false;
 
 			MemorySecret g = (MemorySecret)obj;
