@@ -1,4 +1,4 @@
-﻿/*
+/*
  *  Copyright © 2013-2018, Amy Nagle.
  *  All rights reserved.
  *
@@ -32,7 +32,7 @@ namespace Zyrenth.Zora
 	/// </summary>
 	public static class SecretParser
 	{
-		private static readonly char[][] Symbols =
+		private static readonly char[][] symbols =
 		{
 			// JP
 			new char[]
@@ -56,7 +56,7 @@ namespace Zyrenth.Zora
 			}
 		};
 
-		private static readonly Dictionary<string, string>[] SymbolRegexes =
+		private static readonly Dictionary<string, string>[] symbolRegexes =
 		{
 			// JP
 			new Dictionary<string, string> {
@@ -120,7 +120,7 @@ namespace Zyrenth.Zora
 		/// </example>
 		public static byte[] ParseSecret(string secret, GameRegion region)
 		{
-			foreach (var kvp in SymbolRegexes[(int)region].OrderByDescending(x => x.Key.Length))
+			foreach (var kvp in symbolRegexes[(int)region].OrderByDescending(x => x.Key.Length))
 			{
 				secret = Regex.Replace(secret, kvp.Key, kvp.Value, RegexOptions.IgnoreCase);
 			}
@@ -129,7 +129,7 @@ namespace Zyrenth.Zora
 			int symbol = 0;
 			for (int i = 0; i < secret.Length; ++i)
 			{
-				symbol = Array.IndexOf(Symbols[(int)region], secret[i]);
+				symbol = Array.IndexOf(symbols[(int)region], secret[i]);
 				if (symbol < 0 || symbol > 63)
 					throw new SecretException("Secret contains invalid symbols");
 
@@ -170,7 +170,7 @@ namespace Zyrenth.Zora
 				if (data[i] < 0 || data[i] > 63)
 					throw new SecretException("Secret contains invalid values");
 
-				sBuilder.Append(Symbols[(int)region][data[i]]);
+				sBuilder.Append(symbols[(int)region][data[i]]);
 				if (i % 5 == 4)
 					sBuilder.Append(" ");
 			}

@@ -31,7 +31,7 @@ namespace Zyrenth.Zora
 	/// </summary>
 	public abstract class Secret : INotifyPropertyChanged
 	{
-		private static readonly byte[][] Ciphers =
+		private static readonly byte[][] ciphers =
 		{ 
 			// JP
 			new byte[]
@@ -196,7 +196,7 @@ namespace Zyrenth.Zora
 			byte[] secret = new byte[data.Length];
 			for (int i = 0; i < data.Length; ++i)
 			{
-				secret[i] = (byte)(data[i] ^ Ciphers[(int)_region][cipherPosition++]);
+				secret[i] = (byte)(data[i] ^ ciphers[(int)_region][cipherPosition++]);
 			}
 
 			secret[0] = (byte)(secret[0] & 7 | (cipherKey << 3));
@@ -217,7 +217,7 @@ namespace Zyrenth.Zora
 
 			for (int i = 0; i < secret.Length; ++i)
 			{
-				decodedBytes[i] = (byte)(secret[i] ^ Ciphers[(int)_region][cipherPosition++]);
+				decodedBytes[i] = (byte)(secret[i] ^ ciphers[(int)_region][cipherPosition++]);
 			}
 
 			decodedBytes[0] = (byte)(decodedBytes[0] & 7 | (cipherKey << 3));

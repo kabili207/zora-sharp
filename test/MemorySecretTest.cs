@@ -7,9 +7,9 @@ namespace Zyrenth.Zora.Tests
 	[TestFixture]
 	public class MemorySecretTest
 	{
-        private const string DesiredSecretString = "6●sW↑";
-        private const string DesiredSecretString_JP = "ぼつき3し";
-        private static readonly MemorySecret DesiredSecret = new MemorySecret()
+        private const string desiredSecretString = "6●sW↑";
+        private const string desiredSecretString_JP = "ぼつき3し";
+        private static readonly MemorySecret desiredSecret = new MemorySecret()
 		{
 			Region = GameRegion.US,
 			TargetGame = Game.Ages,
@@ -17,7 +17,7 @@ namespace Zyrenth.Zora.Tests
 			Memory = Memory.ClockShopKingZora,
 			IsReturnSecret = true
 		};
-        private static readonly MemorySecret DesiredSecret_JP = new MemorySecret()
+        private static readonly MemorySecret desiredSecret_JP = new MemorySecret()
 		{
 			Region = GameRegion.JP,
 			TargetGame = Game.Seasons,
@@ -25,13 +25,13 @@ namespace Zyrenth.Zora.Tests
 			Memory = Memory.DiverPlen,
 			IsReturnSecret = false
 		};
-        private static readonly byte[] DesiredSecretBytes = new byte[] {
+        private static readonly byte[] desiredSecretBytes = new byte[] {
 			55, 21, 41, 18, 59
 		};
-        private static readonly byte[] DesiredSecretBytes_JP = new byte[] {
+        private static readonly byte[] desiredSecretBytes_JP = new byte[] {
 			61,  5, 28, 24, 7
 		};
-        private static readonly byte[] DesiredSecretBytes_JP_Weird = new byte[] {
+        private static readonly byte[] desiredSecretBytes_JP_Weird = new byte[] {
 			31, 12, 34, 9, 15
 		};
 
@@ -39,24 +39,24 @@ namespace Zyrenth.Zora.Tests
 		public void LoadSecretFromBytes()
 		{
 			MemorySecret secret = new MemorySecret();
-			secret.Load(DesiredSecretBytes, GameRegion.US);
-			Assert.AreEqual(DesiredSecret, secret);
+			secret.Load(desiredSecretBytes, GameRegion.US);
+			Assert.AreEqual(desiredSecret, secret);
 		}
 
 		[Test]
 		public void LoadSecretFromBytes_JP()
 		{
 			MemorySecret secret = new MemorySecret();
-			secret.Load(DesiredSecretBytes_JP, GameRegion.JP);
-			Assert.AreEqual(DesiredSecret_JP, secret);
+			secret.Load(desiredSecretBytes_JP, GameRegion.JP);
+			Assert.AreEqual(desiredSecret_JP, secret);
 		}
 
 		[Test]
 		public void LoadSecretFromString()
 		{
 			MemorySecret secret = new MemorySecret();
-			secret.Load(DesiredSecretString, GameRegion.US);
-			Assert.AreEqual(DesiredSecret, secret);
+			secret.Load(desiredSecretString, GameRegion.US);
+			Assert.AreEqual(desiredSecret, secret);
 		}
 
 		[Test]
@@ -69,21 +69,21 @@ namespace Zyrenth.Zora.Tests
 				IsReturnSecret = true
 			};
 			secret.Load(GameInfoTest.DesiredInfo);
-			Assert.AreEqual(DesiredSecret, secret);
+			Assert.AreEqual(desiredSecret, secret);
 		}
 
 		[Test]
 		public void LoadFromGameInfoConstuct()
 		{
 			MemorySecret secret = new MemorySecret(GameInfoTest.DesiredInfo, Memory.ClockShopKingZora, true);
-			Assert.AreEqual(DesiredSecret, secret);
+			Assert.AreEqual(desiredSecret, secret);
 		}
 
 		[Test]
 		public void TestToString()
 		{
-			string secret = DesiredSecret.ToString();
-			Assert.AreEqual(DesiredSecretString, secret);
+			string secret = desiredSecret.ToString();
+			Assert.AreEqual(desiredSecretString, secret);
 		}
 
 		[Test]
@@ -92,15 +92,15 @@ namespace Zyrenth.Zora.Tests
 			MemorySecret secret = new MemorySecret();
 			Assert.Throws<UnknownMemoryException>(() =>
 			{
-				secret.Load(DesiredSecretBytes_JP_Weird, GameRegion.JP);
+				secret.Load(desiredSecretBytes_JP_Weird, GameRegion.JP);
 			});
 		}
 
 		[Test]
 		public void TestToBytes()
 		{
-			byte[] bytes = DesiredSecret.ToBytes();
-			Assert.AreEqual(DesiredSecretBytes, bytes);
+			byte[] bytes = desiredSecret.ToBytes();
+			Assert.AreEqual(desiredSecretBytes, bytes);
 		}
 
 		[Test]
@@ -115,7 +115,7 @@ namespace Zyrenth.Zora.Tests
 				IsReturnSecret = true
 			};
 
-			Assert.AreEqual(DesiredSecret, s2);
+			Assert.AreEqual(desiredSecret, s2);
 		}
 
 		[Test]
@@ -130,9 +130,9 @@ namespace Zyrenth.Zora.Tests
 				IsReturnSecret = true
 			};
 
-			Assert.AreNotEqual(DesiredSecret, s2);
-			Assert.AreNotEqual(DesiredSecret, null);
-			Assert.AreNotEqual(DesiredSecret, "");
+			Assert.AreNotEqual(desiredSecret, s2);
+			Assert.AreNotEqual(desiredSecret, null);
+			Assert.AreNotEqual(desiredSecret, "");
 		}
 		
 		[Test]

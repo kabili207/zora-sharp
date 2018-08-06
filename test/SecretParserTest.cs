@@ -6,7 +6,7 @@ namespace Zyrenth.Zora.Tests
 	[TestFixture]
 	public class SecretParserTest
 	{
-        private const string DesiredSecretString = "H~2:@ ←2♦yq GB3●) 6♥?↑4";
+        private const string desiredSecretString = "H~2:@ ←2♦yq GB3●) 6♥?↑4";
         private static readonly byte[] DesiredSecretBytes = new byte[] {
 			4, 37, 51, 36, 63,
 			61, 51, 10, 44, 39,
@@ -18,7 +18,7 @@ namespace Zyrenth.Zora.Tests
 		public void CreateString()
 		{
 			string testString = SecretParser.CreateString(DesiredSecretBytes, GameRegion.US);
-			Assert.AreEqual(DesiredSecretString, testString);
+			Assert.AreEqual(desiredSecretString, testString);
 		}
 
 		[Test]

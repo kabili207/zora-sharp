@@ -7,7 +7,7 @@ namespace Zyrenth.Zora.Tests
 	[TestFixture]
 	public class RingSecretTest
 	{
-        private const string DesiredSecretString = "L~2:N @bB↑& hmRh=";
+        private const string desiredSecretString = "L~2:N @bB↑& hmRh=";
 
 		public static readonly RingSecret DesiredSecret = new RingSecret()
 		{
@@ -15,7 +15,7 @@ namespace Zyrenth.Zora.Tests
 			GameID = 14129,
 			Rings = Rings.PowerRingL1 | Rings.DoubleEdgeRing | Rings.ProtectionRing
 		};
-        private static readonly byte[] DesiredSecretBytes = new byte[] {
+        private static readonly byte[] desiredSecretBytes = new byte[] {
 			6, 37, 51, 36, 13,
 			63, 26,  0, 59, 47,
 			30, 32, 15, 30, 49
@@ -25,7 +25,7 @@ namespace Zyrenth.Zora.Tests
 		public void LoadSecretFromBytes()
 		{
 			RingSecret secret = new RingSecret();
-			secret.Load(DesiredSecretBytes, GameRegion.US);
+			secret.Load(desiredSecretBytes, GameRegion.US);
 			Assert.AreEqual(DesiredSecret, secret);
 		}
 
@@ -33,7 +33,7 @@ namespace Zyrenth.Zora.Tests
 		public void LoadSecretFromString()
 		{
 			RingSecret secret = new RingSecret();
-			secret.Load(DesiredSecretString, GameRegion.US);
+			secret.Load(desiredSecretString, GameRegion.US);
 			Assert.AreEqual(DesiredSecret, secret);
 		}
 
@@ -48,14 +48,14 @@ namespace Zyrenth.Zora.Tests
 		public void TestToString()
 		{
 			string secret = DesiredSecret.ToString();
-			Assert.AreEqual(DesiredSecretString, secret);
+			Assert.AreEqual(desiredSecretString, secret);
 		}
 
 		[Test]
 		public void TestToBytes()
 		{
 			byte[] bytes = DesiredSecret.ToBytes();	
-			Assert.AreEqual(DesiredSecretBytes, bytes);
+			Assert.AreEqual(desiredSecretBytes, bytes);
 		}
 
 		[Test]

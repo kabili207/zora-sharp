@@ -7,8 +7,8 @@ namespace Zyrenth.Zora.Tests
 	[TestFixture]
 	public class GameSecretTest
 	{
-        private const string DesiredSecretString = "H~2:@ ←2♦yq GB3●( 6♥?↑6";
-        private const string DesiredSecretString_JP = "かね6ごわ 4さをれか さ7ちわも るこぴりふ";
+        private const string desiredSecretString = "H~2:@ ←2♦yq GB3●( 6♥?↑6";
+        private const string desiredSecretString_JP = "かね6ごわ 4さをれか さ7ちわも るこぴりふ";
 
 		public static readonly GameSecret DesiredSecret = new GameSecret()
 		{
@@ -37,7 +37,7 @@ namespace Zyrenth.Zora.Tests
 			IsHeroQuest = true,
 			WasGivenFreeRing = false
 		};
-        private static readonly byte[] DesiredSecretBytes = new byte[] {
+        private static readonly byte[] desiredSecretBytes = new byte[] {
 			 4, 37, 51, 36, 63,
 			61, 51, 10, 44, 39,
 			 3,  0, 52, 21, 48,
@@ -48,7 +48,7 @@ namespace Zyrenth.Zora.Tests
 		public void LoadSecretFromBytes()
 		{
 			GameSecret secret = new GameSecret();
-			secret.Load(DesiredSecretBytes, GameRegion.US);
+			secret.Load(desiredSecretBytes, GameRegion.US);
 			Assert.AreEqual(DesiredSecret, secret);
 		}
 
@@ -56,7 +56,7 @@ namespace Zyrenth.Zora.Tests
 		public void LoadSecretFromString()
 		{
 			GameSecret secret = new GameSecret();
-			secret.Load(DesiredSecretString, GameRegion.US);
+			secret.Load(desiredSecretString, GameRegion.US);
 
 			Assert.AreEqual(DesiredSecret, secret);
 		}
@@ -65,7 +65,7 @@ namespace Zyrenth.Zora.Tests
 		public void LoadSecretFromString_JP()
 		{
 			GameSecret secret = new GameSecret();
-			secret.Load(DesiredSecretString_JP, GameRegion.JP);
+			secret.Load(desiredSecretString_JP, GameRegion.JP);
 
 			Assert.AreEqual(DesiredSecret_JP, secret);
 		}
@@ -81,21 +81,21 @@ namespace Zyrenth.Zora.Tests
 		public void TestToString()
 		{
 			string secret = DesiredSecret.ToString();
-			Assert.AreEqual(DesiredSecretString, secret);
+			Assert.AreEqual(desiredSecretString, secret);
 		}
 
 		[Test]
 		public void TestToString_JP()
 		{
 			string secret = DesiredSecret_JP.ToString();
-			Assert.AreEqual(DesiredSecretString_JP, secret);
+			Assert.AreEqual(desiredSecretString_JP, secret);
 		}
 
 		[Test]
 		public void TestToBytes()
 		{
 			byte[] bytes = DesiredSecret.ToBytes();
-			Assert.AreEqual(DesiredSecretBytes, bytes);
+			Assert.AreEqual(desiredSecretBytes, bytes);
 		}
 
 		[Test]
