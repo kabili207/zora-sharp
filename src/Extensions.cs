@@ -68,7 +68,7 @@ namespace Zyrenth.Zora
 
 					method = method.MakeGenericMethod(type);
 
-					var args = new object[] { ReadValue<string>(dictionary, key), default(T) };
+					object[] args = new object[] { ReadValue<string>(dictionary, key), default(T) };
 					method.Invoke(null, args);
 
 					val = (T)args[1];

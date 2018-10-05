@@ -178,7 +178,7 @@ namespace Zyrenth.Zora
 
 			byte[] clonedBytes = (byte[])decodedBytes.Clone();
 			clonedBytes[4] = 0;
-			var checksum = CalculateChecksum(clonedBytes);
+			byte checksum = CalculateChecksum(clonedBytes);
 
 			if (( decodedBytes[4] & 7 ) != ( checksum & 7 ))
 			{
@@ -197,7 +197,7 @@ namespace Zyrenth.Zora
 			// we compare it against all four possible values. It's ugly, but it works.
 			string desiredString = SecretParser.CreateString(secret, Region);
 
-			var memories = new[]
+			MemorySecret[] memories = new[]
 			{
 				new MemorySecret(Game.Ages, region, GameID, Memory, true),
 				new MemorySecret(Game.Ages, region, GameID, Memory, false),
@@ -207,7 +207,7 @@ namespace Zyrenth.Zora
 
 			bool found = false;
 
-			foreach (var memSecret in memories)
+			foreach (MemorySecret memSecret in memories)
 			{
 				if (desiredString == memSecret.ToString())
 				{

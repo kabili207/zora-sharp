@@ -120,7 +120,7 @@ namespace Zyrenth.Zora
 		/// </example>
 		public static byte[] ParseSecret(string secret, GameRegion region)
 		{
-			foreach (var kvp in symbolRegexes[(int)region].OrderByDescending(x => x.Key.Length))
+			foreach (KeyValuePair<string, string> kvp in symbolRegexes[(int)region].OrderByDescending(x => x.Key.Length))
 			{
 				secret = Regex.Replace(secret, kvp.Key, kvp.Value, RegexOptions.IgnoreCase);
 			}

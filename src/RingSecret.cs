@@ -137,7 +137,7 @@ namespace Zyrenth.Zora
 
 			byte[] clonedBytes = (byte[])decodedBytes.Clone();
 			clonedBytes[14] = 0;
-			var checksum = CalculateChecksum(clonedBytes);
+			byte checksum = CalculateChecksum(clonedBytes);
 
 			if (( decodedBytes[14] & 7 ) != ( checksum & 7 ))
 			{

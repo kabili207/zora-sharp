@@ -29,7 +29,7 @@ namespace Zyrenth.Zora.Tests
 			string s3 = "H~2:@ left 2 diamond yq GB3 circle ) 6 heart ? up 4";
 			string s4 = "H~2 :@LEFT2{dIAmoNd}yq G B3cirCle )6 heaRT}?    UP   4";
 
-			var allSecrets = new[] {
+			byte[][] allSecrets = new[] {
 				SecretParser.ParseSecret(s1, GameRegion.US),
 				SecretParser.ParseSecret(s2, GameRegion.US),
 				SecretParser.ParseSecret(s3, GameRegion.US),
