@@ -36,35 +36,17 @@ namespace Zyrenth.Zora
 		/// <summary>
 		/// Gets the assembly company
 		/// </summary>
-		public string Company
-		{
-			get
-			{
-				return GetAttribute<AssemblyCompanyAttribute>(x => x.Company);
-			}
-		}
+		public string Company => GetAttribute<AssemblyCompanyAttribute>(x => x.Company);
 
 		/// <summary>
 		/// Gets the assembly copyright information
 		/// </summary>
-		public string Copyright
-		{
-			get
-			{
-				return GetAttribute<AssemblyCopyrightAttribute>(x => x.Copyright);
-			}
-		}
+		public string Copyright => GetAttribute<AssemblyCopyrightAttribute>(x => x.Copyright);
 
 		/// <summary>
 		/// Gets the description about the assembly.
 		/// </summary>
-		public string Description
-		{
-			get
-			{
-				return GetAttribute<AssemblyDescriptionAttribute>(x => x.Description);
-			}
-		}
+		public string Description => GetAttribute<AssemblyDescriptionAttribute>(x => x.Description);
 
 		/// <summary>
 		/// Gets the assembly's file version
@@ -88,46 +70,22 @@ namespace Zyrenth.Zora
 		/// <summary>
 		///  Gets the assembly's full name.
 		/// </summary>
-		public string Product
-		{
-			get
-			{
-				return GetAttribute<AssemblyProductAttribute>(x => x.Product);
-			}
-		}
+		public string Product => GetAttribute<AssemblyProductAttribute>(x => x.Product);
 
 		/// <summary>
 		/// Gets the assembly's version.
 		/// </summary>
-		public string ProductVersion
-		{
-			get
-			{
-				return GetAttribute<AssemblyInformationalVersionAttribute>(x => x.InformationalVersion) ?? FileVersion;
-			}
-		}
+		public string ProductVersion => GetAttribute<AssemblyInformationalVersionAttribute>(x => x.InformationalVersion) ?? FileVersion;
 
 		/// <summary>
 		/// Gets the assembly title
 		/// </summary>
-		public string Title
-		{
-			get
-			{
-				return GetAttribute<AssemblyTitleAttribute>(a => a.Title);
-			}
-		}
+		public string Title => GetAttribute<AssemblyTitleAttribute>(a => a.Title);
 
 		/// <summary>
 		/// Gets the assembly trademark information
 		/// </summary>
-		public string Trademark
-		{
-			get
-			{
-				return GetAttribute<AssemblyTrademarkAttribute>(a => a.Trademark);
-			}
-		}
+		public string Trademark => GetAttribute<AssemblyTrademarkAttribute>(a => a.Trademark);
 
 		/// <summary>
 		/// Creates a new AssemblyDetail object from the specified Assembly

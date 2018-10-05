@@ -62,10 +62,7 @@ namespace Zyrenth.Zora
 		/// <summary>
 		/// Gets the required length of the secret
 		/// </summary>
-		public override int Length
-		{
-			get { return 20; }
-		}
+		public override int Length => 20;
 
 		/// <summary>
 		/// Gets or sets the Game used for this user data

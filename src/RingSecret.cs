@@ -35,10 +35,7 @@ namespace Zyrenth.Zora
 		/// <summary>
 		/// Gets the required length of the secret
 		/// </summary>
-		public override int Length
-		{
-			get { return 15; }
-		}
+		public override int Length => 15;
 
 		/// <summary>
 		/// Gets or sets the user's ring collection

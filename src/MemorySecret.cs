@@ -37,10 +37,7 @@ namespace Zyrenth.Zora
 		/// <summary>
 		/// Gets the required length of the secret
 		/// </summary>
-		public override int Length
-		{
-			get { return 5; }
-		}
+		public override int Length => 5;
 
 		/// <summary>
 		/// Gets or sets the memory to use for this secret
