@@ -293,7 +293,9 @@ namespace Zyrenth.Zora
 		public override bool Equals(object obj)
 		{
 			if (GetType() != obj?.GetType())
+			{
 				return false;
+			}
 
 			var g = (Secret)obj;
 

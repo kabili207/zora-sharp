@@ -46,7 +46,9 @@ namespace Zyrenth.Zora
 		public GameInfo Deserialize(IDictionary<string, object> dictionary)
 		{
 			if (dictionary is null)
+			{
 				throw new ArgumentNullException(nameof(dictionary));
+			}
 
 			var info = new GameInfo
 			{
@@ -77,7 +79,9 @@ namespace Zyrenth.Zora
 		public IDictionary<string, object> Serialize(GameInfo info)
 		{
 			if (info is null)
+			{
 				throw new ArgumentNullException(nameof(info));
+			}
 
 			var dict = new Dictionary<string, object>
 			{

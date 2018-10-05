@@ -75,9 +75,13 @@ namespace Zyrenth.Zora
 			{
 				Version version = _asm.GetName().Version;
 				if (version is null)
+				{
 					return version.ToString();
+				}
 				else
+				{
 					return "0.0.0.0";
+				}
 			}
 		}
 
@@ -132,7 +136,10 @@ namespace Zyrenth.Zora
 		public AssemblyDetail(Assembly asm)
 		{
 			if (asm is null)
+			{
 				throw new ArgumentNullException(nameof(asm));
+			}
+
 			_asm = asm;
 		}
 

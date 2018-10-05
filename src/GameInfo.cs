@@ -80,7 +80,10 @@ namespace Zyrenth.Zora
 			set
 			{
 				if (( value < 0 ) || ( (int)value > byte.MaxValue ))
+				{
 					throw new ArgumentOutOfRangeException(nameof(value));
+				}
+
 				SetProperty(ref _agesSeasons, (byte)value, "Game");
 			}
 		}
@@ -130,9 +133,14 @@ namespace Zyrenth.Zora
 			set
 			{
 				if (string.IsNullOrWhiteSpace(value))
+				{
 					value = "\0\0\0\0\0";
+				}
 				else
+				{
 					value = value.TrimEnd().PadRight(5, '\0');
+				}
+
 				SetProperty(ref _hero, value, "Hero");
 			}
 		}
@@ -146,9 +154,14 @@ namespace Zyrenth.Zora
 			set
 			{
 				if (string.IsNullOrWhiteSpace(value))
+				{
 					value = "\0\0\0\0\0";
+				}
 				else
+				{
 					value = value.TrimEnd().PadRight(5, '\0');
+				}
+
 				SetProperty(ref _child, value, "Child");
 			}
 		}
@@ -162,7 +175,10 @@ namespace Zyrenth.Zora
 			set
 			{
 				if (( value < 0 ) || ( (long)value > byte.MaxValue ))
+				{
 					throw new ArgumentOutOfRangeException(nameof(value));
+				}
+
 				SetProperty(ref _animal, (byte)value, "Animal");
 			}
 		}
@@ -371,7 +387,9 @@ namespace Zyrenth.Zora
 		public override bool Equals(object obj)
 		{
 			if (GetType() != obj?.GetType())
+			{
 				return false;
+			}
 
 			var g = (GameInfo)obj;
 

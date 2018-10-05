@@ -126,7 +126,9 @@ namespace Zyrenth.Zora
 		public override void Load(byte[] secret, GameRegion region)
 		{
 			if (secret is null || secret.Length != Length)
+			{
 				throw new SecretException("Secret must contatin exactly 15 bytes");
+			}
 
 			Region = region;
 
@@ -138,10 +140,14 @@ namespace Zyrenth.Zora
 			var checksum = CalculateChecksum(clonedBytes);
 
 			if (( decodedBytes[14] & 7 ) != ( checksum & 7 ))
+			{
 				throw new InvalidChecksumException("Checksum does not match expected value");
+			}
 
 			if (decodedSecret[3] != '0' || decodedSecret[4] != '1')
+			{
 				throw new ArgumentException("The specified data is not a ring code", nameof(secret));
+			}
 
 			GameID = Convert.ToInt16(decodedSecret.ReversedSubstring(5, 15), 2);
 
@@ -231,10 +237,14 @@ namespace Zyrenth.Zora
 		public void UpdateGameInfo(GameInfo info, bool appendRings)
 		{
 			if (info.Region != Region)
+			{
 				throw new SecretException("The regions of the secret and game info do not match.");
+			}
 
 			if (info.GameID != GameID)
+			{
 				throw new SecretException("The Game IDs of the secret and game info do not match. (Secret's Game ID is " + GameID + ".)");
+			}
 
 			info.Rings = Rings | ( appendRings ? info.Rings : Rings.None );
 		}
@@ -249,7 +259,9 @@ namespace Zyrenth.Zora
 		public override bool Equals(object obj)
 		{
 			if (GetType() != obj?.GetType())
+			{
 				return false;
+			}
 
 			var g = (RingSecret)obj;
 

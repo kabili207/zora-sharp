@@ -162,9 +162,14 @@ namespace Zyrenth.Zora
 		public override void Load(byte[] secret, GameRegion region)
 		{
 			if (secret is null)
+			{
 				throw new ArgumentNullException(nameof(secret));
+			}
+
 			if (secret.Length != Length)
+			{
 				throw new SecretException("Secret must contatin exactly 5 bytes");
+			}
 
 			Region = region;
 
@@ -176,10 +181,14 @@ namespace Zyrenth.Zora
 			var checksum = CalculateChecksum(clonedBytes);
 
 			if (( decodedBytes[4] & 7 ) != ( checksum & 7 ))
+			{
 				throw new InvalidChecksumException("Checksum does not match expected value");
+			}
 
 			if (decodedSecret[3] != '1' || decodedSecret[4] != '1')
+			{
 				throw new ArgumentException("The specified data is not a memory code", nameof(secret));
+			}
 
 			GameID = Convert.ToInt16(decodedSecret.ReversedSubstring(5, 15), 2);
 			Memory = (Memory)Convert.ToByte(decodedSecret.ReversedSubstring(20, 4), 2);
@@ -210,7 +219,9 @@ namespace Zyrenth.Zora
 			}
 
 			if (!found)
+			{
 				throw new UnknownMemoryException("Cound not determine the type of memory secret");
+			}
 		}
 
 		/// <summary>
@@ -233,9 +244,13 @@ namespace Zyrenth.Zora
 		{
 			int cipher = 0;
 			if (TargetGame == Game.Ages)
+			{
 				cipher = _isReturnSecret ? 3 : 0;
+			}
 			else
+			{
 				cipher = _isReturnSecret ? 1 : 2;
+			}
 
 			cipher |= ( ( (byte)_memory & 1 ) << 2 );
 			cipher = ( ( GameID >> 8 ) + ( GameID & 255 ) + cipher ) & 7;
@@ -251,9 +266,14 @@ namespace Zyrenth.Zora
 			int mask = 0;
 
 			if (TargetGame == Game.Ages)
+			{
 				mask = _isReturnSecret ? 3 : 0;
+			}
 			else
+			{
 				mask = _isReturnSecret ? 2 : 1;
+			}
+
 			byte[] unencodedBytes = BinaryStringToByteArray(unencodedSecret);
 			unencodedBytes[4] = (byte)( CalculateChecksum(unencodedBytes) | ( mask << 4 ) );
 			byte[] secret = EncodeBytes(unencodedBytes);
@@ -271,7 +291,9 @@ namespace Zyrenth.Zora
 		public override bool Equals(object obj)
 		{
 			if (GetType() != obj?.GetType())
+			{
 				return false;
+			}
 
 			var g = (MemorySecret)obj;
 

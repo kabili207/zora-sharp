@@ -131,7 +131,9 @@ namespace Zyrenth.Zora
 			{
 				symbol = Array.IndexOf(symbols[(int)region], secret[i]);
 				if (symbol < 0 || symbol > 63)
+				{
 					throw new SecretException("Secret contains invalid symbols");
+				}
 
 				data[i] = (byte)symbol;
 			}
@@ -168,11 +170,15 @@ namespace Zyrenth.Zora
 			for (int i = 0; i < data.Length; ++i)
 			{
 				if (data[i] < 0 || data[i] > 63)
+				{
 					throw new SecretException("Secret contains invalid values");
+				}
 
 				sBuilder.Append(symbols[(int)region][data[i]]);
 				if (i % 5 == 4)
+				{
 					sBuilder.Append(" ");
+				}
 			}
 			return sBuilder.ToString().Trim();
 		}

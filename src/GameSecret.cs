@@ -112,9 +112,14 @@ namespace Zyrenth.Zora
 			set
 			{
 				if (string.IsNullOrWhiteSpace(value))
+				{
 					value = "\0\0\0\0\0";
+				}
 				else
+				{
 					value = value.TrimEnd().PadRight(5, '\0');
+				}
+
 				SetProperty(ref _hero, value, "Hero");
 			}
 		}
@@ -128,9 +133,14 @@ namespace Zyrenth.Zora
 			set
 			{
 				if (string.IsNullOrWhiteSpace(value))
+				{
 					value = "\0\0\0\0\0";
+				}
 				else
+				{
 					value = value.TrimEnd().PadRight(5, '\0');
+				}
+
 				SetProperty(ref _child, value, "Child");
 			}
 		}
@@ -260,7 +270,9 @@ namespace Zyrenth.Zora
 		public override void Load(byte[] secret, GameRegion region)
 		{
 			if (secret is null || secret.Length != Length)
+			{
 				throw new SecretException("Secret must contatin exactly 20 bytes");
+			}
 
 			Region = region;
 
@@ -272,12 +284,16 @@ namespace Zyrenth.Zora
 			var checksum = CalculateChecksum(clonedBytes);
 
 			if (( decodedBytes[19] & 7 ) != ( checksum & 7 ))
+			{
 				throw new InvalidChecksumException("Checksum does not match expected value");
+			}
 
 			GameID = Convert.ToInt16(decodedSecret.ReversedSubstring(5, 15), 2);
 
 			if (decodedSecret[3] != '0' || decodedSecret[4] != '0')
+			{
 				throw new ArgumentException("The specified data is not a game code", nameof(secret));
+			}
 
 			TargetGame = decodedSecret[21] == '1' ? Game.Seasons : Game.Ages;
 			IsHeroQuest = decodedSecret[20] == '1';
@@ -285,9 +301,13 @@ namespace Zyrenth.Zora
 
 			Encoding encoding;
 			if (region == GameRegion.US)
+			{
 				encoding = new USEncoding();
+			}
 			else
+			{
 				encoding = new JapaneseEncoding();
+			}
 
 			Hero = encoding.GetString(new byte[] {
 				Convert.ToByte(decodedSecret.ReversedSubstring(22, 8), 2),
@@ -335,9 +355,13 @@ namespace Zyrenth.Zora
 		{
 			Encoding encoding;
 			if (Region == GameRegion.US)
+			{
 				encoding = new USEncoding();
+			}
 			else
+			{
 				encoding = new JapaneseEncoding();
+			}
 
 			byte[] heroBytes = encoding.GetBytes(_hero);
 			byte[] childBytes = encoding.GetBytes(_child);
@@ -418,7 +442,9 @@ namespace Zyrenth.Zora
 		public bool IsValidForPAL()
 		{
 			if (_animal != 0x0b && _animal != 0x0c && _animal != 0x0d)
+			{
 				return false;
+			}
 
 			Encoding encoding = new USEncoding();
 			byte[] heroBytes = encoding.GetBytes(_hero);
@@ -427,9 +453,14 @@ namespace Zyrenth.Zora
 			for (int i = 0; i < 5; i++)
 			{
 				if (!validPALCharacters.Contains(heroBytes[i]))
+				{
 					return false;
+				}
+
 				if (!validPALCharacters.Contains(childBytes[i]))
+				{
 					return false;
+				}
 			}
 
 			return true;
@@ -445,8 +476,9 @@ namespace Zyrenth.Zora
 		public override bool Equals(object obj)
 		{
 			if (GetType() != obj?.GetType())
+			{
 				return false;
-
+			}
 
 			var g = (GameSecret)obj;
 

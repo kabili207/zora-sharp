@@ -13,7 +13,7 @@ charset = utf-8
 end_of_line = crlf
 indent_style = space
 indent_size = 4
-insert_final_newline = false
+insert_final_newline = true
 trim_trailing_whitespace = true
 
 
@@ -139,7 +139,8 @@ csharp_prefer_braces = true:warning
 dotnet_sort_system_directives_first = true
 # C# formatting settings
 # https://docs.microsoft.com/en-us/visualstudio/ide/editorconfig-code-style-settings-reference#c-formatting-settings
-csharp_new_line_before_open_brace = all
+# NOTE: list no longer includes: accessors, anonymous_methods, anonymous_types, events, indexers, local_functions
+csharp_new_line_before_open_brace = lambdas, types, object_collection, control_blocks, properties, methods
 csharp_new_line_before_else = true
 csharp_new_line_before_catch = true
 csharp_new_line_before_finally = true
@@ -166,7 +167,7 @@ csharp_space_between_method_call_name_and_opening_parenthesis = false
 csharp_space_between_method_call_empty_parameter_list_parentheses = false
 # Wrapping options
 # https://docs.microsoft.com/en-us/visualstudio/ide/editorconfig-code-style-settings-reference#wrapping
-csharp_preserve_single_line_statements = false
+csharp_preserve_single_line_statements = true
 csharp_preserve_single_line_blocks = true
 # More Indentation options (Undocumented)
 csharp_indent_block_contents = true
@@ -366,4 +367,3 @@ dotnet_naming_rule.interface_types_must_be_prefixed_with_i.style    = prefix_int
 dotnet_naming_rule.parameters_must_be_camel_case.symbols  = parameters
 dotnet_naming_rule.parameters_must_be_camel_case.severity = warning
 dotnet_naming_rule.parameters_must_be_camel_case.style    = camel_case
-

@@ -75,17 +75,23 @@ namespace Zyrenth.Zora
 			tmp = Load(stream, region, Slot1Offset);
 			var gameData = new List<GameInfo>();
 			if (!( tmp is null ))
+			{
 				gameData.Add(tmp);
+			}
 
 			// Slot 2
 			tmp = Load(stream, region, Slot2Offset);
 			if (!( tmp is null ))
+			{
 				gameData.Add(tmp);
+			}
 
 			// Slot 3
 			tmp = Load(stream, region, Slot3Offset);
 			if (!( tmp is null ))
+			{
 				gameData.Add(tmp);
+			}
 
 			return gameData;
 		}
@@ -135,7 +141,9 @@ namespace Zyrenth.Zora
 
 			// The version is represented by the char values '1' or '2'
 			if (versionBytes[0] != 49 && versionBytes[0] != 50)
+			{
 				return null;
+			}
 
 			stream.Seek(76, SeekOrigin.Current);
 			stream.Read(gameIdBytes, 0, 2);
@@ -159,9 +167,13 @@ namespace Zyrenth.Zora
 
 			System.Text.Encoding enc = null;
 			if (region == GameRegion.US)
+			{
 				enc = new USEncoding();
+			}
 			else
+			{
 				enc = new JapaneseEncoding();
+			}
 
 			info.Game = versionBytes[0] == 49 ? Game.Seasons : Game.Ages;
 			info.GameID = BitConverter.ToInt16(gameIdBytes, 0);

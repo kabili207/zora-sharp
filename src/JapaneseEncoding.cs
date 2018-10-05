@@ -89,7 +89,9 @@ namespace Zyrenth.Zora
 				}
 
 				if (c == 0)
+				{
 					b = 0;
+				}
 				else
 				{
 					for (int j = 0; j < characters.Length; j++)
@@ -135,9 +137,13 @@ namespace Zyrenth.Zora
 			{
 				int b = bytes[i] - 0x10;
 				if (b < 0 || b >= characters.Length)
+				{
 					chars[i] = '\0';
+				}
 				else
+				{
 					chars[i] = characters[b];
+				}
 			}
 
 			return byteCount;
