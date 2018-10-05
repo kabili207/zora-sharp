@@ -45,11 +45,8 @@ namespace Zyrenth.Zora
 		/// </summary>
 		public Rings Rings
 		{
-			get { return (Rings)_rings; }
-			set
-			{
-				SetProperty(ref _rings, (long)value, "Rings");
-			}
+			get => (Rings)_rings;
+			set => SetProperty(ref _rings, (long)value, "Rings");
 		}
 
 		/// <summary>

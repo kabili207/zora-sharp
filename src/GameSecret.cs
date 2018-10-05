@@ -72,11 +72,8 @@ namespace Zyrenth.Zora
 		/// </summary>
 		public Game TargetGame
 		{
-			get { return _targetGame; }
-			set
-			{
-				SetProperty(ref _targetGame, value, "Game");
-			}
+			get => _targetGame;
+			set => SetProperty(ref _targetGame, value, "Game");
 		}
 
 		/// <summary>
@@ -84,11 +81,8 @@ namespace Zyrenth.Zora
 		/// </summary>
 		public bool IsHeroQuest
 		{
-			get { return _isHeroQuest; }
-			set
-			{
-				SetProperty(ref _isHeroQuest, value, "IsHeroQuest");
-			}
+			get => _isHeroQuest;
+			set => SetProperty(ref _isHeroQuest, value, "IsHeroQuest");
 		}
 
 		/// <summary>
@@ -96,11 +90,8 @@ namespace Zyrenth.Zora
 		/// </summary>
 		public bool IsLinkedGame
 		{
-			get { return _isLinkedGame; }
-			set
-			{
-				SetProperty(ref _isLinkedGame, value, "IsLinkedGame");
-			}
+			get => _isLinkedGame;
+			set => SetProperty(ref _isLinkedGame, value, "IsLinkedGame");
 		}
 
 		/// <summary>
@@ -108,9 +99,8 @@ namespace Zyrenth.Zora
 		/// </summary>
 		public string Hero
 		{
-			get { return _hero.Trim(' ', '\0'); }
-			set
-			{
+			get => _hero.Trim(' ', '\0');
+			set {
 				if (string.IsNullOrWhiteSpace(value))
 				{
 					value = "\0\0\0\0\0";
@@ -129,9 +119,8 @@ namespace Zyrenth.Zora
 		/// </summary>
 		public string Child
 		{
-			get { return _child.Trim(' ', '\0'); }
-			set
-			{
+			get => _child.Trim(' ', '\0');
+			set {
 				if (string.IsNullOrWhiteSpace(value))
 				{
 					value = "\0\0\0\0\0";
@@ -150,11 +139,8 @@ namespace Zyrenth.Zora
 		/// </summary>
 		public Animal Animal
 		{
-			get { return (Animal)_animal; }
-			set
-			{
-				SetProperty(ref _animal, (byte)value, "Animal");
-			}
+			get => (Animal)_animal;
+			set => SetProperty(ref _animal, (byte)value, "Animal");
 		}
 
 		/// <summary>
@@ -162,11 +148,8 @@ namespace Zyrenth.Zora
 		/// </summary>
 		public byte Behavior
 		{
-			get { return (byte)_behavior; }
-			set
-			{
-				SetProperty(ref _behavior, value, "Behavior");
-			}
+			get => (byte)_behavior;
+			set => SetProperty(ref _behavior, value, "Behavior");
 		}
 
 		/// <summary>
@@ -174,9 +157,8 @@ namespace Zyrenth.Zora
 		/// </summary>
 		public bool WasGivenFreeRing
 		{
-			get { return _wasGivenFreeRing; }
-			set
-			{
+			get => _wasGivenFreeRing;
+			set {
 				_wasGivenFreeRing = value;
 				SetProperty(ref _wasGivenFreeRing, value, "WasGivenFreeRing");
 			}

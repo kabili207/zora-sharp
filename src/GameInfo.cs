@@ -64,11 +64,8 @@ namespace Zyrenth.Zora
 		/// </summary>
 		public GameRegion Region
 		{
-			get { return _region; }
-			set
-			{
-				SetProperty(ref _region, value, "Region");
-			}
+			get => _region;
+			set => SetProperty(ref _region, value, "Region");
 		}
 
 		/// <summary>
@@ -76,9 +73,8 @@ namespace Zyrenth.Zora
 		/// </summary>
 		public Game Game
 		{
-			get { return (Game)_agesSeasons; }
-			set
-			{
+			get => (Game)_agesSeasons;
+			set {
 				if (( value < 0 ) || ( (int)value > byte.MaxValue ))
 				{
 					throw new ArgumentOutOfRangeException(nameof(value));
@@ -93,11 +89,8 @@ namespace Zyrenth.Zora
 		/// </summary>
 		public bool IsHeroQuest
 		{
-			get { return _isHeroQuest; }
-			set
-			{
-				SetProperty(ref _isHeroQuest, value, "IsHeroQuest");
-			}
+			get => _isHeroQuest;
+			set => SetProperty(ref _isHeroQuest, value, "IsHeroQuest");
 		}
 
 		/// <summary>
@@ -105,11 +98,8 @@ namespace Zyrenth.Zora
 		/// </summary>
 		public bool IsLinkedGame
 		{
-			get { return _isLinkedGame; }
-			set
-			{
-				SetProperty(ref _isLinkedGame, value, "IsLinkedGame");
-			}
+			get => _isLinkedGame;
+			set => SetProperty(ref _isLinkedGame, value, "IsLinkedGame");
 		}
 
 		/// <summary>
@@ -117,11 +107,8 @@ namespace Zyrenth.Zora
 		/// </summary>
 		public short GameID
 		{
-			get { return _gameId; }
-			set
-			{
-				SetProperty(ref _gameId, value, "GameID");
-			}
+			get => _gameId;
+			set => SetProperty(ref _gameId, value, "GameID");
 		}
 
 		/// <summary>
@@ -129,9 +116,8 @@ namespace Zyrenth.Zora
 		/// </summary>
 		public string Hero
 		{
-			get { return _hero.Trim(' ', '\0'); }
-			set
-			{
+			get => _hero.Trim(' ', '\0');
+			set {
 				if (string.IsNullOrWhiteSpace(value))
 				{
 					value = "\0\0\0\0\0";
@@ -150,9 +136,8 @@ namespace Zyrenth.Zora
 		/// </summary>
 		public string Child
 		{
-			get { return _child.Trim(' ', '\0'); }
-			set
-			{
+			get => _child.Trim(' ', '\0');
+			set {
 				if (string.IsNullOrWhiteSpace(value))
 				{
 					value = "\0\0\0\0\0";
@@ -171,9 +156,8 @@ namespace Zyrenth.Zora
 		/// </summary>
 		public Animal Animal
 		{
-			get { return (Animal)_animal; }
-			set
-			{
+			get => (Animal)_animal;
+			set {
 				if (( value < 0 ) || ( (long)value > byte.MaxValue ))
 				{
 					throw new ArgumentOutOfRangeException(nameof(value));
@@ -188,11 +172,8 @@ namespace Zyrenth.Zora
 		/// </summary>
 		public byte Behavior
 		{
-			get { return (byte)_behavior; }
-			set
-			{
-				SetProperty(ref _behavior, value, "Behavior");
-			}
+			get => (byte)_behavior;
+			set => SetProperty(ref _behavior, value, "Behavior");
 		}
 
 		/// <summary>
@@ -200,11 +181,8 @@ namespace Zyrenth.Zora
 		/// </summary>
 		public bool WasGivenFreeRing
 		{
-			get { return _wasGivenFreeRing; }
-			set
-			{
-				SetProperty(ref _wasGivenFreeRing, value, "WasGivenFreeRing");
-			}
+			get => _wasGivenFreeRing;
+			set => SetProperty(ref _wasGivenFreeRing, value, "WasGivenFreeRing");
 		}
 
 		/// <summary>
@@ -212,11 +190,8 @@ namespace Zyrenth.Zora
 		/// </summary>
 		public Rings Rings
 		{
-			get { return (Rings)_rings; }
-			set
-			{
-				SetProperty(ref _rings, (long)value, "Rings");
-			}
+			get => (Rings)_rings;
+			set => SetProperty(ref _rings, (long)value, "Rings");
 		}
 
 		#endregion // Properties
