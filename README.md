@@ -11,6 +11,7 @@ ZoraSharp is only a library for manipulating the codes from the Oracle series ga
 General users should instead use of the the following user interfaces:
  * Windows WPF - https://github.com/kabili207/zoragen-wpf
  * Linux GTK - https://github.com/kabili207/zoragen-gtk
+ * [Blazor Web App](https://friendlyanon.github.io/zoragen/) - https://github.com/friendlyanon/zoragen-blazor
 
 ### Features
  * Decodes game and ring secrets
