@@ -20,16 +20,21 @@
 
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
-using System.Text;
+
+#if !BLAZOR
+using System.ComponentModel;
+#endif
 
 namespace Zyrenth.Zora
 {
 	/// <summary>
 	/// Represents a secret used in the Zelda Oracle series games.
 	/// </summary>
-	public abstract class Secret : INotifyPropertyChanged
+	public abstract class Secret
+#if !BLAZOR
+		: INotifyPropertyChanged
+#endif
 	{
 		private static readonly byte[][] ciphers =
 		{
@@ -57,12 +62,15 @@ namespace Zyrenth.Zora
 		private short _gameId = 0;
 		private GameRegion _region = GameRegion.US;
 
+#if !BLAZOR
+
 		/// <summary>
 		/// Occurs when a property has changed
 		/// </summary>
 		[field: NonSerialized]
 		public event PropertyChangedEventHandler PropertyChanged;
 
+#endif
 
 		/// <summary>
 		/// Gets the required length of the secret
@@ -273,7 +281,9 @@ namespace Zyrenth.Zora
 			if (!EqualityComparer<T>.Default.Equals(field, value))
 			{
 				field = value;
+#if !BLAZOR
 				PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+#endif
 			}
 		}
 

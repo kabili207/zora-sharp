@@ -20,19 +20,24 @@
 
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
+
+#if !BLAZOR
+using System.ComponentModel;
+#endif
 
 namespace Zyrenth.Zora
 {
 	/// <summary>
 	/// Represents the user data for an individual game
 	/// </summary>
+#if !BLAZOR
 	[Serializable]
-	public class GameInfo : INotifyPropertyChanged
+#endif
+	public class GameInfo
+#if !BLAZOR
+		: INotifyPropertyChanged
+#endif
 	{
 
 		#region Fields
@@ -51,11 +56,15 @@ namespace Zyrenth.Zora
 
 		#endregion // Fields
 
+#if !BLAZOR
+
 		/// <summary>
 		/// Occurs when a property has changed
 		/// </summary>
 		[field: NonSerialized]
 		public event PropertyChangedEventHandler PropertyChanged;
+
+#endif
 
 		#region Properties
 
@@ -222,7 +231,9 @@ namespace Zyrenth.Zora
 			if (!EqualityComparer<T>.Default.Equals(field, value))
 			{
 				field = value;
+#if !BLAZOR
 				PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+#endif
 			}
 		}
 
