@@ -22,7 +22,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-#if !(BLAZOR_NO_NOTIFY_PROPERTY_CHANGED)
+#if !BLAZOR
 using System.ComponentModel;
 #endif
 
@@ -32,7 +32,7 @@ namespace Zyrenth.Zora
 	/// Represents a secret used in the Zelda Oracle series games.
 	/// </summary>
 	public abstract class Secret
-#if !(BLAZOR_NO_NOTIFY_PROPERTY_CHANGED)
+#if !BLAZOR
 		: INotifyPropertyChanged
 #endif
 	{
@@ -62,7 +62,7 @@ namespace Zyrenth.Zora
 		private short _gameId = 0;
 		private GameRegion _region = GameRegion.US;
 
-#if !(BLAZOR_NO_NOTIFY_PROPERTY_CHANGED)
+#if !BLAZOR
 
 		/// <summary>
 		/// Occurs when a property has changed
@@ -281,7 +281,7 @@ namespace Zyrenth.Zora
 			if (!EqualityComparer<T>.Default.Equals(field, value))
 			{
 				field = value;
-#if !(BLAZOR_NO_NOTIFY_PROPERTY_CHANGED)
+#if !BLAZOR
 				PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
 #endif
 			}

@@ -22,7 +22,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 
-#if !(BLAZOR_NO_NOTIFY_PROPERTY_CHANGED)
+#if !BLAZOR
 using System.ComponentModel;
 #endif
 
@@ -31,11 +31,11 @@ namespace Zyrenth.Zora
 	/// <summary>
 	/// Represents the user data for an individual game
 	/// </summary>
-#if !(BLAZOR_NO_NOTIFY_PROPERTY_CHANGED)
+#if !BLAZOR
 	[Serializable]
 #endif
 	public class GameInfo
-#if !(BLAZOR_NO_NOTIFY_PROPERTY_CHANGED)
+#if !BLAZOR
 		: INotifyPropertyChanged
 #endif
 	{
@@ -56,7 +56,7 @@ namespace Zyrenth.Zora
 
 		#endregion // Fields
 
-#if !(BLAZOR_NO_NOTIFY_PROPERTY_CHANGED)
+#if !BLAZOR
 
 		/// <summary>
 		/// Occurs when a property has changed
@@ -231,7 +231,7 @@ namespace Zyrenth.Zora
 			if (!EqualityComparer<T>.Default.Equals(field, value))
 			{
 				field = value;
-#if !(BLAZOR_NO_NOTIFY_PROPERTY_CHANGED)
+#if !BLAZOR
 				PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
 #endif
 			}
