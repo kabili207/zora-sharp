@@ -1,8 +1,8 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <Configuration>BlazorDebug</Configuration>
-    <Platform>AnyCPU</Platform>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{E40D4A82-F5F3-4712-A8E2-AD3C77B1E5A8}</ProjectGuid>
     <OutputType>Library</OutputType>
     <RootNamespace>Zyrenth.Zora</RootNamespace>
@@ -27,17 +27,6 @@
     <WarningLevel>4</WarningLevel>
     <ConsolePause>False</ConsolePause>
     <DocumentationFile>bin\Release\ZoraSharp.xml</DocumentationFile>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'BlazorDebug|AnyCPU' ">
-    <DebugSymbols>True</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>False</Optimize>
-    <DefineConstants>DEBUG;BLAZOR_NO_NOTIFY_PROPERTY_CHANGED;</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <ConsolePause>False</ConsolePause>
-    <DocumentationFile>bin\BlazorDebug\ZoraSharp.xml</DocumentationFile>
-    <OutputPath>bin\BlazorDebug\</OutputPath>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -64,6 +53,8 @@
     <Compile Include="InvalidChecksumException.cs" />
     <Compile Include="UnknownMemoryException.cs" />
   </ItemGroup>
+  <!-- Allow projects to override or extend project configuration -->
+  <Import Project="$(SolutionDir)Extra.targets" Condition="exists('$(SolutionDir)Extra.targets')" />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ProjectExtensions>
     <MonoDevelop>
