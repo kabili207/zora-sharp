@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<shfbBuild product="Sandcastle Help File Builder and Tools" version="2017.12.30.2" projectFile="C:\projects\zora-sharp\ZoraSharp.shfbproj" started="2/3/2018 1:10:49 AM">
+<shfbBuild product="Sandcastle Help File Builder and Tools" version="2018.12.10.0" projectFile="C:\projects\zora-sharp\ZoraSharp.shfbproj" started="1/8/2019 4:34:27 PM">
 <buildStep step="Initializing">
 Finding tools...
-The Sandcastle tools are located in &#39;C:\projects\zora-sharp\EWSoftware.SHFB.2017.12.30.2\Tools\&#39;
+The Sandcastle tools are located in &#39;C:\projects\zora-sharp\EWSoftware.SHFB\Tools\&#39;
 Locating components in the following folder(s):
     C:\projects\zora-sharp
     C:\ProgramData\EWSoftware\Sandcastle Help File Builder\Components and Plug-Ins\
-    C:\projects\zora-sharp\EWSoftware.SHFB.2017.12.30.2\Tools\
-Using framework reflection data for &#39;.NET Framework 4.0&#39; located in &#39;C:\projects\zora-sharp\EWSoftware.SHFB.NETFramework.4.7\tools\Data\.NETFramework&#39;
-Using presentation style &#39;VS2013&#39; located in &#39;C:\projects\zora-sharp\EWSoftware.SHFB.2017.12.30.2\tools\PresentationStyles\VS2013&#39;
+    C:\projects\zora-sharp\EWSoftware.SHFB\Tools\
+Using framework reflection data for &#39;.NET Framework 4.0&#39; located in &#39;C:\projects\zora-sharp\EWSoftware.SHFB.NETFramework.4.7.2\tools\Data\.NETFramework&#39;
+Using presentation style &#39;VS2013&#39; located in &#39;C:\projects\zora-sharp\EWSoftware.SHFB\tools\PresentationStyles\VS2013&#39;
 Loading and initializing plug-ins...
-Lightweight Website Style Version 2017.12.30.2
-Copyright &#169; 2006-2017, Eric Woodruff, All Rights Reserved
+Lightweight Website Style Version 2018.12.10.0
+Copyright &#169; 2006-2018, Eric Woodruff, All Rights Reserved
 Portions Copyright &#169; 2014, Sam Harwell, All Rights Reserved
 -------------------------------
 Clearing any prior web/markdown output...
@@ -33,53 +33,49 @@ Copying XML comments files
 <buildStep step="GenerateSharedContent">
 Generating shared content files (en-US, English (United States))...
 <plugIn name="Lightweight Website Style" behavior="After" priority="1000">
-</plugIn>    Last step completed in 00:00:00.0313
+</plugIn>    Last step completed in 00:00:00.0530
 </buildStep>
 <buildStep step="GenerateApiFilter">
 Generating API filter for MRefBuilder...
-    Last step completed in 00:00:00.0000
+    Last step completed in 00:00:00.0180
 </buildStep>
 <buildStep step="GenerateReflectionInfo">
 Generating reflection information...
-[C:\Program Files (x86)\MSBuild\14.0\bin\MSBuild.exe - GenerateRefInfo.proj]
-Build started 2/3/2018 1:10:53 AM.
+[C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\MSBuild\15.0\Bin\MSBuild.exe - GenerateRefInfo.proj]
+Build started 1/8/2019 4:34:34 PM.
 Project &quot;C:\projects\zora-sharp\doc\api-doc\Working\GenerateRefInfo.proj&quot; on node 1 (default targets).
 PrepareForBuild:
   Creating directory &quot;obj\Debug\&quot;.
 GenerateRefInfo:
-  MRefBuilder (v2017.12.30.2)
-  Copyright c 2006-2017, Microsoft Corporation, All Rights Reserved.
-  Portions Copyright c 2006-2016, Eric Woodruff, All Rights Reserved.
+  MRefBuilder (v2018.12.10.0)
+  Copyright c 2006-2018, Microsoft Corporation, All Rights Reserved.
+  Portions Copyright c 2006-2018, Eric Woodruff, All Rights Reserved.
   No source code context base path specified.  Source context information is unavailable.
   Loaded 1 assemblies for reflection and 1 dependency assemblies.
-  Wrote information on 1 namespaces, 20 types, and 212 members
+  Wrote information on 1 namespaces, 21 types, and 215 members
   Copying file from &quot;reflection.org&quot; to &quot;reflection.all&quot;.
-  XslTransform (v2017.12.30.2)
-  Copyright c 2006-2017, Microsoft Corporation, All Rights Reserved.
-  Portions Copyright c 2006-2016, Eric Woodruff, All Rights Reserved.
-  Applying XSL transformation &#39;C:\projects\zora-sharp\EWSoftware.SHFB.2017.12.30.2\Tools\ProductionTransforms\MergeDuplicates.xsl&#39;.
+  XslTransform (v2018.12.10.0)
+  Copyright c 2006-2018, Microsoft Corporation, All Rights Reserved.
+  Portions Copyright c 2006-2018, Eric Woodruff, All Rights Reserved.
+  Applying XSL transformation &#39;C:\projects\zora-sharp\EWSoftware.SHFB\Tools\ProductionTransforms\MergeDuplicates.xsl&#39;.
 Done Building Project &quot;C:\projects\zora-sharp\doc\api-doc\Working\GenerateRefInfo.proj&quot; (default targets).
-
-Build succeeded.
-
-Time Elapsed 00:00:02.18
-    Last step completed in 00:00:02.8768
+    Last step completed in 00:00:05.9143
 </buildStep>
 <buildStep step="TransformReflectionInfo">
 Transforming reflection output...
-[C:\Program Files (x86)\MSBuild\14.0\bin\MSBuild.exe - TransformManifest.proj]
-Build started 2/3/2018 1:10:56 AM.
+[C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\MSBuild\15.0\Bin\MSBuild.exe - TransformManifest.proj]
+Build started 1/8/2019 4:34:41 PM.
 Project &quot;C:\projects\zora-sharp\doc\api-doc\Working\TransformManifest.proj&quot; on node 1 (default targets).
 TransformManifest:
-  XslTransform (v2017.12.30.2)
-  Copyright c 2006-2017, Microsoft Corporation, All Rights Reserved.
-  Portions Copyright c 2006-2016, Eric Woodruff, All Rights Reserved.
-  Applying XSL transformation &#39;C:\projects\zora-sharp\EWSoftware.SHFB.2017.12.30.2\Tools\\ProductionTransforms\ApplyVSDocModel.xsl&#39;.
+  XslTransform (v2018.12.10.0)
+  Copyright c 2006-2018, Microsoft Corporation, All Rights Reserved.
+  Portions Copyright c 2006-2018, Eric Woodruff, All Rights Reserved.
+  Applying XSL transformation &#39;C:\projects\zora-sharp\EWSoftware.SHFB\Tools\\ProductionTransforms\ApplyVSDocModel.xsl&#39;.
   Copying file from &quot;reflection.xml&quot; to &quot;reflection.nofilenames&quot;.
-  XslTransform (v2017.12.30.2)
-  Copyright c 2006-2017, Microsoft Corporation, All Rights Reserved.
-  Portions Copyright c 2006-2016, Eric Woodruff, All Rights Reserved.
-  Applying XSL transformation &#39;C:\projects\zora-sharp\EWSoftware.SHFB.2017.12.30.2\Tools\ProductionTransforms\AddFilenames.xsl&#39;.
+  XslTransform (v2018.12.10.0)
+  Copyright c 2006-2018, Microsoft Corporation, All Rights Reserved.
+  Portions Copyright c 2006-2018, Eric Woodruff, All Rights Reserved.
+  Applying XSL transformation &#39;C:\projects\zora-sharp\EWSoftware.SHFB\Tools\ProductionTransforms\AddFilenames.xsl&#39;.
     Unique name 6E2F1EE6 generated for M:Zyrenth.Zora.BatteryFileLoader.Load(System.String,Zyrenth.Zora.GameRegion,System.Int32)
     Unique name 2E539834 generated for M:Zyrenth.Zora.BatteryFileLoader.LoadAll(System.String,Zyrenth.Zora.GameRegion)
     Unique name 9095BE94 generated for M:Zyrenth.Zora.GameInfo.Load(System.String)
@@ -100,274 +96,202 @@ TransformManifest:
     Unique name C0CB8CD6 generated for M:Zyrenth.Zora.SecretException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
     Unique name C0CE8CD6 generated for M:Zyrenth.Zora.SecretException.#ctor(System.String)
     Unique name C0CD8CD6 generated for M:Zyrenth.Zora.SecretException.#ctor(System.String,System.Exception)
-  XslTransform (v2017.12.30.2)
-  Copyright c 2006-2017, Microsoft Corporation, All Rights Reserved.
-  Portions Copyright c 2006-2016, Eric Woodruff, All Rights Reserved.
-  Applying XSL transformation &#39;C:\projects\zora-sharp\EWSoftware.SHFB.2017.12.30.2\Tools\ProductionTransforms\ReflectionToManifest.xsl&#39;.
+    Unique name 864F2C87 generated for M:Zyrenth.Zora.UnknownMemoryException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+    Unique name 864F2C84 generated for M:Zyrenth.Zora.UnknownMemoryException.#ctor(System.String)
+    Unique name 864F2C85 generated for M:Zyrenth.Zora.UnknownMemoryException.#ctor(System.String,System.Exception)
+  XslTransform (v2018.12.10.0)
+  Copyright c 2006-2018, Microsoft Corporation, All Rights Reserved.
+  Portions Copyright c 2006-2018, Eric Woodruff, All Rights Reserved.
+  Applying XSL transformation &#39;C:\projects\zora-sharp\EWSoftware.SHFB\Tools\ProductionTransforms\ReflectionToManifest.xsl&#39;.
 Done Building Project &quot;C:\projects\zora-sharp\doc\api-doc\Working\TransformManifest.proj&quot; (default targets).
-
-Build succeeded.
-
-Time Elapsed 00:00:01.99
-    Last step completed in 00:00:02.6180
+    Last step completed in 00:00:05.7190
 </buildStep>
 <buildStep step="GenerateNamespaceSummaries">
 Generating namespace summary information...
-    Last step completed in 00:00:00.0312
+    Last step completed in 00:00:00.0850
 </buildStep>
 <buildStep step="CopyAdditionalContent">
 Copying additional content files...
 No additional content to copy
-    Last step completed in 00:00:00.0000
+    Last step completed in 00:00:00.0030
 </buildStep>
 <buildStep step="MergeTablesOfContents">
 Merging conceptual and additional tables of contents...
-    Last step completed in 00:00:00.0000
+    Last step completed in 00:00:00.0010
 </buildStep>
 <buildStep step="GenerateIntermediateTableOfContents">
 Generating intermediate table of contents file...
-[C:\Program Files (x86)\MSBuild\14.0\bin\MSBuild.exe - GenerateIntermediateTOC.proj]
-Build started 2/3/2018 1:10:59 AM.
+[C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\MSBuild\15.0\Bin\MSBuild.exe - GenerateIntermediateTOC.proj]
+Build started 1/8/2019 4:34:46 PM.
 Project &quot;C:\projects\zora-sharp\doc\api-doc\Working\GenerateIntermediateTOC.proj&quot; on node 1 (default targets).
 GenerateIntermediateTOC:
-  XslTransform (v2017.12.30.2)
-  Copyright c 2006-2017, Microsoft Corporation, All Rights Reserved.
-  Portions Copyright c 2006-2016, Eric Woodruff, All Rights Reserved.
-  Applying XSL transformation &#39;C:\projects\zora-sharp\EWSoftware.SHFB.2017.12.30.2\Tools\\ProductionTransforms\CreateVSToc.xsl&#39;.
+  XslTransform (v2018.12.10.0)
+  Copyright c 2006-2018, Microsoft Corporation, All Rights Reserved.
+  Portions Copyright c 2006-2018, Eric Woodruff, All Rights Reserved.
+  Applying XSL transformation &#39;C:\projects\zora-sharp\EWSoftware.SHFB\Tools\\ProductionTransforms\CreateVSToc.xsl&#39;.
 Done Building Project &quot;C:\projects\zora-sharp\doc\api-doc\Working\GenerateIntermediateTOC.proj&quot; (default targets).
-
-Build succeeded.
-
-Time Elapsed 00:00:01.17
 Generating conceptual content intermediate TOC file...
-    Last step completed in 00:00:01.8125
+    Last step completed in 00:00:04.2620
 </buildStep>
 <buildStep step="CreateBuildAssemblerConfigs">
 Creating Sandcastle configuration files...
     sandcastle.config
-    Last step completed in 00:00:00.1746
+    Last step completed in 00:00:00.4226
 </buildStep>
 <buildStep step="MergeCustomConfigs">
 Merging custom build component configurations
 C:\projects\zora-sharp\doc\api-doc\Working\sandcastle.config
   Updating reference topic configurations.
   No conceptual content.  Removing conceptual content components.
-    Last step completed in 00:00:00.0000
+    Last step completed in 00:00:00.0140
 </buildStep>
 <buildStep step="BuildTopics">
 Building help topics...
-[C:\Program Files (x86)\MSBuild\14.0\bin\MSBuild.exe - BuildTopics.proj]
-Build started 2/3/2018 1:11:01 AM.
+[C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\MSBuild\15.0\Bin\MSBuild.exe - BuildTopics.proj]
+Build started 1/8/2019 4:34:51 PM.
 Project &quot;C:\projects\zora-sharp\doc\api-doc\Working\BuildTopics.proj&quot; on node 1 (default targets).
 BuildTopics:
-  BuildAssembler (v2017.12.30.2)
-  Copyright c 2006-2017, Microsoft Corporation, All Rights Reserved.
-  Portions Copyright c 2006-2016, Eric Woodruff, All Rights Reserved.
+  BuildAssembler (v2018.12.10.0)
+  Copyright c 2006-2018, Microsoft Corporation, All Rights Reserved.
+  Portions Copyright c 2006-2018, Eric Woodruff, All Rights Reserved.
   Loading configuration...
   ResolveReferenceLinksComponent: The MSDN content ID cache &#39;C:\Users\appveyor\AppData\Local\EWSoftware\Sandcastle Help File Builder\Cache\MsdnContentId.cache&#39; does not exist yet.  All IDs will be looked up in this build which will slow it down.
   Processing topics...
-BuildAssembler : warning : ShowMissingComponent: [M:Zyrenth.Zora.BatteryFileLoader.Load(System.IO.Stream,Zyrenth.Zora.GameRegion,System.Int32)] Missing &lt;param name=&quot;region&quot;/&gt; documentation [C:\projects\zora-sharp\doc\api-doc\Working\BuildTopics.proj]
-BuildAssembler : warning : ShowMissingComponent: [M:Zyrenth.Zora.BatteryFileLoader.Load(System.String,Zyrenth.Zora.GameRegion,System.Int32)] Missing &lt;param name=&quot;region&quot;/&gt; documentation [C:\projects\zora-sharp\doc\api-doc\Working\BuildTopics.proj]
-BuildAssembler : warning : ShowMissingComponent: [M:Zyrenth.Zora.BatteryFileLoader.LoadAll(System.IO.Stream,Zyrenth.Zora.GameRegion)] Missing &lt;param name=&quot;region&quot;/&gt; documentation [C:\projects\zora-sharp\doc\api-doc\Working\BuildTopics.proj]
-BuildAssembler : warning : ShowMissingComponent: [M:Zyrenth.Zora.BatteryFileLoader.LoadAll(System.String,Zyrenth.Zora.GameRegion)] Missing &lt;param name=&quot;region&quot;/&gt; documentation [C:\projects\zora-sharp\doc\api-doc\Working\BuildTopics.proj]
-BuildAssembler : warning : ShowMissingComponent: [M:Zyrenth.Zora.GameInfoJsonConverter.Serialize(Zyrenth.Zora.GameInfo)] Missing &lt;param name=&quot;info&quot;/&gt; documentation [C:\projects\zora-sharp\doc\api-doc\Working\BuildTopics.proj]
-BuildAssembler : warning : ShowMissingComponent: [M:Zyrenth.Zora.GameSecret.IsValidForPAL] Missing &lt;returns&gt; documentation [C:\projects\zora-sharp\doc\api-doc\Working\BuildTopics.proj]
-BuildAssembler : warning : ShowMissingComponent: [M:Zyrenth.Zora.GameSecret.Load(System.Byte[],Zyrenth.Zora.GameRegion)] Missing &lt;param name=&quot;region&quot;/&gt; documentation [C:\projects\zora-sharp\doc\api-doc\Working\BuildTopics.proj]
-BuildAssembler : warning : ShowMissingComponent: [M:Zyrenth.Zora.JapaneseEncoding.GetByteCount(System.Char[],System.Int32,System.Int32)] Missing &lt;summary&gt; documentation [C:\projects\zora-sharp\doc\api-doc\Working\BuildTopics.proj]
-BuildAssembler : warning : ShowMissingComponent: [M:Zyrenth.Zora.JapaneseEncoding.GetByteCount(System.Char[],System.Int32,System.Int32)] Missing &lt;returns&gt; documentation [C:\projects\zora-sharp\doc\api-doc\Working\BuildTopics.proj]
-BuildAssembler : warning : ShowMissingComponent: [M:Zyrenth.Zora.JapaneseEncoding.GetByteCount(System.Char[],System.Int32,System.Int32)] Missing &lt;param name=&quot;chars&quot;/&gt; documentation [C:\projects\zora-sharp\doc\api-doc\Working\BuildTopics.proj]
-BuildAssembler : warning : ShowMissingComponent: [M:Zyrenth.Zora.JapaneseEncoding.GetByteCount(System.Char[],System.Int32,System.Int32)] Missing &lt;param name=&quot;index&quot;/&gt; documentation [C:\projects\zora-sharp\doc\api-doc\Working\BuildTopics.proj]
-BuildAssembler : warning : ShowMissingComponent: [M:Zyrenth.Zora.JapaneseEncoding.GetByteCount(System.Char[],System.Int32,System.Int32)] Missing &lt;param name=&quot;count&quot;/&gt; documentation [C:\projects\zora-sharp\doc\api-doc\Working\BuildTopics.proj]
-BuildAssembler : warning : ShowMissingComponent: [M:Zyrenth.Zora.JapaneseEncoding.GetBytes(System.Char[],System.Int32,System.Int32,System.Byte[],System.Int32)] Missing &lt;returns&gt; documentation [C:\projects\zora-sharp\doc\api-doc\Working\BuildTopics.proj]
-BuildAssembler : warning : ShowMissingComponent: [M:Zyrenth.Zora.JapaneseEncoding.GetBytes(System.Char[],System.Int32,System.Int32,System.Byte[],System.Int32)] Missing &lt;param name=&quot;chars&quot;/&gt; documentation [C:\projects\zora-sharp\doc\api-doc\Working\BuildTopics.proj]
-BuildAssembler : warning : ShowMissingComponent: [M:Zyrenth.Zora.JapaneseEncoding.GetBytes(System.Char[],System.Int32,System.Int32,System.Byte[],System.Int32)] Missing &lt;param name=&quot;charIndex&quot;/&gt; documentation [C:\projects\zora-sharp\doc\api-doc\Working\BuildTopics.proj]
-BuildAssembler : warning : ShowMissingComponent: [M:Zyrenth.Zora.JapaneseEncoding.GetBytes(System.Char[],System.Int32,System.Int32,System.Byte[],System.Int32)] Missing &lt;param name=&quot;charCount&quot;/&gt; documentation [C:\projects\zora-sharp\doc\api-doc\Working\BuildTopics.proj]
-BuildAssembler : warning : ShowMissingComponent: [M:Zyrenth.Zora.JapaneseEncoding.GetBytes(System.Char[],System.Int32,System.Int32,System.Byte[],System.Int32)] Missing &lt;param name=&quot;bytes&quot;/&gt; documentation [C:\projects\zora-sharp\doc\api-doc\Working\BuildTopics.proj]
-BuildAssembler : warning : ShowMissingComponent: [M:Zyrenth.Zora.JapaneseEncoding.GetBytes(System.Char[],System.Int32,System.Int32,System.Byte[],System.Int32)] Missing &lt;param name=&quot;byteIndex&quot;/&gt; documentation [C:\projects\zora-sharp\doc\api-doc\Working\BuildTopics.proj]
-BuildAssembler : warning : ShowMissingComponent: [M:Zyrenth.Zora.JapaneseEncoding.GetCharCount(System.Byte[],System.Int32,System.Int32)] Missing &lt;summary&gt; documentation [C:\projects\zora-sharp\doc\api-doc\Working\BuildTopics.proj]
-BuildAssembler : warning : ShowMissingComponent: [M:Zyrenth.Zora.JapaneseEncoding.GetCharCount(System.Byte[],System.Int32,System.Int32)] Missing &lt;returns&gt; documentation [C:\projects\zora-sharp\doc\api-doc\Working\BuildTopics.proj]
-BuildAssembler : warning : ShowMissingComponent: [M:Zyrenth.Zora.JapaneseEncoding.GetCharCount(System.Byte[],System.Int32,System.Int32)] Missing &lt;param name=&quot;bytes&quot;/&gt; documentation [C:\projects\zora-sharp\doc\api-doc\Working\BuildTopics.proj]
-BuildAssembler : warning : ShowMissingComponent: [M:Zyrenth.Zora.JapaneseEncoding.GetCharCount(System.Byte[],System.Int32,System.Int32)] Missing &lt;param name=&quot;index&quot;/&gt; documentation [C:\projects\zora-sharp\doc\api-doc\Working\BuildTopics.proj]
-BuildAssembler : warning : ShowMissingComponent: [M:Zyrenth.Zora.JapaneseEncoding.GetCharCount(System.Byte[],System.Int32,System.Int32)] Missing &lt;param name=&quot;count&quot;/&gt; documentation [C:\projects\zora-sharp\doc\api-doc\Working\BuildTopics.proj]
-BuildAssembler : warning : ShowMissingComponent: [M:Zyrenth.Zora.JapaneseEncoding.GetChars(System.Byte[],System.Int32,System.Int32,System.Char[],System.Int32)] Missing &lt;returns&gt; documentation [C:\projects\zora-sharp\doc\api-doc\Working\BuildTopics.proj]
-BuildAssembler : warning : ShowMissingComponent: [M:Zyrenth.Zora.JapaneseEncoding.GetChars(System.Byte[],System.Int32,System.Int32,System.Char[],System.Int32)] Missing &lt;param name=&quot;bytes&quot;/&gt; documentation [C:\projects\zora-sharp\doc\api-doc\Working\BuildTopics.proj]
-BuildAssembler : warning : ShowMissingComponent: [M:Zyrenth.Zora.JapaneseEncoding.GetChars(System.Byte[],System.Int32,System.Int32,System.Char[],System.Int32)] Missing &lt;param name=&quot;byteIndex&quot;/&gt; documentation [C:\projects\zora-sharp\doc\api-doc\Working\BuildTopics.proj]
-BuildAssembler : warning : ShowMissingComponent: [M:Zyrenth.Zora.JapaneseEncoding.GetChars(System.Byte[],System.Int32,System.Int32,System.Char[],System.Int32)] Missing &lt;param name=&quot;byteCount&quot;/&gt; documentation [C:\projects\zora-sharp\doc\api-doc\Working\BuildTopics.proj]
-BuildAssembler : warning : ShowMissingComponent: [M:Zyrenth.Zora.JapaneseEncoding.GetChars(System.Byte[],System.Int32,System.Int32,System.Char[],System.Int32)] Missing &lt;param name=&quot;chars&quot;/&gt; documentation [C:\projects\zora-sharp\doc\api-doc\Working\BuildTopics.proj]
-BuildAssembler : warning : ShowMissingComponent: [M:Zyrenth.Zora.JapaneseEncoding.GetChars(System.Byte[],System.Int32,System.Int32,System.Char[],System.Int32)] Missing &lt;param name=&quot;charIndex&quot;/&gt; documentation [C:\projects\zora-sharp\doc\api-doc\Working\BuildTopics.proj]
-BuildAssembler : warning : ShowMissingComponent: [M:Zyrenth.Zora.JapaneseEncoding.GetMaxByteCount(System.Int32)] Missing &lt;summary&gt; documentation [C:\projects\zora-sharp\doc\api-doc\Working\BuildTopics.proj]
-BuildAssembler : warning : ShowMissingComponent: [M:Zyrenth.Zora.JapaneseEncoding.GetMaxByteCount(System.Int32)] Missing &lt;returns&gt; documentation [C:\projects\zora-sharp\doc\api-doc\Working\BuildTopics.proj]
-BuildAssembler : warning : ShowMissingComponent: [M:Zyrenth.Zora.JapaneseEncoding.GetMaxByteCount(System.Int32)] Missing &lt;param name=&quot;charCount&quot;/&gt; documentation [C:\projects\zora-sharp\doc\api-doc\Working\BuildTopics.proj]
-BuildAssembler : warning : ShowMissingComponent: [M:Zyrenth.Zora.JapaneseEncoding.GetMaxCharCount(System.Int32)] Missing &lt;summary&gt; documentation [C:\projects\zora-sharp\doc\api-doc\Working\BuildTopics.proj]
-BuildAssembler : warning : ShowMissingComponent: [M:Zyrenth.Zora.JapaneseEncoding.GetMaxCharCount(System.Int32)] Missing &lt;returns&gt; documentation [C:\projects\zora-sharp\doc\api-doc\Working\BuildTopics.proj]
-BuildAssembler : warning : ShowMissingComponent: [M:Zyrenth.Zora.JapaneseEncoding.GetMaxCharCount(System.Int32)] Missing &lt;param name=&quot;byteCount&quot;/&gt; documentation [C:\projects\zora-sharp\doc\api-doc\Working\BuildTopics.proj]
-BuildAssembler : warning : ShowMissingComponent: [M:Zyrenth.Zora.RingSecret.#ctor(System.Int16,Zyrenth.Zora.GameRegion,Zyrenth.Zora.Rings)] Missing &lt;param name=&quot;region&quot;/&gt; documentation [C:\projects\zora-sharp\doc\api-doc\Working\BuildTopics.proj]
-BuildAssembler : warning : ShowMissingComponent: [M:Zyrenth.Zora.USEncoding.GetByteCount(System.Char[],System.Int32,System.Int32)] Missing &lt;summary&gt; documentation [C:\projects\zora-sharp\doc\api-doc\Working\BuildTopics.proj]
-BuildAssembler : warning : ShowMissingComponent: [M:Zyrenth.Zora.USEncoding.GetByteCount(System.Char[],System.Int32,System.Int32)] Missing &lt;returns&gt; documentation [C:\projects\zora-sharp\doc\api-doc\Working\BuildTopics.proj]
-BuildAssembler : warning : ShowMissingComponent: [M:Zyrenth.Zora.USEncoding.GetByteCount(System.Char[],System.Int32,System.Int32)] Missing &lt;param name=&quot;chars&quot;/&gt; documentation [C:\projects\zora-sharp\doc\api-doc\Working\BuildTopics.proj]
-BuildAssembler : warning : ShowMissingComponent: [M:Zyrenth.Zora.USEncoding.GetByteCount(System.Char[],System.Int32,System.Int32)] Missing &lt;param name=&quot;index&quot;/&gt; documentation [C:\projects\zora-sharp\doc\api-doc\Working\BuildTopics.proj]
-BuildAssembler : warning : ShowMissingComponent: [M:Zyrenth.Zora.USEncoding.GetByteCount(System.Char[],System.Int32,System.Int32)] Missing &lt;param name=&quot;count&quot;/&gt; documentation [C:\projects\zora-sharp\doc\api-doc\Working\BuildTopics.proj]
-BuildAssembler : warning : ShowMissingComponent: [M:Zyrenth.Zora.USEncoding.GetBytes(System.Char[],System.Int32,System.Int32,System.Byte[],System.Int32)] Missing &lt;returns&gt; documentation [C:\projects\zora-sharp\doc\api-doc\Working\BuildTopics.proj]
-BuildAssembler : warning : ShowMissingComponent: [M:Zyrenth.Zora.USEncoding.GetBytes(System.Char[],System.Int32,System.Int32,System.Byte[],System.Int32)] Missing &lt;param name=&quot;chars&quot;/&gt; documentation [C:\projects\zora-sharp\doc\api-doc\Working\BuildTopics.proj]
-BuildAssembler : warning : ShowMissingComponent: [M:Zyrenth.Zora.USEncoding.GetBytes(System.Char[],System.Int32,System.Int32,System.Byte[],System.Int32)] Missing &lt;param name=&quot;charIndex&quot;/&gt; documentation [C:\projects\zora-sharp\doc\api-doc\Working\BuildTopics.proj]
-BuildAssembler : warning : ShowMissingComponent: [M:Zyrenth.Zora.USEncoding.GetBytes(System.Char[],System.Int32,System.Int32,System.Byte[],System.Int32)] Missing &lt;param name=&quot;charCount&quot;/&gt; documentation [C:\projects\zora-sharp\doc\api-doc\Working\BuildTopics.proj]
-BuildAssembler : warning : ShowMissingComponent: [M:Zyrenth.Zora.USEncoding.GetBytes(System.Char[],System.Int32,System.Int32,System.Byte[],System.Int32)] Missing &lt;param name=&quot;bytes&quot;/&gt; documentation [C:\projects\zora-sharp\doc\api-doc\Working\BuildTopics.proj]
-BuildAssembler : warning : ShowMissingComponent: [M:Zyrenth.Zora.USEncoding.GetBytes(System.Char[],System.Int32,System.Int32,System.Byte[],System.Int32)] Missing &lt;param name=&quot;byteIndex&quot;/&gt; documentation [C:\projects\zora-sharp\doc\api-doc\Working\BuildTopics.proj]
-BuildAssembler : warning : ShowMissingComponent: [M:Zyrenth.Zora.USEncoding.GetCharCount(System.Byte[],System.Int32,System.Int32)] Missing &lt;summary&gt; documentation [C:\projects\zora-sharp\doc\api-doc\Working\BuildTopics.proj]
-BuildAssembler : warning : ShowMissingComponent: [M:Zyrenth.Zora.USEncoding.GetCharCount(System.Byte[],System.Int32,System.Int32)] Missing &lt;returns&gt; documentation [C:\projects\zora-sharp\doc\api-doc\Working\BuildTopics.proj]
-BuildAssembler : warning : ShowMissingComponent: [M:Zyrenth.Zora.USEncoding.GetCharCount(System.Byte[],System.Int32,System.Int32)] Missing &lt;param name=&quot;bytes&quot;/&gt; documentation [C:\projects\zora-sharp\doc\api-doc\Working\BuildTopics.proj]
-BuildAssembler : warning : ShowMissingComponent: [M:Zyrenth.Zora.USEncoding.GetCharCount(System.Byte[],System.Int32,System.Int32)] Missing &lt;param name=&quot;index&quot;/&gt; documentation [C:\projects\zora-sharp\doc\api-doc\Working\BuildTopics.proj]
-BuildAssembler : warning : ShowMissingComponent: [M:Zyrenth.Zora.USEncoding.GetCharCount(System.Byte[],System.Int32,System.Int32)] Missing &lt;param name=&quot;count&quot;/&gt; documentation [C:\projects\zora-sharp\doc\api-doc\Working\BuildTopics.proj]
-BuildAssembler : warning : ShowMissingComponent: [M:Zyrenth.Zora.USEncoding.GetChars(System.Byte[],System.Int32,System.Int32,System.Char[],System.Int32)] Missing &lt;returns&gt; documentation [C:\projects\zora-sharp\doc\api-doc\Working\BuildTopics.proj]
-BuildAssembler : warning : ShowMissingComponent: [M:Zyrenth.Zora.USEncoding.GetChars(System.Byte[],System.Int32,System.Int32,System.Char[],System.Int32)] Missing &lt;param name=&quot;bytes&quot;/&gt; documentation [C:\projects\zora-sharp\doc\api-doc\Working\BuildTopics.proj]
-BuildAssembler : warning : ShowMissingComponent: [M:Zyrenth.Zora.USEncoding.GetChars(System.Byte[],System.Int32,System.Int32,System.Char[],System.Int32)] Missing &lt;param name=&quot;byteIndex&quot;/&gt; documentation [C:\projects\zora-sharp\doc\api-doc\Working\BuildTopics.proj]
-BuildAssembler : warning : ShowMissingComponent: [M:Zyrenth.Zora.USEncoding.GetChars(System.Byte[],System.Int32,System.Int32,System.Char[],System.Int32)] Missing &lt;param name=&quot;byteCount&quot;/&gt; documentation [C:\projects\zora-sharp\doc\api-doc\Working\BuildTopics.proj]
-BuildAssembler : warning : ShowMissingComponent: [M:Zyrenth.Zora.USEncoding.GetChars(System.Byte[],System.Int32,System.Int32,System.Char[],System.Int32)] Missing &lt;param name=&quot;chars&quot;/&gt; documentation [C:\projects\zora-sharp\doc\api-doc\Working\BuildTopics.proj]
-BuildAssembler : warning : ShowMissingComponent: [M:Zyrenth.Zora.USEncoding.GetChars(System.Byte[],System.Int32,System.Int32,System.Char[],System.Int32)] Missing &lt;param name=&quot;charIndex&quot;/&gt; documentation [C:\projects\zora-sharp\doc\api-doc\Working\BuildTopics.proj]
-BuildAssembler : warning : ShowMissingComponent: [M:Zyrenth.Zora.USEncoding.GetMaxByteCount(System.Int32)] Missing &lt;summary&gt; documentation [C:\projects\zora-sharp\doc\api-doc\Working\BuildTopics.proj]
-BuildAssembler : warning : ShowMissingComponent: [M:Zyrenth.Zora.USEncoding.GetMaxByteCount(System.Int32)] Missing &lt;returns&gt; documentation [C:\projects\zora-sharp\doc\api-doc\Working\BuildTopics.proj]
-BuildAssembler : warning : ShowMissingComponent: [M:Zyrenth.Zora.USEncoding.GetMaxByteCount(System.Int32)] Missing &lt;param name=&quot;charCount&quot;/&gt; documentation [C:\projects\zora-sharp\doc\api-doc\Working\BuildTopics.proj]
-BuildAssembler : warning : ShowMissingComponent: [M:Zyrenth.Zora.USEncoding.GetMaxCharCount(System.Int32)] Missing &lt;summary&gt; documentation [C:\projects\zora-sharp\doc\api-doc\Working\BuildTopics.proj]
-BuildAssembler : warning : ShowMissingComponent: [M:Zyrenth.Zora.USEncoding.GetMaxCharCount(System.Int32)] Missing &lt;returns&gt; documentation [C:\projects\zora-sharp\doc\api-doc\Working\BuildTopics.proj]
-BuildAssembler : warning : ShowMissingComponent: [M:Zyrenth.Zora.USEncoding.GetMaxCharCount(System.Int32)] Missing &lt;param name=&quot;byteCount&quot;/&gt; documentation [C:\projects\zora-sharp\doc\api-doc\Working\BuildTopics.proj]
-  Processed 204 topic(s)
-  64 warning(s)
+BuildAssembler : warning : ShowMissingComponent: [M:Zyrenth.Zora.Secret.SetProperty``1(``0@,``0,System.String)] Missing &lt;typeparam name=&quot;T&quot;/&gt; documentation [C:\projects\zora-sharp\doc\api-doc\Working\BuildTopics.proj]
+  Processed 212 topic(s)
+  1 warning(s)
   CopyFromIndexComponent: &quot;reflection&quot; in-memory cache entries used: 7 of 15.
   CopyFromIndexComponent: &quot;comments&quot; in-memory cache entries used: 2 of 30.
   ResolveReferenceLinksComponent: 95 entries added to the MSDN content ID cache.  New cache size: 95 entries
 Done Building Project &quot;C:\projects\zora-sharp\doc\api-doc\Working\BuildTopics.proj&quot; (default targets).
-
-Build succeeded.
-
-Time Elapsed 00:00:33.77
-    Last step completed in 00:00:36.5893
+    Last step completed in 00:00:36.7168
 </buildStep>
 <buildStep step="CombiningIntermediateTocFiles">
 Combining conceptual and API intermediate TOC files...
-    Last step completed in 00:00:00.0000
+    Last step completed in 00:00:00.0070
 </buildStep>
 <buildStep step="ExtractingHtmlInfo">
 Extracting HTML info for HTML Help 1 and/or website...
-[C:\Program Files (x86)\MSBuild\14.0\bin\MSBuild.exe - ExtractHtmlInfo.proj]
-Sandcastle Help File Builder and Tools, version 2017.12.30.2
-Copyright c 2006-2017, Eric Woodruff, All Rights Reserved
+[C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\MSBuild\15.0\Bin\MSBuild.exe - ExtractHtmlInfo.proj]
+Sandcastle Help File Builder and Tools, version 2018.12.10.0
+Copyright c 2006-2018, Eric Woodruff, All Rights Reserved
 E-Mail: Eric@EWoodruff.us
 
 Using LCID &#39;1033&#39;, code page &#39;65001&#39;, encoding charset &#39;UTF-8&#39;.
 
 Processing website files in C:\projects\zora-sharp\doc\api-doc\Working\Output\Website
-Processed 204 HTML files
+Processed 212 HTML files
 Sorting keywords and generating See Also indices
 Saving website keyword index to C:\projects\zora-sharp\doc\api-doc\Working\WebKI.xml
 Saving website table of contents to C:\projects\zora-sharp\doc\api-doc\Working\WebTOC.xml
-    Last step completed in 00:00:01.4549
+    Last step completed in 00:00:02.9880
 </buildStep>
 <buildStep step="CopyStandardHelpContent">
 Copying standard help content...
-C:\projects\zora-sharp\EWSoftware.SHFB.2017.12.30.2\tools\PresentationStyles\VS2013\icons\AlertCaution.png -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\icons\AlertCaution.png
-C:\projects\zora-sharp\EWSoftware.SHFB.2017.12.30.2\tools\PresentationStyles\VS2013\icons\AlertNote.png -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\icons\AlertNote.png
-C:\projects\zora-sharp\EWSoftware.SHFB.2017.12.30.2\tools\PresentationStyles\VS2013\icons\AlertSecurity.png -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\icons\AlertSecurity.png
-C:\projects\zora-sharp\EWSoftware.SHFB.2017.12.30.2\tools\PresentationStyles\VS2013\icons\CFW.gif -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\icons\CFW.gif
-C:\projects\zora-sharp\EWSoftware.SHFB.2017.12.30.2\tools\PresentationStyles\VS2013\icons\CodeExample.png -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\icons\CodeExample.png
-C:\projects\zora-sharp\EWSoftware.SHFB.2017.12.30.2\tools\PresentationStyles\VS2013\icons\favicon.ico -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\icons\favicon.ico
-C:\projects\zora-sharp\EWSoftware.SHFB.2017.12.30.2\tools\PresentationStyles\VS2013\icons\privclass.gif -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\icons\privclass.gif
-C:\projects\zora-sharp\EWSoftware.SHFB.2017.12.30.2\tools\PresentationStyles\VS2013\icons\privdelegate.gif -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\icons\privdelegate.gif
-C:\projects\zora-sharp\EWSoftware.SHFB.2017.12.30.2\tools\PresentationStyles\VS2013\icons\privenumeration.gif -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\icons\privenumeration.gif
-C:\projects\zora-sharp\EWSoftware.SHFB.2017.12.30.2\tools\PresentationStyles\VS2013\icons\privevent.gif -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\icons\privevent.gif
-C:\projects\zora-sharp\EWSoftware.SHFB.2017.12.30.2\tools\PresentationStyles\VS2013\icons\privextension.gif -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\icons\privextension.gif
-C:\projects\zora-sharp\EWSoftware.SHFB.2017.12.30.2\tools\PresentationStyles\VS2013\icons\privfield.gif -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\icons\privfield.gif
-C:\projects\zora-sharp\EWSoftware.SHFB.2017.12.30.2\tools\PresentationStyles\VS2013\icons\privinterface.gif -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\icons\privinterface.gif
-C:\projects\zora-sharp\EWSoftware.SHFB.2017.12.30.2\tools\PresentationStyles\VS2013\icons\privmethod.gif -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\icons\privmethod.gif
-C:\projects\zora-sharp\EWSoftware.SHFB.2017.12.30.2\tools\PresentationStyles\VS2013\icons\privproperty.gif -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\icons\privproperty.gif
-C:\projects\zora-sharp\EWSoftware.SHFB.2017.12.30.2\tools\PresentationStyles\VS2013\icons\privstructure.gif -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\icons\privstructure.gif
-C:\projects\zora-sharp\EWSoftware.SHFB.2017.12.30.2\tools\PresentationStyles\VS2013\icons\protclass.gif -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\icons\protclass.gif
-C:\projects\zora-sharp\EWSoftware.SHFB.2017.12.30.2\tools\PresentationStyles\VS2013\icons\protdelegate.gif -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\icons\protdelegate.gif
-C:\projects\zora-sharp\EWSoftware.SHFB.2017.12.30.2\tools\PresentationStyles\VS2013\icons\protenumeration.gif -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\icons\protenumeration.gif
-C:\projects\zora-sharp\EWSoftware.SHFB.2017.12.30.2\tools\PresentationStyles\VS2013\icons\protevent.gif -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\icons\protevent.gif
-C:\projects\zora-sharp\EWSoftware.SHFB.2017.12.30.2\tools\PresentationStyles\VS2013\icons\protextension.gif -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\icons\protextension.gif
-C:\projects\zora-sharp\EWSoftware.SHFB.2017.12.30.2\tools\PresentationStyles\VS2013\icons\protfield.gif -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\icons\protfield.gif
-C:\projects\zora-sharp\EWSoftware.SHFB.2017.12.30.2\tools\PresentationStyles\VS2013\icons\protinterface.gif -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\icons\protinterface.gif
-C:\projects\zora-sharp\EWSoftware.SHFB.2017.12.30.2\tools\PresentationStyles\VS2013\icons\protmethod.gif -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\icons\protmethod.gif
-C:\projects\zora-sharp\EWSoftware.SHFB.2017.12.30.2\tools\PresentationStyles\VS2013\icons\protoperator.gif -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\icons\protoperator.gif
-C:\projects\zora-sharp\EWSoftware.SHFB.2017.12.30.2\tools\PresentationStyles\VS2013\icons\protproperty.gif -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\icons\protproperty.gif
-C:\projects\zora-sharp\EWSoftware.SHFB.2017.12.30.2\tools\PresentationStyles\VS2013\icons\protstructure.gif -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\icons\protstructure.gif
-C:\projects\zora-sharp\EWSoftware.SHFB.2017.12.30.2\tools\PresentationStyles\VS2013\icons\pubclass.gif -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\icons\pubclass.gif
-C:\projects\zora-sharp\EWSoftware.SHFB.2017.12.30.2\tools\PresentationStyles\VS2013\icons\pubdelegate.gif -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\icons\pubdelegate.gif
-C:\projects\zora-sharp\EWSoftware.SHFB.2017.12.30.2\tools\PresentationStyles\VS2013\icons\pubenumeration.gif -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\icons\pubenumeration.gif
-C:\projects\zora-sharp\EWSoftware.SHFB.2017.12.30.2\tools\PresentationStyles\VS2013\icons\pubevent.gif -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\icons\pubevent.gif
-C:\projects\zora-sharp\EWSoftware.SHFB.2017.12.30.2\tools\PresentationStyles\VS2013\icons\pubextension.gif -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\icons\pubextension.gif
-C:\projects\zora-sharp\EWSoftware.SHFB.2017.12.30.2\tools\PresentationStyles\VS2013\icons\pubfield.gif -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\icons\pubfield.gif
-C:\projects\zora-sharp\EWSoftware.SHFB.2017.12.30.2\tools\PresentationStyles\VS2013\icons\pubinterface.gif -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\icons\pubinterface.gif
-C:\projects\zora-sharp\EWSoftware.SHFB.2017.12.30.2\tools\PresentationStyles\VS2013\icons\pubmethod.gif -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\icons\pubmethod.gif
-C:\projects\zora-sharp\EWSoftware.SHFB.2017.12.30.2\tools\PresentationStyles\VS2013\icons\puboperator.gif -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\icons\puboperator.gif
-C:\projects\zora-sharp\EWSoftware.SHFB.2017.12.30.2\tools\PresentationStyles\VS2013\icons\pubproperty.gif -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\icons\pubproperty.gif
-C:\projects\zora-sharp\EWSoftware.SHFB.2017.12.30.2\tools\PresentationStyles\VS2013\icons\pubstructure.gif -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\icons\pubstructure.gif
-C:\projects\zora-sharp\EWSoftware.SHFB.2017.12.30.2\tools\PresentationStyles\VS2013\icons\SectionCollapsed.png -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\icons\SectionCollapsed.png
-C:\projects\zora-sharp\EWSoftware.SHFB.2017.12.30.2\tools\PresentationStyles\VS2013\icons\SectionExpanded.png -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\icons\SectionExpanded.png
-C:\projects\zora-sharp\EWSoftware.SHFB.2017.12.30.2\tools\PresentationStyles\VS2013\icons\slMobile.gif -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\icons\slMobile.gif
-C:\projects\zora-sharp\EWSoftware.SHFB.2017.12.30.2\tools\PresentationStyles\VS2013\icons\static.gif -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\icons\static.gif
-C:\projects\zora-sharp\EWSoftware.SHFB.2017.12.30.2\tools\PresentationStyles\VS2013\icons\xna.gif -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\icons\xna.gif
-C:\projects\zora-sharp\EWSoftware.SHFB.2017.12.30.2\tools\PresentationStyles\VS2013\scripts\branding.js -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\scripts\branding.js
-C:\projects\zora-sharp\EWSoftware.SHFB.2017.12.30.2\tools\PresentationStyles\VS2013\styles\branding-cs-CZ.css -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\styles\branding-cs-CZ.css
-C:\projects\zora-sharp\EWSoftware.SHFB.2017.12.30.2\tools\PresentationStyles\VS2013\styles\branding-de-DE.css -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\styles\branding-de-DE.css
-C:\projects\zora-sharp\EWSoftware.SHFB.2017.12.30.2\tools\PresentationStyles\VS2013\styles\branding-en-US.css -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\styles\branding-en-US.css
-C:\projects\zora-sharp\EWSoftware.SHFB.2017.12.30.2\tools\PresentationStyles\VS2013\styles\branding-es-ES.css -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\styles\branding-es-ES.css
-C:\projects\zora-sharp\EWSoftware.SHFB.2017.12.30.2\tools\PresentationStyles\VS2013\styles\branding-fr-FR.css -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\styles\branding-fr-FR.css
-C:\projects\zora-sharp\EWSoftware.SHFB.2017.12.30.2\tools\PresentationStyles\VS2013\styles\branding-Help1.css -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\styles\branding-Help1.css
-C:\projects\zora-sharp\EWSoftware.SHFB.2017.12.30.2\tools\PresentationStyles\VS2013\styles\branding-HelpViewer.css -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\styles\branding-HelpViewer.css
-C:\projects\zora-sharp\EWSoftware.SHFB.2017.12.30.2\tools\PresentationStyles\VS2013\styles\branding-it-IT.css -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\styles\branding-it-IT.css
-C:\projects\zora-sharp\EWSoftware.SHFB.2017.12.30.2\tools\PresentationStyles\VS2013\styles\branding-ja-JP.css -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\styles\branding-ja-JP.css
-C:\projects\zora-sharp\EWSoftware.SHFB.2017.12.30.2\tools\PresentationStyles\VS2013\styles\branding-ko-KR.css -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\styles\branding-ko-KR.css
-C:\projects\zora-sharp\EWSoftware.SHFB.2017.12.30.2\tools\PresentationStyles\VS2013\styles\branding-pl-PL.css -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\styles\branding-pl-PL.css
-C:\projects\zora-sharp\EWSoftware.SHFB.2017.12.30.2\tools\PresentationStyles\VS2013\styles\branding-pt-BR.css -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\styles\branding-pt-BR.css
-C:\projects\zora-sharp\EWSoftware.SHFB.2017.12.30.2\tools\PresentationStyles\VS2013\styles\branding-ru-RU.css -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\styles\branding-ru-RU.css
-C:\projects\zora-sharp\EWSoftware.SHFB.2017.12.30.2\tools\PresentationStyles\VS2013\styles\branding-tr-TR.css -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\styles\branding-tr-TR.css
-C:\projects\zora-sharp\EWSoftware.SHFB.2017.12.30.2\tools\PresentationStyles\VS2013\styles\branding-Website.css -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\styles\branding-Website.css
-C:\projects\zora-sharp\EWSoftware.SHFB.2017.12.30.2\tools\PresentationStyles\VS2013\styles\branding-zh-CN.css -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\styles\branding-zh-CN.css
-C:\projects\zora-sharp\EWSoftware.SHFB.2017.12.30.2\tools\PresentationStyles\VS2013\styles\branding-zh-TW.css -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\styles\branding-zh-TW.css
-C:\projects\zora-sharp\EWSoftware.SHFB.2017.12.30.2\tools\PresentationStyles\VS2013\styles\branding.css -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\styles\branding.css
-C:\projects\zora-sharp\EWSoftware.SHFB.2017.12.30.2\tools\PresentationStyles\VS2013\Web\index.html -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\index.html
-C:\projects\zora-sharp\EWSoftware.SHFB.2017.12.30.2\tools\PresentationStyles\VS2013\Web\search.html -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\search.html
-C:\projects\zora-sharp\EWSoftware.SHFB.2017.12.30.2\tools\PresentationStyles\VS2013\Web\SearchHelp.aspx -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\SearchHelp.aspx
-C:\projects\zora-sharp\EWSoftware.SHFB.2017.12.30.2\tools\PresentationStyles\VS2013\Web\SearchHelp.inc.php -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\SearchHelp.inc.php
-C:\projects\zora-sharp\EWSoftware.SHFB.2017.12.30.2\tools\PresentationStyles\VS2013\Web\SearchHelp.php -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\SearchHelp.php
-C:\projects\zora-sharp\EWSoftware.SHFB.2017.12.30.2\tools\PresentationStyles\VS2013\Web\Web.Config -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\Web.Config
-C:\projects\zora-sharp\EWSoftware.SHFB.2017.12.30.2\tools\PresentationStyles\VS2013\Web\html\GeneralError.htm -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\html\GeneralError.htm
-C:\projects\zora-sharp\EWSoftware.SHFB.2017.12.30.2\tools\PresentationStyles\VS2013\Web\html\PageNotFound.htm -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\html\PageNotFound.htm
-C:\projects\zora-sharp\EWSoftware.SHFB.2017.12.30.2\tools\PresentationStyles\VS2013\Web\icons\Search.png -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\icons\Search.png
-C:\projects\zora-sharp\EWSoftware.SHFB.2017.12.30.2\tools\PresentationStyles\VS2013\Web\icons\TocClose.gif -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\icons\TocClose.gif
-C:\projects\zora-sharp\EWSoftware.SHFB.2017.12.30.2\tools\PresentationStyles\VS2013\Web\icons\TocCollapsed.gif -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\icons\TocCollapsed.gif
-C:\projects\zora-sharp\EWSoftware.SHFB.2017.12.30.2\tools\PresentationStyles\VS2013\Web\icons\TocExpanded.gif -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\icons\TocExpanded.gif
-C:\projects\zora-sharp\EWSoftware.SHFB.2017.12.30.2\tools\PresentationStyles\VS2013\Web\icons\TocOpen.gif -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\icons\TocOpen.gif
-C:\projects\zora-sharp\EWSoftware.SHFB.2017.12.30.2\tools\PresentationStyles\VS2013\Web\scripts\branding-Website.js -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\scripts\branding-Website.js
-C:\projects\zora-sharp\EWSoftware.SHFB.2017.12.30.2\tools\PresentationStyles\VS2013\Web\scripts\clipboard.min.js -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\scripts\clipboard.min.js
-C:\projects\zora-sharp\EWSoftware.SHFB.2017.12.30.2\tools\PresentationStyles\VS2013\Web\scripts\jquery-1.11.0.min.js -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\scripts\jquery-1.11.0.min.js
-    Last step completed in 00:00:00.5475
+C:\projects\zora-sharp\EWSoftware.SHFB\tools\PresentationStyles\VS2013\icons\AlertCaution.png -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\icons\AlertCaution.png
+C:\projects\zora-sharp\EWSoftware.SHFB\tools\PresentationStyles\VS2013\icons\AlertNote.png -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\icons\AlertNote.png
+C:\projects\zora-sharp\EWSoftware.SHFB\tools\PresentationStyles\VS2013\icons\AlertSecurity.png -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\icons\AlertSecurity.png
+C:\projects\zora-sharp\EWSoftware.SHFB\tools\PresentationStyles\VS2013\icons\CFW.gif -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\icons\CFW.gif
+C:\projects\zora-sharp\EWSoftware.SHFB\tools\PresentationStyles\VS2013\icons\CodeExample.png -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\icons\CodeExample.png
+C:\projects\zora-sharp\EWSoftware.SHFB\tools\PresentationStyles\VS2013\icons\favicon.ico -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\icons\favicon.ico
+C:\projects\zora-sharp\EWSoftware.SHFB\tools\PresentationStyles\VS2013\icons\privclass.gif -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\icons\privclass.gif
+C:\projects\zora-sharp\EWSoftware.SHFB\tools\PresentationStyles\VS2013\icons\privdelegate.gif -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\icons\privdelegate.gif
+C:\projects\zora-sharp\EWSoftware.SHFB\tools\PresentationStyles\VS2013\icons\privenumeration.gif -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\icons\privenumeration.gif
+C:\projects\zora-sharp\EWSoftware.SHFB\tools\PresentationStyles\VS2013\icons\privevent.gif -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\icons\privevent.gif
+C:\projects\zora-sharp\EWSoftware.SHFB\tools\PresentationStyles\VS2013\icons\privextension.gif -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\icons\privextension.gif
+C:\projects\zora-sharp\EWSoftware.SHFB\tools\PresentationStyles\VS2013\icons\privfield.gif -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\icons\privfield.gif
+C:\projects\zora-sharp\EWSoftware.SHFB\tools\PresentationStyles\VS2013\icons\privinterface.gif -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\icons\privinterface.gif
+C:\projects\zora-sharp\EWSoftware.SHFB\tools\PresentationStyles\VS2013\icons\privmethod.gif -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\icons\privmethod.gif
+C:\projects\zora-sharp\EWSoftware.SHFB\tools\PresentationStyles\VS2013\icons\privproperty.gif -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\icons\privproperty.gif
+C:\projects\zora-sharp\EWSoftware.SHFB\tools\PresentationStyles\VS2013\icons\privstructure.gif -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\icons\privstructure.gif
+C:\projects\zora-sharp\EWSoftware.SHFB\tools\PresentationStyles\VS2013\icons\protclass.gif -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\icons\protclass.gif
+C:\projects\zora-sharp\EWSoftware.SHFB\tools\PresentationStyles\VS2013\icons\protdelegate.gif -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\icons\protdelegate.gif
+C:\projects\zora-sharp\EWSoftware.SHFB\tools\PresentationStyles\VS2013\icons\protenumeration.gif -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\icons\protenumeration.gif
+C:\projects\zora-sharp\EWSoftware.SHFB\tools\PresentationStyles\VS2013\icons\protevent.gif -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\icons\protevent.gif
+C:\projects\zora-sharp\EWSoftware.SHFB\tools\PresentationStyles\VS2013\icons\protextension.gif -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\icons\protextension.gif
+C:\projects\zora-sharp\EWSoftware.SHFB\tools\PresentationStyles\VS2013\icons\protfield.gif -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\icons\protfield.gif
+C:\projects\zora-sharp\EWSoftware.SHFB\tools\PresentationStyles\VS2013\icons\protinterface.gif -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\icons\protinterface.gif
+C:\projects\zora-sharp\EWSoftware.SHFB\tools\PresentationStyles\VS2013\icons\protmethod.gif -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\icons\protmethod.gif
+C:\projects\zora-sharp\EWSoftware.SHFB\tools\PresentationStyles\VS2013\icons\protoperator.gif -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\icons\protoperator.gif
+C:\projects\zora-sharp\EWSoftware.SHFB\tools\PresentationStyles\VS2013\icons\protproperty.gif -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\icons\protproperty.gif
+C:\projects\zora-sharp\EWSoftware.SHFB\tools\PresentationStyles\VS2013\icons\protstructure.gif -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\icons\protstructure.gif
+C:\projects\zora-sharp\EWSoftware.SHFB\tools\PresentationStyles\VS2013\icons\pubclass.gif -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\icons\pubclass.gif
+C:\projects\zora-sharp\EWSoftware.SHFB\tools\PresentationStyles\VS2013\icons\pubdelegate.gif -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\icons\pubdelegate.gif
+C:\projects\zora-sharp\EWSoftware.SHFB\tools\PresentationStyles\VS2013\icons\pubenumeration.gif -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\icons\pubenumeration.gif
+C:\projects\zora-sharp\EWSoftware.SHFB\tools\PresentationStyles\VS2013\icons\pubevent.gif -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\icons\pubevent.gif
+C:\projects\zora-sharp\EWSoftware.SHFB\tools\PresentationStyles\VS2013\icons\pubextension.gif -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\icons\pubextension.gif
+C:\projects\zora-sharp\EWSoftware.SHFB\tools\PresentationStyles\VS2013\icons\pubfield.gif -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\icons\pubfield.gif
+C:\projects\zora-sharp\EWSoftware.SHFB\tools\PresentationStyles\VS2013\icons\pubinterface.gif -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\icons\pubinterface.gif
+C:\projects\zora-sharp\EWSoftware.SHFB\tools\PresentationStyles\VS2013\icons\pubmethod.gif -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\icons\pubmethod.gif
+C:\projects\zora-sharp\EWSoftware.SHFB\tools\PresentationStyles\VS2013\icons\puboperator.gif -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\icons\puboperator.gif
+C:\projects\zora-sharp\EWSoftware.SHFB\tools\PresentationStyles\VS2013\icons\pubproperty.gif -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\icons\pubproperty.gif
+C:\projects\zora-sharp\EWSoftware.SHFB\tools\PresentationStyles\VS2013\icons\pubstructure.gif -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\icons\pubstructure.gif
+C:\projects\zora-sharp\EWSoftware.SHFB\tools\PresentationStyles\VS2013\icons\SectionCollapsed.png -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\icons\SectionCollapsed.png
+C:\projects\zora-sharp\EWSoftware.SHFB\tools\PresentationStyles\VS2013\icons\SectionExpanded.png -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\icons\SectionExpanded.png
+C:\projects\zora-sharp\EWSoftware.SHFB\tools\PresentationStyles\VS2013\icons\slMobile.gif -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\icons\slMobile.gif
+C:\projects\zora-sharp\EWSoftware.SHFB\tools\PresentationStyles\VS2013\icons\static.gif -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\icons\static.gif
+C:\projects\zora-sharp\EWSoftware.SHFB\tools\PresentationStyles\VS2013\icons\xna.gif -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\icons\xna.gif
+C:\projects\zora-sharp\EWSoftware.SHFB\tools\PresentationStyles\VS2013\scripts\branding.js -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\scripts\branding.js
+C:\projects\zora-sharp\EWSoftware.SHFB\tools\PresentationStyles\VS2013\styles\branding-cs-CZ.css -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\styles\branding-cs-CZ.css
+C:\projects\zora-sharp\EWSoftware.SHFB\tools\PresentationStyles\VS2013\styles\branding-de-DE.css -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\styles\branding-de-DE.css
+C:\projects\zora-sharp\EWSoftware.SHFB\tools\PresentationStyles\VS2013\styles\branding-en-US.css -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\styles\branding-en-US.css
+C:\projects\zora-sharp\EWSoftware.SHFB\tools\PresentationStyles\VS2013\styles\branding-es-ES.css -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\styles\branding-es-ES.css
+C:\projects\zora-sharp\EWSoftware.SHFB\tools\PresentationStyles\VS2013\styles\branding-fr-FR.css -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\styles\branding-fr-FR.css
+C:\projects\zora-sharp\EWSoftware.SHFB\tools\PresentationStyles\VS2013\styles\branding-Help1.css -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\styles\branding-Help1.css
+C:\projects\zora-sharp\EWSoftware.SHFB\tools\PresentationStyles\VS2013\styles\branding-HelpViewer.css -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\styles\branding-HelpViewer.css
+C:\projects\zora-sharp\EWSoftware.SHFB\tools\PresentationStyles\VS2013\styles\branding-it-IT.css -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\styles\branding-it-IT.css
+C:\projects\zora-sharp\EWSoftware.SHFB\tools\PresentationStyles\VS2013\styles\branding-ja-JP.css -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\styles\branding-ja-JP.css
+C:\projects\zora-sharp\EWSoftware.SHFB\tools\PresentationStyles\VS2013\styles\branding-ko-KR.css -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\styles\branding-ko-KR.css
+C:\projects\zora-sharp\EWSoftware.SHFB\tools\PresentationStyles\VS2013\styles\branding-pl-PL.css -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\styles\branding-pl-PL.css
+C:\projects\zora-sharp\EWSoftware.SHFB\tools\PresentationStyles\VS2013\styles\branding-pt-BR.css -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\styles\branding-pt-BR.css
+C:\projects\zora-sharp\EWSoftware.SHFB\tools\PresentationStyles\VS2013\styles\branding-ru-RU.css -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\styles\branding-ru-RU.css
+C:\projects\zora-sharp\EWSoftware.SHFB\tools\PresentationStyles\VS2013\styles\branding-tr-TR.css -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\styles\branding-tr-TR.css
+C:\projects\zora-sharp\EWSoftware.SHFB\tools\PresentationStyles\VS2013\styles\branding-Website.css -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\styles\branding-Website.css
+C:\projects\zora-sharp\EWSoftware.SHFB\tools\PresentationStyles\VS2013\styles\branding-zh-CN.css -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\styles\branding-zh-CN.css
+C:\projects\zora-sharp\EWSoftware.SHFB\tools\PresentationStyles\VS2013\styles\branding-zh-TW.css -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\styles\branding-zh-TW.css
+C:\projects\zora-sharp\EWSoftware.SHFB\tools\PresentationStyles\VS2013\styles\branding.css -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\styles\branding.css
+C:\projects\zora-sharp\EWSoftware.SHFB\tools\PresentationStyles\VS2013\Web\index.html -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\index.html
+C:\projects\zora-sharp\EWSoftware.SHFB\tools\PresentationStyles\VS2013\Web\search.html -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\search.html
+C:\projects\zora-sharp\EWSoftware.SHFB\tools\PresentationStyles\VS2013\Web\SearchHelp.aspx -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\SearchHelp.aspx
+C:\projects\zora-sharp\EWSoftware.SHFB\tools\PresentationStyles\VS2013\Web\SearchHelp.inc.php -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\SearchHelp.inc.php
+C:\projects\zora-sharp\EWSoftware.SHFB\tools\PresentationStyles\VS2013\Web\SearchHelp.php -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\SearchHelp.php
+C:\projects\zora-sharp\EWSoftware.SHFB\tools\PresentationStyles\VS2013\Web\Web.Config -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\Web.Config
+C:\projects\zora-sharp\EWSoftware.SHFB\tools\PresentationStyles\VS2013\Web\html\GeneralError.htm -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\html\GeneralError.htm
+C:\projects\zora-sharp\EWSoftware.SHFB\tools\PresentationStyles\VS2013\Web\html\PageNotFound.htm -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\html\PageNotFound.htm
+C:\projects\zora-sharp\EWSoftware.SHFB\tools\PresentationStyles\VS2013\Web\icons\Search.png -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\icons\Search.png
+C:\projects\zora-sharp\EWSoftware.SHFB\tools\PresentationStyles\VS2013\Web\icons\TocClose.gif -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\icons\TocClose.gif
+C:\projects\zora-sharp\EWSoftware.SHFB\tools\PresentationStyles\VS2013\Web\icons\TocCollapsed.gif -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\icons\TocCollapsed.gif
+C:\projects\zora-sharp\EWSoftware.SHFB\tools\PresentationStyles\VS2013\Web\icons\TocExpanded.gif -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\icons\TocExpanded.gif
+C:\projects\zora-sharp\EWSoftware.SHFB\tools\PresentationStyles\VS2013\Web\icons\TocOpen.gif -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\icons\TocOpen.gif
+C:\projects\zora-sharp\EWSoftware.SHFB\tools\PresentationStyles\VS2013\Web\scripts\branding-Website.js -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\scripts\branding-Website.js
+C:\projects\zora-sharp\EWSoftware.SHFB\tools\PresentationStyles\VS2013\Web\scripts\clipboard.min.js -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\scripts\clipboard.min.js
+C:\projects\zora-sharp\EWSoftware.SHFB\tools\PresentationStyles\VS2013\Web\scripts\jquery-3.3.1.min.js -&gt; C:\projects\zora-sharp\doc\api-doc\Working\Output\Website\scripts\jquery-3.3.1.min.js
+    Last step completed in 00:00:00.3846
 </buildStep>
 <buildStep step="GenerateHelpFormatTableOfContents">
 Generating website table of contents file...
-    Last step completed in 00:00:00.0000
+    Last step completed in 00:00:00.0010
 </buildStep>
 <buildStep step="GenerateFullTextIndex">
 Generating full-text index for the website...
 
 <plugIn name="Lightweight Website Style" behavior="After" priority="1000">
 Adding lightweight search and TOC elements to each topic...
-</plugIn>    Last step completed in 00:00:00.2969
+</plugIn>    Last step completed in 00:00:00.7187
 </buildStep>
 <buildStep step="CopyingWebsiteFiles">
 Copying website files to output folder...
 
-Copied 369 files for the website content
-    Last step completed in 00:00:00.2031
+Copied 379 files for the website content
+    Last step completed in 00:00:00.4041
 </buildStep>
 <buildStep step="CleanIntermediates">
 Removing intermediate files...
-    Last step completed in 00:00:00.0315
+    Last step completed in 00:00:00.0890
 </buildStep>
 <buildStep step="Completed">
 
-Build completed successfully at 2/3/2018 1:11:39 AM.  Total time: 00:00:50.6281
+Build completed successfully at 1/8/2019 4:35:30 PM.  Total time: 00:01:03.3038
 
 </buildStep>
 </shfbBuild>

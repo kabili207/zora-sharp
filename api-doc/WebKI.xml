@@ -118,7 +118,6 @@
   <HelpKINode Title="GameInfo.IsHeroQuest property" Url="html/C136E126.htm" />
   <HelpKINode Title="GameInfo.IsLinkedGame property" Url="html/CE81C6C1.htm" />
   <HelpKINode Title="GameInfo.Load method" Url="html/A533E1B6.htm" />
-  <HelpKINode Title="GameInfo.NotifyPropertyChanged method" Url="html/FC8187D3.htm" />
   <HelpKINode Title="GameInfo.Parse method" Url="html/7989E9F1.htm" />
   <HelpKINode Title="GameInfo.PropertyChanged event" Url="html/7C951F4F.htm" />
   <HelpKINode Title="GameInfo.Region property" Url="html/3223C5B.htm" />
@@ -281,10 +280,6 @@
     <HelpKINode Title="Animal Enumeration" Url="html/BE5CAD54.htm" />
     <HelpKINode Title="Rings Enumeration" Url="html/AD31B02F.htm" />
   </HelpKINode>
-  <HelpKINode Title="NotifyPropertyChanged method">
-    <HelpKINode Title="GameInfo.NotifyPropertyChanged Method " Url="html/FC8187D3.htm" />
-    <HelpKINode Title="Secret.NotifyPropertyChanged Method " Url="html/95602162.htm" />
-  </HelpKINode>
   <HelpKINode Title="OctoRing enumeration member" Url="html/AD31B02F.htm" />
   <HelpKINode Title="Parse method" Url="html/7989E9F1.htm" />
   <HelpKINode Title="ParseSecret method" Url="html/C98E691C.htm" />
@@ -365,10 +360,11 @@
   <HelpKINode Title="Secret.GetHashCode method" Url="html/CD0F06BE.htm" />
   <HelpKINode Title="Secret.Length property" Url="html/5E88131C.htm" />
   <HelpKINode Title="Secret.Load method" Url="html/D3C5C781.htm" />
-  <HelpKINode Title="Secret.NotifyPropertyChanged method" Url="html/95602162.htm" />
   <HelpKINode Title="Secret.PropertyChanged event" Url="html/1FF142F.htm" />
   <HelpKINode Title="Secret.Region property" Url="html/906914F2.htm" />
   <HelpKINode Title="Secret.Secret constructor" Url="html/AD331F07.htm" />
+  <HelpKINode Title="Secret.SetProperty(Of T) method" Url="html/56D9AAE0.htm" />
+  <HelpKINode Title="Secret.SetProperty&lt;T&gt; method" Url="html/56D9AAE0.htm" />
   <HelpKINode Title="Secret.ToBytes method" Url="html/53886693.htm" />
   <HelpKINode Title="Secret.ToString method" Url="html/977D7F39.htm" />
   <HelpKINode Title="SecretException class">
@@ -386,6 +382,8 @@
   <HelpKINode Title="SecretParser.CreateString method" Url="html/5ABE0A86.htm" />
   <HelpKINode Title="SecretParser.ParseSecret method" Url="html/C98E691C.htm" />
   <HelpKINode Title="Serialize method" Url="html/B27944DC.htm" />
+  <HelpKINode Title="SetProperty(Of T) method" Url="html/56D9AAE0.htm" />
+  <HelpKINode Title="SetProperty&lt;T&gt; method" Url="html/56D9AAE0.htm" />
   <HelpKINode Title="SignRing enumeration member" Url="html/AD31B02F.htm" />
   <HelpKINode Title="SlayersRing enumeration member" Url="html/AD31B02F.htm" />
   <HelpKINode Title="Slot1Offset field" Url="html/E4B7AC3A.htm" />
@@ -413,6 +411,14 @@
   <HelpKINode Title="TossRing enumeration member" Url="html/AD31B02F.htm" />
   <HelpKINode Title="ToString method" Url="html/977D7F39.htm" />
   <HelpKINode Title="Trademark property" Url="html/8BD6D2E.htm" />
+  <HelpKINode Title="UnknownMemoryException class">
+    <HelpKINode Title="UnknownMemoryException Class" Url="html/B194B791.htm" />
+    <HelpKINode Title="constructor" Url="html/7B573437.htm" />
+    <HelpKINode Title="events" Url="html/DA55C9DB.htm" />
+    <HelpKINode Title="methods" Url="html/71F5B931.htm" />
+    <HelpKINode Title="properties" Url="html/812DF71D.htm" />
+  </HelpKINode>
+  <HelpKINode Title="UnknownMemoryException.UnknownMemoryException constructor" Url="html/7B573437.htm" />
   <HelpKINode Title="UpdateGameInfo method">
     <HelpKINode Title="GameSecret.UpdateGameInfo Method " Url="html/3B400974.htm" />
     <HelpKINode Title="RingSecret.UpdateGameInfo Method " Url="html/996F03A.htm" />
@@ -460,5 +466,6 @@
   <HelpKINode Title="Zyrenth.Zora.Secret class" Url="html/CC724F3E.htm" />
   <HelpKINode Title="Zyrenth.Zora.SecretException class" Url="html/6830FBC0.htm" />
   <HelpKINode Title="Zyrenth.Zora.SecretParser class" Url="html/98E26E0A.htm" />
+  <HelpKINode Title="Zyrenth.Zora.UnknownMemoryException class" Url="html/B194B791.htm" />
   <HelpKINode Title="Zyrenth.Zora.USEncoding class" Url="html/C27E9958.htm" />
 </HelpKI>
