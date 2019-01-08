@@ -1,4 +1,4 @@
-# ZoraSharp [![Build Status](https://travis-ci.org/kabili207/zora-sharp.svg?branch=master)](https://travis-ci.org/kabili207/zora-sharp) [![Build status](https://ci.appveyor.com/api/projects/status/6ok374kxhysq7adc/branch/master?svg=true)](https://ci.appveyor.com/project/kabili207/zora-sharp/branch/master) [![codecov.io](https://codecov.io/github/kabili207/zora-sharp/coverage.svg?branch=master)](https://codecov.io/github/kabili207/zora-sharp?branch=master)
+# ZoraSharp [![Build Status](https://travis-ci.org/kabili207/zora-sharp.svg?branch=master)](https://travis-ci.org/kabili207/zora-sharp) [![Build status](https://ci.appveyor.com/api/projects/status/6ok374kxhysq7adc/branch/master?svg=true)](https://ci.appveyor.com/project/kabili207/zora-sharp/branch/master) [![codecov.io](https://codecov.io/github/kabili207/zora-sharp/coverage.svg?branch=master)](https://codecov.io/github/kabili207/zora-sharp?branch=master) [![documentation](http://kabili207.github.io/zora-sharp/api-doc/badge.svg)](http://kabili207.github.io/zora-sharp/api-doc/)
 
 A library for working with the password system used in the Legend of Zelda Oracle of Ages and Oracle of Seasons games.
 Inspired by the [original password generator](http://home.earthlink.net/~paul3/zeldagbc.html) written by
@@ -50,6 +50,7 @@ None of the fields are required; the ZoraSharp library will load whatever is pre
 cannot be guaranteed for other libraries that implement the `.zora` save file.
 
 ## Using the library
+Full documentation for the current stable release of ZoraSharp can be found at http://kabili207.github.io/zora-sharp/api-doc/. Below are functions to handle the most common scenarios.
 
 ### Regions
 There are two supported regions, `US` and `JP`. (The PAL region is
