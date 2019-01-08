@@ -39,8 +39,9 @@ after_test:
       nuget install EWSoftware.SHFB.NETFramework;
       msbuild ZoraSharp.shfbproj /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll" /p:Configuration=$env:CONFIGURATION;
       7z a -tzip api_doc.zip $env:APPVEYOR_BUILD_FOLDER\doc\api-doc\*;
+      Invoke-WebRequest -Uri "https://img.shields.io/badge/docs-$($env:APPVEYOR_REPO_TAG_NAME)-blue.svg" -OutFile $env:APPVEYOR_BUILD_FOLDER\doc\api-doc\badge.svg;
       git -C doc add api-doc;
-      git -C doc commit -m "Update API documentation for $($env:APPVEYOR_TAG_NAME)";
+      git -C doc commit -m "Update API documentation for $($env:APPVEYOR_REPO_TAG_NAME)";
       git -C doc push -q origin gh-pages;
       }
 
