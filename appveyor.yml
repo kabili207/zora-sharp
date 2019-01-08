@@ -1,4 +1,4 @@
-version: 2.1.{build}
+version: 2.3.{build}
 configuration: Debug
 
 image: Visual Studio 2017
@@ -28,11 +28,11 @@ after_test:
   - ps: >-
       If ($env:APPVEYOR_REPO_TAG -eq "true") {
       echo "Building API documentation";
-      git config --global credential.helper store
-      Add-Content "$env:USERPROFILE\.git-credentials" "https://$($env:github_token):x-oauth-basic@github.com`n"
-      git config --global user.email "$($env:github_email)"
-      git config --global user.name "Amy Nagle"
-      git config --global core.safecrlf false
+      git config --global credential.helper store;
+      Add-Content "$env:USERPROFILE\.git-credentials" "https://$($env:github_token):x-oauth-basic@github.com`n";
+      git config --global user.email "$($env:github_email)";
+      git config --global user.name "Amy Nagle";
+      git config --global core.safecrlf false;
       git clone -q -b gh-pages --single-branch https://github.com/kabili207/zora-sharp.git doc;
       $env:SHFBROOT = "$($env:APPVEYOR_BUILD_FOLDER)\EWSoftware.SHFB\Tools\";
       nuget install EWSoftware.SHFB -ExcludeVersion;
