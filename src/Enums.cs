@@ -217,4 +217,73 @@ namespace Zyrenth.Zora
 		[RingInfo("Protection Ring", "Damage taken is always one Heart")]
 		ProtectionRing = unchecked((long)0x8000000000000000L)
 	}
+
+	/// <summary>
+	/// The calculated behavior of the child
+	/// </summary>
+	public enum ChildBehavior
+	{
+		None,
+		Curious,
+		Shy,
+		Hyperactive
+	}
+
+	/// <summary>
+	/// The number of rupees given to Blossom
+	/// </summary>
+	public enum RupeesGiven
+	{
+		/// <summary>
+		/// 1 Rupee
+		/// </summary>
+		_1 = 0,
+		/// <summary>
+		/// 10 Rupees
+		/// </summary>
+		_10 = 2,
+		/// <summary>
+		/// 50 Rupees
+		/// </summary>
+		_50 = 5,
+		/// <summary>
+		/// 150 Rupees
+		/// </summary>
+		_150 = 8
+	}
+
+	/// <summary>
+	/// How Blossom should help the child go to sleep
+	/// </summary>
+	public enum SleepMethod
+	{
+		Sing = 0,
+		Play = 10,
+	}
+
+	/// <summary>
+	/// Response to question about what kind of child the player was
+	/// </summary>
+	public enum KindOfChild
+	{
+		None = 0,
+		Weird = 1,
+		Quiet = 5,
+		Hyperactive = 8,
+	}
+
+	/// <summary>
+	/// Response to the child's question
+	/// </summary>
+	public enum ChildQuestion
+	{
+		/// <summary>
+		/// Either No or Egg, depending on the question asked
+		/// </summary>
+		NoOrEgg = 0,
+		/// <summary>
+		/// Either Yes or Chicken, depending on the question asked
+		/// </summary>
+		YesOrChicken = 4,
+	}
 }

@@ -82,5 +82,21 @@ namespace Zyrenth.Zora
 			return val;
 		}
 
+		/// <summary>
+		/// Gets the <seealso cref="System.Text.Encoding"/> associated with the specified <paramref name="region"/>
+		/// </summary>
+		/// <param name="region">The region of the game</param>
+		/// <returns></returns>
+		public static Encoding GetEncoding(this GameRegion region)
+		{
+			if (region == GameRegion.US)
+			{
+				return new USEncoding();
+			}
+			else
+			{
+				return new JapaneseEncoding();
+			}
+		}
 	}
 }
