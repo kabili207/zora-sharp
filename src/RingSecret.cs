@@ -70,15 +70,6 @@ namespace Zyrenth.Zora
 		/// specified game <paramref name="info"/>.
 		/// </summary>
 		/// <param name="info">The game information.</param>
-		public RingSecret(GameInfo info) :
-			this(info.GameID, info.Region, info.Rings)
-		{
-		}
-
-		/// <summary>
-		/// Loads in data from the specified game info
-		/// </summary>
-		/// <param name="info">The game info</param>
 		/// <example>
 		/// <code language="C#">
 		/// GameInfo info = new GameInfo()
@@ -90,12 +81,11 @@ namespace Zyrenth.Zora
 		/// secret.Load(info);
 		/// </code>
 		/// </example>
-		public override void Load(GameInfo info)
+		public RingSecret(GameInfo info) :
+			this(info.GameID, info.Region, info.Rings)
 		{
-			Region = info.Region;
-			GameID = info.GameID;
-			Rings = info.Rings;
 		}
+
 
 		/// <summary>
 		/// Loads in data from the raw secret data provided

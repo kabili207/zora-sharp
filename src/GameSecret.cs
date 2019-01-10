@@ -179,20 +179,12 @@ namespace Zyrenth.Zora
 			IsHeroQuest = isHeroQuest;
 			WasGivenFreeRing = wasGivenFreeRing;
 		}
+
 		/// <summary>
 		/// Initializes a new instance of the <see cref="GameSecret"/> class from the
 		/// specified game <paramref name="info"/>.
 		/// </summary>
 		/// <param name="info">The game information.</param>
-		public GameSecret(GameInfo info) :
-			this(info.Region, info.GameID, info.Game, info.Hero, info.Child, info.Animal, info.Behavior, info.IsLinkedGame, info.IsHeroQuest, info.WasGivenFreeRing)
-		{
-		}
-
-		/// <summary>
-		/// Loads in data from the specified game info
-		/// </summary>
-		/// <param name="info">The game info</param>
 		/// <example>
 		/// <code language="C#">
 		/// GameInfo info = new GameInfo()
@@ -207,22 +199,12 @@ namespace Zyrenth.Zora
 		///     IsHeroQuest = false,
 		///     WasGivenFreeRing = true
 		/// };
-		/// GameSecret secret = new GameSecret();
-		/// secret.Load(info);
+		/// GameSecret secret = new GameSecret(info);
 		/// </code>
 		/// </example>
-		public override void Load(GameInfo info)
+		public GameSecret(GameInfo info) :
+			this(info.Region, info.GameID, info.Game, info.Hero, info.Child, info.Animal, info.Behavior, info.IsLinkedGame, info.IsHeroQuest, info.WasGivenFreeRing)
 		{
-			Region = info.Region;
-			GameID = info.GameID;
-			TargetGame = info.Game;
-			Hero = info.Hero;
-			Child = info.Child;
-			Animal = info.Animal;
-			Behavior = info.Behavior;
-			IsLinkedGame = info.IsLinkedGame;
-			IsHeroQuest = info.IsHeroQuest;
-			WasGivenFreeRing = info.WasGivenFreeRing;
 		}
 
 		/// <summary>

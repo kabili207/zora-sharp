@@ -80,6 +80,17 @@ namespace Zyrenth.Zora
 		/// <param name="info">The game information.</param>
 		/// <param name="memory">The memory.</param>
 		/// <param name="isReturnSecret">if set to <c>true</c> is return secret.</param>
+		/// <example>
+		/// <code language="C#">
+		/// GameInfo info = new GameInfo()
+		/// {
+		///     Region = GameRegion.US,
+		///     Game = Game.Ages,
+		///     GameID = 14129
+		/// };
+		/// MemorySecret secret = new MemorySecret(info, Memory.ClockShopKingZora, true);
+		/// </code>
+		/// </example>
 		public MemorySecret(GameInfo info, Memory memory, bool isReturnSecret)
 			: this(info.Game, info.Region, info.GameID, memory, isReturnSecret) { }
 
@@ -99,34 +110,6 @@ namespace Zyrenth.Zora
 			GameID = gameId;
 			Memory = memory;
 			IsReturnSecret = isReturnSecret;
-		}
-
-		/// <summary>
-		/// Loads in data from the specified game info
-		/// </summary>
-		/// <param name="info">The game info</param>
-		/// <remarks>
-		/// Because <see cref="GameInfo"/> does not contain information about
-		/// memories, only the properties <see cref="TargetGame"/> and
-		/// <see cref="Secret.GameID"/> will be populated by this method.
-		/// </remarks>
-		/// <example>
-		/// <code language="C#">
-		/// GameInfo info = new GameInfo()
-		/// {
-		///     Region = GameRegion.US,
-		///     Game = Game.Ages,
-		///     GameID = 14129
-		/// };
-		/// MemorySecret secret = new MemorySecret();
-		/// secret.Load(info);
-		/// </code>
-		/// </example>
-		public override void Load(GameInfo info)
-		{
-			Region = info.Region;
-			TargetGame = info.Game;
-			GameID = info.GameID;
 		}
 
 		/// <summary>

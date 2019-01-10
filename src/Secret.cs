@@ -96,12 +96,6 @@ namespace Zyrenth.Zora
 		}
 
 		/// <summary>
-		/// Loads in data from the specified game info
-		/// </summary>
-		/// <param name="info">The game info</param>
-		public abstract void Load(GameInfo info);
-
-		/// <summary>
 		/// Loads in data from the raw secret data provided
 		/// </summary>
 		/// <param name="secret">The raw secret data</param>

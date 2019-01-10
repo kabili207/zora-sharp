@@ -60,19 +60,6 @@ namespace Zyrenth.Zora.Tests
 		}
 
 		[Test]
-		public void LoadFromGameInfo()
-		{
-			var secret = new MemorySecret()
-			{
-				Region = GameRegion.US,
-				Memory = Memory.ClockShopKingZora,
-				IsReturnSecret = true
-			};
-			secret.Load(GameInfoTest.DesiredInfo);
-			Assert.AreEqual(desiredSecret, secret);
-		}
-
-		[Test]
 		public void LoadFromGameInfoConstuct()
 		{
 			var secret = new MemorySecret(GameInfoTest.DesiredInfo, Memory.ClockShopKingZora, true);
