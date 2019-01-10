@@ -77,6 +77,12 @@ namespace Zyrenth.Zora
 				{ "pi", "ぴ" }, { "pu", "ぷ" },{ "pe", "ぺ" },
 				{ "bo", "ぼ" },
 				{ "n", "ん" },
+				// Alternate transliterations
+				{ "shi", "し" }, // si
+				{ "chi", "ち" }, // ti
+				{ "tsu", "つ" }, // tu
+				{ "fu", "ふ" }, // hu
+				// Spaces!
 				{ @"\s+", "" },
 			},
 			// US/PAL
