@@ -83,7 +83,7 @@ namespace Zyrenth.Zora
 		}
 
 		/// <summary>
-		/// Gets the <seealso cref="System.Text.Encoding"/> associated with the specified <paramref name="region"/>
+		/// Gets the <see cref="System.Text.Encoding"/> associated with the specified <paramref name="region"/>
 		/// </summary>
 		/// <param name="region">The region of the game</param>
 		/// <returns></returns>

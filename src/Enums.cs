@@ -237,19 +237,19 @@ namespace Zyrenth.Zora
 		/// <summary>
 		/// 1 Rupee
 		/// </summary>
-		_1 = 0,
+		One = 0,
 		/// <summary>
 		/// 10 Rupees
 		/// </summary>
-		_10 = 2,
+		Ten = 2,
 		/// <summary>
 		/// 50 Rupees
 		/// </summary>
-		_50 = 5,
+		Fifty = 5,
 		/// <summary>
 		/// 150 Rupees
 		/// </summary>
-		_150 = 8
+		OneHundredFifty = 8
 	}
 
 	/// <summary>

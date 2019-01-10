@@ -13,11 +13,11 @@ namespace Zyrenth.Zora
 		/// <summary>
 		/// Gets the value of the child's behavior based on reponses to questions asked
 		/// </summary>
-		/// <param name="name">The name of the child</param>
 		/// <param name="region">The region of the game</param>
+		/// <param name="name">The name of the child</param>
 		/// <returns></returns>
-		public static byte GetValue(string name, GameRegion region)
-		{
+		public static byte GetValue(GameRegion region, string name)
+        {
 			Encoding encoding = region.GetEncoding();
 			byte[] bytes = encoding.GetBytes(name);
 			int value = 0;
@@ -35,29 +35,29 @@ namespace Zyrenth.Zora
 		/// <summary>
 		/// Gets the value of the child's behavior based on reponses to questions asked
 		/// </summary>
-		/// <param name="name">The name of the child</param>
 		/// <param name="region">The region of the game</param>
+		/// <param name="name">The name of the child</param>
 		/// <param name="rupeesGiven">The number of rupees given</param>
 		/// <param name="sleepMethod">The method used to help the child sleep</param>
 		/// <returns></returns>
-		public static byte GetValue(string name, GameRegion region, RupeesGiven rupeesGiven, SleepMethod sleepMethod)
-		{
-			return (byte)( GetValue(name, region) + (int)rupeesGiven + (int)sleepMethod );
+		public static byte GetValue(GameRegion region, string name, RupeesGiven rupeesGiven, SleepMethod sleepMethod)
+        {
+			return (byte)( GetValue(region, name) + (int)rupeesGiven + (int)sleepMethod );
 		}
 
 		/// <summary>
 		/// Gets the value of the child's behavior based on reponses to questions asked
 		/// </summary>
-		/// <param name="name">The name of the child</param>
 		/// <param name="region">The region of the game</param>
+		/// <param name="name">The name of the child</param>
 		/// <param name="rupeesGiven">The number of rupees given</param>
 		/// <param name="sleepMethod">The method used to help the child sleep</param>
 		/// <param name="childsQuestion">The response to the child's question</param>
 		/// <param name="kindOfChild">Kind of child the player was</param>
 		/// <returns></returns>
-		public static byte GetValue(string name, GameRegion region, RupeesGiven rupeesGiven, SleepMethod sleepMethod, ChildQuestion childsQuestion, KindOfChild kindOfChild)
-		{
-			return (byte)( GetValue(name, region, rupeesGiven, sleepMethod) + (int)childsQuestion + (int)kindOfChild);
+		public static byte GetValue(GameRegion region, string name, RupeesGiven rupeesGiven, SleepMethod sleepMethod, ChildQuestion childsQuestion, KindOfChild kindOfChild)
+        {
+			return (byte)( GetValue(region, name, rupeesGiven, sleepMethod) + (int)childsQuestion + (int)kindOfChild);
 		}
 
 		/// <summary>
@@ -65,7 +65,7 @@ namespace Zyrenth.Zora
 		/// </summary>
 		/// <param name="value">The raw behavior value</param>
 		/// <returns></returns>
-		public static ChildBehavior GetPersonality(byte value)
+		public static ChildBehavior GetBehavior(byte value)
 		{
 			if (value == 0) return ChildBehavior.None;
 			if (value < 6) return ChildBehavior.Curious;
