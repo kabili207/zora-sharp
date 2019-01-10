@@ -35,7 +35,6 @@ namespace Zyrenth.Zora.Tests
 
 			IEnumerable<GameInfo> infos = BatteryFileLoader.LoadAll(tempFile, GameRegion.US);
 			Assert.AreEqual(2, infos.Count());
-			//Assert.AreEqual(GameInfoTest.DesiredInfo, infos.First());
 		}
 
 		[Test]
@@ -56,7 +55,6 @@ namespace Zyrenth.Zora.Tests
 			var test = new GameInfo();
 			gs.Load("かね69わ 4さをれか さ7ちわも るこぴりお", GameRegion.JP);
 			gs.UpdateGameInfo(test);
-			//Assert.AreEqual(1, infos.Count());
 			Assert.AreEqual(test, info);
 		}
 	}

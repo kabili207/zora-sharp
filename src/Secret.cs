@@ -244,7 +244,7 @@ namespace Zyrenth.Zora
 			byte[] secret = new byte[data.Length / 6 + 1];
 			for (int i = 0; i < secret.Length - 1; ++i)
 			{
-				secret[i] = (byte)( Convert.ToByte(data.Substring(i * 6, 6), 2) );
+				secret[i] = Convert.ToByte(data.Substring(i * 6, 6), 2);
 			}
 			return secret;
 		}

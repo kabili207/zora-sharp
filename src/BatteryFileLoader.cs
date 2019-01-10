@@ -28,7 +28,7 @@ namespace Zyrenth.Zora
 	/// <summary>
 	/// Battery file loader.
 	/// </summary>
-	public class BatteryFileLoader
+	public static class BatteryFileLoader
 	{
 		/// <summary>
 		/// The offset for slot 1

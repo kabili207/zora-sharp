@@ -29,7 +29,7 @@ namespace Zyrenth.Zora
 	/// </summary>
 	public class USEncoding : Encoding
 	{
-		private char[] characters =
+		private readonly char[] characters =
 		{
 			'●','♣','♦','♠','\0','↑','↓','←','→','\0','\0','「','」','·','\0','。',
 			' ','!','"','#','$','%','&','\'','(',')','*','+',',','-','.','/',

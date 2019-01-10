@@ -51,21 +51,7 @@ namespace Zyrenth.Zora
 		/// <summary>
 		/// Gets the assembly's file version
 		/// </summary>
-		public string FileVersion
-		{
-			get
-			{
-				Version version = _asm.GetName().Version;
-				if (version is null)
-				{
-					return version.ToString();
-				}
-				else
-				{
-					return "0.0.0.0";
-				}
-			}
-		}
+		public string FileVersion => _asm.GetName().Version?.ToString() ?? "0.0.0.0";
 
 		/// <summary>
 		///  Gets the assembly's full name.

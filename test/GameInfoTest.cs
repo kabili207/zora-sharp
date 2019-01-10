@@ -99,7 +99,7 @@ namespace Zyrenth.Zora.Tests
 			var info = new GameInfo();
 			GameSecretTest.DesiredSecret.UpdateGameInfo(info);
 			RingSecretTest.DesiredSecret.UpdateGameInfo(info, false);
-			Assert.AreEqual(GameInfoTest.DesiredInfo, info);
+			Assert.AreEqual(DesiredInfo, info);
 		}
 
 		[Test]

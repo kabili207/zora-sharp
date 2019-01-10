@@ -30,7 +30,7 @@ namespace Zyrenth.Zora
 	/// Represents the exception that is thrown when a secret is invalid.
 	/// </summary>
 	[Serializable]
-	public class UnknownMemoryException : SecretException, ISerializable
+	public class UnknownMemoryException : SecretException
 	{
 		/// <summary>
 		/// Initializes a new instance of the <see cref="UnknownMemoryException"/> class.

@@ -145,7 +145,7 @@ namespace Zyrenth.Zora
 		/// </summary>
 		public byte Behavior
 		{
-			get => (byte)_behavior;
+			get => _behavior;
 			set => SetProperty(ref _behavior, value, "Behavior");
 		}
 

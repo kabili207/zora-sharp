@@ -48,7 +48,7 @@ namespace Zyrenth.Zora
 		private short _gameId = 0;
 		private byte _behavior = 0;
 		private byte _animal = 0;
-		private byte _agesSeasons = 0;
+		private Game _game = 0;
 		private bool _isHeroQuest = false;
 		private bool _isLinkedGame = false;
 		private long _rings = 0L;
@@ -82,15 +82,8 @@ namespace Zyrenth.Zora
 		/// </summary>
 		public Game Game
 		{
-			get => (Game)_agesSeasons;
-			set {
-				if (( value < 0 ) || ( (int)value > byte.MaxValue ))
-				{
-					throw new ArgumentOutOfRangeException(nameof(value));
-				}
-
-				SetProperty(ref _agesSeasons, (byte)value, "Game");
-			}
+			get => _game;
+			set => SetProperty(ref _game, value, "Game");
 		}
 
 		/// <summary>
@@ -181,7 +174,7 @@ namespace Zyrenth.Zora
 		/// </summary>
 		public byte Behavior
 		{
-			get => (byte)_behavior;
+			get => _behavior;
 			set => SetProperty(ref _behavior, value, "Behavior");
 		}
 
@@ -382,7 +375,7 @@ namespace Zyrenth.Zora
 			return
 				( _region == g._region ) &&
 				( _gameId == g._gameId ) &&
-				( _agesSeasons == g._agesSeasons ) &&
+				( _game == g._game ) &&
 				( _hero == g._hero ) &&
 				( _child == g._child ) &&
 				( _behavior == g._behavior ) &&
@@ -404,7 +397,7 @@ namespace Zyrenth.Zora
 		{
 			return _region.GetHashCode() ^
 				_gameId.GetHashCode() ^
-				_agesSeasons.GetHashCode() ^
+				_game.GetHashCode() ^
 				_hero.GetHashCode() ^
 				_child.GetHashCode() ^
 				_behavior.GetHashCode() ^

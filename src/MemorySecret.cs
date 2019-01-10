@@ -223,7 +223,7 @@ namespace Zyrenth.Zora
 				cipher = _isReturnSecret ? 1 : 2;
 			}
 
-			cipher |= ( ( (byte)_memory & 1 ) << 2 );
+			cipher |= ( ( _memory & 1 ) << 2 );
 			cipher = ( ( GameID >> 8 ) + ( GameID & 255 ) + cipher ) & 7;
 			cipher = Convert.ToInt32(Convert.ToString(cipher, 2).PadLeft(3, '0').Reverse(), 2);
 
@@ -232,7 +232,7 @@ namespace Zyrenth.Zora
 			unencodedSecret += "11"; // memory secret
 
 			unencodedSecret += Convert.ToString(GameID, 2).PadLeft(15, '0').Reverse();
-			unencodedSecret += Convert.ToString((byte)_memory, 2).PadLeft(4, '0').Reverse();
+			unencodedSecret += Convert.ToString(_memory, 2).PadLeft(4, '0').Reverse();
 
 			int mask = 0;
 

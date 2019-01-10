@@ -30,7 +30,7 @@ namespace Zyrenth.Zora
 	/// Represents the exception that is thrown when a secret is invalid.
 	/// </summary>
 	[Serializable]
-	public class InvalidChecksumException : SecretException, ISerializable
+	public class InvalidChecksumException : SecretException
 	{
 		/// <summary>
 		/// Initializes a new instance of the <see cref="InvalidChecksumException"/> class.
