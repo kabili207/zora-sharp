@@ -11,7 +11,7 @@ namespace Zyrenth.Zora.Tests
 	{
 
 		[Test]
-		public void TestGetInitial()
+		public void GetInitial()
 		{
 			Assert.AreEqual(1, ChildBehaviorHelper.GetValue(GameRegion.US, "Pip"));
 			Assert.AreEqual(2, ChildBehaviorHelper.GetValue(GameRegion.JP, "Pazu"));
@@ -20,7 +20,8 @@ namespace Zyrenth.Zora.Tests
 			Assert.AreEqual(3, ChildBehaviorHelper.GetValue(GameRegion.US, "Derp"));
 		}
 
-		public void TestGetValueLinked()
+		[Test]
+		public void GetValueForLinked()
 		{
 			Assert.AreEqual(13, ChildBehaviorHelper.GetValue(GameRegion.US, "Pip", RupeesGiven.Ten, SleepMethod.Play));
 			Assert.AreEqual(3, ChildBehaviorHelper.GetValue(GameRegion.US, "Pip", RupeesGiven.Ten, SleepMethod.Sing));
@@ -28,7 +29,8 @@ namespace Zyrenth.Zora.Tests
 			Assert.AreEqual(6, ChildBehaviorHelper.GetValue(GameRegion.US, "Pip", RupeesGiven.Fifty, SleepMethod.Sing));
 		}
 
-		public void TestGetValueHero()
+		[Test]
+		public void GetValueForHero()
 		{
 			Assert.AreEqual(13, ChildBehaviorHelper.GetValue(GameRegion.US, "Pip", RupeesGiven.One, SleepMethod.Sing,
                 ChildQuestion.YesOrChicken, KindOfChild.Hyperactive));
@@ -40,7 +42,8 @@ namespace Zyrenth.Zora.Tests
                 ChildQuestion.YesOrChicken, KindOfChild.Weird));
 		}
 
-		public void TestGetBehavior()
+		[Test]
+		public void GetBehavior()
 		{
 			Assert.AreEqual(ChildBehavior.None, ChildBehaviorHelper.GetBehavior(0));
 			Assert.AreEqual(ChildBehavior.Curious, ChildBehaviorHelper.GetBehavior(2));

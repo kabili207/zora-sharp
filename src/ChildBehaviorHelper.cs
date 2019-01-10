@@ -17,7 +17,7 @@ namespace Zyrenth.Zora
 		/// <param name="name">The name of the child</param>
 		/// <returns></returns>
 		public static byte GetValue(GameRegion region, string name)
-        {
+		{
 			Encoding encoding = region.GetEncoding();
 			byte[] bytes = encoding.GetBytes(name);
 			int value = 0;
@@ -41,7 +41,7 @@ namespace Zyrenth.Zora
 		/// <param name="sleepMethod">The method used to help the child sleep</param>
 		/// <returns></returns>
 		public static byte GetValue(GameRegion region, string name, RupeesGiven rupeesGiven, SleepMethod sleepMethod)
-        {
+		{
 			return (byte)( GetValue(region, name) + (int)rupeesGiven + (int)sleepMethod );
 		}
 
@@ -56,8 +56,8 @@ namespace Zyrenth.Zora
 		/// <param name="kindOfChild">Kind of child the player was</param>
 		/// <returns></returns>
 		public static byte GetValue(GameRegion region, string name, RupeesGiven rupeesGiven, SleepMethod sleepMethod, ChildQuestion childsQuestion, KindOfChild kindOfChild)
-        {
-			return (byte)( GetValue(region, name, rupeesGiven, sleepMethod) + (int)childsQuestion + (int)kindOfChild);
+		{
+			return (byte)( GetValue(region, name, rupeesGiven, sleepMethod) + (int)childsQuestion + (int)kindOfChild );
 		}
 
 		/// <summary>
