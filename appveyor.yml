@@ -9,9 +9,16 @@ environment:
     secure: UTLYBi+fA9DfITcCNVwGyJw5MGEvXeawqBzd7U6q9agG5u5gTwIc7LxqdxAVWhSC
   github_email:
     secure: N1sJz+EugtLJ1e1jR232oYKnskaCKJlQHmL3EruztHE=
+  sonar_token:
+    secure: vTWxLNbvNn2Pyg2jicVTzMRsrs4n2avCvgJ6CNG8euQsB8+bHZDz1DUCE1GbnI9M
 
 before_build:
-- nuget restore ZoraSharp.sln
+- ps: >-
+    nuget restore ZoraSharp.sln;
+    if (-Not $env:APPVEYOR_PULL_REQUEST_NUMBER) {
+     choco install "msbuild-sonarqube-runner" -y;
+     SonarScanner.MSBuild.exe begin /k:"zora-sharp" /d:sonar.organization="kabili207-github" /d:sonar.host.url="https://sonarcloud.io" /d:sonar.login="$env:sonar_token" /v:"$env:APPVEYOR_BUILD_NUMBER" /d:sonar.cs.nunit.reportsPaths="$env:APPVEYOR_BUILD_FOLDER\nunit-results.xml" /d:sonar.cs.opencover.reportsPaths="$env:APPVEYOR_BUILD_FOLDER\coverage.xml";
+    }
 
 build:
   project: ZoraSharp.sln
@@ -19,13 +26,15 @@ build:
 
 test_script:
 - nuget.exe install OpenCover -ExcludeVersion
-- OpenCover\tools\OpenCover.Console.exe -register:user -target:nunit3-console.exe -targetargs:"test\bin\%CONFIGURATION%\ZoraSharp.Tests.dll --result=myresults.xml;format=AppVeyor" -returntargetcode -filter:"+[*]* -[ZoraSharp.Tests]* -[ZoraSharp]*Exception -[ZoraSharp]SimpleJson.* -[ZoraSharp]*.AssemblyDetail -[ZoraSharp]*.Attributes" -excludebyattribute:"*.ExcludeFromCodeCoverage*" -hideskipped:All -output:coverage.xml
-- "SET PATH=C:\\Python34;C:\\Python34\\Scripts;%PATH%"
-- pip install codecov
-- codecov -f "coverage.xml" -X gcov
+- OpenCover\tools\OpenCover.Console.exe -register:user -target:nunit3-console.exe -targetargs:"test\bin\%CONFIGURATION%\ZoraSharp.Tests.dll --result=myresults.xml;format=AppVeyor --result=nunit-results.xml;format=nunit3" -returntargetcode -filter:"+[*]* -[ZoraSharp.Tests]* -[ZoraSharp]*Exception -[ZoraSharp]SimpleJson.* -[ZoraSharp]*.AssemblyDetail -[ZoraSharp]*.Attributes" -excludebyattribute:"*.ExcludeFromCodeCoverage*" -hideskipped:All -output:coverage.xml
+- C:\Python36\python -m pip install codecov
+- C:\Python36\python -m codecov -f "%APPVEYOR_BUILD_FOLDER%\coverage.xml" -X gcov
 
 after_test:
   - ps: >-
+      If (-Not $env:APPVEYOR_PULL_REQUEST_NUMBER) {
+      SonarScanner.MSBuild.exe end /d:sonar.login="$env:sonar_token"
+      }
       If ($env:APPVEYOR_REPO_TAG -eq "true") {
       echo "Building API documentation";
       git config --global credential.helper store;
