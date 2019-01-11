@@ -83,7 +83,7 @@ namespace Zyrenth.Zora
 		public short GameID
 		{
 			get => _gameId;
-			set => SetProperty(ref _gameId, value, "GameID");
+			set => SetProperty(ref _gameId, value, nameof(GameID));
 		}
 
 		/// <summary>
@@ -92,7 +92,7 @@ namespace Zyrenth.Zora
 		public GameRegion Region
 		{
 			get => _region;
-			set => SetProperty(ref _region, value, "Region");
+			set => SetProperty(ref _region, value, nameof(Region));
 		}
 
 		/// <summary>

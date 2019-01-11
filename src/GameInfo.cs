@@ -74,7 +74,7 @@ namespace Zyrenth.Zora
 		public GameRegion Region
 		{
 			get => _region;
-			set => SetProperty(ref _region, value, "Region");
+			set => SetProperty(ref _region, value, nameof(Region));
 		}
 
 		/// <summary>
@@ -83,7 +83,7 @@ namespace Zyrenth.Zora
 		public Game Game
 		{
 			get => _game;
-			set => SetProperty(ref _game, value, "Game");
+			set => SetProperty(ref _game, value, nameof(Game));
 		}
 
 		/// <summary>
@@ -92,7 +92,7 @@ namespace Zyrenth.Zora
 		public bool IsHeroQuest
 		{
 			get => _isHeroQuest;
-			set => SetProperty(ref _isHeroQuest, value, "IsHeroQuest");
+			set => SetProperty(ref _isHeroQuest, value, nameof(IsHeroQuest));
 		}
 
 		/// <summary>
@@ -101,7 +101,7 @@ namespace Zyrenth.Zora
 		public bool IsLinkedGame
 		{
 			get => _isLinkedGame;
-			set => SetProperty(ref _isLinkedGame, value, "IsLinkedGame");
+			set => SetProperty(ref _isLinkedGame, value, nameof(IsLinkedGame));
 		}
 
 		/// <summary>
@@ -110,7 +110,7 @@ namespace Zyrenth.Zora
 		public short GameID
 		{
 			get => _gameId;
-			set => SetProperty(ref _gameId, value, "GameID");
+			set => SetProperty(ref _gameId, value, nameof(GameID));
 		}
 
 		/// <summary>
@@ -129,7 +129,7 @@ namespace Zyrenth.Zora
 					value = value.TrimEnd().PadRight(5, '\0');
 				}
 
-				SetProperty(ref _hero, value, "Hero");
+				SetProperty(ref _hero, value, nameof(Hero));
 			}
 		}
 
@@ -149,7 +149,7 @@ namespace Zyrenth.Zora
 					value = value.TrimEnd().PadRight(5, '\0');
 				}
 
-				SetProperty(ref _child, value, "Child");
+				SetProperty(ref _child, value, nameof(Child));
 			}
 		}
 
@@ -165,7 +165,7 @@ namespace Zyrenth.Zora
 					throw new ArgumentOutOfRangeException(nameof(value));
 				}
 
-				SetProperty(ref _animal, (byte)value, "Animal");
+				SetProperty(ref _animal, (byte)value, nameof(Animal));
 			}
 		}
 
@@ -175,7 +175,7 @@ namespace Zyrenth.Zora
 		public byte Behavior
 		{
 			get => _behavior;
-			set => SetProperty(ref _behavior, value, "Behavior");
+			set => SetProperty(ref _behavior, value, nameof(Behavior));
 		}
 
 		/// <summary>
@@ -184,7 +184,7 @@ namespace Zyrenth.Zora
 		public bool WasGivenFreeRing
 		{
 			get => _wasGivenFreeRing;
-			set => SetProperty(ref _wasGivenFreeRing, value, "WasGivenFreeRing");
+			set => SetProperty(ref _wasGivenFreeRing, value, nameof(WasGivenFreeRing));
 		}
 
 		/// <summary>
@@ -193,7 +193,7 @@ namespace Zyrenth.Zora
 		public Rings Rings
 		{
 			get => (Rings)_rings;
-			set => SetProperty(ref _rings, (long)value, "Rings");
+			set => SetProperty(ref _rings, (long)value, nameof(Rings));
 		}
 
 		#endregion // Properties

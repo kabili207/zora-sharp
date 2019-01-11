@@ -45,7 +45,7 @@ namespace Zyrenth.Zora
 		public Memory Memory
 		{
 			get => (Memory)_memory;
-			set => SetProperty(ref _memory, (byte)value, "Memory");
+			set => SetProperty(ref _memory, (byte)value, nameof(Memory));
 		}
 
 		/// <summary>
@@ -54,7 +54,7 @@ namespace Zyrenth.Zora
 		public Game TargetGame
 		{
 			get => (Game)_targetGame;
-			set => SetProperty(ref _targetGame, (byte)value, "Game");
+			set => SetProperty(ref _targetGame, (byte)value, nameof(TargetGame));
 		}
 
 		/// <summary>
@@ -66,7 +66,7 @@ namespace Zyrenth.Zora
 		public bool IsReturnSecret
 		{
 			get => _isReturnSecret;
-			set => SetProperty(ref _isReturnSecret, value, "IsReturnSecret");
+			set => SetProperty(ref _isReturnSecret, value, nameof(IsReturnSecret));
 		}
 
 		/// <summary>

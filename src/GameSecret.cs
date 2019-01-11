@@ -70,7 +70,7 @@ namespace Zyrenth.Zora
 		public Game TargetGame
 		{
 			get => _targetGame;
-			set => SetProperty(ref _targetGame, value, "Game");
+			set => SetProperty(ref _targetGame, value, nameof(TargetGame));
 		}
 
 		/// <summary>
@@ -79,7 +79,7 @@ namespace Zyrenth.Zora
 		public bool IsHeroQuest
 		{
 			get => _isHeroQuest;
-			set => SetProperty(ref _isHeroQuest, value, "IsHeroQuest");
+			set => SetProperty(ref _isHeroQuest, value, nameof(IsHeroQuest));
 		}
 
 		/// <summary>
@@ -88,7 +88,7 @@ namespace Zyrenth.Zora
 		public bool IsLinkedGame
 		{
 			get => _isLinkedGame;
-			set => SetProperty(ref _isLinkedGame, value, "IsLinkedGame");
+			set => SetProperty(ref _isLinkedGame, value, nameof(IsLinkedGame));
 		}
 
 		/// <summary>
@@ -107,7 +107,7 @@ namespace Zyrenth.Zora
 					value = value.TrimEnd().PadRight(5, '\0');
 				}
 
-				SetProperty(ref _hero, value, "Hero");
+				SetProperty(ref _hero, value, nameof(Hero));
 			}
 		}
 
@@ -127,7 +127,7 @@ namespace Zyrenth.Zora
 					value = value.TrimEnd().PadRight(5, '\0');
 				}
 
-				SetProperty(ref _child, value, "Child");
+				SetProperty(ref _child, value, nameof(Child));
 			}
 		}
 
@@ -137,7 +137,7 @@ namespace Zyrenth.Zora
 		public Animal Animal
 		{
 			get => (Animal)_animal;
-			set => SetProperty(ref _animal, (byte)value, "Animal");
+			set => SetProperty(ref _animal, (byte)value, nameof(Animal));
 		}
 
 		/// <summary>
@@ -146,7 +146,7 @@ namespace Zyrenth.Zora
 		public byte Behavior
 		{
 			get => _behavior;
-			set => SetProperty(ref _behavior, value, "Behavior");
+			set => SetProperty(ref _behavior, value, nameof(Behavior));
 		}
 
 		/// <summary>
@@ -157,7 +157,7 @@ namespace Zyrenth.Zora
 			get => _wasGivenFreeRing;
 			set {
 				_wasGivenFreeRing = value;
-				SetProperty(ref _wasGivenFreeRing, value, "WasGivenFreeRing");
+				SetProperty(ref _wasGivenFreeRing, value, nameof(WasGivenFreeRing));
 			}
 		}
 

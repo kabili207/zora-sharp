@@ -43,7 +43,7 @@ namespace Zyrenth.Zora
 		public Rings Rings
 		{
 			get => (Rings)_rings;
-			set => SetProperty(ref _rings, (long)value, "Rings");
+			set => SetProperty(ref _rings, (long)value, nameof(Rings));
 		}
 
 		/// <summary>
