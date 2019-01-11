@@ -32,7 +32,7 @@ namespace Zyrenth.Zora
 	/// <summary>
 	/// A javascript converter for the <see cref="GameInfo"/> class
 	/// </summary>
-	public class GameInfoJsonConverter
+	internal class GameInfoJsonConverter
 	{
 
 		/// <summary>

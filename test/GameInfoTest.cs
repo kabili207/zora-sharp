@@ -103,14 +103,6 @@ namespace Zyrenth.Zora.Tests
 		}
 
 		[Test]
-		public void NullJsonConvert()
-		{
-			var converter = new GameInfoJsonConverter();
-			Assert.Throws<ArgumentNullException>(() => converter.Serialize(null));
-			Assert.Throws<ArgumentNullException>(() => converter.Deserialize(null));
-		}
-
-		[Test]
 		public void TestEquals()
 		{
 			var s2 = new GameInfo()
