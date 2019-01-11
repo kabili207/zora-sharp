@@ -34,6 +34,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssemblyDetail.cs" />
+    <Compile Include="BaseEncoding.cs" />
     <Compile Include="GameSecret.cs" />
     <Compile Include="SecretException.cs" />
     <Compile Include="MemorySecret.cs" />
