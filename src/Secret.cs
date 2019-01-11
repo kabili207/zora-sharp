@@ -21,6 +21,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 
 #if !BLAZOR
 using System.ComponentModel;
@@ -226,12 +227,12 @@ namespace Zyrenth.Zora
 		/// <returns>A string of ones and zeros</returns>
 		internal protected string ByteArrayToBinaryString(byte[] secret)
 		{
-			string data = "";
+			var data = new StringBuilder();
 			foreach (byte b in secret)
 			{
-				data += Convert.ToString(b, 2).PadLeft(6, '0');
+				data.Append(Convert.ToString(b, 2).PadLeft(6, '0'));
 			}
-			return data;
+			return data.ToString();
 		}
 
 		/// <summary>
