@@ -43,6 +43,11 @@ namespace Zyrenth.Zora
 			return new string(Enumerable.Reverse(value.Substring(start, length)).ToArray());
 		}
 
+		internal static string NullPad(this string value, int totalLength)
+		{
+			return ( value ?? "" ).TrimEnd().PadRight(totalLength, '\0').Substring(0, totalLength);
+		}
+
 		/// <summary>
 		/// Reads the value of the dictionary in the specified key and casts it to the specified type.
 		/// </summary>

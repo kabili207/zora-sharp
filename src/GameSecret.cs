@@ -97,18 +97,7 @@ namespace Zyrenth.Zora
 		public string Hero
 		{
 			get => _hero.Trim(' ', '\0');
-			set {
-				if (string.IsNullOrWhiteSpace(value))
-				{
-					value = "\0\0\0\0\0";
-				}
-				else
-				{
-					value = value.TrimEnd().PadRight(5, '\0');
-				}
-
-				SetProperty(ref _hero, value, nameof(Hero));
-			}
+			set => SetProperty(ref _hero, value.NullPad(5), nameof(Hero));
 		}
 
 		/// <summary>
@@ -117,18 +106,7 @@ namespace Zyrenth.Zora
 		public string Child
 		{
 			get => _child.Trim(' ', '\0');
-			set {
-				if (string.IsNullOrWhiteSpace(value))
-				{
-					value = "\0\0\0\0\0";
-				}
-				else
-				{
-					value = value.TrimEnd().PadRight(5, '\0');
-				}
-
-				SetProperty(ref _child, value, nameof(Child));
-			}
+			set => SetProperty(ref _child, value.NullPad(5), nameof(Child));
 		}
 
 		/// <summary>
@@ -155,10 +133,7 @@ namespace Zyrenth.Zora
 		public bool WasGivenFreeRing
 		{
 			get => _wasGivenFreeRing;
-			set {
-				_wasGivenFreeRing = value;
-				SetProperty(ref _wasGivenFreeRing, value, nameof(WasGivenFreeRing));
-			}
+			set => SetProperty(ref _wasGivenFreeRing, value, nameof(WasGivenFreeRing));
 		}
 
 		/// <summary>
