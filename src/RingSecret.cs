@@ -19,9 +19,6 @@
  */
 
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace Zyrenth.Zora
 {
@@ -30,7 +27,7 @@ namespace Zyrenth.Zora
 	/// </summary>
 	public class RingSecret : Secret
 	{
-		private long _rings = 0L;
+		private long rings = 0L;
 
 		/// <summary>
 		/// Gets the required length of the secret
@@ -42,8 +39,8 @@ namespace Zyrenth.Zora
 		/// </summary>
 		public Rings Rings
 		{
-			get => (Rings)_rings;
-			set => SetProperty(ref _rings, (long)value, nameof(Rings));
+			get => (Rings)rings;
+			set => SetProperty(ref rings, (long)value, nameof(Rings));
 		}
 
 		/// <summary>
@@ -145,7 +142,7 @@ namespace Zyrenth.Zora
 				decodedSecret.ReversedSubstring(20, 8) +
 				decodedSecret.ReversedSubstring(52, 8)
 				, 2));
-			_rings = rings;
+			this.rings = rings;
 		}
 
 		/// <summary>
@@ -164,14 +161,14 @@ namespace Zyrenth.Zora
 		/// </example>
 		public override byte[] ToBytes()
 		{
-			byte ring1 = (byte)_rings;
-			byte ring2 = (byte)( _rings >> 8 );
-			byte ring3 = (byte)( _rings >> 16 );
-			byte ring4 = (byte)( _rings >> 24 );
-			byte ring5 = (byte)( _rings >> 32 );
-			byte ring6 = (byte)( _rings >> 40 );
-			byte ring7 = (byte)( _rings >> 48 );
-			byte ring8 = (byte)( _rings >> 56 );
+			byte ring1 = (byte)rings;
+			byte ring2 = (byte)( rings >> 8 );
+			byte ring3 = (byte)( rings >> 16 );
+			byte ring4 = (byte)( rings >> 24 );
+			byte ring5 = (byte)( rings >> 32 );
+			byte ring6 = (byte)( rings >> 40 );
+			byte ring7 = (byte)( rings >> 48 );
+			byte ring8 = (byte)( rings >> 56 );
 
 			int cipherKey = ( ( GameID >> 8 ) + ( GameID & 255 ) ) & 7;
 			string unencodedSecret = Convert.ToString(cipherKey, 2).PadLeft(3, '0').Reverse();
@@ -249,7 +246,7 @@ namespace Zyrenth.Zora
 
 			var g = (RingSecret)obj;
 
-			return base.Equals(g) && ( _rings == g._rings );
+			return base.Equals(g) && ( rings == g.rings );
 
 		}
 
@@ -261,7 +258,7 @@ namespace Zyrenth.Zora
 		/// </returns>
 		public override int GetHashCode()
 		{
-			return base.GetHashCode() ^ _rings.GetHashCode();
+			return base.GetHashCode() ^ rings.GetHashCode();
 		}
 	}
 }

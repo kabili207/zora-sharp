@@ -19,9 +19,6 @@
  */
 
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace Zyrenth.Zora
 {
@@ -30,9 +27,9 @@ namespace Zyrenth.Zora
 	/// </summary>
 	public class MemorySecret : Secret
 	{
-		private byte _memory = 0;
-		private bool _isReturnSecret = true;
-		private byte _targetGame = 0;
+		private byte memory = 0;
+		private bool isReturnSecret = true;
+		private byte targetGame = 0;
 
 		/// <summary>
 		/// Gets the required length of the secret
@@ -44,8 +41,8 @@ namespace Zyrenth.Zora
 		/// </summary>
 		public Memory Memory
 		{
-			get => (Memory)_memory;
-			set => SetProperty(ref _memory, (byte)value, nameof(Memory));
+			get => (Memory)memory;
+			set => SetProperty(ref memory, (byte)value, nameof(Memory));
 		}
 
 		/// <summary>
@@ -53,8 +50,8 @@ namespace Zyrenth.Zora
 		/// </summary>
 		public Game TargetGame
 		{
-			get => (Game)_targetGame;
-			set => SetProperty(ref _targetGame, (byte)value, nameof(TargetGame));
+			get => (Game)targetGame;
+			set => SetProperty(ref targetGame, (byte)value, nameof(TargetGame));
 		}
 
 		/// <summary>
@@ -65,8 +62,8 @@ namespace Zyrenth.Zora
 		/// </value>
 		public bool IsReturnSecret
 		{
-			get => _isReturnSecret;
-			set => SetProperty(ref _isReturnSecret, value, nameof(IsReturnSecret));
+			get => isReturnSecret;
+			set => SetProperty(ref isReturnSecret, value, nameof(IsReturnSecret));
 		}
 
 		/// <summary>
@@ -216,14 +213,14 @@ namespace Zyrenth.Zora
 			int cipher = 0;
 			if (TargetGame == Game.Ages)
 			{
-				cipher = _isReturnSecret ? 3 : 0;
+				cipher = isReturnSecret ? 3 : 0;
 			}
 			else
 			{
-				cipher = _isReturnSecret ? 1 : 2;
+				cipher = isReturnSecret ? 1 : 2;
 			}
 
-			cipher |= ( ( _memory & 1 ) << 2 );
+			cipher |= ( ( memory & 1 ) << 2 );
 			cipher = ( ( GameID >> 8 ) + ( GameID & 255 ) + cipher ) & 7;
 			cipher = Convert.ToInt32(Convert.ToString(cipher, 2).PadLeft(3, '0').Reverse(), 2);
 
@@ -232,17 +229,17 @@ namespace Zyrenth.Zora
 			unencodedSecret += "11"; // memory secret
 
 			unencodedSecret += Convert.ToString(GameID, 2).PadLeft(15, '0').Reverse();
-			unencodedSecret += Convert.ToString(_memory, 2).PadLeft(4, '0').Reverse();
+			unencodedSecret += Convert.ToString(memory, 2).PadLeft(4, '0').Reverse();
 
 			int mask = 0;
 
 			if (TargetGame == Game.Ages)
 			{
-				mask = _isReturnSecret ? 3 : 0;
+				mask = isReturnSecret ? 3 : 0;
 			}
 			else
 			{
-				mask = _isReturnSecret ? 2 : 1;
+				mask = isReturnSecret ? 2 : 1;
 			}
 
 			byte[] unencodedBytes = BinaryStringToByteArray(unencodedSecret);
@@ -270,9 +267,9 @@ namespace Zyrenth.Zora
 
 			return
 				( base.Equals(g) ) &&
-				( _targetGame == g._targetGame ) &&
-				( _memory == g._memory ) &&
-				( _isReturnSecret == g._isReturnSecret );
+				( targetGame == g.targetGame ) &&
+				( memory == g.memory ) &&
+				( isReturnSecret == g.isReturnSecret );
 
 		}
 
@@ -285,9 +282,9 @@ namespace Zyrenth.Zora
 		public override int GetHashCode()
 		{
 			return base.GetHashCode() ^
-				_targetGame.GetHashCode() ^
-				_memory.GetHashCode() ^
-				_isReturnSecret.GetHashCode();
+				targetGame.GetHashCode() ^
+				memory.GetHashCode() ^
+				isReturnSecret.GetHashCode();
 		}
 	}
 }
