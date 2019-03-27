@@ -42,17 +42,17 @@ namespace Zyrenth.Zora
 
 		#region Fields
 
-		private GameRegion _region = GameRegion.US;
-		private string _hero = "\0\0\0\0\0";
-		private string _child = "\0\0\0\0\0";
-		private short _gameId = 0;
-		private byte _behavior = 0;
-		private byte _animal = 0;
-		private Game _game = 0;
-		private bool _isHeroQuest = false;
-		private bool _isLinkedGame = false;
-		private long _rings = 0L;
-		private bool _wasGivenFreeRing = false;
+		private GameRegion region = GameRegion.US;
+		private string hero = "\0\0\0\0\0";
+		private string child = "\0\0\0\0\0";
+		private short gameId = 0;
+		private byte behavior = 0;
+		private byte animal = 0;
+		private Game game = 0;
+		private bool isHeroQuest = false;
+		private bool isLinkedGame = false;
+		private long rings = 0L;
+		private bool wasGivenFreeRing = false;
 
 		#endregion // Fields
 
@@ -73,8 +73,8 @@ namespace Zyrenth.Zora
 		/// </summary>
 		public GameRegion Region
 		{
-			get => _region;
-			set => SetProperty(ref _region, value, nameof(Region));
+			get => region;
+			set => SetProperty(ref region, value, nameof(Region));
 		}
 
 		/// <summary>
@@ -82,8 +82,8 @@ namespace Zyrenth.Zora
 		/// </summary>
 		public Game Game
 		{
-			get => _game;
-			set => SetProperty(ref _game, value, nameof(Game));
+			get => game;
+			set => SetProperty(ref game, value, nameof(Game));
 		}
 
 		/// <summary>
@@ -91,8 +91,8 @@ namespace Zyrenth.Zora
 		/// </summary>
 		public bool IsHeroQuest
 		{
-			get => _isHeroQuest;
-			set => SetProperty(ref _isHeroQuest, value, nameof(IsHeroQuest));
+			get => isHeroQuest;
+			set => SetProperty(ref isHeroQuest, value, nameof(IsHeroQuest));
 		}
 
 		/// <summary>
@@ -100,8 +100,8 @@ namespace Zyrenth.Zora
 		/// </summary>
 		public bool IsLinkedGame
 		{
-			get => _isLinkedGame;
-			set => SetProperty(ref _isLinkedGame, value, nameof(IsLinkedGame));
+			get => isLinkedGame;
+			set => SetProperty(ref isLinkedGame, value, nameof(IsLinkedGame));
 		}
 
 		/// <summary>
@@ -109,8 +109,8 @@ namespace Zyrenth.Zora
 		/// </summary>
 		public short GameID
 		{
-			get => _gameId;
-			set => SetProperty(ref _gameId, value, nameof(GameID));
+			get => gameId;
+			set => SetProperty(ref gameId, value, nameof(GameID));
 		}
 
 		/// <summary>
@@ -118,8 +118,8 @@ namespace Zyrenth.Zora
 		/// </summary>
 		public string Hero
 		{
-			get => _hero.Trim(' ', '\0');
-			set => SetProperty(ref _hero, value.NullPad(5), nameof(Hero));
+			get => hero.Trim(' ', '\0');
+			set => SetProperty(ref hero, value.NullPad(5), nameof(Hero));
 		}
 
 		/// <summary>
@@ -127,8 +127,8 @@ namespace Zyrenth.Zora
 		/// </summary>
 		public string Child
 		{
-			get => _child.Trim(' ', '\0');
-			set => SetProperty(ref _child, value.NullPad(5), nameof(Child));
+			get => child.Trim(' ', '\0');
+			set => SetProperty(ref child, value.NullPad(5), nameof(Child));
 		}
 
 		/// <summary>
@@ -136,14 +136,14 @@ namespace Zyrenth.Zora
 		/// </summary>
 		public Animal Animal
 		{
-			get => (Animal)_animal;
+			get => (Animal)animal;
 			set {
 				if (( value < 0 ) || ( (long)value > byte.MaxValue ))
 				{
 					throw new ArgumentOutOfRangeException(nameof(value));
 				}
 
-				SetProperty(ref _animal, (byte)value, nameof(Animal));
+				SetProperty(ref animal, (byte)value, nameof(Animal));
 			}
 		}
 
@@ -152,8 +152,8 @@ namespace Zyrenth.Zora
 		/// </summary>
 		public byte Behavior
 		{
-			get => _behavior;
-			set => SetProperty(ref _behavior, value, nameof(Behavior));
+			get => behavior;
+			set => SetProperty(ref behavior, value, nameof(Behavior));
 		}
 
 		/// <summary>
@@ -161,8 +161,8 @@ namespace Zyrenth.Zora
 		/// </summary>
 		public bool WasGivenFreeRing
 		{
-			get => _wasGivenFreeRing;
-			set => SetProperty(ref _wasGivenFreeRing, value, nameof(WasGivenFreeRing));
+			get => wasGivenFreeRing;
+			set => SetProperty(ref wasGivenFreeRing, value, nameof(WasGivenFreeRing));
 		}
 
 		/// <summary>
@@ -170,8 +170,8 @@ namespace Zyrenth.Zora
 		/// </summary>
 		public Rings Rings
 		{
-			get => (Rings)_rings;
-			set => SetProperty(ref _rings, (long)value, nameof(Rings));
+			get => (Rings)rings;
+			set => SetProperty(ref rings, (long)value, nameof(Rings));
 		}
 
 		#endregion // Properties
@@ -351,17 +351,17 @@ namespace Zyrenth.Zora
 			var g = (GameInfo)obj;
 
 			return
-				( _region == g._region ) &&
-				( _gameId == g._gameId ) &&
-				( _game == g._game ) &&
-				( _hero == g._hero ) &&
-				( _child == g._child ) &&
-				( _behavior == g._behavior ) &&
-				( _animal == g._animal ) &&
-				( _isHeroQuest == g._isHeroQuest ) &&
-				( _isLinkedGame == g._isLinkedGame ) &&
-				( _rings == g._rings ) &&
-				( _wasGivenFreeRing == g._wasGivenFreeRing );
+				( region == g.region ) &&
+				( gameId == g.gameId ) &&
+				( game == g.game ) &&
+				( hero == g.hero ) &&
+				( child == g.child ) &&
+				( behavior == g.behavior ) &&
+				( animal == g.animal ) &&
+				( isHeroQuest == g.isHeroQuest ) &&
+				( isLinkedGame == g.isLinkedGame ) &&
+				( rings == g.rings ) &&
+				( wasGivenFreeRing == g.wasGivenFreeRing );
 
 		}
 
@@ -373,17 +373,17 @@ namespace Zyrenth.Zora
 		/// </returns>
 		public override int GetHashCode()
 		{
-			return _region.GetHashCode() ^
-				_gameId.GetHashCode() ^
-				_game.GetHashCode() ^
-				_hero.GetHashCode() ^
-				_child.GetHashCode() ^
-				_behavior.GetHashCode() ^
-				_animal.GetHashCode() ^
-				_isHeroQuest.GetHashCode() ^
-				_isLinkedGame.GetHashCode() ^
-				_rings.GetHashCode() ^
-				_wasGivenFreeRing.GetHashCode();
+			return region.GetHashCode() ^
+				gameId.GetHashCode() ^
+				game.GetHashCode() ^
+				hero.GetHashCode() ^
+				child.GetHashCode() ^
+				behavior.GetHashCode() ^
+				animal.GetHashCode() ^
+				isHeroQuest.GetHashCode() ^
+				isLinkedGame.GetHashCode() ^
+				rings.GetHashCode() ^
+				wasGivenFreeRing.GetHashCode();
 		}
 	}
 }

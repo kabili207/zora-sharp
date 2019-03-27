@@ -19,7 +19,6 @@
  */
 
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
@@ -50,14 +49,14 @@ namespace Zyrenth.Zora
 			0x3a, 0x3b, 0x3d, 0x11, 0x12, 0xbd, 0x13, 0x28,
 			0x29, 0x00
 		};
-		private string _hero = "\0\0\0\0\0";
-		private string _child = "\0\0\0\0\0";
-		private byte _behavior = 0;
-		private byte _animal = 0;
-		private Game _targetGame = 0;
-		private bool _isHeroQuest = false;
-		private bool _isLinkedGame = false;
-		private bool _wasGivenFreeRing = false;
+		private string hero = "\0\0\0\0\0";
+		private string child = "\0\0\0\0\0";
+		private byte behavior = 0;
+		private byte animal = 0;
+		private Game targetGame = 0;
+		private bool isHeroQuest = false;
+		private bool isLinkedGame = false;
+		private bool wasGivenFreeRing = false;
 
 		/// <summary>
 		/// Gets the required length of the secret
@@ -69,8 +68,8 @@ namespace Zyrenth.Zora
 		/// </summary>
 		public Game TargetGame
 		{
-			get => _targetGame;
-			set => SetProperty(ref _targetGame, value, nameof(TargetGame));
+			get => targetGame;
+			set => SetProperty(ref targetGame, value, nameof(TargetGame));
 		}
 
 		/// <summary>
@@ -78,8 +77,8 @@ namespace Zyrenth.Zora
 		/// </summary>
 		public bool IsHeroQuest
 		{
-			get => _isHeroQuest;
-			set => SetProperty(ref _isHeroQuest, value, nameof(IsHeroQuest));
+			get => isHeroQuest;
+			set => SetProperty(ref isHeroQuest, value, nameof(IsHeroQuest));
 		}
 
 		/// <summary>
@@ -87,8 +86,8 @@ namespace Zyrenth.Zora
 		/// </summary>
 		public bool IsLinkedGame
 		{
-			get => _isLinkedGame;
-			set => SetProperty(ref _isLinkedGame, value, nameof(IsLinkedGame));
+			get => isLinkedGame;
+			set => SetProperty(ref isLinkedGame, value, nameof(IsLinkedGame));
 		}
 
 		/// <summary>
@@ -96,8 +95,8 @@ namespace Zyrenth.Zora
 		/// </summary>
 		public string Hero
 		{
-			get => _hero.Trim(' ', '\0');
-			set => SetProperty(ref _hero, value.NullPad(5), nameof(Hero));
+			get => hero.Trim(' ', '\0');
+			set => SetProperty(ref hero, value.NullPad(5), nameof(Hero));
 		}
 
 		/// <summary>
@@ -105,8 +104,8 @@ namespace Zyrenth.Zora
 		/// </summary>
 		public string Child
 		{
-			get => _child.Trim(' ', '\0');
-			set => SetProperty(ref _child, value.NullPad(5), nameof(Child));
+			get => child.Trim(' ', '\0');
+			set => SetProperty(ref child, value.NullPad(5), nameof(Child));
 		}
 
 		/// <summary>
@@ -114,8 +113,8 @@ namespace Zyrenth.Zora
 		/// </summary>
 		public Animal Animal
 		{
-			get => (Animal)_animal;
-			set => SetProperty(ref _animal, (byte)value, nameof(Animal));
+			get => (Animal)animal;
+			set => SetProperty(ref animal, (byte)value, nameof(Animal));
 		}
 
 		/// <summary>
@@ -123,8 +122,8 @@ namespace Zyrenth.Zora
 		/// </summary>
 		public byte Behavior
 		{
-			get => _behavior;
-			set => SetProperty(ref _behavior, value, nameof(Behavior));
+			get => behavior;
+			set => SetProperty(ref behavior, value, nameof(Behavior));
 		}
 
 		/// <summary>
@@ -132,8 +131,8 @@ namespace Zyrenth.Zora
 		/// </summary>
 		public bool WasGivenFreeRing
 		{
-			get => _wasGivenFreeRing;
-			set => SetProperty(ref _wasGivenFreeRing, value, nameof(WasGivenFreeRing));
+			get => wasGivenFreeRing;
+			set => SetProperty(ref wasGivenFreeRing, value, nameof(WasGivenFreeRing));
 		}
 
 		/// <summary>
@@ -299,8 +298,8 @@ namespace Zyrenth.Zora
 				encoding = new JapaneseEncoding();
 			}
 
-			byte[] heroBytes = encoding.GetBytes(_hero);
-			byte[] childBytes = encoding.GetBytes(_child);
+			byte[] heroBytes = encoding.GetBytes(hero);
+			byte[] childBytes = encoding.GetBytes(child);
 
 			int cipherKey = ( ( GameID >> 8 ) + ( GameID & 255 ) ) & 7;
 			string unencodedSecret = Convert.ToString(cipherKey, 2).PadLeft(3, '0').Reverse();
@@ -308,21 +307,21 @@ namespace Zyrenth.Zora
 			unencodedSecret += "00"; // game = 0
 
 			unencodedSecret += Convert.ToString(GameID, 2).PadLeft(15, '0').Reverse();
-			unencodedSecret += _isHeroQuest ? "1" : "0";
+			unencodedSecret += isHeroQuest ? "1" : "0";
 			unencodedSecret += TargetGame == Game.Ages ? "0" : "1";
 			unencodedSecret += Convert.ToString(heroBytes[0], 2).PadLeft(8, '0').Reverse();
 			unencodedSecret += Convert.ToString(childBytes[0], 2).PadLeft(8, '0').Reverse();
 			unencodedSecret += Convert.ToString(heroBytes[1], 2).PadLeft(8, '0').Reverse();
 			unencodedSecret += Convert.ToString(childBytes[1], 2).PadLeft(8, '0').Reverse();
-			unencodedSecret += Convert.ToString(_behavior, 2).PadLeft(6, '0').Reverse();
+			unencodedSecret += Convert.ToString(behavior, 2).PadLeft(6, '0').Reverse();
 			unencodedSecret += Convert.ToString(heroBytes[2], 2).PadLeft(8, '0').Reverse();
 			unencodedSecret += Convert.ToString(childBytes[2], 2).PadLeft(8, '0').Reverse();
-			unencodedSecret += _wasGivenFreeRing ? "1" : "0";
+			unencodedSecret += wasGivenFreeRing ? "1" : "0";
 			unencodedSecret += Convert.ToString(heroBytes[3], 2).PadLeft(8, '0').Reverse();
-			unencodedSecret += Convert.ToString(_animal, 2).PadLeft(4, '0').Reverse();
+			unencodedSecret += Convert.ToString(animal, 2).PadLeft(4, '0').Reverse();
 			unencodedSecret += Convert.ToString(heroBytes[4], 2).PadLeft(8, '0').Reverse();
 			unencodedSecret += Convert.ToString(childBytes[3], 2).PadLeft(8, '0').Reverse();
-			unencodedSecret += _isLinkedGame ? "1" : "0";
+			unencodedSecret += isLinkedGame ? "1" : "0";
 			unencodedSecret += Convert.ToString(childBytes[4], 2).PadLeft(8, '0').Reverse();
 
 			byte[] unencodedBytes = BinaryStringToByteArray(unencodedSecret);
@@ -377,14 +376,14 @@ namespace Zyrenth.Zora
 		/// </returns>
 		public bool IsValidForPAL()
 		{
-			if (_animal != 0x0b && _animal != 0x0c && _animal != 0x0d)
+			if (animal != 0x0b && animal != 0x0c && animal != 0x0d)
 			{
 				return false;
 			}
 
 			Encoding encoding = new USEncoding();
-			byte[] heroBytes = encoding.GetBytes(_hero);
-			byte[] childBytes = encoding.GetBytes(_child);
+			byte[] heroBytes = encoding.GetBytes(hero);
+			byte[] childBytes = encoding.GetBytes(child);
 
 			for (int i = 0; i < 5; i++)
 			{
@@ -420,14 +419,14 @@ namespace Zyrenth.Zora
 
 			return
 				( base.Equals(g) ) &&
-				( _targetGame == g._targetGame ) &&
-				( _hero == g._hero ) &&
-				( _child == g._child ) &&
-				( _behavior == g._behavior ) &&
-				( _animal == g._animal ) &&
-				( _isHeroQuest == g._isHeroQuest ) &&
-				( _isLinkedGame == g._isLinkedGame ) &&
-				( _wasGivenFreeRing == g._wasGivenFreeRing );
+				( targetGame == g.targetGame ) &&
+				( hero == g.hero ) &&
+				( child == g.child ) &&
+				( behavior == g.behavior ) &&
+				( animal == g.animal ) &&
+				( isHeroQuest == g.isHeroQuest ) &&
+				( isLinkedGame == g.isLinkedGame ) &&
+				( wasGivenFreeRing == g.wasGivenFreeRing );
 
 		}
 
@@ -440,14 +439,14 @@ namespace Zyrenth.Zora
 		public override int GetHashCode()
 		{
 			return base.GetHashCode() ^
-				_targetGame.GetHashCode() ^
-				_hero.GetHashCode() ^
-				_child.GetHashCode() ^
-				_behavior.GetHashCode() ^
-				_animal.GetHashCode() ^
-				_isHeroQuest.GetHashCode() ^
-				_isLinkedGame.GetHashCode() ^
-				_wasGivenFreeRing.GetHashCode();
+				targetGame.GetHashCode() ^
+				hero.GetHashCode() ^
+				child.GetHashCode() ^
+				behavior.GetHashCode() ^
+				animal.GetHashCode() ^
+				isHeroQuest.GetHashCode() ^
+				isLinkedGame.GetHashCode() ^
+				wasGivenFreeRing.GetHashCode();
 		}
 	}
 }

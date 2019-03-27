@@ -18,9 +18,6 @@
  *  License along with ZoraSharp. If not, see <http://www.gnu.org/licenses/>.
  */
 
-using System;
-using System.Text;
-
 namespace Zyrenth.Zora
 {
 	/// <summary>

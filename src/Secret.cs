@@ -60,8 +60,8 @@ namespace Zyrenth.Zora
 				25, 42,  6, 57, 60, 23, 51, 24
 			},
 		};
-		private short _gameId = 0;
-		private GameRegion _region = GameRegion.US;
+		private short gameId = 0;
+		private GameRegion region = GameRegion.US;
 
 #if !BLAZOR
 
@@ -83,8 +83,8 @@ namespace Zyrenth.Zora
 		/// </summary>
 		public short GameID
 		{
-			get => _gameId;
-			set => SetProperty(ref _gameId, value, nameof(GameID));
+			get => gameId;
+			set => SetProperty(ref gameId, value, nameof(GameID));
 		}
 
 		/// <summary>
@@ -92,8 +92,8 @@ namespace Zyrenth.Zora
 		/// </summary>
 		public GameRegion Region
 		{
-			get => _region;
-			set => SetProperty(ref _region, value, nameof(Region));
+			get => region;
+			set => SetProperty(ref region, value, nameof(Region));
 		}
 
 		/// <summary>
@@ -159,7 +159,7 @@ namespace Zyrenth.Zora
 		/// </example>
 		public override string ToString()
 		{
-			return SecretParser.CreateString(ToBytes(), _region);
+			return SecretParser.CreateString(ToBytes(), region);
 		}
 
 		/// <summary>
@@ -191,7 +191,7 @@ namespace Zyrenth.Zora
 			byte[] secret = new byte[data.Length];
 			for (int i = 0; i < data.Length; ++i)
 			{
-				secret[i] = (byte)( data[i] ^ ciphers[(int)_region][cipherPosition++] );
+				secret[i] = (byte)( data[i] ^ ciphers[(int)region][cipherPosition++] );
 			}
 
 			secret[0] = (byte)( secret[0] & 7 | ( cipherKey << 3 ) );
@@ -212,7 +212,7 @@ namespace Zyrenth.Zora
 
 			for (int i = 0; i < secret.Length; ++i)
 			{
-				decodedBytes[i] = (byte)( secret[i] ^ ciphers[(int)_region][cipherPosition++] );
+				decodedBytes[i] = (byte)( secret[i] ^ ciphers[(int)region][cipherPosition++] );
 			}
 
 			decodedBytes[0] = (byte)( decodedBytes[0] & 7 | ( cipherKey << 3 ) );
@@ -298,8 +298,7 @@ namespace Zyrenth.Zora
 
 			var g = (Secret)obj;
 
-			return _gameId == g._gameId && _region == g._region;
-
+			return gameId == g.gameId && region == g.region;
 		}
 
 		/// <summary>
@@ -310,7 +309,7 @@ namespace Zyrenth.Zora
 		/// </returns>
 		public override int GetHashCode()
 		{
-			return _gameId.GetHashCode() ^ _region.GetHashCode();
+			return gameId.GetHashCode() ^ region.GetHashCode();
 		}
 
 	}
