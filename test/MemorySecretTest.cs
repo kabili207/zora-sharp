@@ -60,6 +60,14 @@ namespace Zyrenth.Zora.Tests
 		}
 
 		[Test]
+		public void LoadSecretFromString_JP()
+		{
+			var secret = new MemorySecret();
+			secret.Load(desiredSecretString_JP, GameRegion.JP);
+			Assert.AreEqual(desiredSecret_JP, secret);
+		}
+
+		[Test]
 		public void LoadFromGameInfoConstuct()
 		{
 			var secret = new MemorySecret(GameInfoTest.DesiredInfo, Memory.ClockShopKingZora, true);
@@ -71,6 +79,13 @@ namespace Zyrenth.Zora.Tests
 		{
 			string secret = desiredSecret.ToString();
 			Assert.AreEqual(desiredSecretString, secret);
+		}
+
+		[Test]
+		public void TestToString_JP()
+		{
+			string secret = desiredSecret_JP.ToString();
+			Assert.AreEqual(desiredSecretString_JP, secret);
 		}
 
 		[Test]
@@ -108,18 +123,10 @@ namespace Zyrenth.Zora.Tests
 		[Test]
 		public void TestNotEquals()
 		{
-			var s2 = new MemorySecret()
-			{
-				Region = GameRegion.US,
-				TargetGame = Game.Ages,
-				GameID = 14129,
-				Memory = Memory.GraveyardFairy,
-				IsReturnSecret = true
-			};
-
-			Assert.AreNotEqual(desiredSecret, s2);
-			Assert.AreNotEqual(desiredSecret, null);
-			Assert.AreNotEqual(desiredSecret, "");
+			Assert.AreNotEqual(desiredSecret, new MemorySecret());
+			Assert.False(new MemorySecret().Equals(new TestSecret()));
+			Assert.False(new MemorySecret().Equals(new GameSecret()));
+			Assert.False(new MemorySecret().Equals(null));
 		}
 
 		[Test]

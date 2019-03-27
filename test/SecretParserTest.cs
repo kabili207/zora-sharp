@@ -1,5 +1,4 @@
 using NUnit.Framework;
-using System;
 
 namespace Zyrenth.Zora.Tests
 {
@@ -23,11 +22,20 @@ namespace Zyrenth.Zora.Tests
 			37, 32, 58, 47, 25
 		};
 
+		private static readonly byte[] highByte = new byte[] { 64 };
+		private static readonly byte[] lowByte = new byte[] { 0 };
+
 		[Test]
 		public void CreateString()
 		{
 			string testString = SecretParser.CreateString(desiredSecretBytes, GameRegion.US);
 			Assert.AreEqual(desiredSecretString, testString);
+		}
+
+		[Test]
+		public void TestDivideThrows()
+		{
+			Assert.That(() => SecretParser.CreateString(new byte[] { 64 }, GameRegion.US), Throws.TypeOf<SecretException>());
 		}
 
 		[Test]
