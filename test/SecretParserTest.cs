@@ -1,5 +1,4 @@
 using NUnit.Framework;
-using System;
 
 namespace Zyrenth.Zora.Tests
 {
@@ -74,13 +73,13 @@ namespace Zyrenth.Zora.Tests
 		[Test]
 		public void ParseInvalidString()
 		{
-			Assert.Throws<SecretException>(() => SecretParser.ParseSecret("INVALID", GameRegion.US));
+			Assert.That(() => SecretParser.ParseSecret("INVALID", GameRegion.US), Throws.TypeOf<SecretException>());
 		}
 
 		[Test]
 		public void ParseInvalidBytes()
 		{
-			Assert.Throws<SecretException>(() => SecretParser.CreateString(new byte[] { 2, 15, 53, 21, 64 }, GameRegion.US));
+			Assert.That(() => SecretParser.CreateString(new byte[] { 2, 15, 53, 21, 64 }, GameRegion.US), Throws.TypeOf<SecretException>());
 		}
 	}
 }

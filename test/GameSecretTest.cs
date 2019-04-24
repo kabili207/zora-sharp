@@ -101,56 +101,26 @@ namespace Zyrenth.Zora.Tests
 		[Test]
 		public void TestEquals()
 		{
-			var s2 = new GameSecret()
-			{
-				Region = GameRegion.US,
-				TargetGame = Game.Ages,
-				GameID = 14129,
-				Hero = "Link",
-				Child = "Pip",
-				Animal = Animal.Dimitri,
-				Behavior = 4,
-				IsLinkedGame = true,
-				IsHeroQuest = false,
-				WasGivenFreeRing = true
-			};
-
-			Assert.AreEqual(DesiredSecret, s2);
+			Assert.That(new GameSecret(), Is.EqualTo(new GameSecret()));
 		}
 
 		[Test]
 		public void TestNotEquals()
 		{
-			var s2 = new GameSecret()
-			{
-				Region = GameRegion.US,
-				TargetGame = Game.Seasons,
-				GameID = 14129,
-				Hero = "Link",
-				Child = "Pip",
-				Animal = Animal.Dimitri,
-				Behavior = 4,
-				IsLinkedGame = true,
-				IsHeroQuest = false,
-				WasGivenFreeRing = true
-			};
-
-			Assert.AreNotEqual(DesiredSecret, s2);
-			Assert.AreNotEqual(DesiredSecret, null);
-			Assert.AreNotEqual(DesiredSecret, "");
+			Assert.That(DesiredSecret, Is.Not.EqualTo(new GameSecret()));
+			Assert.That(new GameSecret(), Is.Not.EqualTo(new TestSecret()));
+			Assert.That(new GameSecret(), Is.Not.EqualTo(new MemorySecret()));
+			Assert.That(new GameSecret(), Is.Not.EqualTo(null));
 		}
 
 		[Test]
 		public void TestInvalidByteLoad()
 		{
 			var secret = new GameSecret();
-			Assert.Throws<SecretException>(() => secret.Load((byte[])null, GameRegion.US));
-			Assert.Throws<SecretException>(() => secret.Load(new byte[] { 0 }, GameRegion.US));
-			Assert.Throws<InvalidChecksumException>(() => secret.Load("H~2:@ ←2♦yq GB3●( 6♥?↑b", GameRegion.US));
-			Assert.Throws<ArgumentException>(() =>
-			{
-				secret.Load("L~2:N @bB↑& hmRh= HHHH↑", GameRegion.US);
-			});
+			Assert.That(() => secret.Load((byte[])null, GameRegion.US), Throws.TypeOf<SecretException>());
+			Assert.That(() => secret.Load(new byte[] { 0 }, GameRegion.US), Throws.TypeOf<SecretException>());
+			Assert.That(() => secret.Load("H~2:@ ←2♦yq GB3●( 6♥?↑b", GameRegion.US), Throws.TypeOf<InvalidChecksumException>());
+			Assert.That(() => secret.Load("L~2:N @bB↑& hmRh= HHHH↑", GameRegion.US), Throws.TypeOf<ArgumentException>());
 		}
 
 		[Test]
@@ -161,10 +131,10 @@ namespace Zyrenth.Zora.Tests
 			var g3 = new GameSecret() { Hero = "Link", Child = "Pip", Animal = Animal.None };
 			var g4 = new GameSecret() { Hero = "Link", Child = "Pip", Animal = Animal.Ricky };
 
-			Assert.IsFalse(g1.IsValidForPAL(), "Hero check failed");
-			Assert.IsFalse(g2.IsValidForPAL(), "Child check failed");
-			Assert.IsFalse(g3.IsValidForPAL(), "Animal check failed");
-			Assert.IsTrue(g4.IsValidForPAL(), "Both failed");
+			Assert.That(g1.IsValidForPAL(), Is.False, "Hero check failed");
+			Assert.That(g2.IsValidForPAL(), Is.False, "Child check failed");
+			Assert.That(g3.IsValidForPAL(), Is.False, "Animal check failed");
+			Assert.That(g4.IsValidForPAL(), Is.True, "Both failed");
 		}
 
 		[Test]
@@ -193,7 +163,7 @@ namespace Zyrenth.Zora.Tests
 			var g = new GameSecret();
 			g.PropertyChanged += (s, e) => { hit = true; };
 			g.GameID = 42;
-			Assert.IsTrue(hit);
+			Assert.That(hit, Is.True);
 		}
 	}
 }
