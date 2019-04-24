@@ -124,9 +124,9 @@ namespace Zyrenth.Zora.Tests
 		public void TestNotEquals()
 		{
 			Assert.That(desiredSecret, Is.Not.EqualTo(new MemorySecret()));
-			Assert.That(new MemorySecret().Equals(new TestSecret()), Is.False);
-			Assert.That(new MemorySecret().Equals(new GameSecret()), Is.False);
-			Assert.That(new MemorySecret().Equals(null), Is.False);
+			Assert.That(new MemorySecret(), Is.Not.EqualTo(new TestSecret()));
+			Assert.That(new MemorySecret(), Is.Not.EqualTo(new GameSecret()));
+			Assert.That(new MemorySecret(), Is.Not.EqualTo(null));
 		}
 
 		[Test]
