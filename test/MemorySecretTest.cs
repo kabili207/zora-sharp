@@ -64,7 +64,7 @@ namespace Zyrenth.Zora.Tests
 		{
 			var secret = new MemorySecret();
 			secret.Load(desiredSecretString_JP, GameRegion.JP);
-			Assert.That(desiredSecret_JP.Equals(secret), Is.True);
+			Assert.That(desiredSecret_JP, Is.EqualTo(secret));
 		}
 
 		[Test]
@@ -85,7 +85,7 @@ namespace Zyrenth.Zora.Tests
 		public void TestToString_JP()
 		{
 			string secret = desiredSecret_JP.ToString();
-			Assert.That(desiredSecretString_JP.Equals(secret), Is.True);
+			Assert.That(desiredSecretString_JP, Is.EqualTo(secret));
 		}
 
 		[Test]
@@ -123,7 +123,7 @@ namespace Zyrenth.Zora.Tests
 		[Test]
 		public void TestNotEquals()
 		{
-			Assert.That(desiredSecret.Equals(new MemorySecret()), Is.False);
+			Assert.That(desiredSecret, Is.Not.EqualTo(new MemorySecret()));
 			Assert.That(new MemorySecret().Equals(new TestSecret()), Is.False);
 			Assert.That(new MemorySecret().Equals(new GameSecret()), Is.False);
 			Assert.That(new MemorySecret().Equals(null), Is.False);
