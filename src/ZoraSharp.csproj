@@ -7,6 +7,7 @@
     <OutputType>Library</OutputType>
     <RootNamespace>Zyrenth.Zora</RootNamespace>
     <AssemblyName>ZoraSharp</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>True</DebugSymbols>
@@ -62,7 +63,7 @@
     <MonoDevelop>
       <Properties>
         <Policies>
-          <StandardHeader Text="Copyright © 2013-2018, Amy Nagle.&#xA;All rights reserved.&#xA;&#xA;This file is part of ZoraSharp.&#xA;&#xA;ZoraSharp is free software: you can redistribute it and/or modify&#xA;it under the terms of the GNU Lesser General Public License as&#xA;published by the Free Software Foundation, either version 3 of the&#xA;License, or (at your option) any later version.&#xA;&#xA;ZoraSharp is distributed in the hope that it will be useful,&#xA;but WITHOUT ANY WARRANTY; without even the implied warranty of&#xA;MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the&#xA;GNU Lesser General Public License for more details.&#xA;&#xA;You should have received a copy of the GNU Lesser General Public&#xA;License along with ZoraSharp. If not, see &lt;http://www.gnu.org/licenses/&gt;.&#xA;" IncludeInNewFiles="True" />
+          <StandardHeader Text="Copyright © 2013-${Year}, Amy Nagle.&#xA;All rights reserved.&#xA;&#xA;This file is part of ZoraSharp.&#xA;&#xA;ZoraSharp is free software: you can redistribute it and/or modify&#xA;it under the terms of the GNU Lesser General Public License as&#xA;published by the Free Software Foundation, either version 3 of the&#xA;License, or (at your option) any later version.&#xA;&#xA;ZoraSharp is distributed in the hope that it will be useful,&#xA;but WITHOUT ANY WARRANTY; without even the implied warranty of&#xA;MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the&#xA;GNU Lesser General Public License for more details.&#xA;&#xA;You should have received a copy of the GNU Lesser General Public&#xA;License along with ZoraSharp. If not, see &lt;http://www.gnu.org/licenses/&gt;.&#xA;" IncludeInNewFiles="True" />
         </Policies>
       </Properties>
     </MonoDevelop>
