@@ -16,38 +16,7 @@ General users should instead use of the the following user interfaces:
 ### Features
  * Decodes game and ring secrets
  * Generates game, ring, and memory secrets
- * Allows import and export of game data using a json-based `.zora` file
- 
-## The .zora save file
-The `.zora` file contains all relevent information to recreate a player's game and ring secrets. Data is saved
-as a JSON object, with the intention that it can be used with other implementations of the password system.
-
-
-```json
-{
-    "Region": "US",
-    "Hero": "Link",
-    "GameID": 14129,
-    "Game": "Ages",
-    "Child": "Pip",
-    "Animal": "Dimitri",
-    "Behavior": 4,
-    "IsLinkedGame": true,
-    "IsHeroQuest": false,
-    "WasGivenFreeRing": true,
-    "Rings": -9222246136947933182
-}
-```
-
-Valid values for `Game` are `Ages` or `Seasons`. This value refers to the _target_ game.
-
-Valid values for `Animal` are `Ricky`, `Dimitri`, or `Moosh`.
-
-The rings are saved as a 64 bit signed integer. A signed integer was chosen to maintain compatibility with
-languages that don't support unsigned integers.
-
-None of the fields are required; the ZoraSharp library will load whatever is present, however the same
-cannot be guaranteed for other libraries that implement the `.zora` save file.
+ * Allows import and export of game data using a [json-based `.zora` file](#the-zora-save-file)
 
 ## Using the library
 Full documentation for the current stable release of ZoraSharp can be found at http://kabili207.github.io/zora-sharp/api-doc/. Below are functions to handle the most common scenarios.
@@ -165,6 +134,37 @@ string secret = secret.ToString();
 // 6●sW↑
 byte[] data = secret.ToBytes();
 ```
+ 
+## The .zora save file
+The `.zora` file contains all relevent information to recreate a player's game and ring secrets. Data is saved
+as a JSON object, with the intention that it can be used with other implementations of the password system.
+
+
+```json
+{
+    "Region": "US",
+    "Hero": "Link",
+    "GameID": 14129,
+    "Game": "Ages",
+    "Child": "Pip",
+    "Animal": "Dimitri",
+    "Behavior": 4,
+    "IsLinkedGame": true,
+    "IsHeroQuest": false,
+    "WasGivenFreeRing": true,
+    "Rings": -9222246136947933182
+}
+```
+
+Valid values for `Game` are `Ages` or `Seasons`. This value refers to the _target_ game.
+
+Valid values for `Animal` are `Ricky`, `Dimitri`, or `Moosh`.
+
+The rings are saved as a 64 bit signed integer. A signed integer was chosen to maintain compatibility with
+languages that don't support unsigned integers.
+
+None of the fields are required; the ZoraSharp library will load whatever is present, however the same
+cannot be guaranteed for other libraries that implement the `.zora` save file.
 
 ## Special Thanks
  * Paulygon - Created the [original secret generator](http://home.earthlink.net/~paul3/zeldagbc.html) way back in 2001
