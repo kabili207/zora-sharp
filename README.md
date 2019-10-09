@@ -1,4 +1,5 @@
 # ZoraSharp [![Build Status](https://travis-ci.org/kabili207/zora-sharp.svg?branch=master)](https://travis-ci.org/kabili207/zora-sharp) [![Build status](https://ci.appveyor.com/api/projects/status/6ok374kxhysq7adc/branch/master?svg=true)](https://ci.appveyor.com/project/kabili207/zora-sharp/branch/master) [![codecov.io](https://codecov.io/github/kabili207/zora-sharp/coverage.svg?branch=master)](https://codecov.io/github/kabili207/zora-sharp?branch=master) [![documentation](http://kabili207.github.io/zora-sharp/api-doc/badge.svg)](http://kabili207.github.io/zora-sharp/api-doc/)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fkabili207%2Fzora-sharp.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fkabili207%2Fzora-sharp?ref=badge_shield)
 
 A library for working with the password system used in the Legend of Zelda Oracle of Ages and Oracle of Seasons games.
 Inspired by the [original password generator](http://home.earthlink.net/~paul3/zeldagbc.html) written by
@@ -171,3 +172,7 @@ cannot be guaranteed for other libraries that implement the `.zora` save file.
  * 39ster - Rediscovered [how to decode game secrets](http://www.gamefaqs.com/boards/472313-the-legend-of-zelda-oracle-of-ages/66934363) using paulygon's program
  * [LunarCookies](https://github.com/LunarCookies) - Discovered the correct cipher and checksum logic used to generate secrets
  * [Drenn1](https://github.com/Drenn1) - Helped determine what the remaining unknown values represented and added support for Japanese secrets.
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fkabili207%2Fzora-sharp.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fkabili207%2Fzora-sharp?ref=badge_large)
