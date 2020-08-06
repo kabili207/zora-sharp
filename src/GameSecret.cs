@@ -218,7 +218,7 @@ namespace Zyrenth.Zora
 			clonedBytes[19] = 0;
 			byte checksum = CalculateChecksum(clonedBytes);
 
-			if (( decodedBytes[19] & 7 ) != ( checksum & 7 ))
+			if (( decodedBytes[19] & 0xF ) != ( checksum & 0xF ))
 			{
 				throw new InvalidChecksumException("Checksum does not match expected value");
 			}

@@ -92,7 +92,7 @@ namespace Zyrenth.Zora.Tests
 		public void TestWeirdBytes()
 		{
 			var secret = new MemorySecret();
-			Assert.Throws<UnknownMemoryException>(() =>
+			Assert.Throws<InvalidChecksumException>(() =>
 			{
 				secret.Load(desiredSecretBytes_JP_Weird, GameRegion.JP);
 			});

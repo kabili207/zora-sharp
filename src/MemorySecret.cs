@@ -148,7 +148,7 @@ namespace Zyrenth.Zora
 			clonedBytes[4] = 0;
 			byte checksum = CalculateChecksum(clonedBytes);
 
-			if (( decodedBytes[4] & 7 ) != ( checksum & 7 ))
+			if (( decodedBytes[4] & 0xF ) != ( checksum & 0xF ))
 			{
 				throw new InvalidChecksumException("Checksum does not match expected value");
 			}
@@ -161,35 +161,8 @@ namespace Zyrenth.Zora
 			GameID = Convert.ToInt16(decodedSecret.ReversedSubstring(5, 15), 2);
 			Memory = (Memory)Convert.ToByte(decodedSecret.ReversedSubstring(20, 4), 2);
 
-			// Because the game and return type are stored in the cipher and checksum
-			// we compare it against all four possible values. It's ugly, but it works.
-			string desiredString = SecretParser.CreateString(secret, Region);
-
-			MemorySecret[] memories = new[]
-			{
-				new MemorySecret(Game.Ages, region, GameID, Memory, true),
-				new MemorySecret(Game.Ages, region, GameID, Memory, false),
-				new MemorySecret(Game.Seasons, region, GameID, Memory, true),
-				new MemorySecret(Game.Seasons, region, GameID, Memory, false)
-			};
-
-			bool found = false;
-
-			foreach (MemorySecret memSecret in memories)
-			{
-				if (desiredString == memSecret.ToString())
-				{
-					TargetGame = memSecret.TargetGame;
-					IsReturnSecret = memSecret.IsReturnSecret;
-					found = true;
-					break;
-				}
-			}
-
-			if (!found)
-			{
-				throw new UnknownMemoryException("Cound not determine the type of memory secret");
-			}
+			TargetGame = decodedSecret[24] == decodedSecret[25] ? Game.Ages : Game.Seasons;
+			IsReturnSecret = decodedSecret[24] == '1';
 		}
 
 		/// <summary>
