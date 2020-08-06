@@ -335,6 +335,15 @@ namespace Zyrenth.Zora
 		#endregion // File Saving/Loading methods
 
 		/// <summary>
+		/// Counts the number of rings
+		/// </summary>
+		/// <returns>The number of rings from 0 to 64</returns>
+		public byte RingCount()
+		{
+			return Extensions.CountSetBits(rings);
+		}
+
+		/// <summary>
 		/// Determines whether the specified <see cref="System.Object" />, is equal to this instance.
 		/// </summary>
 		/// <param name="obj">The <see cref="System.Object" /> to compare with this instance.</param>

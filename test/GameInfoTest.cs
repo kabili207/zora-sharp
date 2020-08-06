@@ -101,6 +101,13 @@ namespace Zyrenth.Zora.Tests
 		}
 
 		[Test]
+		public void TestRingCount()
+		{
+			Assert.AreEqual(DesiredInfo.RingCount(), 3);
+			Assert.AreEqual(new GameInfo().RingCount(), 0);
+		}
+
+		[Test]
 		public void TestEquals()
 		{
 			var s2 = new GameInfo()
