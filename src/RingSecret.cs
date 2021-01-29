@@ -120,7 +120,7 @@ namespace Zyrenth.Zora
 			clonedBytes[14] = 0;
 			byte checksum = CalculateChecksum(clonedBytes);
 
-			if (( decodedBytes[14] & 7 ) != ( checksum & 7 ))
+			if (( decodedBytes[14] & 0xF ) != ( checksum & 0xF ))
 			{
 				throw new InvalidChecksumException("Checksum does not match expected value");
 			}
@@ -228,6 +228,15 @@ namespace Zyrenth.Zora
 			}
 
 			info.Rings = Rings | ( appendRings ? info.Rings : Rings.None );
+		}
+
+		/// <summary>
+		/// Counts the number of rings
+		/// </summary>
+		/// <returns>The number of rings from 0 to 64</returns>
+		public byte RingCount()
+		{
+			return Extensions.CountSetBits(rings);
 		}
 
 		/// <summary>

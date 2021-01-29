@@ -61,8 +61,8 @@ a UTF-8 string, as shown above.
 Secrets can be loaded from a string...
 ```c#
 string gameSecret = "H~2:@ left 2 diamond yq GB3 circle ( 6 heart ? up 6";
-Secret secret = new GameSecret(GameRegion.US);
-secret.Load(gameSecret);
+Secret secret = new GameSecret();
+secret.Load(gameSecret, GameRegion.US);
 ```
 ...or from a byte array
 ```c#
@@ -74,8 +74,8 @@ byte[] rawSecret = new byte[]
      3,  0, 52, 21, 48,
     55,  9, 45, 59, 55
 };
-Secret secret = new GameSecret(GameRegion.US);
-secret.Load(rawSecret);
+Secret secret = new GameSecret();
+secret.Load(rawSecret, GameRegion.US);
 ```
 ### Loading a ring secret
 ```c#
@@ -86,13 +86,13 @@ byte[] rawSecret = new byte[]
     63, 26,  0, 59, 47,
     30, 32, 15, 30, 49
 };
-Secret secret = new RingSecret(GameRegion.US);
-secret.Load(rawSecret);
+Secret secret = new RingSecret();
+secret.Load(rawSecret, GameRegion.US);
 ```
 
 ### Creating a game secret
 ```c#
-GameSecret secret = new GameSecret(GameRegion.US)
+GameSecret secret = new GameSecret()
 {
     GameID = 14129,
     TargetGame = Game.Ages,
@@ -111,7 +111,7 @@ byte[] data = secret.ToBytes();
 
 ### Creating a ring secret
 ```c#
-RingSecret secret = new RingSecret(GameRegion.US)
+RingSecret secret = new RingSecret()
 {
     GameID = 14129,
     Rings = Rings.PowerRingL1 | Rings.DoubleEdgeRing | Rings.ProtectionRing
@@ -123,7 +123,7 @@ byte[] data = secret.ToBytes();
 
 ### Creating a memory secret
 ```c#
-MemorySecret secret = new MemorySecret(GameRegion.US)
+MemorySecret secret = new MemorySecret()
 {
     GameID = 14129,
     TargetGame = Game.Ages,

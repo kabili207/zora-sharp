@@ -53,7 +53,6 @@
     <Compile Include="JapaneseEncoding.cs" />
     <Compile Include="USEncoding.cs" />
     <Compile Include="InvalidChecksumException.cs" />
-    <Compile Include="UnknownMemoryException.cs" />
     <Compile Include="ChildBehaviorHelper.cs" />
   </ItemGroup>
   <!-- Allow projects to override or extend project configuration -->

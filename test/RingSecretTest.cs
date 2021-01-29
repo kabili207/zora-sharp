@@ -141,6 +141,13 @@ namespace Zyrenth.Zora.Tests
 		}
 
 		[Test]
+		public void TestRingCount()
+		{
+			Assert.AreEqual(DesiredSecret.RingCount(), 3);
+			Assert.AreEqual(new RingSecret().RingCount(), 0);
+		}
+
+		[Test]
 		public void TestHashCode()
 		{
 			var r1 = new RingSecret(1234, GameRegion.US, Rings.All);

@@ -101,5 +101,20 @@ namespace Zyrenth.Zora
 				return new JapaneseEncoding();
 			}
 		}
+
+		/// <summary>
+		/// Counts the number of set bits in a given long value
+		/// </summary>
+		/// <param name="bits">The signed long value</param>
+		/// <returns>The number of set bits in the binary representation of <paramref name="bits"/> from 0 to 64</returns>
+		public static byte CountSetBits(long bits)
+		{
+			ulong count = 0;
+			for(ulong i = (ulong)bits; i != 0; i >>= 1)
+			{
+				count += i & 1;
+			}
+			return (byte)count;
+		}
 	}
 }
