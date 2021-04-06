@@ -22,10 +22,10 @@
 #pragma warning disable 1591
 
 // NOTE: uncomment the following line to make SimpleJson class internal.
-#define SIMPLE_JSON_INTERNAL
+//#define SIMPLE_JSON_INTERNAL
 
 // NOTE: uncomment the following line to make JsonArray and JsonObject class internal.
-#define SIMPLE_JSON_OBJARRAYINTERNAL
+//#define SIMPLE_JSON_OBJARRAYINTERNAL
 
 // NOTE: uncomment the following line to enable dynamic support.
 //#define SIMPLE_JSON_DYNAMIC
