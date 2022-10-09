@@ -1,22 +1,13 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{E40D4A82-F5F3-4712-A8E2-AD3C77B1E5A8}</ProjectGuid>
+    <TargetFramework>netstandard2.0</TargetFramework>
     <OutputType>Library</OutputType>
     <RootNamespace>Zyrenth.Zora</RootNamespace>
-    <AssemblyName>ZoraSharp</AssemblyName>
-    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>True</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>False</Optimize>
     <OutputPath>bin\Debug</OutputPath>
     <DefineConstants>DEBUG;</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
     <ConsolePause>False</ConsolePause>
     <DocumentationFile>bin\Debug\ZoraSharp.xml</DocumentationFile>
   </PropertyGroup>
@@ -24,40 +15,11 @@
     <DebugType>none</DebugType>
     <Optimize>False</Optimize>
     <OutputPath>bin\Release</OutputPath>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
     <ConsolePause>False</ConsolePause>
     <DocumentationFile>bin\Release\ZoraSharp.xml</DocumentationFile>
   </PropertyGroup>
-  <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="AssemblyDetail.cs" />
-    <Compile Include="BaseEncoding.cs" />
-    <Compile Include="GameSecret.cs" />
-    <Compile Include="SecretException.cs" />
-    <Compile Include="MemorySecret.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Attributes.cs" />
-    <Compile Include="Enums.cs" />
-    <Compile Include="RingSecret.cs" />
-    <Compile Include="Secret.cs" />
-    <Compile Include="SecretParser.cs" />
-    <Compile Include="Extensions.cs" />
-    <Compile Include="GameInfo.cs" />
-    <Compile Include="GameInfoJsonConverter.cs" />
-    <Compile Include="BatteryFileLoader.cs" />
-    <Compile Include="SimpleJson.cs" />
-    <Compile Include="JapaneseEncoding.cs" />
-    <Compile Include="USEncoding.cs" />
-    <Compile Include="InvalidChecksumException.cs" />
-    <Compile Include="ChildBehaviorHelper.cs" />
-  </ItemGroup>
   <!-- Allow projects to override or extend project configuration -->
   <Import Project="$(SolutionDir)Extra.targets" Condition="exists('$(SolutionDir)Extra.targets')" />
-  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ProjectExtensions>
     <MonoDevelop>
       <Properties>
@@ -67,4 +29,9 @@
       </Properties>
     </MonoDevelop>
   </ProjectExtensions>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.DotNet.UpgradeAssistant.Extensions.Default.Analyzers" Version="0.4.346202">
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+  </ItemGroup>
 </Project>
