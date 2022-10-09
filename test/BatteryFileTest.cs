@@ -1,25 +1,27 @@
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
-using NUnit.Framework;
+using Xunit;
 
 namespace Zyrenth.Zora.Tests
 {
-	[TestFixture]
 	public class BatteryFileTest
 	{
-		[Test]
+		
+		[Fact]
 		public void TestLoadAll()
 		{
 			var asm = Assembly.GetExecutingAssembly();
 			Stream s = asm.GetManifestResourceStream("Zyrenth.Zora.Tests.TestSaves.Ages_US.srm");
 			IEnumerable<GameInfo> infos = BatteryFileLoader.LoadAll(s, GameRegion.US);
-			Assert.AreEqual(1, infos.Count());
-			Assert.AreEqual(GameInfoTest.DesiredInfo, infos.First());
+			Assert.Single(infos);
+			Assert.Equal(GameInfoTest.DesiredInfo, infos.First());
 		}
 
-		[Test]
+		
+		[Fact]
 		public void TestLoadAllFile()
 		{
 			string tempFile = Path.GetTempFileName();
@@ -32,10 +34,11 @@ namespace Zyrenth.Zora.Tests
 			}
 
 			IEnumerable<GameInfo> infos = BatteryFileLoader.LoadAll(tempFile, GameRegion.US);
-			Assert.AreEqual(2, infos.Count());
+			Assert.Equal(2, infos.Count());
 		}
 
-		[Test]
+		
+		[Fact]
 		public void TestLoadSlot3()
 		{
 			string tempFile = Path.GetTempFileName();
@@ -47,13 +50,13 @@ namespace Zyrenth.Zora.Tests
 				s.CopyTo(fs);
 			}
 			GameInfo info = BatteryFileLoader.Load(tempFile, GameRegion.JP, BatteryFileLoader.Slot3Offset);
-			Assert.IsNotNull(info);
+			Assert.NotNull(info);
 
 			var gs = new GameSecret();
 			var test = new GameInfo();
 			gs.Load("かね69わ 4さをれか さ7ちわも るこぴりお", GameRegion.JP);
 			gs.UpdateGameInfo(test);
-			Assert.AreEqual(test, info);
+			Assert.Equal(test, info);
 		}
 	}
 }

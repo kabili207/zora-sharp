@@ -1,10 +1,10 @@
-using NUnit.Framework;
 using System;
 using System.Collections.Generic;
+using Xunit;
+using Xunit.Sdk;
 
 namespace Zyrenth.Zora.Tests
 {
-	[TestFixture]
 	public class RingSecretTest
 	{
 		private const string desiredSecretString = "L~2:N @bB↑& hmRh=";
@@ -21,44 +21,50 @@ namespace Zyrenth.Zora.Tests
 			30, 32, 15, 30, 49
 		};
 
-		[Test]
+		
+		[Fact]
 		public void LoadSecretFromBytes()
 		{
 			var secret = new RingSecret();
 			secret.Load(desiredSecretBytes, GameRegion.US);
-			Assert.AreEqual(DesiredSecret, secret);
+			Assert.Equal(DesiredSecret, secret);
 		}
 
-		[Test]
+		
+		[Fact]
 		public void LoadSecretFromString()
 		{
 			var secret = new RingSecret();
 			secret.Load(desiredSecretString, GameRegion.US);
-			Assert.AreEqual(DesiredSecret, secret);
+			Assert.Equal(DesiredSecret, secret);
 		}
 
-		[Test]
+		
+		[Fact]
 		public void LoadFromGameInfo()
 		{
 			var secret = new RingSecret(GameInfoTest.DesiredInfo);
-			Assert.AreEqual(DesiredSecret, secret);
+			Assert.Equal(DesiredSecret, secret);
 		}
 
-		[Test]
+		
+		[Fact]
 		public void TestToString()
 		{
 			string secret = DesiredSecret.ToString();
-			Assert.AreEqual(desiredSecretString, secret);
+			Assert.Equal(desiredSecretString, secret);
 		}
 
-		[Test]
+		
+		[Fact]
 		public void TestToBytes()
 		{
 			byte[] bytes = DesiredSecret.ToBytes();
-			Assert.AreEqual(desiredSecretBytes, bytes);
+			Assert.Equal(desiredSecretBytes, bytes);
 		}
 
-		[Test]
+		
+		[Fact]
 		public void TestEquals()
 		{
 			var s2 = new RingSecret()
@@ -68,10 +74,11 @@ namespace Zyrenth.Zora.Tests
 				Rings = Rings.PowerRingL1 | Rings.DoubleEdgeRing | Rings.ProtectionRing
 			};
 
-			Assert.AreEqual(DesiredSecret, s2);
+			Assert.Equal(DesiredSecret, s2);
 		}
 
-		[Test]
+		
+		[Fact]
 		public void TestNotEquals()
 		{
 			var s2 = new RingSecret()
@@ -81,12 +88,12 @@ namespace Zyrenth.Zora.Tests
 				Rings = Rings.BlueJoyRing | Rings.BombproofRing | Rings.HundredthRing
 			};
 
-			Assert.AreNotEqual(DesiredSecret, s2);
-			Assert.AreNotEqual(DesiredSecret, null);
-			Assert.AreNotEqual(DesiredSecret, "");
+			Assert.NotEqual(s2, DesiredSecret);
+			Assert.NotNull(DesiredSecret);
 		}
 
-		[Test]
+		
+		[Fact]
 		public void TestInvalidByteLoad()
 		{
 			var secret = new RingSecret();
@@ -99,7 +106,8 @@ namespace Zyrenth.Zora.Tests
 			});
 		}
 
-		[Test]
+		
+		[Fact]
 		public void UpdateGameInfo()
 		{
 			var info = new GameInfo()
@@ -136,18 +144,20 @@ namespace Zyrenth.Zora.Tests
 
 			Assert.Throws<SecretException>(() => s1.UpdateGameInfo(info, true));
 			Assert.Throws<SecretException>(() => s2.UpdateGameInfo(info, true));
-			Assert.DoesNotThrow(() => s3.UpdateGameInfo(info, true));
-			Assert.AreEqual(GameInfoTest.DesiredInfo, info);
+			var ex = Record.Exception(() => s3.UpdateGameInfo(info, true));
+			Assert.Null(ex);
+			Assert.Equal(info, GameInfoTest.DesiredInfo);
 		}
 
-		[Test]
+		
+		[Fact]
 		public void TestRingCount()
 		{
-			Assert.AreEqual(DesiredSecret.RingCount(), 3);
-			Assert.AreEqual(new RingSecret().RingCount(), 0);
+			Assert.Equal(3, DesiredSecret.RingCount());
+			Assert.Equal(0, new RingSecret().RingCount());
 		}
 
-		[Test]
+		[Fact]
 		public void TestHashCode()
 		{
 			var r1 = new RingSecret(1234, GameRegion.US, Rings.All);
@@ -157,24 +167,25 @@ namespace Zyrenth.Zora.Tests
 			var r4 = new RingSecret(1234, GameRegion.US, Rings.All);
 
 			// Because using mutable objects as a key is an awesome idea...
-			var dict = new Dictionary<RingSecret, bool>
+			IDictionary<RingSecret, bool> dict = new Dictionary<RingSecret, bool>
 			{
 				{ r1, true },
 				{ r2, true }
 			};
 
-			Assert.That(dict, !Contains.Key(r3));
-			Assert.That(dict, Contains.Key(r4));
+			Assert.True(Assert.Contains(r4, dict));
+			var actual = Record.Exception(() => Assert.Contains(r3, dict));
+			var ex = Assert.IsType<ContainsException>(actual);
 		}
 
-		[Test]
+		[Fact]
 		public void TestNotifyPropChanged()
 		{
 			bool hit = false;
 			var g = new RingSecret();
 			g.PropertyChanged += (s, e) => { hit = true; };
 			g.GameID = 42;
-			Assert.IsTrue(hit);
+			Assert.True(hit);
 		}
 	}
 }

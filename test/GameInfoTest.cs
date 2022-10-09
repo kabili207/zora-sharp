@@ -1,10 +1,10 @@
-using NUnit.Framework;
 using System.IO;
 using System.Collections.Generic;
+using Xunit;
+using Xunit.Sdk;
 
 namespace Zyrenth.Zora.Tests
 {
-	[TestFixture]
 	public class GameInfoTest
 	{
 		public static readonly GameInfo DesiredInfo = new GameInfo()
@@ -22,7 +22,8 @@ namespace Zyrenth.Zora.Tests
 			Rings = Rings.PowerRingL1 | Rings.DoubleEdgeRing | Rings.ProtectionRing
 		};
 
-		[Test]
+		
+		[Fact]
 		public void TestParseJson()
 		{
 			string json = @"
@@ -42,10 +43,11 @@ namespace Zyrenth.Zora.Tests
 
 			var parsed = GameInfo.Parse(json);
 
-			Assert.AreEqual(DesiredInfo, parsed);
+			Assert.Equal(DesiredInfo, parsed);
 		}
 
-		[Test]
+		
+		[Fact]
 		public void TestParsePartialJson()
 		{
 			string json = @"
@@ -72,10 +74,11 @@ namespace Zyrenth.Zora.Tests
 
 			var parsed = GameInfo.Parse(json);
 
-			Assert.AreEqual(partialInfo, parsed);
+			Assert.Equal(partialInfo, parsed);
 		}
 
-		[Test]
+		
+		[Fact]
 		public void TestReadAndWriteFile()
 		{
 			string outFile = Path.GetTempFileName();
@@ -83,7 +86,7 @@ namespace Zyrenth.Zora.Tests
 			{
 				DesiredInfo.Write(outFile);
 				var read = GameInfo.Load(outFile);
-				Assert.AreEqual(DesiredInfo, read);
+				Assert.Equal(DesiredInfo, read);
 			}
 			finally
 			{
@@ -91,23 +94,26 @@ namespace Zyrenth.Zora.Tests
 			}
 		}
 
-		[Test]
+		
+		[Fact]
 		public void UpdateGameInfo()
 		{
 			var info = new GameInfo();
 			GameSecretTest.DesiredSecret.UpdateGameInfo(info);
 			RingSecretTest.DesiredSecret.UpdateGameInfo(info, false);
-			Assert.AreEqual(DesiredInfo, info);
+			Assert.Equal(DesiredInfo, info);
 		}
 
-		[Test]
+		
+		[Fact]
 		public void TestRingCount()
 		{
-			Assert.AreEqual(DesiredInfo.RingCount(), 3);
-			Assert.AreEqual(new GameInfo().RingCount(), 0);
+			Assert.Equal(3, DesiredInfo.RingCount());
+			Assert.Equal(0, new GameInfo().RingCount());
 		}
 
-		[Test]
+		
+		[Fact]
 		public void TestEquals()
 		{
 			var s2 = new GameInfo()
@@ -125,10 +131,11 @@ namespace Zyrenth.Zora.Tests
 				Rings = Rings.PowerRingL1 | Rings.DoubleEdgeRing | Rings.ProtectionRing
 			};
 
-			Assert.AreEqual(DesiredInfo, s2);
+			Assert.Equal(DesiredInfo, s2);
 		}
 
-		[Test]
+		
+		[Fact]
 		public void TestNotEquals()
 		{
 			var s2 = new GameInfo()
@@ -145,12 +152,11 @@ namespace Zyrenth.Zora.Tests
 				WasGivenFreeRing = true
 			};
 
-			Assert.AreNotEqual(DesiredInfo, s2);
-			Assert.AreNotEqual(DesiredInfo, null);
-			Assert.AreNotEqual(DesiredInfo, "");
+			Assert.NotEqual(DesiredInfo, s2);
 		}
 
-		[Test]
+		
+		[Fact]
 		public void TestHashCode()
 		{
 			var s1 = new GameInfo() { Hero = "Link", Child = "Pip", Animal = Animal.Ricky };
@@ -159,24 +165,26 @@ namespace Zyrenth.Zora.Tests
 			var s4 = new GameInfo() { Hero = "Link", Child = "Pip", Animal = Animal.Ricky };
 
 			// Because using mutable objects as a key is an awesome idea...
-			var dict = new Dictionary<GameInfo, bool>
+			IDictionary<GameInfo, bool> dict = new Dictionary<GameInfo, bool>
 			{
 				{ s1, true },
 				{ s2, true }
 			};
 
-			Assert.That(dict, !Contains.Key(s3));
-			Assert.That(dict, Contains.Key(s4));
+			Assert.True(Assert.Contains(s4, dict));
+			var actual = Record.Exception(() => Assert.Contains(s3, dict));
+			var ex = Assert.IsType<ContainsException>(actual);
 		}
 
-		[Test]
+		
+		[Fact]
 		public void TestNotifyPropChanged()
 		{
 			bool hit = false;
 			var g = new GameInfo();
 			g.PropertyChanged += (s, e) => { hit = true; };
 			g.GameID = 42;
-			Assert.IsTrue(hit);
+			Assert.True(hit);
 		}
 	}
 }

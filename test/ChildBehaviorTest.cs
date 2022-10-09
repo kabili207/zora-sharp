@@ -1,50 +1,53 @@
-using NUnit.Framework;
+using Xunit;
 
 namespace Zyrenth.Zora.Tests
 {
-	[TestFixture]
 	public class ChildBehaviorTest
 	{
 
-		[Test]
-		public void GetInitial()
+		
+		[Theory]
+		[InlineData(1, GameRegion.US, "Pip")]
+		[InlineData(2, GameRegion.JP, "Pazu")]
+		[InlineData(2, GameRegion.JP, "うま")]
+		[InlineData(3, GameRegion.US, "Pipin")]
+		[InlineData(3, GameRegion.US, "Derp")]
+		public void GetInitial(int expected, GameRegion region, string name)
 		{
-			Assert.AreEqual(1, ChildBehaviorHelper.GetValue(GameRegion.US, "Pip"));
-			Assert.AreEqual(2, ChildBehaviorHelper.GetValue(GameRegion.JP, "Pazu"));
-			Assert.AreEqual(2, ChildBehaviorHelper.GetValue(GameRegion.JP, "うま"));
-			Assert.AreEqual(3, ChildBehaviorHelper.GetValue(GameRegion.US, "Pipin"));
-			Assert.AreEqual(3, ChildBehaviorHelper.GetValue(GameRegion.US, "Derp"));
+			Assert.Equal(expected, ChildBehaviorHelper.GetValue(region, name));
 		}
 
-		[Test]
-		public void GetValueForLinked()
+		
+		[Theory]
+		[InlineData(13, GameRegion.US, "Pip", RupeesGiven.Ten, SleepMethod.Play)]
+		[InlineData(3, GameRegion.US, "Pip", RupeesGiven.Ten, SleepMethod.Sing)]
+		[InlineData(19, GameRegion.US, "Pip", RupeesGiven.OneHundredFifty, SleepMethod.Play)]
+		[InlineData(6, GameRegion.US, "Pip", RupeesGiven.Fifty, SleepMethod.Sing)]
+		public void GetValueForLinked(int expected, GameRegion region, string name, RupeesGiven rupees, SleepMethod method)
 		{
-			Assert.AreEqual(13, ChildBehaviorHelper.GetValue(GameRegion.US, "Pip", RupeesGiven.Ten, SleepMethod.Play));
-			Assert.AreEqual(3, ChildBehaviorHelper.GetValue(GameRegion.US, "Pip", RupeesGiven.Ten, SleepMethod.Sing));
-			Assert.AreEqual(19, ChildBehaviorHelper.GetValue(GameRegion.US, "Pip", RupeesGiven.OneHundredFifty, SleepMethod.Play));
-			Assert.AreEqual(6, ChildBehaviorHelper.GetValue(GameRegion.US, "Pip", RupeesGiven.Fifty, SleepMethod.Sing));
+			Assert.Equal(expected, ChildBehaviorHelper.GetValue(region, name, rupees, method));
 		}
 
-		[Test]
-		public void GetValueForHero()
+
+		[Theory]
+		[InlineData(13, GameRegion.US, "Pip", RupeesGiven.One, SleepMethod.Sing, ChildQuestion.YesOrChicken, KindOfChild.Hyperactive)]
+		[InlineData(6, GameRegion.US, "Pip", RupeesGiven.One, SleepMethod.Sing, ChildQuestion.NoOrEgg, KindOfChild.Quiet)]
+		[InlineData(5, GameRegion.US, "Pip", RupeesGiven.One, SleepMethod.Sing, ChildQuestion.YesOrChicken, KindOfChild.None)]
+		[InlineData(6, GameRegion.US, "Pip", RupeesGiven.One, SleepMethod.Sing, ChildQuestion.YesOrChicken, KindOfChild.Weird)]
+		public void GetValueForHero(int expected, GameRegion region, string name, RupeesGiven rupees, SleepMethod method, ChildQuestion question, KindOfChild kind)
 		{
-			Assert.AreEqual(13, ChildBehaviorHelper.GetValue(GameRegion.US, "Pip", RupeesGiven.One, SleepMethod.Sing,
-                ChildQuestion.YesOrChicken, KindOfChild.Hyperactive));
-			Assert.AreEqual(6, ChildBehaviorHelper.GetValue(GameRegion.US, "Pip", RupeesGiven.One, SleepMethod.Sing,
-                ChildQuestion.NoOrEgg, KindOfChild.Quiet));
-			Assert.AreEqual(5, ChildBehaviorHelper.GetValue(GameRegion.US, "Pip", RupeesGiven.One, SleepMethod.Sing,
-                ChildQuestion.YesOrChicken, KindOfChild.None));
-			Assert.AreEqual(6, ChildBehaviorHelper.GetValue(GameRegion.US, "Pip", RupeesGiven.One, SleepMethod.Sing,
-                ChildQuestion.YesOrChicken, KindOfChild.Weird));
+			Assert.Equal(expected, ChildBehaviorHelper.GetValue(region, name, rupees, method, question, kind));
 		}
 
-		[Test]
-		public void GetBehavior()
+		
+		[Theory]
+		[InlineData(ChildBehavior.None, 0)]
+		[InlineData(ChildBehavior.Curious, 2)]
+		[InlineData(ChildBehavior.Shy, 7)]
+		[InlineData(ChildBehavior.Hyperactive, 16)]
+		public void GetBehavior(ChildBehavior behavior, byte value)
 		{
-			Assert.AreEqual(ChildBehavior.None, ChildBehaviorHelper.GetBehavior(0));
-			Assert.AreEqual(ChildBehavior.Curious, ChildBehaviorHelper.GetBehavior(2));
-			Assert.AreEqual(ChildBehavior.Shy, ChildBehaviorHelper.GetBehavior(7));
-			Assert.AreEqual(ChildBehavior.Hyperactive, ChildBehaviorHelper.GetBehavior(16));
+			Assert.Equal(behavior, ChildBehaviorHelper.GetBehavior(value));
 		}
 	}
 }

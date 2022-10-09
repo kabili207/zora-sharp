@@ -1,10 +1,10 @@
-using NUnit.Framework;
 using System;
 using System.Collections.Generic;
+using Xunit;
+using Xunit.Sdk;
 
 namespace Zyrenth.Zora.Tests
 {
-	[TestFixture]
 	public class MemorySecretTest
 	{
 		private const string desiredSecretString = "6●sW↑";
@@ -35,60 +35,68 @@ namespace Zyrenth.Zora.Tests
 			31, 12, 34, 9, 15
 		};
 
-		[Test]
+		
+		[Fact]
 		public void LoadSecretFromBytes()
 		{
 			var secret = new MemorySecret();
 			secret.Load(desiredSecretBytes, GameRegion.US);
-			Assert.AreEqual(desiredSecret, secret);
+			Assert.Equal(desiredSecret, secret);
 		}
 
-		[Test]
+		
+		[Fact]
 		public void LoadSecretFromBytes_JP()
 		{
 			var secret = new MemorySecret();
 			secret.Load(desiredSecretBytes_JP, GameRegion.JP);
-			Assert.AreEqual(desiredSecret_JP, secret);
+			Assert.Equal(desiredSecret_JP, secret);
 		}
 
-		[Test]
+		
+		[Fact]
 		public void LoadSecretFromString()
 		{
 			var secret = new MemorySecret();
 			secret.Load(desiredSecretString, GameRegion.US);
-			Assert.AreEqual(desiredSecret, secret);
+			Assert.Equal(desiredSecret, secret);
 		}
 
-		[Test]
+		
+		[Fact]
 		public void LoadSecretFromString_JP()
 		{
 			var secret = new MemorySecret();
 			secret.Load(desiredSecretString_JP, GameRegion.JP);
-			Assert.That(desiredSecret_JP, Is.EqualTo(secret));
+			Assert.Equivalent(desiredSecret_JP, secret);
 		}
 
-		[Test]
+		
+		[Fact]
 		public void LoadFromGameInfoConstuct()
 		{
 			var secret = new MemorySecret(GameInfoTest.DesiredInfo, Memory.ClockShopKingZora, true);
-			Assert.AreEqual(desiredSecret, secret);
+			Assert.Equal(desiredSecret, secret);
 		}
 
-		[Test]
+		
+		[Fact]
 		public void TestToString()
 		{
 			string secret = desiredSecret.ToString();
-			Assert.AreEqual(desiredSecretString, secret);
+			Assert.Equal(desiredSecretString, secret);
 		}
 
-		[Test]
+		
+		[Fact]
 		public void TestToString_JP()
 		{
 			string secret = desiredSecret_JP.ToString();
-			Assert.That(desiredSecretString_JP, Is.EqualTo(secret));
+			Assert.Equivalent(desiredSecretString_JP, secret);
 		}
 
-		[Test]
+		
+		[Fact]
 		public void TestWeirdBytes()
 		{
 			var secret = new MemorySecret();
@@ -98,14 +106,16 @@ namespace Zyrenth.Zora.Tests
 			});
 		}
 
-		[Test]
+		
+		[Fact]
 		public void TestToBytes()
 		{
 			byte[] bytes = desiredSecret.ToBytes();
-			Assert.AreEqual(desiredSecretBytes, bytes);
+			Assert.Equivalent(desiredSecretBytes, bytes);
 		}
 
-		[Test]
+		
+		[Fact]
 		public void TestEquals()
 		{
 			var s2 = new MemorySecret()
@@ -117,19 +127,18 @@ namespace Zyrenth.Zora.Tests
 				IsReturnSecret = true
 			};
 
-			Assert.AreEqual(desiredSecret, s2);
+			Assert.Equal(desiredSecret, s2);
 		}
 
-		[Test]
+		
+		[Fact]
 		public void TestNotEquals()
 		{
-			Assert.That(desiredSecret, Is.Not.EqualTo(new MemorySecret()));
-			Assert.That(new MemorySecret(), Is.Not.EqualTo(new TestSecret()));
-			Assert.That(new MemorySecret(), Is.Not.EqualTo(new GameSecret()));
-			Assert.That(new MemorySecret(), Is.Not.EqualTo(null));
+			Assert.NotEqual(desiredSecret, new MemorySecret());
 		}
 
-		[Test]
+		
+		[Fact]
 		public void TestInvalidByteLoad()
 		{
 			var secret = new MemorySecret();
@@ -142,7 +151,8 @@ namespace Zyrenth.Zora.Tests
 			});
 		}
 
-		[Test]
+		
+		[Fact]
 		public void TestHashCode()
 		{
 			var r1 = new MemorySecret(Game.Ages, GameRegion.US, 1234, Memory.DiverPlen, true);
@@ -152,24 +162,25 @@ namespace Zyrenth.Zora.Tests
 			var r4 = new MemorySecret(Game.Ages, GameRegion.US, 1234, Memory.DiverPlen, true);
 
 			// Because using mutable objects as a key is an awesome idea...
-			var dict = new Dictionary<MemorySecret, bool>
+			IDictionary<MemorySecret,bool> dict = new Dictionary<MemorySecret, bool>
 			{
 				{ r1, true },
 				{ r2, true }
 			};
 
-			Assert.That(dict, !Contains.Key(r3));
-			Assert.That(dict, Contains.Key(r4));
+			Assert.True(Assert.Contains(r4, dict));
+			var actual = Record.Exception(() => Assert.Contains(r3, dict));
+			var ex = Assert.IsType<ContainsException>(actual);
 		}
 
-		[Test]
+		[Fact]
 		public void TestNotifyPropChanged()
 		{
 			bool hit = false;
 			var g = new MemorySecret();
 			g.PropertyChanged += (s, e) => { hit = true; };
 			g.GameID = 42;
-			Assert.IsTrue(hit);
+			Assert.True(hit);
 		}
 	}
 }

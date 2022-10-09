@@ -1,8 +1,7 @@
-using NUnit.Framework;
+using Xunit;
 
 namespace Zyrenth.Zora.Tests
 {
-	[TestFixture]
 	public class SecretParserTest
 	{
 		private const string desiredSecretString = "H~2:@ ←2♦yq GB3●) 6♥?↑4";
@@ -22,64 +21,52 @@ namespace Zyrenth.Zora.Tests
 			37, 32, 58, 47, 25
 		};
 
-		[Test]
+		[Fact]
 		public void CreateString()
 		{
 			string testString = SecretParser.CreateString(desiredSecretBytes, GameRegion.US);
-			Assert.AreEqual(desiredSecretString, testString);
+			Assert.Equal(desiredSecretString, testString);
 		}
 
-		[Test]
+		[Fact]
 		public void CreateString_JP()
 		{
 			string testString = SecretParser.CreateString(desiredSecretBytes_JP, GameRegion.JP);
-			Assert.AreEqual(desiredSecretString_JP, testString);
+			Assert.Equal(desiredSecretString_JP, testString);
 		}
 
-		[Test]
-		public void ParseString()
+		[Theory]
+		[InlineData(GameRegion.US, "H~2:@ ←2♦yq GB3●) 6♥?↑4")]
+		[InlineData(GameRegion.US, "H~2:@ {left}2{diamond}yq GB3{circle}) 6{heart}?{up}4")]
+		[InlineData(GameRegion.US, "H~2:@ left 2 diamond yq GB3 circle ) 6 heart ? up 4")]
+		[InlineData(GameRegion.US, "H~2 :@LEFT2{dIAmoNd}yq G B3cirCle )6 heaRT}?    UP   4")]
+		public void ParseString(GameRegion region, string secret)
 		{
-			string s1 = "H~2:@ ←2♦yq GB3●) 6♥?↑4";
-			string s2 = "H~2:@ {left}2{diamond}yq GB3{circle}) 6{heart}?{up}4";
-			string s3 = "H~2:@ left 2 diamond yq GB3 circle ) 6 heart ? up 4";
-			string s4 = "H~2 :@LEFT2{dIAmoNd}yq G B3cirCle )6 heaRT}?    UP   4";
-
-			byte[][] allSecrets = new[] {
-				SecretParser.ParseSecret(s1, GameRegion.US),
-				SecretParser.ParseSecret(s2, GameRegion.US),
-				SecretParser.ParseSecret(s3, GameRegion.US),
-				SecretParser.ParseSecret(s4, GameRegion.US)
-			};
-			Assert.That(allSecrets, Is.All.EquivalentTo(desiredSecretBytes));
+			byte[] bytes = SecretParser.ParseSecret(secret, region);
+			Assert.Equivalent(desiredSecretBytes, bytes);
 		}
 
-		[Test]
-		public void ParseString_JP()
+		[Theory]
+		[InlineData(GameRegion.JP, "かね6ごわ 4さをれか さ7ちわも るこぴりふ")]
+		[InlineData(GameRegion.JP, "kane 6 go wa 4 sa wore kasa 7 tiwa moru ko piriHu ")]
+		[InlineData(GameRegion.JP, "KaNe6GoWa 4SaWoReKa Sa7TiWaMo RuKoPiRiHu")]
+		[InlineData(GameRegion.JP, "KaNe6GoWa 4SaWoReKa Sa7ChiWaMo RuKoPiRiFu")]
+		public void ParseString_JP(GameRegion region, string secret)
 		{
-			string s1 = "かね6ごわ 4さをれか さ7ちわも るこぴりふ";
-			string s2 = "kane 6 go wa 4 sa wore kasa 7 tiwa moru ko piriHu ";
-			string s3 = "KaNe6GoWa 4SaWoReKa Sa7TiWaMo RuKoPiRiHu";
-			string s4 = "KaNe6GoWa 4SaWoReKa Sa7ChiWaMo RuKoPiRiFu";
-
-			byte[][] allSecrets = new[] {
-				SecretParser.ParseSecret(s1, GameRegion.JP),
-				SecretParser.ParseSecret(s2, GameRegion.JP),
-				SecretParser.ParseSecret(s3, GameRegion.JP),
-				SecretParser.ParseSecret(s4, GameRegion.JP)
-			};
-			Assert.That(allSecrets, Is.All.EquivalentTo(desiredSecretBytes_JP));
+			byte[] bytes = SecretParser.ParseSecret(secret, region);
+			Assert.Equivalent(desiredSecretBytes_JP, bytes);
 		}
 
-		[Test]
+		[Fact]
 		public void ParseInvalidString()
 		{
-			Assert.That(() => SecretParser.ParseSecret("INVALID", GameRegion.US), Throws.TypeOf<SecretException>());
+			Assert.Throws<SecretException>(() => SecretParser.ParseSecret("INVALID", GameRegion.US));
 		}
 
-		[Test]
+		[Fact]
 		public void ParseInvalidBytes()
 		{
-			Assert.That(() => SecretParser.CreateString(new byte[] { 2, 15, 53, 21, 64 }, GameRegion.US), Throws.TypeOf<SecretException>());
+			Assert.Throws<SecretException>(() => SecretParser.CreateString(new byte[] { 2, 15, 53, 21, 64 }, GameRegion.US));
 		}
 	}
 }

@@ -1,10 +1,10 @@
-using NUnit.Framework;
 using System;
 using System.Collections.Generic;
+using Xunit;
+using Xunit.Sdk;
 
 namespace Zyrenth.Zora.Tests
 {
-	[TestFixture]
 	public class GameSecretTest
 	{
 		private const string desiredSecretString = "H~2:@ ←2♦yq GB3●( 6♥?↑6";
@@ -44,86 +44,94 @@ namespace Zyrenth.Zora.Tests
 			55,  9, 45, 59, 55
 		};
 
-		[Test]
+		
+		[Fact]
 		public void LoadSecretFromBytes()
 		{
 			var secret = new GameSecret();
 			secret.Load(desiredSecretBytes, GameRegion.US);
-			Assert.AreEqual(DesiredSecret, secret);
+			Assert.Equal(DesiredSecret, secret);
 		}
 
-		[Test]
+		
+		[Fact]
 		public void LoadSecretFromString()
 		{
 			var secret = new GameSecret();
 			secret.Load(desiredSecretString, GameRegion.US);
 
-			Assert.AreEqual(DesiredSecret, secret);
+			Assert.Equal(DesiredSecret, secret);
 		}
 
-		[Test]
+		
+		[Fact]
 		public void LoadSecretFromString_JP()
 		{
 			var secret = new GameSecret();
 			secret.Load(desiredSecretString_JP, GameRegion.JP);
 
-			Assert.AreEqual(DesiredSecret_JP, secret);
+			Assert.Equal(DesiredSecret_JP, secret);
 		}
 
-		[Test]
+		
+		[Fact]
 		public void LoadFromGameInfo()
 		{
 			var secret = new GameSecret(GameInfoTest.DesiredInfo);
-			Assert.AreEqual(DesiredSecret, secret);
+			Assert.Equal(DesiredSecret, secret);
 		}
 
-		[Test]
+		
+		[Fact]
 		public void TestToString()
 		{
 			string secret = DesiredSecret.ToString();
-			Assert.AreEqual(desiredSecretString, secret);
+			Assert.Equal(desiredSecretString, secret);
 		}
 
-		[Test]
+		
+		[Fact]
 		public void TestToString_JP()
 		{
 			string secret = DesiredSecret_JP.ToString();
-			Assert.AreEqual(desiredSecretString_JP, secret);
+			Assert.Equal(desiredSecretString_JP, secret);
 		}
 
-		[Test]
+		
+		[Fact]
 		public void TestToBytes()
 		{
 			byte[] bytes = DesiredSecret.ToBytes();
-			Assert.AreEqual(desiredSecretBytes, bytes);
+			Assert.Equal(desiredSecretBytes, bytes);
 		}
 
-		[Test]
+		
+		[Fact]
 		public void TestEquals()
 		{
-			Assert.That(new GameSecret(), Is.EqualTo(new GameSecret()));
+			Assert.Equal(new GameSecret(), new GameSecret());
 		}
 
-		[Test]
+		
+		[Fact]
 		public void TestNotEquals()
 		{
-			Assert.That(DesiredSecret, Is.Not.EqualTo(new GameSecret()));
-			Assert.That(new GameSecret(), Is.Not.EqualTo(new TestSecret()));
-			Assert.That(new GameSecret(), Is.Not.EqualTo(new MemorySecret()));
-			Assert.That(new GameSecret(), Is.Not.EqualTo(null));
+			Assert.NotEqual(DesiredSecret, new GameSecret());
 		}
 
-		[Test]
+		
+		[Fact]
 		public void TestInvalidByteLoad()
 		{
 			var secret = new GameSecret();
-			Assert.That(() => secret.Load((byte[])null, GameRegion.US), Throws.TypeOf<SecretException>());
-			Assert.That(() => secret.Load(new byte[] { 0 }, GameRegion.US), Throws.TypeOf<SecretException>());
-			Assert.That(() => secret.Load("H~2:@ ←2♦yq GB3●( 6♥?↑b", GameRegion.US), Throws.TypeOf<InvalidChecksumException>());
-			Assert.That(() => secret.Load("L~2:N @bB↑& hmRh= HHHH↑", GameRegion.US), Throws.TypeOf<ArgumentException>());
+			Assert.Throws<SecretException>(() => secret.Load((byte[])null, GameRegion.US));
+			Assert.Throws<SecretException>(() => secret.Load(new byte[] { 0 }, GameRegion.US));
+			Assert.Throws<InvalidChecksumException>(() => secret.Load("H~2:@ ←2♦yq GB3●( 6♥?↑b", GameRegion.US));
+			Assert.Throws<ArgumentException>(() => secret.Load("L~2:N @bB↑& hmRh= HHHH↑", GameRegion.US));
 		}
 
-		[Test]
+		
+		[Fact]
 		public void TestPalValidity()
 		{
 			var g1 = new GameSecret() { Hero = "Link~", Child = "    ", Animal = Animal.Ricky };
@@ -131,13 +139,14 @@ namespace Zyrenth.Zora.Tests
 			var g3 = new GameSecret() { Hero = "Link", Child = "Pip", Animal = Animal.None };
 			var g4 = new GameSecret() { Hero = "Link", Child = "Pip", Animal = Animal.Ricky };
 
-			Assert.That(g1.IsValidForPAL(), Is.False, "Hero check failed");
-			Assert.That(g2.IsValidForPAL(), Is.False, "Child check failed");
-			Assert.That(g3.IsValidForPAL(), Is.False, "Animal check failed");
-			Assert.That(g4.IsValidForPAL(), Is.True, "Both failed");
+			Assert.False(g1.IsValidForPAL(), "Hero check failed");
+			Assert.False(g2.IsValidForPAL(), "Child check failed");
+			Assert.False(g3.IsValidForPAL(), "Animal check failed");
+			Assert.True(g4.IsValidForPAL());
 		}
 
-		[Test]
+		
+		[Fact]
 		public void TestHashCode()
 		{
 			var s1 = new GameSecret() { Hero = "Link", Child = "Pip", Animal = Animal.Ricky };
@@ -146,24 +155,26 @@ namespace Zyrenth.Zora.Tests
 			var s4 = new GameSecret() { Hero = "Link", Child = "Pip", Animal = Animal.Ricky };
 
 			// Because using mutable objects as a key is an awesome idea...
-			var dict = new Dictionary<GameSecret, bool>
+			IDictionary<GameSecret,bool> dict = new Dictionary<GameSecret, bool>
 			{
 				{ s1, true },
 				{ s2, true }
 			};
 
-			Assert.That(dict, !Contains.Key(s3));
-			Assert.That(dict, Contains.Key(s4));
+			Assert.True(Assert.Contains(s4, dict));
+			var actual = Record.Exception(() => Assert.Contains(s3, dict));
+			var ex = Assert.IsType<ContainsException>(actual);
 		}
 
-		[Test]
+		
+		[Fact]
 		public void TestNotifyPropChanged()
 		{
 			bool hit = false;
 			var g = new GameSecret();
 			g.PropertyChanged += (s, e) => { hit = true; };
 			g.GameID = 42;
-			Assert.That(hit, Is.True);
+			Assert.True(hit);
 		}
 	}
 }

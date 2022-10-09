@@ -31,9 +31,7 @@ using System.Reflection;
 [assembly: AssemblyProduct("ZoraSharp.Tests")]
 [assembly: AssemblyCopyright("Copyright © Amy Nagle 2013 - 2018")]
 [assembly: AssemblyTrademark("")]
-[assembly: AssemblyCulture("en-US")]
 
-[assembly: CLSCompliant(true)]
 
 // The assembly version has the format "{Major}.{Minor}.{Build}.{Revision}".
 // The form "{Major}.{Minor}.*" will automatically update the build and revision,
