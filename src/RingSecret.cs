@@ -108,14 +108,12 @@ namespace Zyrenth.Zora
 		{
 			if (secret is null || secret.Length != Length)
 			{
-				throw new SecretException("Secret must contatin exactly 15 bytes");
+				throw new SecretException("Secret must contain exactly 15 bytes");
 			}
 
 			Region = region;
 
 			byte[] decodedBytes = DecodeBytes(secret);
-			string decodedSecret = ByteArrayToBinaryString(decodedBytes);
-
 			byte[] clonedBytes = (byte[])decodedBytes.Clone();
 			clonedBytes[14] = 0;
 			byte checksum = CalculateChecksum(clonedBytes);
@@ -125,23 +123,23 @@ namespace Zyrenth.Zora
 				throw new InvalidChecksumException("Checksum does not match expected value");
 			}
 
-			if (decodedSecret[3] != '0' || decodedSecret[4] != '1')
+			if (ExtractBits(decodedBytes, 3, 1) != 0 || ExtractBits(decodedBytes, 4, 1) != 1)
 			{
 				throw new ArgumentException("The specified data is not a ring code", nameof(secret));
 			}
 
-			GameID = Convert.ToInt16(decodedSecret.ReversedSubstring(5, 15), 2);
+			GameID = (short)ExtractBits(decodedBytes, 5, 15);
 
-			long rings = unchecked((long)Convert.ToUInt64(
-				decodedSecret.ReversedSubstring(36, 8) +
-				decodedSecret.ReversedSubstring(76, 8) +
-				decodedSecret.ReversedSubstring(28, 8) +
-				decodedSecret.ReversedSubstring(60, 8) +
-				decodedSecret.ReversedSubstring(44, 8) +
-				decodedSecret.ReversedSubstring(68, 8) +
-				decodedSecret.ReversedSubstring(20, 8) +
-				decodedSecret.ReversedSubstring(52, 8)
-				, 2));
+			long rings =
+				( (long)ExtractBits(decodedBytes, 36, 8) ) << 56 |
+				( (long)ExtractBits(decodedBytes, 76, 8) ) << 48 |
+				( (long)ExtractBits(decodedBytes, 28, 8) ) << 40 |
+				( (long)ExtractBits(decodedBytes, 60, 8) ) << 32 |
+				( (long)ExtractBits(decodedBytes, 44, 8) ) << 24 |
+				( (long)ExtractBits(decodedBytes, 68, 8) ) << 16 |
+				( (long)ExtractBits(decodedBytes, 20, 8) ) << 8 |
+				( (long)ExtractBits(decodedBytes, 52, 8) ) << 0;
+
 			this.rings = rings;
 		}
 
@@ -170,26 +168,26 @@ namespace Zyrenth.Zora
 			byte ring7 = (byte)( rings >> 48 );
 			byte ring8 = (byte)( rings >> 56 );
 
-			int cipherKey = ( ( GameID >> 8 ) + ( GameID & 255 ) ) & 7;
-			string unencodedSecret = Convert.ToString(cipherKey, 2).PadLeft(3, '0').Reverse();
+			int cipherKey = ( ( GameID >> 8 ) + ( GameID & 0xFF ) ) & 7;
 
-			unencodedSecret += "01"; // ring secret
+			byte[] unencodedBytes = new byte[15];
 
-			unencodedSecret += Convert.ToString(GameID, 2).PadLeft(15, '0').Reverse();
-			unencodedSecret += Convert.ToString(ring2, 2).PadLeft(8, '0').Reverse();
-			unencodedSecret += Convert.ToString(ring6, 2).PadLeft(8, '0').Reverse();
-			unencodedSecret += Convert.ToString(ring8, 2).PadLeft(8, '0').Reverse();
-			unencodedSecret += Convert.ToString(ring4, 2).PadLeft(8, '0').Reverse();
-			unencodedSecret += Convert.ToString(ring1, 2).PadLeft(8, '0').Reverse();
-			unencodedSecret += Convert.ToString(ring5, 2).PadLeft(8, '0').Reverse();
-			unencodedSecret += Convert.ToString(ring3, 2).PadLeft(8, '0').Reverse();
-			unencodedSecret += Convert.ToString(ring7, 2).PadLeft(8, '0').Reverse();
+			InsertBits(unencodedBytes, cipherKey, 0, 3);
+			InsertBits(unencodedBytes, 0b10, 3, 2); // secret type = 01 (ring)
 
-			byte[] unencodedBytes = BinaryStringToByteArray(unencodedSecret);
+			InsertBits(unencodedBytes, GameID, 5, 15);
+
+			InsertBits(unencodedBytes, ring2, 20, 8);
+			InsertBits(unencodedBytes, ring6, 28, 8);
+			InsertBits(unencodedBytes, ring8, 36, 8);
+			InsertBits(unencodedBytes, ring4, 44, 8);
+			InsertBits(unencodedBytes, ring1, 52, 8);
+			InsertBits(unencodedBytes, ring5, 60, 8);
+			InsertBits(unencodedBytes, ring3, 68, 8);
+			InsertBits(unencodedBytes, ring7, 76, 8);
+
 			unencodedBytes[14] = CalculateChecksum(unencodedBytes);
-			byte[] secret = EncodeBytes(unencodedBytes);
-
-			return secret;
+			return EncodeBytes(unencodedBytes);
 		}
 
 		/// <summary>

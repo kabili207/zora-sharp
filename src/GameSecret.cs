@@ -206,14 +206,12 @@ namespace Zyrenth.Zora
 		{
 			if (secret is null || secret.Length != Length)
 			{
-				throw new SecretException("Secret must contatin exactly 20 bytes");
+				throw new SecretException("Secret must contain exactly 20 bytes");
 			}
 
 			Region = region;
 
 			byte[] decodedBytes = DecodeBytes(secret);
-			string decodedSecret = ByteArrayToBinaryString(decodedBytes);
-
 			byte[] clonedBytes = (byte[])decodedBytes.Clone();
 			clonedBytes[19] = 0;
 			byte checksum = CalculateChecksum(clonedBytes);
@@ -223,19 +221,19 @@ namespace Zyrenth.Zora
 				throw new InvalidChecksumException("Checksum does not match expected value");
 			}
 
-			GameID = Convert.ToInt16(decodedSecret.ReversedSubstring(5, 15), 2);
+			GameID = (short)ExtractBits(decodedBytes, 5, 15);
 
-			if (decodedSecret[3] != '0' || decodedSecret[4] != '0')
+			if (ExtractBits(decodedBytes, 3, 1) != 0 || ExtractBits(decodedBytes, 4, 1) != 0)
 			{
 				throw new ArgumentException("The specified data is not a game code", nameof(secret));
 			}
 
-			TargetGame = decodedSecret[21] == '1' ? Game.Seasons : Game.Ages;
-			IsHeroQuest = decodedSecret[20] == '1';
-			IsLinkedGame = decodedSecret[105] == '1';
+			TargetGame = ExtractBits(decodedBytes, 21, 1) == 1 ? Game.Seasons : Game.Ages;
+			IsHeroQuest = ExtractBits(decodedBytes, 20, 1) == 1;
+			IsLinkedGame = ExtractBits(decodedBytes, 105, 1) == 1;
 
 			Encoding encoding;
-			if (region == GameRegion.US)
+			if (Region == GameRegion.US)
 			{
 				encoding = new USEncoding();
 			}
@@ -245,25 +243,26 @@ namespace Zyrenth.Zora
 			}
 
 			Hero = encoding.GetString(new byte[] {
-				Convert.ToByte(decodedSecret.ReversedSubstring(22, 8), 2),
-				Convert.ToByte(decodedSecret.ReversedSubstring(38, 8), 2),
-				Convert.ToByte(decodedSecret.ReversedSubstring(60, 8), 2),
-				Convert.ToByte(decodedSecret.ReversedSubstring(77, 8), 2),
-				Convert.ToByte(decodedSecret.ReversedSubstring(89, 8), 2)
+				(byte)ExtractBits(decodedBytes, 22, 8),
+				(byte)ExtractBits(decodedBytes, 38, 8),
+				(byte)ExtractBits(decodedBytes, 60, 8),
+				(byte)ExtractBits(decodedBytes, 77, 8),
+				(byte)ExtractBits(decodedBytes, 89, 8)
 			});
 
 			Child = encoding.GetString(new byte[] {
-				Convert.ToByte(decodedSecret.ReversedSubstring(30, 8), 2),
-				Convert.ToByte(decodedSecret.ReversedSubstring(46, 8), 2),
-				Convert.ToByte(decodedSecret.ReversedSubstring(68, 8), 2),
-				Convert.ToByte(decodedSecret.ReversedSubstring(97, 8), 2),
-				Convert.ToByte(decodedSecret.ReversedSubstring(106, 8), 2)
+				(byte)ExtractBits(decodedBytes, 30, 8),
+				(byte)ExtractBits(decodedBytes, 46, 8),
+				(byte)ExtractBits(decodedBytes, 68, 8),
+				(byte)ExtractBits(decodedBytes, 97, 8),
+				(byte)ExtractBits(decodedBytes, 106, 8)
 			});
 
-			Animal = (Animal)Convert.ToByte(decodedSecret.ReversedSubstring(85, 4), 2);
-			Behavior = Convert.ToByte(decodedSecret.ReversedSubstring(54, 6), 2);
-			WasGivenFreeRing = decodedSecret[76] == '1';
+			Animal = (Animal)ExtractBits(decodedBytes, 85, 4);
+			Behavior = (byte)ExtractBits(decodedBytes, 54, 6);
+			WasGivenFreeRing = ExtractBits(decodedBytes, 76, 1) == 1;
 		}
+
 
 		/// <summary>
 		/// Gets the raw secret data as a byte array
@@ -301,35 +300,37 @@ namespace Zyrenth.Zora
 			byte[] heroBytes = encoding.GetBytes(hero);
 			byte[] childBytes = encoding.GetBytes(child);
 
-			int cipherKey = ( ( GameID >> 8 ) + ( GameID & 255 ) ) & 7;
-			string unencodedSecret = Convert.ToString(cipherKey, 2).PadLeft(3, '0').Reverse();
+			int cipherKey = ( ( GameID >> 8 ) + ( GameID & 0xFF ) ) & 7;
 
-			unencodedSecret += "00"; // game = 0
+			byte[] unencoded = new byte[20]; // 160 bits
 
-			unencodedSecret += Convert.ToString(GameID, 2).PadLeft(15, '0').Reverse();
-			unencodedSecret += isHeroQuest ? "1" : "0";
-			unencodedSecret += TargetGame == Game.Ages ? "0" : "1";
-			unencodedSecret += Convert.ToString(heroBytes[0], 2).PadLeft(8, '0').Reverse();
-			unencodedSecret += Convert.ToString(childBytes[0], 2).PadLeft(8, '0').Reverse();
-			unencodedSecret += Convert.ToString(heroBytes[1], 2).PadLeft(8, '0').Reverse();
-			unencodedSecret += Convert.ToString(childBytes[1], 2).PadLeft(8, '0').Reverse();
-			unencodedSecret += Convert.ToString(behavior, 2).PadLeft(6, '0').Reverse();
-			unencodedSecret += Convert.ToString(heroBytes[2], 2).PadLeft(8, '0').Reverse();
-			unencodedSecret += Convert.ToString(childBytes[2], 2).PadLeft(8, '0').Reverse();
-			unencodedSecret += wasGivenFreeRing ? "1" : "0";
-			unencodedSecret += Convert.ToString(heroBytes[3], 2).PadLeft(8, '0').Reverse();
-			unencodedSecret += Convert.ToString(animal, 2).PadLeft(4, '0').Reverse();
-			unencodedSecret += Convert.ToString(heroBytes[4], 2).PadLeft(8, '0').Reverse();
-			unencodedSecret += Convert.ToString(childBytes[3], 2).PadLeft(8, '0').Reverse();
-			unencodedSecret += isLinkedGame ? "1" : "0";
-			unencodedSecret += Convert.ToString(childBytes[4], 2).PadLeft(8, '0').Reverse();
+			InsertBits(unencoded, cipherKey, 0, 3);
+			InsertBits(unencoded, 0, 3, 2); // game = 0 
+			InsertBits(unencoded, GameID, 5, 15);
+			InsertBits(unencoded, IsHeroQuest ? 1 : 0, 20, 1);
+			InsertBits(unencoded, TargetGame == Game.Seasons ? 1 : 0, 21, 1);
 
-			byte[] unencodedBytes = BinaryStringToByteArray(unencodedSecret);
-			unencodedBytes[19] = CalculateChecksum(unencodedBytes);
-			byte[] secret = EncodeBytes(unencodedBytes);
+			InsertBits(unencoded, heroBytes[0], 22, 8);
+			InsertBits(unencoded, childBytes[0], 30, 8);
+			InsertBits(unencoded, heroBytes[1], 38, 8);
+			InsertBits(unencoded, childBytes[1], 46, 8);
+			InsertBits(unencoded, Behavior, 54, 6);
+			InsertBits(unencoded, heroBytes[2], 60, 8);
+			InsertBits(unencoded, childBytes[2], 68, 8);
+			InsertBits(unencoded, WasGivenFreeRing ? 1 : 0, 76, 1);
+			InsertBits(unencoded, heroBytes[3], 77, 8);
+			InsertBits(unencoded, (int)Animal, 85, 4);
+			InsertBits(unencoded, heroBytes[4], 89, 8);
+			InsertBits(unencoded, childBytes[3], 97, 8);
+			InsertBits(unencoded, IsLinkedGame ? 1 : 0, 105, 1);
+			InsertBits(unencoded, childBytes[4], 106, 8);
 
+			unencoded[19] = CalculateChecksum(unencoded);
+
+			byte[] secret = EncodeBytes(unencoded);
 			return secret;
 		}
+
 
 		/// <summary>
 		/// Updates the game information.
@@ -400,6 +401,7 @@ namespace Zyrenth.Zora
 
 			return true;
 		}
+
 
 		/// <summary>
 		/// Determines whether the specified <see cref="System.Object" />, is equal to this instance.

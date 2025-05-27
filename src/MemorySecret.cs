@@ -142,27 +142,26 @@ namespace Zyrenth.Zora
 			Region = region;
 
 			byte[] decodedBytes = DecodeBytes(secret);
-			string decodedSecret = ByteArrayToBinaryString(decodedBytes);
-
 			byte[] clonedBytes = (byte[])decodedBytes.Clone();
 			clonedBytes[4] = 0;
 			byte checksum = CalculateChecksum(clonedBytes);
+
 
 			if (( decodedBytes[4] & 0xF ) != ( checksum & 0xF ))
 			{
 				throw new InvalidChecksumException("Checksum does not match expected value");
 			}
 
-			if (decodedSecret[3] != '1' || decodedSecret[4] != '1')
+			if (ExtractBits(decodedBytes, 3, 1) != 1 || ExtractBits(decodedBytes, 4, 1) != 1)
 			{
 				throw new ArgumentException("The specified data is not a memory code", nameof(secret));
 			}
 
-			GameID = Convert.ToInt16(decodedSecret.ReversedSubstring(5, 15), 2);
-			Memory = (Memory)Convert.ToByte(decodedSecret.ReversedSubstring(20, 4), 2);
+			GameID = (short)ExtractBits(decodedBytes, 5, 15);
+			Memory = (Memory)ExtractBits(decodedBytes, 20, 4);
 
-			TargetGame = decodedSecret[24] == decodedSecret[25] ? Game.Ages : Game.Seasons;
-			IsReturnSecret = decodedSecret[24] == '1';
+			TargetGame = ExtractBits(decodedBytes, 24, 1) == ExtractBits(decodedBytes, 25, 1) ? Game.Ages : Game.Seasons;
+			IsReturnSecret = ExtractBits(decodedBytes, 24, 1) == 1;
 		}
 
 		/// <summary>
@@ -195,16 +194,15 @@ namespace Zyrenth.Zora
 
 			cipher |= ( ( memory & 1 ) << 2 );
 			cipher = ( ( GameID >> 8 ) + ( GameID & 255 ) + cipher ) & 7;
-			cipher = Convert.ToInt32(Convert.ToString(cipher, 2).PadLeft(3, '0').Reverse(), 2);
 
-			string unencodedSecret = Convert.ToString(cipher, 2).PadLeft(3, '0');
+			byte[] unencoded = new byte[5];
 
-			unencodedSecret += "11"; // memory secret
+			InsertBits(unencoded, cipher, 0, 3);
+			InsertBits(unencoded, 0b11, 3, 2); // memory = 11 
+			InsertBits(unencoded, GameID, 5, 15);
+			InsertBits(unencoded, memory, 20, 4);
 
-			unencodedSecret += Convert.ToString(GameID, 2).PadLeft(15, '0').Reverse();
-			unencodedSecret += Convert.ToString(memory, 2).PadLeft(4, '0').Reverse();
-
-			int mask = 0;
+			int mask;
 
 			if (TargetGame == Game.Ages)
 			{
@@ -215,9 +213,8 @@ namespace Zyrenth.Zora
 				mask = isReturnSecret ? 2 : 1;
 			}
 
-			byte[] unencodedBytes = BinaryStringToByteArray(unencodedSecret);
-			unencodedBytes[4] = (byte)( CalculateChecksum(unencodedBytes) | ( mask << 4 ) );
-			byte[] secret = EncodeBytes(unencodedBytes);
+			unencoded[4] = (byte)( CalculateChecksum(unencoded) | ( mask << 4 ) );
+			byte[] secret = EncodeBytes(unencoded);
 
 			return secret;
 		}

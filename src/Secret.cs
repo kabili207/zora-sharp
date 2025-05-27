@@ -220,34 +220,36 @@ namespace Zyrenth.Zora
 			return decodedBytes;
 		}
 
-		/// <summary>
-		/// Converts a byte array to a string representation of ones and zeros
-		/// </summary>
-		/// <param name="secret">The secret.</param>
-		/// <returns>A string of ones and zeros</returns>
-		internal protected string ByteArrayToBinaryString(byte[] secret)
+		internal protected int ExtractBits(byte[] bytes, int bitOffset, int bitLength)
 		{
-			var data = new StringBuilder();
-			foreach (byte b in secret)
+			int result = 0;
+			for (int i = 0; i < bitLength; i++)
 			{
-				data.Append(Convert.ToString(b, 2).PadLeft(6, '0'));
+				int bitIndex = bitOffset + i; // reversed bit order
+				int byteIndex = bitIndex / 6;
+				int bitInByte = 5 - ( bitIndex % 6 ); // only lower 6 bits used
+
+				if (( bytes[byteIndex] & ( 1 << bitInByte ) ) != 0)
+				{
+					result |= ( 1 << i );
+				}
 			}
-			return data.ToString();
+			return result;
 		}
 
-		/// <summary>
-		/// Converts a binary string (i.e. a string of ones and zeros) to a byte array
-		/// </summary>
-		/// <param name="data">The binary string</param>
-		/// <returns>A byte array that the string represents</returns>
-		internal protected byte[] BinaryStringToByteArray(string data)
+		internal protected void InsertBits(byte[] bytes, int value, int bitOffset, int bitLength)
 		{
-			byte[] secret = new byte[data.Length / 6 + 1];
-			for (int i = 0; i < secret.Length - 1; ++i)
+			for (int i = 0; i < bitLength; i++)
 			{
-				secret[i] = Convert.ToByte(data.Substring(i * 6, 6), 2);
+				int bitIndex = bitOffset + i; // reversed bit order
+				int byteIndex = bitIndex / 6;
+				int bitInByte = 5 - ( bitIndex % 6 ); // only lower 6 bits used
+
+				byte mask = (byte)( 1 << bitInByte );
+
+				int bit = ( value >> i ) & 1;
+				bytes[byteIndex] = (byte)( bit == 1 ? ( bytes[byteIndex] | mask ) : ( bytes[byteIndex] & ~mask ) );
 			}
-			return secret;
 		}
 
 		/// <summary>
